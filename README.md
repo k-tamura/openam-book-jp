@@ -7,7 +7,7 @@ Under constructing
 
 1. はじめに  
  1.1 対象読者  
- 1.2 本書の目的と構成  
+ 1.2 [本書の目的と構成](purpose_of_this_book.md)   
  1.3 表記方法  
 2. 概要  
  2.1 背景  
