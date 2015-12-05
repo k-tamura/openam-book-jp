@@ -12,10 +12,10 @@ Under constructing
  2.1 背景  
  2.2 何ができるか  
  2.3 アーキテクチャ  
- 2.4 関連ソフトウェア 
+ 2.4 関連ソフトウェア  
  2.4.1 OpenDJ  
- 2.4.2 OpenIDM 
- 2.4.3 OpenIG
+ 2.4.2 OpenIDM  
+ 2.4.3 OpenIG  
 3. 歴史とロードマップ  
  3.1 OpenSSO以前  
  3.2 OpenAM以降  
