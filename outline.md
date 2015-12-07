@@ -1,8 +1,3 @@
-# openam-book-jp
-OpenAM 13 Book for Japanese
-
-Under constructing
-
 ## 目次
 
 1. はじめに  
