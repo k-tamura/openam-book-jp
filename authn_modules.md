@@ -14,7 +14,7 @@ OpenAM 13.0.0では以下の認証モジュールが提供されています。
 |OAuth 2.0|OAuth 2.0のクライアントアプリケーションとなり、FacebookやWindows Liveなどに認証を委譲する。||
 |OpenID Connect id_token bearer|||
 |RADIUS|RADIUS（Remote Authentication Dial In User Service）サーバによるユーザー認証を実行する認証モジュール。||
-|SAE|||
+|SAE|RSA SecurIDによるユーザ認証を実現する認証モジュール。||
 |SAML2|||
 |Windows NT|||
 |Windows デスクトップ SSO|||
