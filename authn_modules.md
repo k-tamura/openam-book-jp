@@ -16,7 +16,7 @@ OpenAM 13.0.0では以下の認証モジュールが提供されています。
 |RADIUS|RADIUS（Remote Authentication Dial In User Service）サーバによるユーザー認証を実行する認証モジュール。||
 |SAE|RSA SecurIDによるユーザ認証を実現する認証モジュール。||
 |SAML2|||
-|Windows NT|||
+|Windows NT|Microsoft Windows NTサーバによる認証を行うことができる。||
 |Windows デスクトップ SSO|||
 |アダプティブリスク|||
 |データストア|||
