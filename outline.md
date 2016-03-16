@@ -13,8 +13,8 @@
  2.4.2 OpenIDM  
  2.4.3 OpenIG  
 3. 歴史とロードマップ  
- 3.1 [OpenSSO以前](history.md)  
- 3.2 OpenAM以降  
+ 3.1 [OpenSSO以前](history-of-opensso.md)  
+ 3.2 [OpenAM以降](history-of-openam.md)  
  3.3 OpenAM 13.0.0新機能  
 4. SSOの方式  
  4.1 エージェント方式  
