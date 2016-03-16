@@ -10,12 +10,4 @@ Waveset Lighthouseは、Sun Java System Identity Managerに、Sun ONE Identity S
 * 2008年：Sunは、OpenSSOビルド6コミュニティオープンソース版、OpenSSO Enterprise 8.0商用エンタープライズ版をリリース。
 * 2009年：Sunは、OpenSSOビルド7および8リリース。
 * 2010年1月：OracleがSunを買収。Oracleは、今後のOpenSSOの製品サポートを計画せず、開発は中断される。
-* 2010年2月：OpenSSO(OpenAMと改名)のサポート、開発を継続するため、元Sunの従業員の小さなグループによりForgeRock社が設立される。 
-* 2010年：OpenAM 9.0をリリース。
-* 2011年：OpenAM 9.5をリリース。
-* 2012年：OpenAM 10、10.1をリリース。
-* 2013年：OpenAM 11.0をリリース。
-* 2014年：OpenAM 11.1、12.0をリリース。
 
-ForgeRockは、変化し高まる市場の需要を満たすために、業界をリードするOpenAMを開発、機能追加し、サポートし続けています。
-さらにForgeRockは、OpenDSディレクトリサーバー(OpenDJと改名)のサポートと開発のための責任を引き継ぎました。ForgeRockはOpenDJを維持、強化し、サポートを継続する予定です。
