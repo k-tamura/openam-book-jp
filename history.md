@@ -1,6 +1,6 @@
 OpenAMのタイムラインをまとめると、以下の通りです：
 
-* 2001年：Sun Microsystems(以下Sun)が、Planet Directory Serverのアクセス管理エディションをリリース。
+* 2001年：Sun Microsystems(以下Sun)が、iPlanet Directory Serverのアクセス管理エディションをリリース。
 * 2003年：Sunが、iPlanet Directory Serverアクセス管理エディションの製品名をSun ONE Identity Serverを変更。
 * 2003年後半：SunがWavesetを買収。
 * 2004年：Sunが、Sun Java Enterprise Systemをリリース。 
