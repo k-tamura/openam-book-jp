@@ -33,6 +33,7 @@
 7. 認可  
  7.1 ポリシー   
  7.2 XACML   
+ 7.3 OAuth/UMA   
 8. アップグレード  
  8.1 OpenAMのアップグレード   
  8.2 Policy Agentのアップグレード   
