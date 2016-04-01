@@ -8,24 +8,21 @@
 認可された対象がリソースに何ができるかを示す動詞。ポリシーの一部として定義されます。
 
 * アドバイス  
-In the context of a policy decision denying access, a hint to the policy enforcement point about remedial action to take that could result in a decision allowing access.
+アクセスを拒否するポリシー決定のコンテキストにおいて、対応策についてのポリシー実施ポイントへのヒントはそれがアクセスを許可する決定をもたらす可能性があります。
 
-* Agent administrator  
+* エージェント管理者  
 User having privileges only to read and write policy agent profile configuration information, typically created to delegate policy agent profile creation to the user installing a policy agent.
 
 * Agent authenticator  
 Entity with read-only access to multiple agent profiles defined in the same realm; allows an agent to read web service profiles.
 
 * Application  
-In general terms, a service exposing protected resources.
-
+In general terms, a service exposing protected resources.  
 In the context of OpenAM policies, the application is a template that constrains the policies that govern access to protected resources. An application can have zero or more policies.
 
 * Application type  
-Application types act as templates for creating policy applications.
-
-Application types define a preset list of actions and functional logic, such as policy lookup and resource comparator logic.
-
+Application types act as templates for creating policy applications.  
+Application types define a preset list of actions and functional logic, such as policy lookup and resource comparator logic.  
 Application types also define the internal normalization, indexing logic, and comparator logic for applications.
 
 * Attribute-based access control (ABAC)  
@@ -62,10 +59,8 @@ Group of providers, including at least one identity provider, who have agreed to
 In OAuth 2.0, requests protected web resources on behalf of the resource owner given the owner's authorization. OpenAM can play this role in the OAuth 2.0 authorization framework.
 
 * Conditions  
-Defined as part of policies, these determine the circumstances under which which a policy applies.
-
-Environmental conditions reflect circumstances like the client IP address, time of day, how the subject authenticated, or the authentication level achieved.
-
+Defined as part of policies, these determine the circumstances under which which a policy applies.  
+Environmental conditions reflect circumstances like the client IP address, time of day, how the subject authenticated, or the authentication level achieved.  
 Subject conditions reflect characteristics of the subject like whether the subject authenticated, the identity of the subject, or claims in the subject's JWT.
 
 * Configuration datastore  
@@ -132,8 +127,7 @@ Entity that intercepts a request for a resource and then enforces policy decisio
 Entity that provides extra information, such as user profile attributes that a PDP needs in order to make a decision.
 
 * Principal  
-Represents an entity that has been authenticated (such as a user, a device, or an application), and thus is distinguished from other entities.
-
+Represents an entity that has been authenticated (such as a user, a device, or an application), and thus is distinguished from other entities.  
 When a See also Subject successfully authenticates, OpenAM associates the Subject with the Principal.
 
 * Privilege  
@@ -143,15 +137,12 @@ In the context of delegated administration, a set of administrative tasks that c
 Agreement among providers to participate in a circle of trust.
 
 * Realm  
-OpenAM unit for organizing configuration and identity information.
-
-Realms can be used for example when different parts of an organization have different applications and user data stores, and when different organizations use the same OpenAM deployment.
-
+OpenAM unit for organizing configuration and identity information.  
+Realms can be used for example when different parts of an organization have different applications and user data stores, and when different organizations use the same OpenAM deployment.  
 Administrators can delegate realm administration. The administrator assigns administrative privileges to users, allowing them to perform administrative tasks within the realm.
 
 * Resource  
-Something a user can access over the network such as a web page.
-
+Something a user can access over the network such as a web page.  
 Defined as part of policies, these can include wildcards in order to match multiple actual resources.
 
 * Resource owner  
@@ -188,10 +179,8 @@ Capability allowing a principal to end a session once, thereby ending her sessio
 Capability allowing a principal to authenticate once and gain access to multiple applications without authenticating again.
 
 * Site  
-Group of OpenAM servers configured the same way, accessed through a load balancer layer.
-
-The load balancer handles failover to provide service-level availability. Use sticky load balancing based on amlbcookie values to minimize cross-talk in the site.
-
+Group of OpenAM servers configured the same way, accessed through a load balancer layer.  
+The load balancer handles failover to provide service-level availability. Use sticky load balancing based on amlbcookie values to minimize cross-talk in the site.  
 The load balancer can also be used to protect OpenAM services.
 
 * Standard metadata  
@@ -204,8 +193,7 @@ An OpenAM session that resides in the OpenAM server's memory and, if session fai
 An OpenAM session for which state information is encoded in OpenAM and stored on the client. The information from the session is not retained in OpenAM's memory. For browser-based clients, OpenAM sets a cookie in the browser that contains the session information.
 
 * Subject  
-Entity that requests access to a resource
-
+Entity that requests access to a resource  
 When a subject successfully authenticates, OpenAM associates the subject with the See also Principal that distinguishes it from other subjects. A subject can be associated with multiple principals.
 
 * User data store  
