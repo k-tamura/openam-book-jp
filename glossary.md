@@ -76,8 +76,7 @@ Granting users administrative privileges with OpenAM.
 Decision that defines which resource names can and cannot be accessed for a given subject in the context of a particular application, which actions are allowed and which are denied, and any related advice and attributes.
 
 * Extended metadata  
-Federation configuration information specific to OpenAM.
-
+Federation configuration information specific to OpenAM.  
 Extensible Access Control Markup Language (XACML)  
 Standard, XML-based access control policy language, including a processing model for making authorization decisions based on policies.
 
@@ -105,10 +104,10 @@ Data store holding user profiles and group information; different identity repos
 * Java EE policy agent  
 Java web application installed in a web container that acts as a policy agent, filtering requests to other applications in the container with policies based on application resource URLs.
 
-* Metadata  
-Federation configuration information for a provider.
+* メタデータ  
+プロバイダのフェデレーションの設定情報。
 
-* Policy  
+* ポリシー  
 Set of rules that define who is granted access to a protected resource when, how, and under what conditions.
 
 * Policy Agent  
