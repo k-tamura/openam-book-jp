@@ -1,13 +1,13 @@
-* Access control  
-Control to grant or to deny access to a resource.
+* アクセス制御  
+リソースへのアクセス許可または拒否を制御します。
 
-* Account lockout  
-The act of making an account temporarily or permanently inactive after successive authentication failures.
+* アカウントロックアウト  
+連続した認証失敗後に、一時的または恒久的にアカウントを非アクティブにする行為。
 
-* Actions  
-Defined as part of policies, these verbs indicate what authorized subjects can do to resources.
+* アクション  
+認可された対象がリソースに何ができるかを示す動詞。ポリシーの一部として定義されます。
 
-* Advice  
+* アドバイス  
 In the context of a policy decision denying access, a hint to the policy enforcement point about remedial action to take that could result in a decision allowing access.
 
 * Agent administrator  
