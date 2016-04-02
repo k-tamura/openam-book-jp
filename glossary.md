@@ -101,8 +101,8 @@ Entity that produces assertions about a principal (such as how and when a princi
 * Identity repository  
 Data store holding user profiles and group information; different identity repositories can be defined for different realms.
 
-* Java EE policy agent  
-Java web application installed in a web container that acts as a policy agent, filtering requests to other applications in the container with policies based on application resource URLs.
+* Java EE ポリシーエージェント  
+ポリシーエージェントとして機能するWebコンテナにインストールされるJava Webアプリケーション。アプリケーションリソースのURLに基づいたポリシーで、コンテナ内の他のアプリケーションへのリクエストをフィルタリングします。
 
 * メタデータ  
 プロバイダのフェデレーションの設定情報。
@@ -110,7 +110,7 @@ Java web application installed in a web container that acts as a policy agent, f
 * ポリシー  
 Set of rules that define who is granted access to a protected resource when, how, and under what conditions.
 
-* Policy Agent  
+* ポリシーエージェント  
 Agent that intercepts requests for resources, directs principals to OpenAM for authentication, and enforces policy decisions from OpenAM.
 
 * Policy Administration Point (PAP)  
@@ -168,35 +168,35 @@ The interval that starts with the user authenticating through OpenAM and ends wh
 * Session failover (SFO)  
 Capability to allow another OpenAM server to manage a session when the OpenAM server that initially authenticated the principal goes offline.
 
-* Session token  
-Unique identifier issued by OpenAM after successful authentication. For a See also Stateful session , the session token is used to track a principal's session.
+* セッショントークン  
+認証が成功した後、OpenAMによって発行される一意の識別子。ステートフルセッションの場合、セッショントークンは主体のセッションを追跡するために使用されます。
 
-* Single log out (SLO)  
-Capability allowing a principal to end a session once, thereby ending her session across multiple applications.
+* シングルログアウト (SLO)  
+主体が一回でセッションを終了できるようにする機能。これにより、複数のアプリケーション間で主体のセッションが終了します。
 
-* Single sign-on (SSO)  
-Capability allowing a principal to authenticate once and gain access to multiple applications without authenticating again.
+* シングルサインオン (SSO)  
+主体が一回認証を受けると、再び認証を受けることなく、複数のアプリケーションへのアクセスを獲得することができる機能。
 
-* Site  
-Group of OpenAM servers configured the same way, accessed through a load balancer layer.  
-The load balancer handles failover to provide service-level availability. Use sticky load balancing based on amlbcookie values to minimize cross-talk in the site.  
-The load balancer can also be used to protect OpenAM services.
+* サイト  
+ロードバランサーのレイヤーを介してアクセスするように、同等の設定がされたOpenAMサーバーのグループ。
+ロードバランサーは、サービスレベルの可用性を提供するために、フェールオーバーを処理します。サイト内のクロストークを最小限に抑えるために、mlbcookie値に基づいたスティッキーロードバランシングを使用します。
+ロードバランサーは、OpenAMサービスを保護するために使用することもできます。
 
-* Standard metadata  
-Standard federation configuration information that you can share with other access management software.
+* 標準メタデータ  
+他のアクセス管理ソフトウェアと共有することができる標準的なフェデレーションの設定情報。
 
-* Stateful session  
-An OpenAM session that resides in the OpenAM server's memory and, if session failover is enabled, is also persisted in the Core Token Service's token store. OpenAM tracks stateful sessions in order to handle events like logout and timeout, to permit session constraints, and to notify applications involved in SSO when a session ends.
+* ステートフルセッション  
+OpenAMサーバーのメモリに常駐する、または(セッションフェイルオーバーが有効になっている場合は)コアトークンサービスのトークンストアに保持されるOpenAMのセッション。OpenAMは、ログアウトやタイムアウトなどのイベントを処理するために、またはセッション制約を可能にするために、またはセッションが終了した際にSSOに関与するアプリケーションに通知するために、ステートフルセッションを追跡します。
 
-* Stateless session  
+* ステートレスセッション  
 An OpenAM session for which state information is encoded in OpenAM and stored on the client. The information from the session is not retained in OpenAM's memory. For browser-based clients, OpenAM sets a cookie in the browser that contains the session information.
 
-* Subject  
+* 対象  
 Entity that requests access to a resource  
 When a subject successfully authenticates, OpenAM associates the subject with the See also Principal that distinguishes it from other subjects. A subject can be associated with multiple principals.
 
 * User data store  
 Data storage service holding principals' profiles; underlying storage can be an LDAP directory service, a relational database, or a custom IdRepo implementation.
 
-* Web policy agent  
+* Web ポリシーエージェント  
 Native library installed in a web server that acts as a policy agent with policies based on web page URLs.
