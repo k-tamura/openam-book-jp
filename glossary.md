@@ -192,11 +192,11 @@ OpenAMサーバーのメモリに常駐する、または(セッションフェ�
 An OpenAM session for which state information is encoded in OpenAM and stored on the client. The information from the session is not retained in OpenAM's memory. For browser-based clients, OpenAM sets a cookie in the browser that contains the session information.
 
 * 対象  
-Entity that requests access to a resource  
-When a subject successfully authenticates, OpenAM associates the subject with the See also Principal that distinguishes it from other subjects. A subject can be associated with multiple principals.
+リソースへのアクセスを要求するエンティティ  
+対象の認証が成功すると、OpenAMは他の対象と区別する主体を対象に関連付けます。対象は、複数の主体に関連付けることができます。
 
-* User data store  
-Data storage service holding principals' profiles; underlying storage can be an LDAP directory service, a relational database, or a custom IdRepo implementation.
+* ユーザーデータストア  
+主体のプロファイルを保持するデータストレージサービス。基礎をなすストレージは、LDAPディレクトリサービス、リレーショナルデータベース、またはカスタムIdRepoを実装することができます。
 
 * Web ポリシーエージェント  
 Native library installed in a web server that acts as a policy agent with policies based on web page URLs.
