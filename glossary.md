@@ -179,7 +179,7 @@ Capability to allow another OpenAM server to manage a session when the OpenAM se
 
 * サイト  
 ロードバランサーのレイヤーを介してアクセスするように、同等の設定がされたOpenAMサーバーのグループ。
-ロードバランサーは、サービスレベルの可用性を提供するために、フェールオーバーを処理します。サイト内のクロストークを最小限に抑えるために、mlbcookie値に基づいたスティッキーロードバランシングを使用します。
+ロードバランサーは、サービスレベルの可用性を提供するために、フェールオーバーを処理します。サイト内のクロストークを最小限に抑えるために、amlbcookie値に基づいたスティッキーロードバランシングを使用します。
 ロードバランサーは、OpenAMサービスを保護するために使用することもできます。
 
 * 標準メタデータ  
@@ -189,7 +189,7 @@ Capability to allow another OpenAM server to manage a session when the OpenAM se
 OpenAMサーバーのメモリに常駐する、または(セッションフェイルオーバーが有効になっている場合は)コアトークンサービスのトークンストアに保持されるOpenAMのセッション。OpenAMは、ログアウトやタイムアウトなどのイベントを処理するために、またはセッション制約を可能にするために、またはセッションが終了した際にSSOに関与するアプリケーションに通知するために、ステートフルセッションを追跡します。
 
 * ステートレスセッション  
-An OpenAM session for which state information is encoded in OpenAM and stored on the client. The information from the session is not retained in OpenAM's memory. For browser-based clients, OpenAM sets a cookie in the browser that contains the session information.
+OpenAMでエンコードされ、クライアントに保存されるOpenAMセッションの状態の情報。セッションの情報は、OpenAMのメモリに保持されません。ブラウザベースのクライアントの場合、OpenAMはセッション情報が含まれているブラウザのCookieに設定します。
 
 * 対象  
 リソースへのアクセスを要求するエンティティ  
@@ -199,4 +199,4 @@ An OpenAM session for which state information is encoded in OpenAM and stored on
 主体のプロファイルを保持するデータストレージサービス。基礎をなすストレージは、LDAPディレクトリサービス、リレーショナルデータベース、またはカスタムIdRepoを実装することができます。
 
 * Web ポリシーエージェント  
-Native library installed in a web server that acts as a policy agent with policies based on web page URLs.
+WebページのURLに基づいたポリシーとともに、ポリシーエージェントとして動作するWebサーバーにインストールネイティブライブラリ。
