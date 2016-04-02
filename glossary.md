@@ -13,11 +13,11 @@
 * エージェント管理者  
 User having privileges only to read and write policy agent profile configuration information, typically created to delegate policy agent profile creation to the user installing a policy agent.
 
-* Agent authenticator  
-Entity with read-only access to multiple agent profiles defined in the same realm; allows an agent to read web service profiles.
+* エージェント認証 (Agent authenticator)  
+同じレルム内に定義された複数のエージェントプロファイルへの読み取り専用アクセス権を持つエンティティ;エージェントがWebサービスプロファイルを読み取ることができるようにします。
 
-* Application  
-In general terms, a service exposing protected resources.  
+* アプリケーション  
+Ingeneral terms, a service exposing protected resources.  
 In the context of OpenAM policies, the application is a template that constrains the policies that govern access to protected resources. An application can have zero or more policies.
 
 * Application type  
