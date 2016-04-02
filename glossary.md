@@ -11,7 +11,7 @@
 アクセスを拒否するポリシー決定のコンテキストにおいて、対応策についてのポリシー実施ポイントへのヒントはそれがアクセスを許可する決定をもたらす可能性があります。
 
 * エージェント管理者  
-User having privileges only to read and write policy agent profile configuration information, typically created to delegate policy agent profile creation to the user installing a policy agent.
+ポリシーエージェントプロファイルの設定情報の読み書きができる権限を持つユーザー。一般的にポリシーエージェントをインストールするユーザーに、ポリシーエージェントプロファイルの作成を委任するために作成されます。
 
 * エージェント認証 (Agent authenticator)  
 同じレルム内に定義された複数のエージェントプロファイルへの読み取り専用アクセス権を持つエンティティ;エージェントがWebサービスプロファイルを読み取ることができるようにします。
@@ -40,11 +40,11 @@ Positive integer associated with an authentication module, usually used to requi
 * Authentication module  
 OpenAM authentication unit that handles one way of obtaining and verifying credentials.
 
-* Authorization  
-The act of determining whether to grant or to deny a principal access to a resource.
+* 認可  
+リソースへの主なアクセスを付与するか拒否するかどうかを決定する行為。
 
-* Authorization Server  
-In OAuth 2.0, issues access tokens to the client after authenticating a resource owner and confirming that the owner authorizes the client to access the protected resource. OpenAM can play this role in the OAuth 2.0 authorization framework.
+* 認可サーバー  
+OAuth 2.0 では、リソースオーナーを認証し、保護されたリソースにクライアントがアクセスすることをリソースオーナーが認可することを確認した後、クライアントにアクセストークンを発行します。OAuth 2.0の認可フレームワークにおいて、OpenAMはこの役割を担うことができます。
 
 * Auto-federation  
 Arrangement to federate a principal's identity automatically based on a common attribute value shared across the principal's profiles at different providers.
