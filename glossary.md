@@ -156,11 +156,10 @@ Defined as part of policies, these allow OpenAM to return additional information
 * Role based access control (RBAC)  
 Access control that is based on whether a user has been granted a set of permissions (a role).
 
-* Security Assertion Markup Language (SAML)  
-Standard, XML-based language for exchanging authentication and authorization data between identity providers and service providers.
+* セキュリティアサーションマークアップランゲージ (SAML)  
+アイデンティティプロバイダとサービスプロバイダの間の認証および認可データを交換するための標準的なXMLベースの言語。
 
 * サービスプロバイダ (SP)  
-Entity that consumes assertions about a principal (and provides a service that the principal is trying to access).
 主体についてのアサーションを消費する(および主体がアクセスしようとしているサービスを提供する)エンティティ。
 
 * セッション  
