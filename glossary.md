@@ -159,14 +159,15 @@ Access control that is based on whether a user has been granted a set of permiss
 * Security Assertion Markup Language (SAML)  
 Standard, XML-based language for exchanging authentication and authorization data between identity providers and service providers.
 
-* Service provider (SP)  
+* サービスプロバイダ (SP)  
 Entity that consumes assertions about a principal (and provides a service that the principal is trying to access).
+主体についてのアサーションを消費する(および主体がアクセスしようとしているサービスを提供する)エンティティ。
 
-* Session  
-The interval that starts with the user authenticating through OpenAM and ends when the user logs out, or when their session is terminated. For browser-based clients, OpenAM manages user sessions across one or more applications by setting a session cookie. See also See also Stateful session and See also Stateless session .
+* セッション  
+OpenAMを介したユーザー認証で開始し、ユーザーのログアウト、またはそれを切断して終了するまでの間隔。ブラウザベースのクライアントの場合、OpenAMは、セッションCookieを設定することによって、1つ以上のアプリケーション間のユーザーセッションを管理します。ステートフルセッションとステートレスセッションを参照してください。
 
-* Session failover (SFO)  
-Capability to allow another OpenAM server to manage a session when the OpenAM server that initially authenticated the principal goes offline.
+* セッションフェイルオーバー (SFO)  
+最初に主体を認証したOpenAMサーバーがオフラインになったときに、この機能は別のOpenAMサーバーがセッションを管理することを可能にします。
 
 * セッショントークン  
 認証が成功した後、OpenAMによって発行される一意の識別子。ステートフルセッションの場合、セッショントークンは主体のセッションを追跡するために使用されます。
