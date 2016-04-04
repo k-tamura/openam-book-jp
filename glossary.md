@@ -41,19 +41,19 @@ Positive integer associated with an authentication module, usually used to requi
 OpenAM authentication unit that handles one way of obtaining and verifying credentials.
 
 * 認可  
-リソースへの主なアクセスを付与するか拒否するかどうかを決定する行為。
+リソースへのアクセスを付与するか拒否するかどうかを決定する行為。
 
 * 認可サーバー  
 OAuth 2.0 では、リソースオーナーを認証し、保護されたリソースにクライアントがアクセスすることをリソースオーナーが認可することを確認した後、クライアントにアクセストークンを発行します。OAuth 2.0の認可フレームワークにおいて、OpenAMはこの役割を担うことができます。
 
-* Auto-federation  
-Arrangement to federate a principal's identity automatically based on a common attribute value shared across the principal's profiles at different providers.
+* 自動フェデレーション  
+異なるプロバイダ間で共有される主体のプロファイルの共通の属性値に基づいて、主体のアイデンティティを自動的に連携する仕組み。
 
-* Bulk federation  
-Batch job permanently federating user profiles between a service provider and an identity provider based on a list of matched user identifiers that exist on both providers.
+* バルクフェデレーション  
+サービスプロバイダとアイデンティティプロバイダの両方に存在するユーザー識別子のリストに基づいて、両者間のユーザープロファイルを恒久的に連携するバッチジョブ。
 
-* Circle of trust  
-Group of providers, including at least one identity provider, who have agreed to trust each other to participate in a SAML v2.0 provider federation.
+* トラストサークル  
+SAML v2.0によるプロバイダフェデレーションに参加するため、相互に信頼することに合意したプロバイダのグループ。少なくとも1つのアイデンティティプロバイダを含む必要がある。
 
 * Client  
 In OAuth 2.0, requests protected web resources on behalf of the resource owner given the owner's authorization. OpenAM can play this role in the OAuth 2.0 authorization framework.
