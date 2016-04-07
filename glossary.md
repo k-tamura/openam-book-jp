@@ -31,14 +31,14 @@ Access control that is based on attributes of a user, such as how old a user is 
 * Authentication  
 The act of confirming the identity of a principal.
 
-* Authentication chaining  
+* 認証連鎖  
 A series of authentication modules configured together which a principal must negotiate as configured in order to authenticate successfully.
 
-* Authentication level  
-Positive integer associated with an authentication module, usually used to require success with more stringent authentication measures when requesting resources requiring special protection.
+* 認証レベル  
+認証モジュールに関連付けられた正の整数。通常、特別な保護を必要とするリソースを要求する際に、より厳格な認証施策の成功を必要とするために使用されます。
 
-* Authentication module  
-OpenAM authentication unit that handles one way of obtaining and verifying credentials.
+* 認証モジュール  
+資格情報(例えば、IDとパスワード)の取得と検証を行うOpenAMの認証の単位。
 
 * 認可  
 リソースへのアクセスを付与するか拒否するかどうかを決定する行為。
