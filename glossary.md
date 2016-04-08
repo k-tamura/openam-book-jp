@@ -16,7 +16,7 @@
 * エージェント認証 (Agent authenticator)  
 同じレルム内に定義された複数のエージェントプロファイルへの読み取り専用アクセス権を持つエンティティ;エージェントがWebサービスプロファイルを読み取ることができるようにします。
 
-* アプリケーション  
+* アプリケーション (Application)  
 Ingeneral terms, a service exposing protected resources.  
 In the context of OpenAM policies, the application is a template that constrains the policies that govern access to protected resources. An application can have zero or more policies.
 
@@ -25,14 +25,14 @@ Application types act as templates for creating policy applications.
 Application types define a preset list of actions and functional logic, such as policy lookup and resource comparator logic.  
 Application types also define the internal normalization, indexing logic, and comparator logic for applications.
 
-* Attribute-based access control (ABAC)  
+* 属性ベースのアクセス制御 (Attribute-based access control: ABAC)  
 Access control that is based on attributes of a user, such as how old a user is or whether the user is a paying customer.
 
-* Authentication  
-The act of confirming the identity of a principal.
+* 認証 (Authentication)  
+主体のアイデンティティを確認する行為。
 
 * 認証連鎖  
-A series of authentication modules configured together which a principal must negotiate as configured in order to authenticate successfully.
+正常に認証するために主体が交渉しなければならない一連の認証モジュール群。
 
 * 認証レベル  
 認証モジュールに関連付けられた正の整数。通常、特別な保護を必要とするリソースを要求する際に、より厳格な認証施策の成功を必要とするために使用されます。
@@ -66,7 +66,7 @@ Subject conditions reflect characteristics of the subject like whether the subje
 * Configuration datastore  
 LDAP directory service holding OpenAM configuration data.
 
-* Cross-domain single sign-on (CDSSO)  
+* クロスドメインシングルサインオン (Cross-domain single sign-on: CDSSO)  
 OpenAM capability allowing single sign-on across different DNS domains.
 
 * Delegation  
