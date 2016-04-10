@@ -17,16 +17,16 @@
 同じレルム内に定義された複数のエージェントプロファイルへの読み取り専用アクセス権を持つエンティティ;エージェントがWebサービスプロファイルを読み取ることができるようにします。
 
 * アプリケーション (Application)  
-Ingeneral terms, a service exposing protected resources.  
-In the context of OpenAM policies, the application is a template that constrains the policies that govern access to protected resources. An application can have zero or more policies.
+一般的には、保護されたリソースを公開するサービス。
+OpenAMのポリシーの文脈では、アプリケーションは保護されたリソースへのアクセスを管理するポリシーを制約するテンプレートです。アプリケーションは、0個以上のポリシーを持つことができます。
 
-* Application type  
-Application types act as templates for creating policy applications.  
-Application types define a preset list of actions and functional logic, such as policy lookup and resource comparator logic.  
-Application types also define the internal normalization, indexing logic, and comparator logic for applications.
+* アプリケーションタイプ (Application type)  
+アプリケーションタイプは、ポリシーアプリケーションを作成するためのテンプレートとして機能します。
+アプリケーションタイプは、ポリシーの検索やリソースコンパレータのロジックのようなアクションや機能のロジックのプリセットリストを定義します。
+アプリケーションタイプは、アプリケーションのための内部の正規化、索引付けのロジック、コンパレータのロジックを定義します。
 
 * 属性ベースのアクセス制御 (Attribute-based access control: ABAC)  
-Access control that is based on attributes of a user, such as how old a user is or whether the user is a paying customer.
+ユーザーが何才か、またはユーザーがお金を使ってくれる顧客であるか否かというような、ユーザーの属性に基づくアクセス制御。
 
 * 認証 (Authentication)  
 主体のアイデンティティを確認する行為。
