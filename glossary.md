@@ -55,16 +55,16 @@ OAuth 2.0 では、リソースオーナーを認証し、保護されたリソ�
 * トラストサークル  
 SAML v2.0によるプロバイダフェデレーションに参加するため、相互に信頼することに合意したプロバイダのグループ。少なくとも1つのアイデンティティプロバイダを含む必要がある。
 
-* Client  
-In OAuth 2.0, requests protected web resources on behalf of the resource owner given the owner's authorization. OpenAM can play this role in the OAuth 2.0 authorization framework.
+* クライアント (Client)  
+OAuth 2.0において、認可を受けてリソースオーナーの代わりに保護されたWebリソースを要求するアプリケーション。OpenAMは、OAuth 2.0認可フレームワークでこの役割を担うことができます。
 
-* Conditions  
-Defined as part of policies, these determine the circumstances under which which a policy applies.  
-Environmental conditions reflect circumstances like the client IP address, time of day, how the subject authenticated, or the authentication level achieved.  
-Subject conditions reflect characteristics of the subject like whether the subject authenticated, the identity of the subject, or claims in the subject's JWT.
+* 条件 (Conditions)  
+ポリシーが適用される状況を決定する要素。ポリシーの一部として定義されます。
+環境条件は、クライアントIPアドレス、時刻、対象がどのように認証されたか、認証レベルに達したか、といった状況を反映しています。
+対象条件は、対象が認証済みかどうか、対象のアイデンティティ、対象のJWTのクレームなど、対象の特徴を反映しています。
 
-* Configuration datastore  
-LDAP directory service holding OpenAM configuration data.
+* 設定データストア (Configuration datastore)  
+OpenAMの設定データを保持するLDAPディレクトリサービス。
 
 * クロスドメインシングルサインオン (Cross-domain single sign-on: CDSSO)  
 OpenAM capability allowing single sign-on across different DNS domains.
