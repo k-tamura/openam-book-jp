@@ -67,18 +67,19 @@ OAuth 2.0において、認可を受けてリソースオーナーの代わり�
 OpenAMの設定データを保持するLDAPディレクトリサービス。
 
 * クロスドメインシングルサインオン (Cross-domain single sign-on: CDSSO)  
-OpenAM capability allowing single sign-on across different DNS domains.
+異なるDNSドメインをまたがるシングルサインオンを可能にするOpenAMの機能。
 
-* Delegation  
-Granting users administrative privileges with OpenAM.
+* 委任 (Delegation)  
+OpenAMでユーザーに管理者権限を付与すること。
 
-* Entitlement  
-Decision that defines which resource names can and cannot be accessed for a given subject in the context of a particular application, which actions are allowed and which are denied, and any related advice and attributes.
+* エンタイトルメント (Entitlement)  
+特定のアプリケーションのコンテキスト内の指定された対象に対して、どのリソース名がアクセスできて、どのリソース名ががアクセスできないか、どのアクションが許可され、拒否されるか、および任意の関連するアドバイスと属性を定義する決定。
 
-* Extended metadata  
-Federation configuration information specific to OpenAM.  
-Extensible Access Control Markup Language (XACML)  
-Standard, XML-based access control policy language, including a processing model for making authorization decisions based on policies.
+* 拡張メタデータ (Extended metadata)  
+OpenAM特有のフェデレーション設定情報。
+
+* XACML (Extensible Access Control Markup Language)  
+ポリシーに基づいて認可の決定を行うための処理モデルを含む、標準的なXMLベースのアクセス制御ポリシー言語。
 
 * Federation  
 Standardized means for aggregating identities, sharing authentication and authorization data information between trusted providers, and allowing principals to access services across different providers without authenticating repeatedly.
