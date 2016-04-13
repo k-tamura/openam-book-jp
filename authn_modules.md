@@ -3,8 +3,8 @@ OpenAM 13.0.0では以下の認証モジュールが提供されています。
 |モジュールタイプ|機能概要|備考|
 |---|---|---|
 |Active Directory|Active Directoryで管理されたユーザーで認証を行うための認証モジュール。||
-|Device Id (Save)|||
-|ForgeRock Authenticator (OATH)|||
+|Device Id (保存)|||
+|ForgeRock オーセンティケータ (OATH)|||
 |HOTP|HMACワンタイムパスワード（HOTP）認証モジュール。データストア認証モジュールと連携して動作し、ユーザーのメールアドレスや電話番号にワンタイムパスワードを送信する。||
 |HTTP 基本|HTTPで定義される認証方式の一つであるBasic認証を使用する認証モジュール。認証ダイアログで入力したIDとパスワードが適正であるか、LDAP認証モジュールを使って検証する。||
 |JDBC|MySQLやOracle DBなどのRDBMSで管理されたユーザーで認証を行うための認証モジュール。||
@@ -12,7 +12,7 @@ OpenAM 13.0.0では以下の認証モジュールが提供されています。
 |MSISDN|Mobile Station Integrated Services Digital Network（MSISDN）認証モジュール。携帯電話などの端末に関連付けられたMSISDN番号を使用して、非対話的な認証を可能にする。||
 |OATH|||
 |OAuth 2.0|OAuth 2.0のクライアントアプリケーションとなり、FacebookやWindows Liveなどに認証を委譲する。||
-|OpenID Connect id_token bearer|||
+|OpenID Connect IDトークンベアラ|||
 |RADIUS|RADIUS（Remote Authentication Dial In User Service）サーバによるユーザー認証を実行する認証モジュール。||
 |SAE|RSA SecurIDによるユーザ認証を実現する認証モジュール。||
 |SAML2|||
@@ -25,3 +25,5 @@ OpenAM 13.0.0では以下の認証モジュールが提供されています。
 |証明書|X.509デジタル証明書を利用することで、ユーザ名とパスワード（またはその他の資格情報）を必要とせずに、セキュアな認証ができる。||
 |匿名|有効にすると、ユーザはanonymousユーザとしてOpenAMにログインできるようになる。||
 |連携|フェデレーション（連携）モジュールは、SSOプロトコル（SAML、SAMLv2、ID-FF、およびWS-Federation）のメッセージを検証した後、ユーザセッションを作成するためサービスプロバイダによって使用される。||
+
+上記認証モジュールで要件を満たせない場合は、独自の認証モジュールを開発して組み込むこともできます。認証モジュールの構成要素であるclassファイルやxmlファイルを単一のjarファイルにまとめて、OpenAMのライブラリディレクトリにデプロイすると、管理コンソールに設定画面が表示されます。そこで必要な設定を行うことにより、ユーザがログインする際にその認証モジュールによる認証を要求できるようになります。
