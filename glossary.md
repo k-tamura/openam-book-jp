@@ -96,14 +96,14 @@ OpenAMが実行されるコンテナを再起動することなく、設定変�
 * アイデンティティ (Identity)  
 人やデバイスやアプリケーションなどのモノを一意に記述するデータのセット。
 
-* Identity federation  
-Linking of a principal's identity across multiple providers.
+* アイデンティティフェデレーション (Identity federation)  
+複数のプロバイダ全体で主体のIDをリンクすること。
 
-* Identity provider (IdP)  
-Entity that produces assertions about a principal (such as how and when a principal authenticated, or that the principal's profile has a specified attribute value).
+* アイデンティティプロバイダ (Identity provider: IdP)  
+主体に関するアサーション(いつどのように主体が認証されたか、本人のプロファイルが指定された属性値を持っているかなど)を生成するエンティティ。
 
-* Identity repository  
-Data store holding user profiles and group information; different identity repositories can be defined for different realms.
+* アイデンティティリポジトリ (Identity repository)  
+ユーザプロファイルおよびグループ情報を保持するデータストア。レルムごとに異なるアイデンティティリポジトリをに定義することができます。
 
 * Java EE ポリシーエージェント  
 ポリシーエージェントとして機能するWebコンテナにインストールされるJava Webアプリケーション。アプリケーションリソースのURLに基づいたポリシーで、コンテナ内の他のアプリケーションへのリクエストをフィルタリングします。
