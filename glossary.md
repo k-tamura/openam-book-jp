@@ -81,17 +81,20 @@ OpenAM特有のフェデレーション設定情報。
 * XACML (Extensible Access Control Markup Language)  
 ポリシーに基づいて認可の決定を行うための処理モデルを含む、標準的なXMLベースのアクセス制御ポリシー言語。
 
-* Federation  
-Standardized means for aggregating identities, sharing authentication and authorization data information between trusted providers, and allowing principals to access services across different providers without authenticating repeatedly.
+* フェデレーション (Federation)  
+次のことを可能にするための標準化された手段。  
+・アイデンティティを集約する  
+・信頼されたプロバイダー間で認証・認可データを共有する  
+・主体が認証を繰り返すことなく異なるプロバイダ間でサービスにアクセスする
 
 * Fedlet  
-Service provider application capable of participating in a circle of trust and allowing federation without installing all of OpenAM on the service provider side; OpenAM lets you create both .NET and Java Fedlets.
+サービプロバイダ側にOpenAMをインストールすることなく、トラストサークルに参加し、フェデレーションを可能にするサービスプロバイダアプリケーション。 OpenAMでは、.NETとJava用のFedletを作成することができます。
 
-* Hot swappable  
-Refers to configuration properties for which changes can take effect without restarting the container where OpenAM runs.
+* ホットスワップ可能 (Hot swappable)  
+OpenAMが実行されるコンテナを再起動することなく、設定変更が反映できること。
 
-* Identity  
-Set of data that uniquely describes a person or a thing such as a device or an application.
+* アイデンティティ (Identity)  
+人やデバイスやアプリケーションなどのモノを一意に記述するデータのセット。
 
 * Identity federation  
 Linking of a principal's identity across multiple providers.
