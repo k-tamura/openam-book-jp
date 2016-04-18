@@ -13,7 +13,7 @@ OpenAM 13.0.0では以下の認証モジュールが提供されています。
 |MSISDN|Mobile Station Integrated Services Digital Network（MSISDN）認証モジュール。携帯電話などの端末に関連付けられたMSISDN番号を使用して、非対話的な認証を可能にする。||
 |OATH|||
 |OAuth 2.0|OAuth 2.0のクライアントアプリケーションとなり、FacebookやWindows Liveなどに認証を委譲する。||
-|OpenID Connect IDトークンベアラ|||
+|OpenID Connect IDトークンベアラ|ログインリクエストのヘッダーにOpenID ConnectのIDトークンがある場合に、認証成功にする認証モジュール。||
 |RADIUS|RADIUS（Remote Authentication Dial In User Service）サーバによるユーザー認証を実行する認証モジュール。||
 |SAE|RSA SecurIDによるユーザ認証を実現する認証モジュール。||
 |SAML2|認証連鎖にSAML 2.0のシングルサインオンとシングルログアウトを統合することができる。||
