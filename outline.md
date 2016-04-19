@@ -34,7 +34,7 @@
  6.3 ssoadm.jsp   
 7. [認証](authn.md)  
  7.1 [認証モジュール](authn_modules.md)   
- 7.2 認証連鎖   
+ 7.2 [認証連鎖](authn_chain.md)     
 8. 認可  
  8.1 ポリシー   
  8.2 XACML   
