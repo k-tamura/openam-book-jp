@@ -22,7 +22,7 @@
  4.3 代理認証方式  
  4.4 フェデレーション方式  
  4.4.1 SAML  
- 4.4.2 OpenID Connect  
+ 4.4.2 [OpenID Connect](openid-connect.md)  
  4.4.3 その他のプロトコル  
 5. インストールと初期設定  
  5.1 1台目のインストール  
