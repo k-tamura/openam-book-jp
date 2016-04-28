@@ -39,7 +39,7 @@
  8.1 ポリシー   
  8.2 XACML   
  8.3 OAuth/UMA   
-9. ユーザーセルフサービス  
+9. [ユーザーセルフサービス](user-self-service.md)  
 10. RESTfulサービス  
 11. [アップグレード](upgrade.md)  
  11.1 OpenAMのアップグレード   
