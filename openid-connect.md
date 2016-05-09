@@ -69,7 +69,7 @@ openam04_fig04.png
 図4 OpenAM管理コンソールの「OAuth2の設定」画面
 作成したOAuth 2.0認可サーバーの設定は、「アクセス制御」→「レルム名」→「サービス」→「OAuth 2.0 プロバイダ」の順で画面遷移し、表示された「OAuth 2.0 プロバイダ」の編集画面で確認できます。必要に応じて各値を変更してください。
 
-実際にOPとして動作していることは、http://[OpenAMサーバーのURL] /.well-known/openid-configuration  （例えば、http://sso.ossc.com/openam/.well-known/openid-configuration）にアクセスすることで確認できます。このURLは、RPがOPの各エンドポイントなどの情報を検索するためのURLで、OpenID Connect Discovery 1.0の仕様によって規定されています。
+実際にOPとして動作していることは、http://[OpenAMサーバーのURL] /.well-known/openid-configuration にアクセスすることで確認できます。このURLは、RPがOPの各エンドポイントなどの情報を検索するためのURLで、OpenID Connect Discovery 1.0の仕様によって規定されています。
 
 ブラウザーなどでアクセスしてみると、以下のようなJSON形式のレスポンスが返ってきます。
 
