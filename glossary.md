@@ -157,8 +157,8 @@ In OAuth 2.0, server hosting protected web resources, capable of handling access
 * Response attributes  
 Defined as part of policies, these allow OpenAM to return additional information in the form of "attributes" with the response to a policy decision.
 
-* Role based access control (RBAC)  
-Access control that is based on whether a user has been granted a set of permissions (a role).
+* ロールベースのアクセス制御 (RBAC)  
+ユーザーがアクセス権限のセット（ロール）を付与されているかどうかに基づいたアクセス制御。
 
 * セキュリティアサーションマークアップランゲージ (SAML)  
 アイデンティティプロバイダとサービスプロバイダの間の認証および認可データを交換するための標準的なXMLベースの言語。
