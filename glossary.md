@@ -144,18 +144,18 @@ OpenAM unit for organizing configuration and identity information.
 Realms can be used for example when different parts of an organization have different applications and user data stores, and when different organizations use the same OpenAM deployment.  
 Administrators can delegate realm administration. The administrator assigns administrative privileges to users, allowing them to perform administrative tasks within the realm.
 
-* Resource  
-Something a user can access over the network such as a web page.  
-Defined as part of policies, these can include wildcards in order to match multiple actual resources.
+* リソース (Resource)  
+ウェブページのように、ユーザーがネットワーク経由でアクセス可能なもの。
+ポリシーの一部として定義され、これらには複数のリソースと一致させるためにワイルドカードを含めることができます。
 
-* Resource owner  
-In OAuth 2.0, entity who can authorize access to protected web resources, such as an end user.
+* リソースオーナー (Resource owner)  
+OAuth 2.0において、保護されたWebリソースへのアクセスを許可することができるエンティティ。エンドユーザーなど。
 
-* Resource server  
-In OAuth 2.0, server hosting protected web resources, capable of handling access tokens to respond to requests for such resources.
+* リソースサーバー (Resource server)  
+保護されたWebリソースを保持するサーバー。そのようなリソースへのリクエストにレスポンスを返すためにアクセストークンを処理することができます。
 
-* Response attributes  
-Defined as part of policies, these allow OpenAM to return additional information in the form of "attributes" with the response to a policy decision.
+* 応答属性 (Response attributes)  
+ポリシーの一部として定義され、これらにより、OpenAMはポリシー決定に対するレスポンスに"attributes"のかたちで追加の情報を返すことができます。
 
 * ロールベースのアクセス制御 (RBAC)  
 ユーザーがアクセス権限のセット（ロール）を付与されているかどうかに基づいたアクセス制御。
