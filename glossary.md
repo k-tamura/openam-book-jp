@@ -136,13 +136,13 @@ When a See also Subject successfully authenticates, OpenAM associates the Subjec
 * Privilege  
 In the context of delegated administration, a set of administrative tasks that can be performed by specified subjects in a given realm.
 
-* Provider federation  
-Agreement among providers to participate in a circle of trust.
+* プロバイダ連携 (Provider federation)  
+トラストサークルに参加するためのプロバイダ間の合意。
 
-* Realm  
-OpenAM unit for organizing configuration and identity information.  
-Realms can be used for example when different parts of an organization have different applications and user data stores, and when different organizations use the same OpenAM deployment.  
-Administrators can delegate realm administration. The administrator assigns administrative privileges to users, allowing them to perform administrative tasks within the realm.
+* レルム (Realm)  
+設定およびアイデンティティ情報を整理するための単位。
+組織の異なる部分が異なるアプリケーションとユーザーデータストアを持っている場合や、異なる組織が一つのOpenAMを使用する場合などに、レルムを使用することができます。
+管理者は、レルムの管理を委任することができます。管理者はユーザーに管理者権限を割り当てることができ、レルム内の管理タスクの実行を許可します。
 
 * リソース (Resource)  
 ウェブページのように、ユーザーがネットワーク経由でアクセス可能なもの。
