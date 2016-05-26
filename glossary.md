@@ -112,10 +112,10 @@ OpenAMが実行されるコンテナを再起動することなく、設定変�
 プロバイダのフェデレーションの設定情報。
 
 * ポリシー (Policy)  
-Set of rules that define who is granted access to a protected resource when, how, and under what conditions.
+いつ、どのように、どのような条件下で保護されたリソースへのアクセスを許可するかを定義した一連のルール。
 
 * ポリシーエージェント (Policy Agent)  
-Agent that intercepts requests for resources, directs principals to OpenAM for authentication, and enforces policy decisions from OpenAM.
+リソースに対するリクエストをインターセプトして、認証のためにOpenAMに主体をリダイレクトし、OpenAMによるポリシー決定を適用するエージェント。
 
 * Policy Administration Point (PAP)  
 Entity that manages and stores policy definitions.
