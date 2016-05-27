@@ -117,11 +117,11 @@ OpenAMが実行されるコンテナを再起動することなく、設定変�
 * ポリシーエージェント (Policy Agent)  
 リソースに対するリクエストをインターセプトして、認証のためにOpenAMに主体をリダイレクトし、OpenAMによるポリシー決定を適用するエージェント。
 
-* Policy Administration Point (PAP)  
-Entity that manages and stores policy definitions.
+* ポリシー管理ポイント (Policy Administration Point: PAP)  
+ポリシー定義を管理、格納するエンティティ。
 
-* Policy Decision Point (PDP)  
-Entity that evaluates access rights and then issues authorization decisions.
+* ポリシー決定点 (Policy Decision Point: PDP)  
+アクセス権を評価し、その後、認可の決定を発行するエンティティ。
 
 * Policy Enforcement Point (PEP)  
 Entity that intercepts a request for a resource and then enforces policy decisions from a PDP.
