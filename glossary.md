@@ -123,18 +123,18 @@ OpenAMが実行されるコンテナを再起動することなく、設定変�
 * ポリシー決定点 (Policy Decision Point: PDP)  
 アクセス権を評価し、その後、認可の決定を発行するエンティティ。
 
-* Policy Enforcement Point (PEP)  
-Entity that intercepts a request for a resource and then enforces policy decisions from a PDP.
+* ポリシー実行点 (Policy Enforcement Point: PEP)  
+リソースへのリクエストをインターセプトし、PDPから取得したポリシー決定を適用するエンティティ。
 
-* Policy Information Point (PIP)  
-Entity that provides extra information, such as user profile attributes that a PDP needs in order to make a decision.
+* ポリシー情報点 (Policy Information Point: PIP)  
+PDPが決定を行うために必要な、ユーザプロファイル属性などの追加情報を提供するエンティティ。
 
-* Principal  
-Represents an entity that has been authenticated (such as a user, a device, or an application), and thus is distinguished from other entities.  
-When a See also Subject successfully authenticates, OpenAM associates the Subject with the Principal.
+* 主体 (Principal)  
+認証されたエンティティ（例えば、ユーザー、デバイス、アプリケーションなど）を表します。したがって、他のエンティティとは区別されます。
+主体が正常に認証されると、OpenAMは主体と対象を関連付けます。
 
-* Privilege  
-In the context of delegated administration, a set of administrative tasks that can be performed by specified subjects in a given realm.
+* 権限 (Privilege)  
+委任された管理において、与えられたレルム内で指定された対象によって実行可能な管理タスクのセット。
 
 * プロバイダ連携 (Provider federation)  
 トラストサークルに参加するためのプロバイダ間の合意。
