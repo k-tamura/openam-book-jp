@@ -1,3 +1,5 @@
+[TODO] ※このページは作成中です。
+
 This chapter covers key OpenAM tunings to ensure smoothly performing access and federation management services, and to maximize throughput while minimizing response times.
 
 Note
@@ -7,10 +9,8 @@ The extent to which performance tuning advice applies depends to a large extent 
 
 The suggestions in this chapter pertain to OpenAM deployments with the following characteristics:
 
-The host running the OpenAM server has a large amount of memory.
-
-The deployment has a dedicated OpenDJ directory server for the Core Token Service. The host running this directory server is a high-end server with a large amount of memory and multiple CPUs.
-
-The OpenAM server is configured to use stateful sessions.
+- The host running the OpenAM server has a large amount of memory.
+- The deployment has a dedicated OpenDJ directory server for the Core Token Service. The host running this directory server is a high-end server with a large amount of memory and multiple CPUs.
+- The OpenAM server is configured to use stateful sessions.
 
 As a rule of thumb, an OpenAM server in production with a 3 GB heap configured to use stateful sessions can handle 100,000 sessions. Although you might be tempted to use a larger heap with a 64-bit JVM, smaller heaps are easier to manage. Thus, rather than scaling single servers up to increase the total number of simultaneous sessions, consider scaling out by adding more servers instead.
