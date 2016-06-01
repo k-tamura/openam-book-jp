@@ -61,7 +61,7 @@
 16. ビルド  
  16.1 OpenAMのビルド  
  16.2 Policy Agentのビルド  
-17. チューニング　 
+17. [チューニング](tuning.md)　 
 18. コミュニティ
 19. [用語集](glossary.md)  
 20. [参考資料](reference.md)  
