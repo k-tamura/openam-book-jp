@@ -18,6 +18,7 @@ As a rule of thumb, an OpenAM server in production with a 3 GB heap configured t
 ### OpenAM Server Settings
 
 OpenAM has a number of settings that can be tuned to increase performance.
+
 #### General Settings
 
 The following general points apply:
@@ -26,9 +27,9 @@ The following general points apply:
 
     Set container-level logging to a low level, such as error or severe.
 
-25.1.2. LDAP Settings
+#### LDAP Settings
 
 Tune your LDAP data stores, your LDAP authentication modules, and connection pools for CTS and configuration stores.
-25.1.2.1. Tuning LDAP Data Store Settings
+##### Tuning LDAP Data Store Settings
 
 To change LDAP data store settings, browse to Realms > Realm Name > Data Stores > Data Store Name in the OpenAM console. Each data store has its own connection pool and therefore each data store needs its own tuning:
