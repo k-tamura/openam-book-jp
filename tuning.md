@@ -15,21 +15,21 @@ The suggestions in this chapter pertain to OpenAM deployments with the following
 
 As a rule of thumb, an OpenAM server in production with a 3 GB heap configured to use stateful sessions can handle 100,000 sessions. Although you might be tempted to use a larger heap with a 64-bit JVM, smaller heaps are easier to manage. Thus, rather than scaling single servers up to increase the total number of simultaneous sessions, consider scaling out by adding more servers instead.
 
-### OpenAM Server Settings
+### OpenAMサーバー設定
 
-OpenAM has a number of settings that can be tuned to increase performance.
+OpenAMには、パフォーマンスを向上させるために調整することができるいくつかの設定があります。
 
-#### General Settings
+#### 一般設定
 
-The following general points apply:
+一般的なポイントが以下があげられます。
 
-    Set debug level to error.
+- デバッグレベルをエラーに設定する。
+- コンテナレベルのロギングを、エラーや重大などの低いレベルに設定する。
 
-    Set container-level logging to a low level, such as error or severe.
+#### LDAP 設定
 
-#### LDAP Settings
+LDAPデータストア、LDAP認証モジュール、CTSおよび設定ストアの接続プールをチューニングします。
 
-Tune your LDAP data stores, your LDAP authentication modules, and connection pools for CTS and configuration stores.
-##### Tuning LDAP Data Store Settings
+##### LDAP データストア設定
 
 To change LDAP data store settings, browse to Realms > Realm Name > Data Stores > Data Store Name in the OpenAM console. Each data store has its own connection pool and therefore each data store needs its own tuning:
