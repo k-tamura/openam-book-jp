@@ -32,4 +32,11 @@ LDAPデータストア、LDAP認証モジュール、CTSおよび設定ストア
 
 ##### LDAP データストア設定
 
-To change LDAP data store settings, browse to Realms > Realm Name > Data Stores > Data Store Name in the OpenAM console. Each data store has its own connection pool and therefore each data store needs its own tuning:
+LDAPデータストアの設定を変更するには、管理コンソールの レルム > レルム名 > データストア > データストア名 にアクセスします。 データストア毎に独自の接続プールがあるので、データストア毎に独自のチューニングを必要とします:
+
+|プロパティ|デフォルト値|提案|
+|---|---|---|
+|LDAP接続プール最小サイズ|1|LDAP接続プールの最小サイズ。推奨値は、10です。  (sun-idrepo-ldapv3-config-connection_pool_min_size)
+|LDAP接続プール最大サイズ|10|Ensure your LDAP server can cope with the maximum number of clients across all the OpenAM servers.LDAP接続プールの最大サイズ。推奨値は、65です。LDAPサーバーがクライアントの最大数に対応できることを確認してください。  (sun-idrepo-ldapv3-config-connection_pool_max_size)|
+
+
