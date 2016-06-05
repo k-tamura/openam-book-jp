@@ -99,167 +99,50 @@ Table 25.5. Session Service Notification Settings
 ####  Session Settings
 
 The session service has additional properties to tune, which are configured under Configuration > Servers and Sites > Default Server Settings > Session. The following suggestions apply to deployments using stateful sessions:
-Table 25.6. Session Settings
-Property	Default Value	Suggestions
-Maximum Sessions	5000	
 
-In production, this value can safely be set into the 100,000s. The maximum session limit is really controlled by the maximum size of the JVM heap which must be tuned appropriately to match the expected number of concurrent sessions.
+Table 25.6. スコープ設定
 
-(com.iplanet.am.session.maxSessions)
-Sessions Purge Delay	0	
-
-This should be zero to ensure sessions are purged immediately.
-
-(com.iplanet.am.session.purgedelay)
+|プロパティ|デフォルト値|提案|
+|---|---|---|
+|Maximum Sessions|5000|In production, this value can safely be set into the 100,000s. The maximum session limit is really controlled by the maximum size of the JVM heap which must be tuned appropriately to match the expected number of concurrent sessions.  (com.iplanet.am.session.maxSessions)|
+|Sessions Purge Delay|0|This should be zero to ensure sessions are purged immediately.  (com.iplanet.am.session.purgedelay)|
 
 ###  Java Virtual Machine Settings
 
 This section gives some initial guidance on configuring the JVM for running OpenAM. These settings provide a strong foundation to the JVM before a more detailed garbage collection tuning exercise, or as best practice configuration for production:
+
 Table 25.7. Heap Size Settings
-JVM Parameters	Suggested Value	Description
 
--Xms & -Xmx
-	
+|JVMパラメータ|推奨値|説明|
+|---|---|---|
+|-Xms & -Xmx|At least 1024 MB (2048 MB with embedded OpenDJ), in production environments at least 2048 MB to 3072 MB. This setting depends on the available physical memory, and on whether a 32- or 64-bit JVM is used.|-|
+|-server|-|Ensures the server JVM is used|
+|-XX:PermSize & -XX:MaxPermSize|Set both to 256 MB|Controls the size of the permanent generation in the JVM|
+|-Dsun.net.client.defaultReadTimeout|60000|Controls the read timeout in the Java HTTP client implementation. This applies only to the Sun/Oracle HotSpot JVM.|
+|-Dsun.net.client.defaultConnectTimeout|High setting: 30000 (30 seconds)|Controls the connect timeout in the Java HTTP client implementation.  When you have hundreds of incoming requests per second, reduce this value to avoid a huge connection queue.  This applies only to the Sun/Oracle HotSpot JVM.|
 
-At least 1024 MB (2048 MB with embedded OpenDJ), in production environments at least 2048 MB to 3072 MB. This setting depends on the available physical memory, and on whether a 32- or 64-bit JVM is used.
-	
+Table 25.8. Security Settings
 
--
-
--server
-	
-
--
-	
-
-Ensures the server JVM is used
-
--XX:PermSize & -XX:MaxPermSize
-	
-
-Set both to 256 MB
-	
-
-Controls the size of the permanent generation in the JVM
-
--Dsun.net.client.defaultReadTimeout
-	
-
-60000
-	
-
-Controls the read timeout in the Java HTTP client implementation
-
-This applies only to the Sun/Oracle HotSpot JVM.
-
--Dsun.net.client.defaultConnectTimeout
-	High setting:
-
-30000
-(30 seconds)	
-
-Controls the connect timeout in the Java HTTP client implementation
-
-When you have hundreds of incoming requests per second, reduce this value to avoid a huge connection queue.
-
-This applies only to the Sun/Oracle HotSpot JVM.
-
-JVM Parameters	Suggested Value	Description
-
--Dhttps.protocols
-	
-
-TLSv1,TLSv1.1,TLSv1.2 (for JDK 7, JDK 8)
-
-TLSv1 (for JDK 6)
-	
-
-Controls the protocols used for outbound HTTPS connections from OpenAM.
+|JVMパラメータ|推奨値|説明|
+|---|---|---|
+|-Dhttps.protocols|TLSv1,TLSv1.1,TLSv1.2 (for JDK 7, JDK 8)  TLSv1 (for JDK 6)|Controls the protocols used for outbound HTTPS connections from OpenAM.|
 
 This applies only to Sun/Oracle Java environments.
 
 Garbage Collection Settings
-JVM Parameters	Suggested Value	Description
 
--verbose:gc
-	
-
--
-	
-
-Verbose garbage collection reporting
-
--Xloggc:
-	
-
-$CATALINA_HOME/logs/gc.log
-	
-
-Location of the verbose garbage collection log file
-
--XX:+PrintClassHistogram
-	
-
--
-	
-
-Prints a heap histogram when a SIGTERM signal is received by the JVM
-
--XX:+PrintGCDetails
-	
-
--
-	
-
-Prints detailed information about garbage collection
-
--XX:+PrintGCTimeStamps
-	
-
--
-	
-
-Prints detailed garbage collection timings
-
--XX:+HeapDumpOnOutOfMemoryError
-	
-
--
-	
-
-Out of Memory errors generate a heap dump automatically
-
--XX:HeapDumpPath
-	
-
-$CATALINA_HOME/logs/heapdump.hprof
-	
-
-Location of the heap dump
-
--XX:+UseConcMarkSweepGC
-	
-
--
-	
-
-Use the concurrent mark sweep garbage collector
-
--XX:+UseCMSCompactAtFullCollection
-	
-
--
-	
-
-Aggressive compaction at full collection
-
--XX:+CMSClassUnloadingEnabled
-	
-
--
-	
-
-Allow class unloading during CMS sweeps
+|JVMパラメータ|推奨値|説明|
+|---|---|---|
+|-verbose:gc|-|Verbose garbage collection reporting|
+|-Xloggc:|$CATALINA_HOME/logs/gc.log|Location of the verbose garbage collection log file|
+|-XX:+PrintClassHistogram|-|Prints a heap histogram when a SIGTERM signal is received by the JVM|
+|-XX:+PrintGCDetails|-|Prints detailed information about garbage collection|
+|-XX:+PrintGCTimeStamps|-|Prints detailed garbage collection timings|
+|-XX:+HeapDumpOnOutOfMemoryError|-|Out of Memory errors generate a heap dump automatically|
+|-XX:HeapDumpPath|$CATALINA_HOME/logs/heapdump.hprof|Location of the heap dump|
+|-XX:+UseConcMarkSweepGC|-|Use the concurrent mark sweep garbage collector|
+|-XX:+UseCMSCompactAtFullCollection|-|Aggressive compaction at full collection|
+|-XX:+CMSClassUnloadingEnabled|-|Allow class unloading during CMS sweeps|
 
 ### Caching in OpenAM
 
@@ -272,6 +155,7 @@ OpenAM implements the global user data cache for its user data stores. Prior to 
 The user data store also supports a DN Cache, used to cache DN lookups that tend to occur in bursts during authentication. The DN Cache can become out of date when a user is moved or renamed in the underlying LDAP store, events that are not always reflected in a persistent search result. You can enable the DN cache when the underlying LDAP store supports persistent search and mod DN operations (that is, move or rename DN).
 
 The following diagram depicts the two kinds of cache, and also the two types of caching available for user data:
+
 Figure 25.1. OpenAM Caches
 Caches in OpenAM server
 
@@ -336,7 +220,9 @@ This procedure describes how to enable change notification and polling for polic
 The table below provides a quick reference, primarily for user data cache settings.
 
 Notice that many properties for configuration data cache have sm (for Service Management) in their names, whereas those for user data have idm (for Identity Management) in their names:
+
 Table 25.10. OpenAM Cache Properties
+
 Property	Description	Default	Applies To
 
 com.iplanet.am.sdk.cache.maxSize
