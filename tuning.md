@@ -1,6 +1,6 @@
 [TODO] ※このページは作成中です。
 
-This chapter covers key OpenAM tunings to ensure smoothly performing access and federation management services, and to maximize throughput while minimizing response times.
+この章では、OpenAMの動作をスムーズにし、応答時間を最小限に抑えつつ、スループットを最大化するための、キーとなるチューニング項目について説明します。
 
 Note
 The recommendations provided here are guidelines for your testing rather than hard and fast rules for every situation. Said another way, the fact that a given setting is configurable implies that no one setting is right in all circumstances.
@@ -37,6 +37,6 @@ LDAPデータストアの設定を変更するには、管理コンソールの 
 |プロパティ|デフォルト値|提案|
 |---|---|---|
 |LDAP接続プール最小サイズ|1|LDAP接続プールの最小サイズ。推奨値は、10です。  (sun-idrepo-ldapv3-config-connection_pool_min_size)
-|LDAP接続プール最大サイズ|10|Ensure your LDAP server can cope with the maximum number of clients across all the OpenAM servers.LDAP接続プールの最大サイズ。推奨値は、65です。LDAPサーバーがクライアントの最大数に対応できることを確認してください。  (sun-idrepo-ldapv3-config-connection_pool_max_size)|
+|LDAP接続プール最大サイズ|10|LDAP接続プールの最大サイズ。推奨値は、65です。LDAPサーバーがクライアントの最大数に対応できることを確認してください。  (sun-idrepo-ldapv3-config-connection_pool_max_size)|
 
 
