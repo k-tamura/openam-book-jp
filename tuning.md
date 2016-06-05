@@ -32,7 +32,7 @@ LDAPデータストア、LDAP認証モジュール、CTSおよび設定ストア
 
 ##### LDAP データストア設定
 
-LDAPデータストアの設定を変更するには、管理コンソールの レルム > レルム名 > データストア > データストア名 にアクセスします。 データストア毎に独自の接続プールがあるので、データストア毎に独自のチューニングを必要とします:
+LDAPデータストアの設定を変更するには、OpenAMの管理コンソールの レルム > レルム名 > データストア > データストア名 にアクセスします。 データストア毎に独自の接続プールがあるので、データストア毎に独自のチューニングを必要とします:
 
 表. LDAP データストア設定
 
@@ -41,17 +41,17 @@ LDAPデータストアの設定を変更するには、管理コンソールの 
 |LDAP接続プール最小サイズ|1|LDAP接続プールの最小サイズ。推奨値は、10です。  (sun-idrepo-ldapv3-config-connection_pool_min_size)|
 |LDAP接続プール最大サイズ|10|LDAP接続プールの最大サイズ。推奨値は、65です。LDAPサーバーがクライアントの最大数に対応できることを確認してください。  (sun-idrepo-ldapv3-config-connection_pool_max_size)|
 
-##### Tuning LDAP Authentication Module Settings
+##### LDAP認証モジュール設定のチューニング
 
-To change connection pool settings for the LDAP authentication module, browse to Configuration > Authentication > Core in the OpenAM console:
+LDAP認証モジュールの接続プールの設定を変更するには、OpenAMの管理コンソールの 設定 > 認証 > コア にアクセスします:
 
-表. LDAP 認証モジュール設定
+表. LDAP認証モジュール設定
 
 |プロパティ|デフォルト値|提案|
 |---|---|---|
-|デフォルトLDAP接続プールサイズ|The minimum and maximum LDAP connection pool used by the LDAP authentication module. This should be tuned to 10:65 for production.  (iplanet-am-auth-ldap-connection-pool-default-size)|
+|デフォルトLDAP接続プールサイズ|LDAP認証モジュールで使用されるLDAP接続プールの最小数と最大数。本番環境での推奨値は、10:65です。  (iplanet-am-auth-ldap-connection-pool-default-size)|
 
-##### Tuning LDAP CTS and Configuration Store Settings
+##### LDAP CTSおよび設定ストアの設定のチューニング
 
 When tuning LDAP connection pool settings for the Core Token Service (CTS), what you change depends on whether the directory service backing the CTS is the same directory service backing OpenAM configuration.
 
@@ -67,6 +67,8 @@ If the directory service backing the CTS is external (differs from the directory
 
 In both cases, if you must change the default connection timeouts, set the advanced properties described below under Configuration > Servers and Sites > Server Name > Advanced:
 
+表. CTSストアLDAP接続プールの設定
+
 |プロパティ|デフォルト値|提案|
 |---|---|---|
 |Maximum Connection Pool|10|Find this setting in OpenAM console under Configuration > Servers and Sites > Server Name > Directory Configuration.  When the same directory service backs both the CTS and also OpenAM configuration, consider increasing this to at least 19 to allow 9 connections for the CTS, and 10 connections for access to the OpenAM configuration (including for example looking up policies).|
@@ -81,7 +83,7 @@ You must restart OpenAM or the container in which it runs for changes to take ef
 
 OpenAM has two thread pools used to send notifications to clients. The Service Management Service (SMS) thread pool can be tuned in OpenAM console under Configuration > Servers and Sites > Default Server Settings > SDK:
 
-Table 25.4. SMS Notification Setting
+表. SMS通知設定
 
 |プロパティ|デフォルト値|提案|
 |---|---|---|
@@ -89,7 +91,7 @@ Table 25.4. SMS Notification Setting
 
 The session service has its own thread pool to send notifications to listeners about changes to stateful sessions. This is configured under Configuration > Servers and Sites > Default Server Settings > Session:
 
-Table 25.5. Session Service Notification Settings
+表. Session Service Notification Settings
 
 |プロパティ|デフォルト値|提案|
 |---|---|---|
@@ -100,7 +102,7 @@ Table 25.5. Session Service Notification Settings
 
 The session service has additional properties to tune, which are configured under Configuration > Servers and Sites > Default Server Settings > Session. The following suggestions apply to deployments using stateful sessions:
 
-Table 25.6. スコープ設定
+表. スコープ設定
 
 |プロパティ|デフォルト値|提案|
 |---|---|---|
@@ -111,7 +113,7 @@ Table 25.6. スコープ設定
 
 This section gives some initial guidance on configuring the JVM for running OpenAM. These settings provide a strong foundation to the JVM before a more detailed garbage collection tuning exercise, or as best practice configuration for production:
 
-Table 25.7. Heap Size Settings
+表. Heap Size Settings
 
 |JVMパラメータ|推奨値|説明|
 |---|---|---|
@@ -121,7 +123,7 @@ Table 25.7. Heap Size Settings
 |-Dsun.net.client.defaultReadTimeout|60000|Controls the read timeout in the Java HTTP client implementation. This applies only to the Sun/Oracle HotSpot JVM.|
 |-Dsun.net.client.defaultConnectTimeout|High setting: 30000 (30 seconds)|Controls the connect timeout in the Java HTTP client implementation.  When you have hundreds of incoming requests per second, reduce this value to avoid a huge connection queue.  This applies only to the Sun/Oracle HotSpot JVM.|
 
-Table 25.8. Security Settings
+表. Security Settings
 
 |JVMパラメータ|推奨値|説明|
 |---|---|---|
@@ -215,13 +217,13 @@ This procedure describes how to enable change notification and polling for polic
 
     You must restart the policy agent for the changes to take effect.
 
-25.3.3. Cache Settings
+#### Cache Settings
 
 The table below provides a quick reference, primarily for user data cache settings.
 
 Notice that many properties for configuration data cache have sm (for Service Management) in their names, whereas those for user data have idm (for Identity Management) in their names:
 
-Table 25.10. OpenAM Cache Properties
+表. OpenAM Cache Properties
 
 |プロパティ|説明|デフォルト|適用対象|
 |---|---|---|---|
