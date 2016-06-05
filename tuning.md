@@ -79,7 +79,7 @@ In both cases, if you must change the default connection timeouts, set the advan
 
 You must restart OpenAM or the container in which it runs for changes to take effect.
 
-#### Notification Settings
+#### 通知設定
 
 OpenAM has two thread pools used to send notifications to clients. The Service Management Service (SMS) thread pool can be tuned in OpenAM console under Configuration > Servers and Sites > Default Server Settings > SDK:
 
@@ -98,7 +98,7 @@ The session service has its own thread pool to send notifications to listeners a
 |Notification Pool Size|10|This is the size of the thread pool used to send notifications. In production this should be around 25-30.  (com.iplanet.am.notification.threadpool.size)|
 |Notification Thread Pool Threshold|5000|This is the maximum number of notifications in the queue waiting to be sent. The default value should be fine in the majority of installations.  (com.iplanet.am.notification.threadpool.threshold)|
 
-####  Session Settings
+####  セッション設定
 
 The session service has additional properties to tune, which are configured under Configuration > Servers and Sites > Default Server Settings > Session. The following suggestions apply to deployments using stateful sessions:
 
@@ -109,11 +109,11 @@ The session service has additional properties to tune, which are configured unde
 |Maximum Sessions|5000|In production, this value can safely be set into the 100,000s. The maximum session limit is really controlled by the maximum size of the JVM heap which must be tuned appropriately to match the expected number of concurrent sessions.  (com.iplanet.am.session.maxSessions)|
 |Sessions Purge Delay|0|This should be zero to ensure sessions are purged immediately.  (com.iplanet.am.session.purgedelay)|
 
-###  Java Virtual Machine Settings
+###  Java仮想マシン設定
 
 This section gives some initial guidance on configuring the JVM for running OpenAM. These settings provide a strong foundation to the JVM before a more detailed garbage collection tuning exercise, or as best practice configuration for production:
 
-表. Heap Size Settings
+表. ヒープサイズ設定
 
 |JVMパラメータ|推奨値|説明|
 |---|---|---|
@@ -123,7 +123,7 @@ This section gives some initial guidance on configuring the JVM for running Open
 |-Dsun.net.client.defaultReadTimeout|60000|Controls the read timeout in the Java HTTP client implementation. This applies only to the Sun/Oracle HotSpot JVM.|
 |-Dsun.net.client.defaultConnectTimeout|High setting: 30000 (30 seconds)|Controls the connect timeout in the Java HTTP client implementation.  When you have hundreds of incoming requests per second, reduce this value to avoid a huge connection queue.  This applies only to the Sun/Oracle HotSpot JVM.|
 
-表. Security Settings
+表. セキュリティ設定
 
 |JVMパラメータ|推奨値|説明|
 |---|---|---|
@@ -131,7 +131,7 @@ This section gives some initial guidance on configuring the JVM for running Open
 
 This applies only to Sun/Oracle Java environments.
 
-Garbage Collection Settings
+ガベージコレクション設定
 
 |JVMパラメータ|推奨値|説明|
 |---|---|---|
@@ -146,7 +146,7 @@ Garbage Collection Settings
 |-XX:+UseCMSCompactAtFullCollection|-|Aggressive compaction at full collection|
 |-XX:+CMSClassUnloadingEnabled|-|Allow class unloading during CMS sweeps|
 
-### Caching in OpenAM
+### OpenAMでのキャッシング
 
 OpenAM caches data to avoid having to query user and configuration data stores each time it needs the information. By default, OpenAM makes use of LDAP persistent search to receive notification of changes to cached data. For this reason, caching works best when data are stored in a directory server that supports LDAP persistent search.
 
@@ -163,67 +163,55 @@ Caches in OpenAM server
 
 The rest of this section concerns mainly settings for global user data cache and for SDK clients. For a look at data store cache settings, see Table 25.1, "LDAP Data Store Settings".
 
-#### Overall Server Cache Settings
+#### 全体的なサーバーのキャッシュ設定
 
 By default OpenAM has caching enabled both for configuration data and also for user data. This setting is governed by the server property com.iplanet.am.sdk.caching.enabled, which by default is true. When you set this advanced property to false, then you can enable caching independently for configuration data and for user data.
-Procedure 25.1. To Turn Off Global User Data Caching
+
+手順. グローバルユーザーデータ・キャッシングをオフにする
 
 Disabling caching can have a severe negative impact on performance. This is because when caching is disabled, OpenAM must query a data store each time it needs data.
 
 If, however, you have at least one user data store that does not support LDAP persistent search, such as a relational database or an LDAP directory server that does not support persistent search, then you must disable the global cache for user data. Otherwise user data caches cannot stay in sync with changes to user data entries:
 
-    In the OpenAM console, browse to Configuration > Servers and Sites > Server Name > Advanced.
-
-    Set com.iplanet.am.sdk.caching.enabled to false to disable caching overall.
-
-    Set com.sun.identity.sm.cache.enabled to true to enable configuration data caching.
-
-    All supported configuration data stores support LDAP persistent search, so it is safe to enable configuration data caching.
-
+1. In the OpenAM console, browse to Configuration > Servers and Sites > Server Name > Advanced.
+2. Set com.iplanet.am.sdk.caching.enabled to false to disable caching overall.
+3. Set com.sun.identity.sm.cache.enabled to true to enable configuration data caching.  
+    All supported configuration data stores support LDAP persistent search, so it is safe to enable configuration data caching.  
     You must explicitly set this property to true, because setting com.iplanet.am.sdk.caching.enabled to false in the previous step disables both user and configuration data caching.
-
-    Save your work.
-
-    OpenAM starts persistent searches on user data stores when possible [10] in order to monitor changes. With user data store caching disabled, OpenAM still starts the persistent searches, even though it no longer uses the results.
-
+4. Save your work.
+5. OpenAM starts persistent searches on user data stores when possible [10] in order to monitor changes. With user data store caching disabled, OpenAM still starts the persistent searches, even though it no longer uses the results.  
     Therefore, if you disable user data store caching, you should also disable persistent searches on user data stores in your deployment to improve performance. To disable persistent search on a user data store, remove the value of the Persistent Search Base DN configuration property and leave it blank. Locate this property under Realms > Realm Name > Data Stores > Data Store Name > Persistent Search Controls. 
 
-Procedure 25.2. To Change the Maximum Size of Global User Data Cache
+手順. グローバルユーザーデータ・キャッシングの最大サイズを変更する
 
 With a large user data store and active user base, the number of user entries in cache can grow large:
 
-    In the OpenAM console, browse to Configuration > Servers and Sites > Default Server Settings > SDK.
-
-    Change the value of SDK Caching Maximum Size, and then click Save.
-
+1. In the OpenAM console, browse to Configuration > Servers and Sites > Default Server Settings > SDK.
+2. Change the value of SDK Caching Maximum Size, and then click Save.  
     There is no corresponding setting for configuration data, as the number of configuration entries in a large deployment is not likely to grow nearly as large as the number of user entries.
 
-#### Caching Properties For Java EE Policy Agents and SDK Clients
+#### Java EEのポリシーエージェントおよびSDKクライアントのキャッシュプロパティ
 
 Policy agents and other OpenAM SDK clients can also cache user data, using most of the same properties as OpenAM server as described in Table 25.10, "OpenAM Cache Properties" . Clients, however, can receive updates by notification from OpenAM or, if notification fails, by polling OpenAM for changes.
-Procedure 25.3. To Enable Notification and Polling For Client Cache Updates
+
+手順. クライアントキャッシュアップデートの通知とポーリングを有効にする
 
 This procedure describes how to enable change notification and polling for policy agent user data cache updates. When configuring a custom OpenAM SDK client using a .properties file, use the same properties as for the policy agent configuration:
 
-    In OpenAM console, browse to Realms > Realm Name > Agents > Agent Type > Agent Name to view and edit the policy agent profile.
-
-    On the Global tab page, check that the Agent Notification URL is set.
-
-    When notification is enabled, the agent registers a notification listener with OpenAM for this URL.
-
+1. In OpenAM console, browse to Realms > Realm Name > Agents > Agent Type > Agent Name to view and edit the policy agent profile.
+2. On the Global tab page, check that the Agent Notification URL is set.  
+    When notification is enabled, the agent registers a notification listener with OpenAM for this URL.  
     The corresponding property is com.sun.identity.client.notification.url.
-
-    For any changes you make, Save your work.
-
+3. For any changes you make, Save your work.  
     You must restart the policy agent for the changes to take effect.
 
-#### Cache Settings
+#### キャッシュ設定
 
 The table below provides a quick reference, primarily for user data cache settings.
 
 Notice that many properties for configuration data cache have sm (for Service Management) in their names, whereas those for user data have idm (for Identity Management) in their names:
 
-表. OpenAM Cache Properties
+表. OpenAMキャッシュプロパティ
 
 |プロパティ|説明|デフォルト|適用対象|
 |---|---|---|---|
