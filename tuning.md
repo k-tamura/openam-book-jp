@@ -13,7 +13,7 @@ The suggestions in this chapter pertain to OpenAM deployments with the following
 - The deployment has a dedicated OpenDJ directory server for the Core Token Service. The host running this directory server is a high-end server with a large amount of memory and multiple CPUs.
 - The OpenAM server is configured to use stateful sessions.
 
-As a rule of thumb, an OpenAM server in production with a 3 GB heap configured to use stateful sessions can handle 100,000 sessions. Although you might be tempted to use a larger heap with a 64-bit JVM, smaller heaps are easier to manage. Thus, rather than scaling single servers up to increase the total number of simultaneous sessions, consider scaling out by adding more servers instead.
+これまでの経験則から、本番環境においてステートフルセッションを使用するように構成された3GBのヒープのOpenAMサーバーは、10万セッションを処理することができます。64ビットJVMで大規模なヒープを使用した方がいいと考えるかもしれませんが、小さいヒープの方が管理が容易です。このように、同時セッションの合計数を増やすためには、単一のサーバーをスケールアップするよりも、むしろ、代わりにより多くのサーバーを追加することにより、スケールアウトすることを検討して下さい。
 
 ### OpenAMサーバー設定
 
