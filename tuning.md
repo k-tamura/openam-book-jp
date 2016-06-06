@@ -2,16 +2,16 @@
 
 この章では、OpenAMの動作をスムーズにし、応答時間を最小限に抑えつつ、スループットを最大化するための、キーとなるチューニング項目について説明します。
 
-Note
-The recommendations provided here are guidelines for your testing rather than hard and fast rules for every situation. Said another way, the fact that a given setting is configurable implies that no one setting is right in all circumstances.
+> 注意  
+> ここで提供される推奨事項が、すべての状況で正しい設定ではないということに注意して下さい。
 
-The extent to which performance tuning advice applies depends to a large extent on your requirements, on your workload, and on what resources you have available. Test suggestions before rolling them out into production.
+パフォーマンスチューニングのアドバイスが適用される範囲は、システム要件、ワークロード、どの程度のリソースが利用可能であるかに大きく依存します。テストの提案生産にそれらを展開する前に。
 
-The suggestions in this chapter pertain to OpenAM deployments with the following characteristics:
+この章の提案は、次の特性を持つOpenAMの配備に関連します:
 
-- The host running the OpenAM server has a large amount of memory.
-- The deployment has a dedicated OpenDJ directory server for the Core Token Service. The host running this directory server is a high-end server with a large amount of memory and multiple CPUs.
-- The OpenAM server is configured to use stateful sessions.
+- OpenAMサーバーを実行しているホストは、大量のメモリを持っている。
+- 配備がコアトークンサービスのための専用OpenDJディレクトリサーバーを持っている。このディレクトリサーバーを実行しているホストは、大容量のメモリと、複数のCPUを搭載するハイエンドサーバーである。
+- OpenAMサーバーはステートフルなセッションを使用するように設定されています。
 
 これまでの経験則から、本番環境においてステートフルセッションを使用するように構成された3GBのヒープのOpenAMサーバーは、10万セッションを処理することができます。64ビットJVMで大規模なヒープを使用した方がいいと考えるかもしれませんが、小さいヒープの方が管理が容易です。このように、同時セッションの合計数を増やすためには、単一のサーバーをスケールアップするよりも、むしろ、代わりにより多くのサーバーを追加することにより、スケールアウトすることを検討して下さい。
 
