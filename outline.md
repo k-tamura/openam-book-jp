@@ -9,9 +9,10 @@
  2.2 OpenAMで何ができるか  
  2.3 アーキテクチャ  
  2.4 関連ソフトウェア  
- 2.4.1 OpenDJ  
- 2.4.2 OpenIDM  
- 2.4.3 OpenIG  
+ 2.4.1 Policy Agent  
+ 2.4.2 OpenDJ  
+ 2.4.3 OpenIDM  
+ 2.4.4 OpenIG  
 3. OpenAMの歴史とロードマップ  
  3.1 [OpenSSO以前](history-of-opensso.md)  
  3.2 [OpenAM以降](history-of-openam.md)  
