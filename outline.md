@@ -2,7 +2,7 @@
 
 1. はじめに  
  1.1 [本書の目的と構成](purpose_of_this_book.md)  
- 1.2 対象読者   
+ 1.2 [対象読者](target-reader.md)   
  1.3 表記方法  
 2. 概要  
  2.1 OpenAMが必要な背景  
