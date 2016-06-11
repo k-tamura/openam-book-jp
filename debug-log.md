@@ -2,10 +2,12 @@
 
 一般的なアプリケーションと同様に、OpenAMも問題が発生した際の解析などを目的としてデバッグログを出力します。OpenAMが意図した通りに動作しない場合、このログを確認することが問題解決の第一歩になります。デバッグログの出力先は、デフォルトで[OpenAMの設定ディレクトリ]/[コンテキスト名]/debug (例えば、/usr/share/tomcat7/openam/openam/debug) になります。この中に以下のようなカテゴリー単位のログが出力されます。
 
+- amUpgrade
 - Authentication
 - Configuration
 - CoreSystem
 - Entitlement
+- Federation
 - IdRepo
 - Policy
 - Session
@@ -53,3 +55,17 @@ J2EEエージェントの場合は、
 |エージェントデバッグレベル|エラー|ポリシーエージェントのデバッグレベル。  (プロパティー名: com.iplanet.services.debug.level)|
 
 ただし、「エージェント設定リポジトリの場所」が「集中化」に選択されている場合に限ります。「ローカル」に設定されている場合は、ポリシーエージェントのインストールディレクトリ配下にあるOpenSSOAgentBootstrap.propertiesというファイルでこれらの設定を変更可能です。
+
+### デバッグログのローテーション
+
+デフォルトでは、OpenAMはデバッグログをローテーションしません。デバッグログを回転させるには、OpenAMがデプロイされているディレクトリのWEB-INF/classes/debugconfig.propertiesを編集します。
+
+表. J2EEエージェントのデバッグログの設定
+
+|プロパティ名|デフォルト値|説明|
+|---|---|---|
+|org.forgerock.openam.debug.prefix|無し|デバッグログファイルをローテーションさせる場合は、このプロパティにデバッグログファイルのプレフィックスを文字列で指定します。|
+|org.forgerock.openam.debug.suffix|-MM.dd.yyyy-kk.mm|デバッグログファイルをローテーションさせる場合は、このプロパティにデバッグログファイルのサフィックスをSimpleDateFormatで指定します。|
+|org.forgerock.openam.debug.rotation|無し|ローテーションの間隔を分単位で指定します。デバッグログのローテーションを有効にするには、ゼロよりも大きい値に設定します。|
+
+debugconfig.propertiesへの変更は即座に反映されるので、OpenAMを再起動する必要はありません。
