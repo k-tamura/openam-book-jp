@@ -2,15 +2,14 @@
 
 一般的なアプリケーションと同様に、OpenAMも問題が発生した際の解析などを目的としてデバッグログを出力します。OpenAMが意図した通りに動作しない場合、このログを確認することが問題解決の第一歩になります。デバッグログの出力先は、デフォルトで[OpenAMの設定ディレクトリ]/[コンテキスト名]/debug (例えば、/usr/share/tomcat7/openam/openam/debug) になります。この中に以下のようなカテゴリー単位のログが出力されます。
 
-- amUpgrade
-- Authentication
-- Configuration
-- CoreSystem
-- Entitlement
-- Federation
-- IdRepo
-- Policy
-- Session
+- amUpgrade: OpenAMのアップグレード中に出力されるログ
+- Authentication: 認証に関するログ
+- Configuration: 設定に関するログ
+- CoreSystem: OpenAMのコアとなるクラスが出力するログ
+- Federation: SAMLなどのフェデレーション機能に関するログ
+- IdRepo: データストアにアクセスするモジュールが出力するログ
+- Policy: ポリシーに関するログ
+- Session: セッションに関するログ
 
 #### OpenAM全体のデバッグレベルと出力先の変更 
 
