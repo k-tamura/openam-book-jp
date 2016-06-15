@@ -67,4 +67,4 @@ J2EEエージェントの場合は、
 |org.forgerock.openam.debug.suffix|-MM.dd.yyyy-kk.mm|デバッグログファイルをローテーションさせる場合は、このプロパティにデバッグログファイルのサフィックスをSimpleDateFormatで指定します。|
 |org.forgerock.openam.debug.rotation|無し|ローテーションの間隔を分単位で指定します。デバッグログのローテーションを有効にするには、ゼロよりも大きい値に設定します。|
 
-debugconfig.propertiesへの変更は即座に反映されるので、OpenAMを再起動する必要はありません。
+debugconfig.propertiesへの変更は、OpenAMを再起動後に反映されます。
