@@ -44,7 +44,7 @@
 9. [ユーザーセルフサービス](user-self-service.md)  
 10. RESTfulサービス  
 11. [アップグレード](upgrade.md)  
- 11.1 OpenAMのアップグレード   
+ 11.1 [OpenAMのアップグレード](upgrade-of-openam.md)   
  11.2 Policy Agentのアップグレード   
  11.3 バックアップとリストア   
 12. カスタマイズ  
