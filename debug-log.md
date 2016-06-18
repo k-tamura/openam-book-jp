@@ -23,7 +23,7 @@ OpenAM全体のデバッグレベルは、管理コンソールで変更でき�
 |設定項目|デフォルト値|説明|
 |---|---|---|
 |デバッグレベル|エラー|OpenAM全体のデバッグレベル。  (プロパティー名: com.iplanet.services.debug.level)|
-|デバッグファイルのマージ|オン|すべてのデバッグログを 1 つのファイル (debug.out) に転送します。オフ: コンポーネントごとに個別のデバッグファイルを作成します  (プロパティー名: com.sun.services.debug.mergeall)|	
+|デバッグファイルのマージ|オン|すべてのデバッグログを 1 つのファイル (debug.out) に転送します。オフ: コンポーネントごとに個別のデバッグファイルを作成します。  (プロパティー名: com.sun.services.debug.mergeall)|	
 |デバッグディレクトリ|%BASE_DIR%/%SERVER_URI%/debug|デバッグファイルが存在するディレクトリ。  (プロパティー名: com.iplanet.services.debug.directory)|	
 
 #### カテゴリー単位のデバッグレベルの変更 
