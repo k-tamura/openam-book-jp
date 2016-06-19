@@ -10,7 +10,7 @@
  2.2 OpenAMで何ができるか  
  2.3 アーキテクチャ  
  2.4 関連ソフトウェア  
- 2.4.1 Policy Agent  
+ 2.4.1 [Policy Agent](policy-agent.md)   
  2.4.2 [OpenDJ](opendj.md)  
  2.4.3 OpenIDM  
  2.4.4 OpenIG  
