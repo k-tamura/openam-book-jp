@@ -3,7 +3,7 @@ OpenAM 13 Book for Japanese
 
 Under constructing  
 現在作成中。まずは内容は二の次で、ひたすら書くのみ。  
-※誤りを多く含んでいる可能性があります。
+※誤りを多く含んでいる可能性があります(...というより含んでいます)。
 
 Title: OpenAM入門  
 Subtitle: OpenAMでシングルサインオン!  
