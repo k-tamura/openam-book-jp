@@ -1,12 +1,12 @@
-## Configuring Audit Logging
+## 監査ログの設定
 
-OpenAM supports a comprehensive Audit Logging Service that captures key auditing events, critical for system security, troubleshooting, and regulatory compliance.
+OpenAMは、システムセキュリティ、トラブルシューティング、規制遵守にとって重要なキーとなる監査イベントを、キャプチャする包括的な監査ログサービスをサポートしています。
 
-Audit logs gather operational information about events occurring within an OpenAM deployment to track processes and security data, such as authentication mechanisms, system access, user and administrator activity, error messages, and configuration changes.
+監査ログは、処理とセキュリティデータを追跡するために、認証メカニズム、システムへのアクセス、ユーザーと管理者のアクティビティ、エラーメッセージ、設定変更など、OpenAMの配備内で発生するイベントに関する操作情報を収集します。
 
-The Audit Logging Service uses a structured message format that adheres to a consistent and documented log structure common across the ForgeRock stack, including OpenAM, OpenIDM, OpenDJ, and OpenIG.
-Note
+監査ログサービスは、OpenAM、OpenIDM、OpenDJ、OpenIGを含むForgeRockスタック全体で共通の一貫性があり、文書化、構造化されたメッセージフォーマットを使用しています。
 
+注意:
 OpenAM 13 supports two Audit Logging Services: the legacy Logging Service, which is based on a Java SDK and is available in OpenAM versions prior to OpenAM 13, and a new common REST-based Audit Logging Service available in OpenAM 13. The legacy Logging Service will be deprecated in a future release.
 
 ### About the Audit Logging Service
