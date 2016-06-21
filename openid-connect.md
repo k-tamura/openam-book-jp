@@ -26,6 +26,8 @@ OPにエンドユーザーの認証を委譲するアプリケーションです
 
 RPがWebアプリケーションの場合の、OpenID Connectの典型的なフローは、以下のようになります。
 
+図. OpenID Connectのフロー(ベーシックフロー)
+
 まず、エンドユーザーはWebアプリケーションにアクセスします（1）。Webアプリケーションは「○○（OP）でログイン」というようなボタンのある画面を表示します。エンドユーザーがこのボタンをクリックすることで、OpenID Connectで規定されたフローが始まります。WebアプリケーションはエンドユーザーをOPの認可エンドポイント（注2）へとリダイレクトします（認証要求：2）。
 
 注2：エンドポイント（Endpoint）：サービスを提供するURIを意味します。OpenID ConnectのOPは、認証・認可を実行するための認可エンドポイントや、エンドユーザーの情報を取得するためのユーザー情報エンドポイントなどを公開します。
@@ -47,13 +49,16 @@ OPはログイン画面を表示し（3）、それに対してエンドユー�
 注4：「OpenID Connect IDトークン認証」モジュールは、RPの仕様を完全に実装しているわけではありません。機能概要については、後述する「表2 OpenAMのOAuth 2.0 / OpenID Connect対応状況」の中で説明します。
 OpenAMにおける、OpenID ConnectおよびそのベースとなっているOAuth 2.0の対応状況は、次の通りです。
 
-プロトコル	役割	機能概要	対応バージョン
-OAuth 2.0	クライアント	OAuth 2.0クライアント認証モジュールを設定することで、OpenAMがOAuth 2.0のクライアントとなり、FacebookやWindows Liveなどにログインを委譲できるようになる。	10.0.0
-認可サーバー	OpenAMがOAuth 2.0の認可サーバーとなり、OAuth 2.0のクライアントであるWebアプリケーションなどに、ユーザー情報へのアクセス権限を付与できるようになる。	10.1.0
-OpenID Connect 1.0	RP（Relying Party）	OpenID Connect IDトークン認証モジュールを設定すると、OpenAMに対するログインリクエストのヘッダーに、OPから取得したIDトークンが含まれているかをチェックするようになる。IDトークンが含まれていると、その値を検証し、妥当と判断した場合はエンドユーザーをOpenAMにログイン済みの状態にする。	12.0.0（予定）
-OP（OpenID Provider）	OpenAM 11.0.0からは、OpenAMにOAuth 2.0認可サーバーの設定を行うことで、OpenID Connect 1.0のOPとしても機能するようになる。これにより、RPの認証をOpenAMに委譲することが可能。	11.0.0
-表2 OpenAMのOAuth 2.0 / OpenID Connect対応状況
-OpenID Connect OPとしてのOpenAMの設定
+|プロトコル|役割|機能概要|対応バージョン|
+|---|---|---|---|
+|OAuth 2.0|クライアント|OAuth 2.0クライアント認証モジュールを設定することで、OpenAMがOAuth 2.0のクライアントとなり、FacebookやWindows Liveなどにログインを委譲できるようになる。|10.0.0|
+|認可サーバー|OpenAMがOAuth 2.0の認可サーバーとなり、OAuth 2.0のクライアントであるWebアプリケーションなどに、ユーザー情報へのアクセス権限を付与できるようになる。|10.1.0|
+|OpenID Connect 1.0|RP（Relying Party）|OpenID Connect IDトークン認証モジュールを設定すると、OpenAMに対するログインリクエストのヘッダーに、OPから取得したIDトークンが含まれているかをチェックするようになる。IDトークンが含まれていると、その値を検証し、妥当と判断した場合はエンドユーザーをOpenAMにログイン済みの状態にする。|12.0.0（予定）|
+|OP（OpenID Provider）|OpenAM 11.0.0からは、OpenAMにOAuth 2.0認可サーバーの設定を行うことで、OpenID Connect 1.0のOPとしても機能するようになる。これにより、RPの認証をOpenAMに委譲することが可能。|11.0.0|
+
+表. OpenAMのOAuth 2.0 / OpenID Connect対応状況
+
+#### OpenID Connect OPとしてのOpenAMの設定
 
 OpenAMにOPとしての役割を持たせるための設定はとても簡単です。まずOpenAMの管理コンソールに管理者ユーザーでログインし、トップページ（共通タスクページ）にある「OAuth2の設定」をクリックします。
 
@@ -89,7 +94,7 @@ OAuth 2.0 認可サーバーの設定しかしていませんが、前述した�
 
 認可エンドポイント（authorization_endpoint）やトークンエンドポイント（token_endpoint）、サポートしているレスポンスの種類（response_types_supported）などが確認できると思います。
 
-OpenID Connect RPのプロファイルの登録
+#### OpenID Connect RPのプロファイルの登録
 
 OPとしての設定ができましたが、これだけではRPと連携することはできません。RPのプロファイル（RPに関する情報、例えば、RPの名前やリダイレクトURIなど）をOPに登録する必要があります。OpenAMでは、RPのプロファイルを事前に登録することも動的に登録することもできます（注5）。後者の実装はOpenID Connect Dynamic Client Registration 1.0で規定された仕様に従います。
 
@@ -102,7 +107,9 @@ OPとしての設定ができましたが、これだけではRPと連携する�
 
 OpenAMが提供するOpenID Connect機能を実際に動作確認することができるRPのサンプルが提供されています。フォージロックのMark Craig氏のGitHubに公開されています。
 このサンプルによって、以下が確認できます。
+
 - OpenID Connect認可コードフロー
 - OpenID Connectインプリシットフロー
 - OpenID Connect動的クライアント登録  
+
 詳細な手順に関しては、OpenAM 11.0.0 管理者ガイドの「Chapter 14. Managing OpenID Connect 1.0 Authorization」を参照してください。
