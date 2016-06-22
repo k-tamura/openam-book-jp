@@ -62,11 +62,12 @@ OpenAMは、4つの異なる監査トピックに基づいてログメッセー�
 
 ### 監査ログの出力先
 
-OpenAM stores its audit logs by default at the following location:
+デフォルトでOpenAMは、次の場所に監査ログを格納します:
 
-/path/to/openam/openam/log/
+> /path/to/openam/openam/log/
 
-You can change the default global location using the OpenAM console by navigating to Realms > Realm Name > Services > Audit Logging > CSV Handler Name. In the Log Directory box, change the default log location.
+管理コンソールを使用して、デフォルトのグローバルロケーションを変更することができます。
+レルム > (レルム名) > サービス > 監査ログ > CSV ハンドラ名 をクリックし、ログディレクトリのセクションで、デフォルトログロケーションを変更して下さい。
 
 ### 監査イベントハンドラの設定
 
