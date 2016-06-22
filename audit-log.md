@@ -47,34 +47,28 @@ OpenAMは、自身のインスタンス、ポリシーエージェント、ssoad
 監査ログサービスは、ネットワークのトラブルシューティングのために、リバースDNSルックアップ機能をサポートしています。
 性能面を考慮して、リバースDNSルックアップはデフォルトで無効になっています。
 
-### Audit Log Topics
+### 監査ログトピックス
 
-OpenAM integrates log messages based on four different audit topics. A topic is a category of audit log event that has an associated one-to-one mapping to a schema type. Topics can be broadly categorized as access details, system activity, authentication operations, and configuration changes. The following table shows the basic event topics and associated audit log files, whose filenames are fixed:
-Table 6.1. Audit Log Topics
-Event Topic	File Name	Description
-Access	access.csv 	
+OpenAMは、4つの異なる監査トピックに基づいてログメッセージを統合しています。トピックとは、スキーマ型に1対1でマッピングされて関連付けられている監査ログイベントのカテゴリです。トピックは、アクセスの詳細、システムアクティビティ、認証操作、設定変更として広く分類することができます。次の表は、そのファイル名が固定されている基本的なイベントのトピックと関連した監査ログファイルを、示しています:
 
-Captures who, what, when, and output for every access request.
-Activity	activity.csv 	
+表. 監査ログトピックス
 
-Captures state changes to objects that have been created, updated, or deleted by end users (that is, non-administrators). For this release, only session changes are captured in the logs.
+|イベントトピック|ファイル名|説明|
+|---|---|---|
+|Access|access.csv|Captures who, what, when, and output for every access request.|
+|Activity|activity.csv|Captures state changes to objects that have been created, updated, or deleted by end users (that is, non-administrators). For this release, only session changes are captured in the logs.  Future releases may also record changes to user trusted devices, UMA policies, OAuth 2.0 tokens and others.|
+|Authentication|authentication.csv|Captures when and how a subject is authenticated and related events.|
+|Configuration|config.csv|Captures configuration changes to the product with a timestamp and by whom. Note that the userId indicating the subject who made the configuration change is not captured in the config.csv but may be tracked using the transactionId in the access.csv.|
 
-Future releases may also record changes to user trusted devices, UMA policies, OAuth 2.0 tokens and others.
-Authentication	authentication.csv 	
-
-Captures when and how a subject is authenticated and related events.
-Configuration	config.csv 	
-
-Captures configuration changes to the product with a timestamp and by whom. Note that the userId indicating the subject who made the configuration change is not captured in the config.csv but may be tracked using the transactionId in the access.csv.
-
-### Audit Log Location
+### 監査ログの出力先
 
 OpenAM stores its audit logs by default at the following location:
 
 /path/to/openam/openam/log/
 
 You can change the default global location using the OpenAM console by navigating to Realms > Realm Name > Services > Audit Logging > CSV Handler Name. In the Log Directory box, change the default log location.
-6.4. Configuring Audit Event Handlers
+
+### 監査イベントハンドラの設定
 
 OpenAM supports three types of audit event handlers: comma-separated values (CSV), syslog, and JDBC. The handlers publish audit events to CSV files, syslog daemons, and relational databases, respectively.
 Procedure 6.1. To Configure the CSV Audit Event Handler
