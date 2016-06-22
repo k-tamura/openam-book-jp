@@ -7,27 +7,45 @@ OpenAMは、システムセキュリティ、トラブルシューティング�
 監査ログサービスは、OpenAM、OpenIDM、OpenDJ、OpenIGを含むForgeRockスタック全体で共通の一貫性があり、文書化、構造化されたメッセージフォーマットを使用しています。
 
 注意:
-OpenAM 13 supports two Audit Logging Services: the legacy Logging Service, which is based on a Java SDK and is available in OpenAM versions prior to OpenAM 13, and a new common REST-based Audit Logging Service available in OpenAM 13. The legacy Logging Service will be deprecated in a future release.
+OpenAM 13では、次の2つの監査ログサービスをサポートしています。
+- レガシーログサービス: Java SDKベースで、OpenAM 13より前のバージョンで使用可能。今後のリリースでは廃止される予定です。
+- 新しいRESTベースの共通監査ログサービス: OpenAM 13で利用可能
 
-### About the Audit Logging Service
+### 監査ログサービスについて
 
-OpenAM writes log messages generated from audit events triggered by its instances, policy agents, the ssoadm tool, and connected ForgeRock stack implementations.
+OpenAMは、自身のインスタンス、ポリシーエージェント、ssoadmツールなどによって、トリガーされる監査イベントから生成されるログメッセージを書き込みます。
 
-OpenAM's Audit Logging Service provides a versatile and rich feature set as follows:
+次のようにOpenAMの監査ログサービスは、汎用的で豊富な機能セットを提供します:
 
-    Global and Realm-Based Log Configuration. You can configure audit logging globally, which ensures that all realms inherit your global log settings. You can also configure audit logging by realm, which allows you to set different log settings for each realm.
+- グローバル、レルムベースのログ設定
+すべてのレルムが継承することを保証する、グローバル監査ログを設定することができます。
+レルム毎に異なる監査​​ログを設定することを可能です。
 
-    Audit Event Handlers. The Audit Logging Service supports a variety of audit event handlers: Comma-Separate Values (CSV), Syslog, and JDBC handlers, which allow you to write logs to multiple systems.
+- 監査イベントハンドラ
+監査ログサービスは、様々な監査イベントハンドラのサポートしており、複数のシステムにログを書くことができます:
+ - CSVハンドラ
+ - Syslogハンドラ
+ - JDBCハンドラ
 
-    Audit Event Buffering. By default, OpenAM writes each log message separately as they are generated. OpenAM supports message buffering, a type of batch processing, that stores log messages in memory and flushes the buffer after a preconfigured time interval or after a certain number of log messages reaches the configured threshold value.
+- 監査イベントバッファリング  
+デフォルトでOpenAMは、生成された各ログメッセージを別々に書き込みます。 
+メモリにログメッセージを保持して、事前設定した時間や数の閾値に達した後にバッファをフラッシュする、メッセージバッファリングをサポートします。  
 
-    Tamper-Evident Logging. You can digitally sign your audit logs to ensure no unauthorized tampering of your logs has taken place. To configure this feature, you must deploy a preconfigured logger certificate and store it at /path/to/openam/openam/Logger.jks.
+- 改ざん防止用ロギング  
+ログに不正な改ざんが行われていないことを確かにするために、監査ログにデジタル署名することができます。
+この機能を設定するには、事前設定されたロガーの証明書をデプロイし、/path/to/openam/openam/Logger.jksでそれを保存する必要があります。  
 
-    Log Rotation and Retention Policies. By default, OpenAM rotates its audit logs once it reaches a specified maximum size. You can also configure a time-based rotation policy, which disables the max-size rotation policy and implements log rotation based on a preconfigured time sequence. You also have the option to disable log rotation and use an external log rotation tool.
+- ログローテーションと保持ポリシー  
+デフォルトでOpenAMは、指定された最大サイズに達すると監査ログをローテーションします。
+サイズベースのローテーションポリシーを無効にし、時間ベースで設定することができます。
+また、ログのローテーションを無効にして、外部のログローテーションツールを使用するオプションもあります。  
 
-    Blacklisting Sensitive Fields. The Audit Logging Service supports blacklisting, a type of filtering to hide sensitive values or fields, such as HTTP headers, query parameters, cookies, or the entire field value.
+- センシティブなフィールドのブラックリスト化  
+監査ログサービスはブラックリスト登録をサポートしています。HTTPヘッダ、クエリーパラメータ、クッキー、全体のフィールド値などのセンシティブな値やフィールドを非表示にするフィルタリングできます。  
 
-    Reverse DNS Lookup. The Audit Logging Service supports a reverse DNS lookup feature for network troubleshooting purposes. Reverse DNS lookup is disabled by default as it enacts a performance hit in operation throughput.
+- DNSルックアップの反転  
+監査ログサービスは、ネットワークのトラブルシューティングのために、リバースDNSルックアップ機能をサポートしています。
+性能面を考慮して、リバースDNSルックアップはデフォルトで無効になっています。
 
 ### Audit Log Topics
 
