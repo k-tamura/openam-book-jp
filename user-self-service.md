@@ -5,50 +5,50 @@ OpenAM 12.0.0では、XUI(※)ベースの「ユーザーセルフサービス�
 パスワードのリセット
 さらにバージョン13.0.0では、UMA(※2)のリソース共有管理機能の追加や、パスワードリセット時にKBA(※3)やGoogle reCAPTCHAで本人性を確認するといったことも可能になっています。
 
-※1：OpenAMから導入された新しいJavaScriptベースのユーザーインターフェイス。
-※2：User Managed Access：OAuth 2.0を拡張したアクセス管理プロトコル
-※3：Knowledge Based Authentication：ナレッジベース認証
+※1：OpenAMから導入された新しいJavaScriptベースのユーザーインターフェイス。  
+※2：User Managed Access：OAuth 2.0を拡張したアクセス管理プロトコル  
+※3：Knowledge Based Authentication：ナレッジベース認証  
 今回は、KBAとGoogle reCAPTCHAを使ったパスワードリセット機能について紹介します。この機能を設定した場合、ユーザーがパスワードをリセットするフローは次のようになります。
 
-flow
+図. パスワードリセットのフロー
 
 概要
 KBAとは、いわゆる秘密の質問と回答のことです。ユーザーが設定した秘密の質問を回答することで本人であることを確認する仕組みです。Google reCAPTCHAは、Googleが提供する、ロボットによるなりすましを防止する機能です。パスワードをリセットするプロセスで、KBAとreCAPTCHAを使って、本人性を確認します。
 
-hero-recaptcha-demo
+図. リキャプチャのデモ
 
 設定
 設定は簡単です。まずはGoogle側の設定をします。Googleアカウントでログインしてから、Google reCAPTCHAのページにアクセスし、このページの右上の「Gget reCAPTCHA」ボタンをクリックします。
 
-Screenshot-9
+図. Google reCAPTCHAのサイト
 
 適当なラベル名とOpenAMサーバーのドメインを入力します。私の環境では、OpenAMサーバーのホスト名(FQDN)がopenam09.example.co.jpなので、Domainsには「example.co.jp」と入力します。入力したら「Register」ボタンをクリックします。
 
-Screenshot-10
+図. サイトの登録
 
 完了すると、「Site key」と「Secret key」が発行されます。これらの値は、後でOpenAMの設定で使用するので、このページはこのまま開いておいて下さい。
 
-screenshot-8
+図. キーの発行
 
 次に、OpenAMの設定を行います。管理コンソールにamadminでログインして、設定 > グローバル > User Self Service をクリックします。
 
-Screenshot-2
+図. Google reCAPTCHAのサイト
 
 画面の最上部に「Google Re-captcha Site key」と「Google Re-captcha Secret key」の入力欄があるので、先ほど取得した値を入力します。
 
-screenshot-3
+図. グローバル設定一覧
 
 画面の中央部に「Forgotten Password」のセクションがあるので、全てのチェックボックスにチェックを入れて、「保存」ボタンをクリックします。
 
-screenshot-4
+図. ユーザーセルフサービスの設定 (1)
 
 パスワードをリセットするためのURLはメールでユーザーに通知するため、「電子メールサービス」の設定も必要です。設定 > グローバル > 電子メールサービス をクリックします。
 
-Screenshot-5
+図. ユーザーセルフサービスの設定 (2)
 
 送信可能なSMTPサーバーのホスト名、ポート番号、認証ユーザーのIDとパスワードを入力して下さい。
 
-Screenshot-6
+図. 電子メールサービスの設定
 
 これで、基本的な設定は完了です。
 
