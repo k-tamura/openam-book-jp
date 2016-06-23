@@ -37,13 +37,13 @@ OpenDJは、設定データストアとしてOpenAMの組み込まれており�
 
 ### OpenDJの特徴
 
-Open Source: OpenDJ is the only 100% commercial open source LDAP directory server available on the market today. Feature overview.
-Open Access: Our flexible data model lets developers choose REST, SCIM, LDAP, or Web Services for access
-Open Architecture: 100% Java architecture supports the most demanding SLA environments with high throughput and low response times.
+- オープンソース：今日の市場で利用可能な唯一の100％商用オープンソースLDAPディレクトリサーバーです。
+- マルチプロトコル対応：柔軟なデータモデルにより、LDAPだけでなくREST、SCIM、Webサービスでアクセスすることができます。
+- 高い信頼性と性能：最も要求の厳しいSLA環境でも、高いスループットと短い応答時間を実現します。
 
 ### OpenDJの主な機能
 
-- Performance, Scalability, High Availability
+- 性能、スケーラビリティ、高可用性
 
     OpenDJ provides industry-leading performance with sub-millisecond read/write response times and low latency throughput, up to hundreds of thousands of operations per second
     Supports HA deployments with N-way multi-master replication, including data centers with geographic separation for managing failover and disaster recovery
