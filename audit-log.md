@@ -57,8 +57,9 @@ OpenAMは、4つの異なる監査トピックに基づいてログメッセー�
 |---|---|---|
 |Access|access.csv|誰が、何を、いつ、およびすべてのアクセス要求に対する出力をキャプチャします。|
 |Activity|activity.csv|エンドユーザー(非管理者)によって作成、更新、削除されたオブジェクトの状態の変化をキャプチャします。このリリースでは、セッションの変更のみがログに記録されます。今後のリリースでは、ユーザーの信頼できるデバイス、UMAポリシー、OAuth 2.0のトークンなどへの変更を記録することができます。|
-|Authentication|authentication.csv|Captures when and how a subject is authenticated and related events.|
-|Configuration|config.csv|Captures configuration changes to the product with a timestamp and by whom. Note that the userId indicating the subject who made the configuration change is not captured in the config.csv but may be tracked using the transactionId in the access.csv.|
+|Authentication|authentication.csv|いつ、どのように被写体が認証されたか、および認証に関連するイベントをキャプチャします。|
+|Configuration|config.csv|誰が、いつ、製品の設定変更をしたかキャプチャします。
+設定の変更を行った対象を示すuserIdは、config.csvにはキャプチャされませんが、access.csvのtransactionIdを使用して追跡することができることに注意して下さい。|
 
 ### 監査ログの出力先
 
