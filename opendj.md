@@ -45,12 +45,21 @@ OpenDJは、設定データストアとしてOpenAMの組み込まれており�
 
 - 性能、スケーラビリティ、高可用性
 
-    OpenDJ provides industry-leading performance with sub-millisecond read/write response times and low latency throughput, up to hundreds of thousands of operations per second
-    Supports HA deployments with N-way multi-master replication, including data centers with geographic separation for managing failover and disaster recovery
-    Meets the most rigorous SLA requirements, from telco subscriber systems to mission-critical enterprise environments
+ - OpenDJ provides industry-leading performance with sub-millisecond read/write response times and low latency throughput, up to hundreds of thousands of operations per second
+ - Supports HA deployments with N-way multi-master replication, including data centers with geographic separation for managing failover and disaster recovery
+ - Meets the most rigorous SLA requirements, from telco subscriber systems to mission-critical enterprise environments
 
 - Speaks your language!
+
+ - Provides access through REST API, SCIM, LDAP, and Web Services (DSMLv2) to ensure maximum interoperability with client application
+ - OpenDJ SDK for Java provides a library of classes and interfaces for accessing and implementing LDAP Directory Services
+
 - Replication
+
+ - N-way multi-master replication ensures high-availability and disaster recovery capabilities
+ - Assured replication can guarantee data availability in the event of server failure
+ - Supports WAN-optimized replication for increased bandwidth efficiency
+
 - Security
 - Pass-Through Authentication
 - User and Account Management
