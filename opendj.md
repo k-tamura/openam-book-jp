@@ -45,29 +45,57 @@ OpenDJは、設定データストアとしてOpenAMの組み込まれており�
 
 - 性能、スケーラビリティ、高可用性
 
- - OpenDJ provides industry-leading performance with sub-millisecond read/write response times and low latency throughput, up to hundreds of thousands of operations per second
- - Supports HA deployments with N-way multi-master replication, including data centers with geographic separation for managing failover and disaster recovery
- - Meets the most rigorous SLA requirements, from telco subscriber systems to mission-critical enterprise environments
+ - 秒間数十万回の操作を可能とする低レイテンシーのスループット、1ミリ秒以下の読み取り/書き込み応答時間
+ - N-wayマルチマスターレプリケーションでのHA配備、フェイルオーバーとディザスタリカバリー
+ - ミッションクリティカルなエンタープライズ環境で最も厳しいSLA要件を満たすことが可能
 
-- Speaks your language!
+- マルチプロトコル対応
 
- - Provides access through REST API, SCIM, LDAP, and Web Services (DSMLv2) to ensure maximum interoperability with client application
- - OpenDJ SDK for Java provides a library of classes and interfaces for accessing and implementing LDAP Directory Services
+ - クライアントアプリケーションとの相互運用性を最大限に確保するため、REST API、SCIM、LDAP、Webサービス（DSMLv2）でのアクセスが可能
+ - LDAPディレクトリサービスへのアクセスを実装するための、クラスおよびインタフェースのライブラリの提供(OpenDJ SDK)
 
-- Replication
+- レプリケーション
 
- - N-way multi-master replication ensures high-availability and disaster recovery capabilities
- - Assured replication can guarantee data availability in the event of server failure
- - Supports WAN-optimized replication for increased bandwidth efficiency
+ - Nウェイマルチマスターレプリケーションによる、高可用性とディザスタリカバリの保証
+ - アシュアードレプリケーションによる、サーバー障害発生時のデータ可用性の保証
+ - WAN-optimizedレプリケーションによる、増加した帯域幅の効率化のためのサポート
 
-- Security
-- Pass-Through Authentication
-- User and Account Management
-- Easy Setup and Administration
-- Monitoring and Alerts
-- Logging and Auditing
-- Localization
-- Supported Standards
-- 100% Java-based architecture
-- 100% open source
+- セキュリティ
 
+ - 
+
+- パススルー認証
+
+ - 
+
+- ユーザーとアカウントの管理
+
+ - 
+
+- 簡単なセットアップと管理
+
+ - 
+
+- 監視とアラート
+
+ - 
+
+- ロギングおよび監査
+
+ - 
+
+- ローカライゼーション
+
+ - 
+
+- サポートされる標準仕様
+
+ - 
+
+- 100％Javaベースのアーキテクチャ
+
+ - 
+
+- 100％オープンソース
+
+ - 
