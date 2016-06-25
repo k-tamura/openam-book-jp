@@ -39,31 +39,25 @@ OpenIGは、ForgeRock社が開発しているOSSで、OpenAMと連携して「�
 
 - アイデンティティ標準のサポート (OAuth 2.0、OpenID Connect 1.0、SAML 2.0)
 
- - 秒間数十万回の操作を可能とする低レイテンシーのスループット、1ミリ秒以下の読み取り/書き込み応答時間
- - N-wayマルチマスターレプリケーションでのHA配備、フェイルオーバーとディザスタリカバリー
- - ミッションクリティカルなエンタープライズ環境で最も厳しいSLA要件を満たすことが可能
+ - Extends secure access to mobile, cloud, and legacy enterprise applications.
+ - As an OAuth 2.0 client or OpenID Connect relying party, OpenIG can also help you to integrate existing applications or to quickly build new applications that integrate with OAuth 2.0 / OpenID Connect identity providers.
+
 
 - アプリケーションとAPIゲートウェイという概念
 
- - クライアントアプリケーションとの相互運用性を最大限に確保するため、REST API、SCIM、LDAP、Webサービス（DSMLv2）でのアクセスが可能
- - LDAPディレクトリサービスへのアクセスを実装するための、クラスおよびインタフェースのライブラリの提供(OpenDJ SDK)
+ - Allows organizations to provide secure access to applications and API services, without modifying them, for additional revenue opportunities.
 
 - パッケージ化されたSAML2.0ベースのフェデレーション
 
- - Nウェイマルチマスターレプリケーションによる、高可用性とディザスタリカバリの保証
- - アシュアードレプリケーションによる、サーバー障害発生時のデータ可用性の保証
- - WAN-optimizedレプリケーションによる、増加した帯域幅の効率化のためのサポート
+ - Reduces the complexity of enabling federation by wrapping an OpenAM Fedlet, which you can configure without knowing SAML 2.0.
 
 - パスワードのキャプチャおよびリプレイ
 
- - 多種多様な暗号化メカニズムを通じて、パスワードを含むすべてのデータを保護
- - SSL、StartTLS、証明書を含む複数レベルの認証と認可ポリシーをサポート
- - すべての設定変更の監査、アーカイブ(設定作業のロールバックを簡単にできる)
+ - 既存のアプリケーションに改修無しで、アクセス可能
 
 - OpenAMを含む、任意のアイデンティティプロバイダーと連携
 
- - 既存のWebアクセス管理ソリューションに統合
-そして、レガシーアプリケーションとAPIのセキュリティを可能にしました。
+ - 既存のWebアクセス管理ソリューションやレガシーアプリケーションに統合可能
 
 - シングルサインオンとシングルサインアウト
 
@@ -71,4 +65,4 @@ OpenIGは、ForgeRock社が開発しているOSSで、OpenAMと連携して「�
 
 - 100％オープンソース
 
- - コードへのアクセス、コミュニティの参加や議論、透明なロードマップ情報の提供を可能にします。
+ - コードへのアクセス、コミュニティの参加や議論、透明なロードマップ情報の提供
