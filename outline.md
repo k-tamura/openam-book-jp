@@ -12,7 +12,7 @@
  2.3 アーキテクチャ  
  2.4 関連ソフトウェア  
  2.4.1 [Policy Agent](policy-agent.md)   
- 2.4.2 OpenIG  
+ 2.4.2 [OpenIG](openig.md)  
  2.4.3 [OpenDJ](opendj.md)  
  2.4.4 OpenIDM  
 3. OpenAMの歴史とロードマップ  
