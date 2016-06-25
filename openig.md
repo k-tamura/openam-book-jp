@@ -39,17 +39,16 @@ OpenIGは、ForgeRock社が開発しているOSSで、OpenAMと連携して「�
 
 - アイデンティティ標準のサポート (OAuth 2.0、OpenID Connect 1.0、SAML 2.0)
 
- - Extends secure access to mobile, cloud, and legacy enterprise applications.
- - As an OAuth 2.0 client or OpenID Connect relying party, OpenIG can also help you to integrate existing applications or to quickly build new applications that integrate with OAuth 2.0 / OpenID Connect identity providers.
-
+ - モバイル、クラウド、従来のエンタープライズアプリケーションへのセキュアなアクセスを拡張
+ - OAuth 2.0のクライアントやOpenID Connectリライングパーティとして、既存のアプリケーションを統合する、またはOAuth2.0/OpenID ConnectのIDプロバイダと統合する新しいアプリケーションを構築可能
 
 - アプリケーションとAPIゲートウェイという概念
 
- - Allows organizations to provide secure access to applications and API services, without modifying them, for additional revenue opportunities.
+ - 変更無しで、アプリケーションやAPIサービスへのセキュアなアクセスを提供可能
 
 - パッケージ化されたSAML2.0ベースのフェデレーション
 
- - Reduces the complexity of enabling federation by wrapping an OpenAM Fedlet, which you can configure without knowing SAML 2.0.
+ - OpenAMのFedletをラップすることにより、SAML2.0を知らなくてもフェデレーションを可能にする複雑さを軽減
 
 - パスワードのキャプチャおよびリプレイ
 
