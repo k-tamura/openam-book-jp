@@ -36,7 +36,7 @@
 6. 設定  
  6.1 管理コンソール   
  6.2 コマンドラインツール   
- 6.3 ssoadm.jsp   
+ 6.3 [ssoadm.jsp](ssoadm-jsp.md)   
 7. [認証](authn.md)  
  7.1 [認証モジュール](authn_modules.md)   
  7.2 [認証連鎖](authn_chain.md)     
