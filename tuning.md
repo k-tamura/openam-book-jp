@@ -91,7 +91,7 @@ OpenAM has two thread pools used to send notifications to clients. The Service M
 
 The session service has its own thread pool to send notifications to listeners about changes to stateful sessions. This is configured under Configuration > Servers and Sites > Default Server Settings > Session:
 
-表. Session Service Notification Settings
+表. セッションサービスの通知設定
 
 |プロパティ|デフォルト値|提案|
 |---|---|---|
@@ -111,7 +111,8 @@ The session service has additional properties to tune, which are configured unde
 
 ###  Java仮想マシン設定
 
-This section gives some initial guidance on configuring the JVM for running OpenAM. These settings provide a strong foundation to the JVM before a more detailed garbage collection tuning exercise, or as best practice configuration for production:
+このセクションでは、OpenAMを実行する際のJVMオプションの設定について解説します。
+これらの設定は、より詳細なガベージコレクションのチューニング作業の前の、本番環境用のベストプラクティスな構成として、利用できます:
 
 表. ヒープサイズ設定
 
