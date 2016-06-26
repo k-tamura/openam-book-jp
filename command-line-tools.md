@@ -9,15 +9,18 @@
 
 - **ampassword**  
  このツールを使用すると、OpenAM管理者のパスワードを変更したり、暗号化されたパスワードの値を表示することができます。
- SSOAdminTools-13.0.0.zipを解凍して、これをインストールしてください。
+ SSOAdminTools-13.0.0.zipを解凍して、これをインストールして下さい。
  
 - **amverifyarchive**  
  このツールは改ざんが無いかログアーカイブをチェックします。
- SSOAdminTools-13.0.0.zipを解凍して、これをインストールしてください。
+ SSOAdminTools-13.0.0.zipを解凍して、これをインストールして下さい。
 
 - **openam-distribution-configurator-13.0.0.jar**  
- This executable .jar file lets you perform a silent installation of an OpenAM server with a configuration file. For example, the java -jar configurator.jar -f config.file command couples the configurator.jar archive with the config.file. The sampleconfiguration file provided with the tool is set up with the format for the config.file, and it must be adapted for your environment.
- Install this from SSOConfiguratorTools-13.0.0.zip.
+The sampleconfiguration file provided with the tool is set up with the format for the config.file, and it must be adapted for your environment.
+ この実行可能な.jarファイルは、設定ファイルを使用してOpenAMサーバのサイレントインストールを実行できます。
+例えば、`java -jar configurator.jar -f config.file`コマンドは、config.fileとconfigurator.jarのアーカイブを結びつけます。
+ツールで提供されたsampleconfigurationファイルは、config.fileのフォーマットで設定されており、それが使用している環境に適合させる必要があります。
+SSOConfiguratorTools-13.0.0.zipを解凍して、これをインストールして下さい。
  
 - **ssoadm**  
  This tool provides a rich command-line interface for the configuration of OpenAM core services.
