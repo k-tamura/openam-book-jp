@@ -50,8 +50,8 @@ A modern UI experience that allows you manage your data without writing a single
 
 - 高可用性
 
- - Enterprise features at Internet scale. This includes role-based provisioning, high availability “out of the box,” workflow synchronization (with delivery guarantees), customizable user interfaces, and password management.
- - Configure nodes for specific tasks, such as reconciliations, or share load and act as backup in the event another node becoming unavailable
+ - インターネットスケールでのエンタープライズ機能。ロールベースのプロビジョニング、高可用性のあるワークフローの同期、カスタマイズ可能なユーザーインターフェース、パスワード管理を含む。
+ - 特定のタスク(リコンシリエーションなどの)または負荷の共有のためのノードを設定し、別のノードが使用できなくなってきた場合にバックアップとして機能
 
 - モジュール方式
 
@@ -60,7 +60,7 @@ A modern UI experience that allows you manage your data without writing a single
  - Provides flexibility to use the database backend system of your choice including Relational Database, NoSQL, NewSQL, etc.
  - Dynamically update services and upgrade connectors without reconfiguration or restarting
 
-- カスタマイズが容易、バックエンドの柔軟性
+- 容易なカスタマイズ、柔軟なバックエンド
 
  - Backend Flexibility. OpenIDM provides big data flexibility for massively scalable provisioning— you choose the backend for your deployment: Relational Database, NoSQL, NewSQL, etc.
  - Provides single, scalable web-app styled UI using Backbone, jQuery, and Handlebars. Easy to customize using standard, out-of the-box templates.
@@ -74,8 +74,8 @@ A modern UI experience that allows you manage your data without writing a single
 
 - 柔軟なデータモデル
 
-- Select the data model that best fits your deployment: a data full model for faster access or data sparse model for current data
-- An open object-based model that is not hard-coded – provides the flexibility to define different schema, objects, attributes, and relations
+ - Select the data model that best fits your deployment: a data full model for faster access or data sparse model for current data
+ - An open object-based model that is not hard-coded – provides the flexibility to define different schema, objects, attributes, and relations
 
 - 組み込みアーキテクチャ
 
