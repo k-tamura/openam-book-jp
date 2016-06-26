@@ -2,7 +2,7 @@
 
 この章では、OpenAMの動作をスムーズにし、応答時間を最小限に抑えつつ、スループットを最大化するための、キーとなるチューニング項目について説明します。
 
-> 注意  
+> **注意:**  
 > ここで提供される推奨事項が、すべての状況で正しい設定ではないということに注意して下さい。
 
 パフォーマンスチューニングのアドバイスが適用される範囲は、システム要件、ワークロード、どの程度のリソースが利用可能であるかに大きく依存します。本番環境にOpenAMをデプロイする前に十分なテストを行って下さい。
@@ -39,7 +39,7 @@ LDAPデータストアの設定を変更するには、OpenAMの管理コンソ�
 |プロパティ|デフォルト値|提案|
 |---|---|---|
 |LDAP接続プール最小サイズ|1|LDAP接続プールの最小サイズ。推奨値は、10です。  (sun-idrepo-ldapv3-config-connection_pool_min_size)|
-|LDAP接続プール最大サイズ|10|LDAP接続プールの最大サイズ。推奨値は、65です。LDAPサーバーがクライアントの最大数に対応できることを確認してください。  (sun-idrepo-ldapv3-config-connection_pool_max_size)|
+|LDAP接続プール最大サイズ|10|LDAP接続プールの最大サイズ。推奨値は、65です。  LDAPサーバーがクライアントの最大数に対応できることを確認してください。  (sun-idrepo-ldapv3-config-connection_pool_max_size)|
 
 ##### LDAP認証モジュール設定のチューニング
 
@@ -118,11 +118,11 @@ The session service has additional properties to tune, which are configured unde
 
 |JVMパラメータ|推奨値|説明|
 |---|---|---|
-|-Xms & -Xmx|少なくとも1024MB(組み込みOpenDJと2048MB)、本番環境では少なくとも2048MB～3072MB。この設定は、使用可能な物理メモリや、32ビットまたは64ビットのJVMが使用されているかどうかに依存する。|-|
+|-Xms & -Xmx|少なくとも1024MB(組み込みOpenDJと2048MB)、本番環境では少なくとも2048MB～3072MB。  この設定は、使用可能な物理メモリや、32ビットまたは64ビットのJVMが使用されているかどうかに依存する。|-|
 |-server|-|サーバーモードのJVMが使用されることを保証する。|
 |-XX:PermSize & -XX:MaxPermSize|両方とも256MBに設定。|JVM内のパーマネント領域のサイズを制御する。|
-|-Dsun.net.client.defaultReadTimeout|60000|JavaのHTTPクライアントの実装におけるリードタイムアウトを制御します。この設定は、Sun/ OracleのHotSpotのJVMに適用されます。|
-|-Dsun.net.client.defaultConnectTimeout|High setting: 30000 (30 seconds)|JavaのHTTPクライアントの実装におけるリードタイムアウトを制御します。秒間数百のリクエストを受信する場合は、巨大なコネクションキューを避けるために、この値を減らします。この設定は、Sun/ OracleのHotSpotのJVMに適用されます。|
+|-Dsun.net.client.defaultReadTimeout|60000|JavaのHTTPクライアントの実装におけるリードタイムアウトを制御します。  この設定は、Sun/ OracleのHotSpotのJVMに適用されます。|
+|-Dsun.net.client.defaultConnectTimeout|高い値: 30000 (30秒)|JavaのHTTPクライアントの実装におけるリードタイムアウトを制御します。   秒間数百のリクエストを受信する場合は、巨大なコネクションキューを避けるために、この値を減らします。  この設定は、Sun/ OracleのHotSpotのJVMに適用されます。|
 
 表. セキュリティ設定
 
