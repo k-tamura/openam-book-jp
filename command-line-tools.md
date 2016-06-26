@@ -1,24 +1,25 @@
-次のリストにあるスクリプトツールは、Microsoft Windows上で使用するための.batのバージョンもあります。
+次のOpenAMのコマンドラインツールをインストールすることができます。:
 
-You can install the following OpenAM command-line tools:
+> **情報**  
+> 次のリストにあるスクリプトツールは、Microsoft Windows上で使用するための.batのバージョンもあります。
 
-- agentadmin  
- This tool lets you manage OpenAM policy agent installations.
- Unpack this tool as part of policy agent installation.
+- **agentadmin**  
+ このツールを使用すると、OpenAMポリシーエージェントのインストールを管理することができます。
+ ポリシーエージェントのインストールの一部として、このツールを解凍します。
+
+- **ampassword**  
+ このツールを使用すると、OpenAM管理者のパスワードを変更したり、暗号化されたパスワードの値を表示することができます。
+ SSOAdminTools-14.0.0-SNAPSHOT.zipを解凍して、これをインストールしてください。
  
-- ampassword  
- This tool lets you change OpenAM Administrator passwords, and display encrypted password values.
- Install this from the SSOAdminTools-14.0.0-SNAPSHOT.zip.
- 
-- amverifyarchive  
- This tool checks log archives for tampering.
- Install this from SSOAdminTools-14.0.0-SNAPSHOT.zip.
+- **amverifyarchive**  
+ このツールは改ざんが無いかログアーカイブをチェックします。
+ SSOAdminTools-14.0.0-SNAPSHOT.zipを解凍して、これをインストールしてください。
 
-- openam-distribution-configurator-14.0.0-SNAPSHOT.jar  
+- **openam-distribution-configurator-14.0.0-SNAPSHOT.jar**  
  This executable .jar file lets you perform a silent installation of an OpenAM server with a configuration file. For example, the java -jar configurator.jar -f config.file command couples the configurator.jar archive with the config.file. The sampleconfiguration file provided with the tool is set up with the format for the config.file, and it must be adapted for your environment.
  Install this from SSOConfiguratorTools-14.0.0-SNAPSHOT.zip.
  
-- ssoadm  
+- **ssoadm**  
  This tool provides a rich command-line interface for the configuration of OpenAM core services.
  In a test environment, you can activate ssoadm.jsp to access the same functionality in your browser. Once active, you can use many features of the ssoadm command by navigating to the ssoadm.jsp URI, in a URL, such as http://openam.example.com:8080/openam/ssoadm.jsp.
  Install this from SSOAdminTools-14.0.0-SNAPSHOT.zip.
