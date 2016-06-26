@@ -1,6 +1,6 @@
 ### OpenIDMの概要
 
-OpenIDMは、エンタープライズ、クラウド、ソーシャル、モバイル、レガシーといったさまざまな環境間のシステムにおいて、ユーザー管理やユーザーアクセス管理といった統合的なプロビジョニングソリューションを提供することが可能です。
+OpenIDMは、エンタープライズ、クラウド、ソーシャル、モバイル、レガシーといったさまざまな環境のシステムにおいて、ユーザー管理やユーザーアクセス管理といった統合的なプロビジョニングソリューションを提供することが可能です。
 Bring multiple sources of identity together for policy and workflow based management that puts you in control of the data. 
 Consume, transform and feed data to external sources in order to maintain control over identity of users, devices and things.
 
@@ -55,10 +55,10 @@ A modern UI experience that allows you manage your data without writing a single
 
 - モジュール方式
 
- - Lightweight, modular Java architecture built on the OSGi framework enables flexible, plug-and-play services
- - Purpose-built for big-data-scale requirements across enterprise and customer-facing systems
- - Provides flexibility to use the database backend system of your choice including Relational Database, NoSQL, NewSQL, etc.
- - Dynamically update services and upgrade connectors without reconfiguration or restarting
+ - OSGiフレームワーク上に構築された軽量なモジュラー型のJavaアーキテクチャは、柔軟でプラグアンドプレイのサービスを可能にする
+ - ビッグデータ規模のエンタープライズ要件にも対応可能
+ - RDBMSの他に、NoSQL、NewSQLなど、好みのデータベースバックエンドシステムを使用する柔軟性を提供。
+ - 再設定または再起動をせず、動的にサービスを更新、コネクタをアップグレード
 
 - 容易なカスタマイズ、柔軟なバックエンド
 
@@ -127,6 +127,6 @@ A modern UI experience that allows you manage your data without writing a single
 
 - 100％オープンソース
 
- - Easy access to source code
- - Participate in a vibrant community
- - Transparent roadmap information
+ - ソースコードへの簡単なアクセス
+ - 誰でも参加できる活気のあるコミュニティ
+ - 透明なロードマップ
