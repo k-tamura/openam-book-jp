@@ -60,6 +60,13 @@ OpenAMは、4つの異なる監査トピックに基づいてログメッセー�
 |Authentication|authentication.csv|いつ、どのように被写体が認証されたか、および認証に関連するイベントをキャプチャします。|
 |Configuration|config.csv|誰が、いつ、製品の設定変更をしたかキャプチャします。設定の変更を行った対象を示すuserIdは、config.csvにはキャプチャされませんが、access.csvのtransactionIdを使用して追跡することができることに注意して下さい。|
 
+この中の一つであるaccess.csvの出力例を以下のようになります。
+
+> "_id","timestamp","eventName","transactionId","userId","trackingIds","server.ip","server.port","client.ip","client.port","request.protocol","request.operation","request.detail","http.request.secure","http.request.method","http.request.path","http.request.queryParameters","http.request.headers","http.request.cookies","http.response.headers","response.status","response.statusCode","response.detail","response.elapsedTime","response.elapsedTimeUnits","component","realm"
+> "90509889-c42b-4435-b78a-6c3455be9dd9-49","2016-06-04T04:09:59.854Z","AM-ACCESS-OUTCOME","90509889-c42b-4435-b78a-6c3455be9dd9-47",,"[""""]","192.168.1.101","8080","192.168.1.101","57561","CREST","READ",,"false","GET","http://openam01.example.co.jp:8080/openam/json/serverinfo/*","{}","{""accept"":[""application/json, text/javascript, */*; q=0.01""],""accept-api-version"":[""protocol=1.0,resource=1.1""],""host"":[""openam01.example.co.jp:8080""],""referer"":[""http://openam01.example.co.jp:8080/openam/XUI/""],""user-agent"":[""Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0""],""x-requested-with"":[""XMLHttpRequest""]}","{""JSESSIONID"":""DB2D5F17AEBD8B16EEFEFFF3782B6F60""}",,"SUCCESSFUL",,,"83","MILLISECONDS","Server Info","/"
+> "90509889-c42b-4435-b78a-6c3455be9dd9-56","2016-06-04T04:10:00.303Z","AM-ACCESS-OUTCOME","90509889-c42b-4435-b78a-6c3455be9dd9-54",,"[""f0ddeb71f4c176e801""]",,,"192.168.1.101","57561",,,,"false","POST","http://openam01.example.co.jp:8080/openam/json/authenticate","{}","{""accept"":[""application/json, text/javascript, */*; q=0.01""],""accept-api-version"":[""protocol=1.0,resource=2.0""],""host"":[""openam01.example.co.jp:8080""],""referer"":[""http://openam01.example.co.jp:8080/openam/XUI/""],""user-agent"":[""Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0""],""x-nosession"":[""true""],""x-password"":[""anonymous""],""x-requested-with"":[""XMLHttpRequest""],""x-username"":[""anonymous""]}","{""JSESSIONID"":""DB2D5F17AEBD8B16EEFEFFF3782B6F60"",""i18next"":""ja""}",,"SUCCESSFUL",,,"66","MILLISECONDS","Authentication","/"
+
+
 ### 監査ログの出力先
 
 デフォルトでOpenAMは、次の場所に監査ログを格納します:
