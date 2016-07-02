@@ -3,18 +3,20 @@
 
 ### OpenAM管理コンソール
 
-OpenAMをインストールした後、インストール時に設定したパスワードを使用して、OpenAM管理者(amadmin)としてWebベースのコンソールにログインします。http://openam.example.com:8080/openamのようなURLにアクセスします。この場合、HTTPプロトコルを介して、FQDN(openam.example.com)上の、Java EE標準のWebコンテナのポート番号(8080)に、指定したデプロイメントURI(/openam)に、通信が行われます。
+OpenAMをインストールした後、インストール時に設定したパスワードを使用して、OpenAM管理者(amadmin)としてWebベースのコンソールにログインします。http://openam.example.com:8080/openamのようなURLにアクセスします。
+この場合、HTTPプロトコルを介して、FQDN(openam.example.com)上の、Java EE標準のWebコンテナのポート番号(8080)に、指定したデプロイメントURI(/openam)に、通信が行われます。
 
 図. OpenAM管理コンソール
 
-When you log in as the OpenAM administrator, amadmin, you have access to the complete OpenAM console. In addition, OpenAM has set a cookie in your browser that lasts until the session expires, you logout, or you close your browser.[1]
+OpenAM管理者(amadmin)としてログインすると、OpenAMコンソールへの完全なアクセス権があります。
+また、OpenAMは、セッションが期限切れになるか、ログアウトするか、ブラウザを閉じるまで、持続するようにブラウザにクッキーを設定します。
 
-When you log in to the OpenAM console as a non-administrative end user, you do not have access to the administrative console. Your access is limited to self-service profile pages and user dashboard.
+管理者以外のエンドユーザーでOpenAM管理コンソールにログインしても、管理コンソールへのアクセス権はありません。アクセスはセルフサービスのプロフィールページとユーザーのダッシュボードに制限されています。
 
-図. 管理者以外のユーザーのOpenAM管理コンソール
+図. 管理者以外のユーザーのOpenAMコンソール
 
-If you configure OpenAM to grant administrative capabilities to another user, then that user is able to access both the administration console in the realms they can administrate, and their self-service profile pages.
+別のユーザーに管理機能を付与するようにOpenAMを設定した場合、そのユーザーは管理可能なレルム内の管理コンソール、およびセルフサービスプロファイルページの両方にアクセスすることができます。
 
 図. 委任された管理者のOpenAM管理コンソール
 
-For more on delegated administration, see Delegating Realm Administration Privileges .
+委任管理の詳細については、管理者ガイドの「Delegating Realm Administration Privileges」を参照してください。
