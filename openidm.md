@@ -64,9 +64,9 @@ OpenIDMは、さまざまな環境のシステムに対して、統合的なプ�
 
 - REST API
 
- - Simple RESTful interfaces provides a common API for managing all core functions of user administration, synchronization, and reconciliation
- - Pluggable server-side scripting engine provides Javascript and Groovy support out of the box
- - Decoupled UI enables customized solutions and includes sample configurations and scalable user administration
+ - シンプルでRESTfulなインターフェースは、ユーザー管理、同期、リコンシリエーションのすべてのコア機能を管理するための、共通APIを提供します。
+ - プラグイン可能なサーバーサイドスクリプトエンジンは、JavascriptとGroovyのサポートを提供しています。
+ - 疎結合のUIは、カスタマイズされたソリューションを可能にし、サンプル構成でスケーラブルなユーザ管理を含みます。
 
 - 柔軟なデータモデル
 
