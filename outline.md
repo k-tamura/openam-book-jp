@@ -34,7 +34,7 @@
  5.3 冗長化とセッションフェイルオーバー  
  5.4 ステートレスセッション  
 6. 設定  
- 6.1 管理コンソール   
+ 6.1 [管理コンソール](admin-console.md)   
  6.2 [コマンドラインツール](command-line-tools.md)   
  6.3 [ssoadm.jsp](ssoadm-jsp.md)   
 7. [認証](authn.md)  
