@@ -33,10 +33,11 @@
  5.2 1台目のインストール  
  5.3 冗長化とセッションフェイルオーバー  
  5.4 ステートレスセッション  
-6. 設定  
+6. [設定](configuration.md)  
  6.1 [管理コンソール](admin-console.md)   
  6.2 [コマンドラインツール](command-line-tools.md)   
  6.3 [ssoadm.jsp](ssoadm-jsp.md)   
+ 6.4 REST SMS  
 7. [認証](authn.md)  
  7.1 [認証モジュール](authn_modules.md)   
  7.2 [認証連鎖](authn_chain.md)     
