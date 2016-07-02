@@ -1,10 +1,6 @@
 ### OpenIDMの概要
 
-OpenIDMは、エンタープライズ、クラウド、ソーシャル、モバイル、レガシーといったさまざまな環境のシステムにおいて、ユーザー管理やユーザーアクセス管理といった統合的なプロビジョニングソリューションを提供することが可能です。
-Bring multiple sources of identity together for policy and workflow based management that puts you in control of the data. 
-Consume, transform and feed data to external sources in order to maintain control over identity of users, devices and things.
-
-A modern UI experience that allows you manage your data without writing a single line of code, while standard RESTful interfaces give you the ultimate in flexibility to develop as you see fit.
+OpenIDMは、さまざまな環境のシステムに対して、統合的なプロビジョニングソリューションを提供します。
 
 表. OpenIDMの基本情報  
 
@@ -62,9 +58,9 @@ A modern UI experience that allows you manage your data without writing a single
 
 - 容易なカスタマイズ、柔軟なバックエンド
 
- - Backend Flexibility. OpenIDM provides big data flexibility for massively scalable provisioning— you choose the backend for your deployment: Relational Database, NoSQL, NewSQL, etc.
- - Provides single, scalable web-app styled UI using Backbone, jQuery, and Handlebars. Easy to customize using standard, out-of the-box templates.
- - Tiny Footprint. OpenIDM is a completely embeddable solution with a tiny footprint – you can even run it off a simple USB drive.
+ - バックエンドの柔軟性。 OpenIDMは、大規模でスケーラブルなプロビジョニングのために、RDBMS、NoSQL、NewSQLなど様々なバックエンドを選択できます。
+  - Backbone、jQuery、Handlebarsを使用して、単一で、スケーラブルなWebアプリスタイルのUIを提供します。標準的なテンプレートを使用して簡単かつ迅速にカスタマイズできます。
+  - 少ないリソース消費。 OpenIDMは、少ないリソース消費で完全に組み込み可能なソリューションです。例えば、シンプルなUSBドライブでもそれを実行することができます。
 
 - REST API
 
