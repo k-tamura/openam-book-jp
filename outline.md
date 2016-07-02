@@ -35,7 +35,7 @@
  5.4 ステートレスセッション  
 6. 設定  
  6.1 管理コンソール   
- 6.2 コマンドラインツール   
+ 6.2 [コマンドラインツール](command-line-tools.md)   
  6.3 [ssoadm.jsp](ssoadm-jsp.md)   
 7. [認証](authn.md)  
  7.1 [認証モジュール](authn_modules.md)   
