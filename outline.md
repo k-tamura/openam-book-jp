@@ -17,7 +17,7 @@
  2.4.4 [OpenIDM](openidm.md)  
 3. OpenAMの歴史とロードマップ  
  3.1 [OpenSSO以前](history-of-opensso.md)  
- 3.2 [OpenAM以降](history-of-openam.md)  
+ 3.2 [OpenSSOからOpenAMへ](history-of-openam.md)  
  3.3 [OpenAM 13.0.0新機能](openam13-new-feature.md)  
  3.4 今後のロードマップ
 4. SSOの方式  
