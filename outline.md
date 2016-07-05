@@ -1,6 +1,6 @@
 ## 目次
 
-1. はじめに  
+1. [はじめに](introduction.md)  
  1.1 [本書の目的と構成](purpose_of_this_book.md)  
  1.2 [対象読者](target-reader.md)   
  1.3 本書では扱わないテーマ  
