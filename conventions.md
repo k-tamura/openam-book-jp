@@ -15,6 +15,6 @@
 
 ### その他  
 
-`/path/to/openam/` はOpenAMの設定ディレクトリへのパスを表します。
-`/path/to/Java_container/webapps/openam/` (openam.warが展開されたディレクトリ) 
-
+- `/path/to/container/webapps/openam/` はopenam.warが展開されたディレクトリへのパスを表します。
+- `/path/to/openam/` はOpenAMの設定ディレクトリへのパスを表します。
+- `/path/to/.openamcfg/` はOpenAMの設定ディレクトリへのパスが記載されたファイルを含むディレクトリへのパスを表します。
