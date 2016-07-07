@@ -25,9 +25,6 @@
  4.2 リバースプロキシー方式  
  4.3 代理認証方式  
  4.4 フェデレーション方式  
- 4.4.1 [SAML](saml.md)  
- 4.4.2 [OpenID Connect](openid-connect.md)  
- 4.4.3 その他のプロトコル  
 5. インストールと初期設定  
  5.1 前提事項と事前準備  
  5.2 1台目のインストール  
@@ -41,6 +38,9 @@
 7. [認証](authn.md)  
  7.1 [認証モジュール](authn_modules.md)   
  7.2 [認証連鎖](authn_chain.md)     
+ 7.3 [SAML](saml.md)  
+ 7.4 [OpenID Connect](openid-connect.md)  
+ 7.5 その他のプロトコル  
 8. 認可  
  8.1 ポリシー   
  8.2 XACML   
