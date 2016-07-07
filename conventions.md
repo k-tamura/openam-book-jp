@@ -15,9 +15,9 @@
 
 ### その他  
 
-- `/path/to/container/webapps/openam/` はopenam.warが展開されたディレクトリへのパスを表します。  
+- */path/to/container/webapps/openam/* はopenam.warが展開されたディレクトリへのパスを表します。  
   例えば、/usr/share/tomcat7/webapps/openam/ などです。
-- `/path/to/openam/` はOpenAMの設定ディレクトリへのパスを表します。  
+- */path/to/openam/* はOpenAMの設定ディレクトリへのパスを表します。  
   例えば、/usr/share/tomcat7/openam/ などです。
-- `/path/to/.openamcfg/` はOpenAMの設定ディレクトリへのパスが記載されたファイルを含むディレクトリへのパスを表します。  
+- */path/to/.openamcfg/* はOpenAMの設定ディレクトリへのパスが記載されたファイルを含むディレクトリへのパスを表します。  
   例えば、/usr/share/tomcat7/.openamcfg/ などです。
