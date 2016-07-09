@@ -15,8 +15,11 @@ https://forgerock.org/
 - ForgeRockコミュニティのMailing Lists  
 https://lists.forgerock.org
 
-- OpenAMのソースコード  
+- OpenAMのソースコード(Bitbucket)  
 https://stash.forgerock.org/projects/OPENAM/repos/openam/browse/
+
+- OpenAMのソースコード(GitHub) 
+https://github.com/ForgeRock/openam
 
 ### 各種プロトコルの仕様
 
