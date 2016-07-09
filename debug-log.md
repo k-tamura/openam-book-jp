@@ -131,8 +131,6 @@ J2EEエージェントのデバッグログの出力先はデフォルトで、[
 出力先を含むデバッグログの設定は、[J2EEエージェントのインストールディレクトリ]/agent_[N]/config/OpenSSOAgentBootstrap.properties に以下のように定義されています。
 
 ```
-・OpenSSOAgentBootstrap.properties
-
 #
 # DEBUG SERVICE PROPERTIES
 # - com.iplanet.services.debug.directory: Specifies the complete path to the
