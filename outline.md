@@ -65,7 +65,7 @@
 15. ソースコードリーディング  
  15.1 パッケージ構成  
 16. ビルド  
- 16.1 OpenAMのビルド  
+ 16.1 [OpenAMのビルド](build-openam.md)  
  16.2 Policy Agentのビルド  
 17. [チューニング](tuning.md)　 
 18. コミュニティ
