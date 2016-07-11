@@ -11,7 +11,7 @@ OpenAM 13.0.0では以下の認証モジュールが提供されています。
 |JDBC|MySQLやOracle DBなどのRDBMSで管理されたユーザーで認証を行うための認証モジュール。||
 |LDAP|OpenLDAPやOpenDJで管理されたユーザーで認証を行うための認証モジュール。||
 |MSISDN|Mobile Station Integrated Services Digital Network（MSISDN）認証モジュール。携帯電話などの端末に関連付けられたMSISDN番号を使用して、非対話的な認証を可能にする。||
-|OATH|||
+|OATH|OATH（Initiative for Open AuTHentication）に準拠したOTP(ワンタイムパスワード)認証ができる。OATHでは、OTPの生成回数を基にOTPを生成するHOTPと、OTPの生成時刻を基にOTPを生成するTOTPの2つの方法が規定されている。||
 |OAuth 2.0|OAuth 2.0のクライアントアプリケーションとなり、FacebookやWindows Liveなどに認証を委譲する。||
 |OpenID Connect IDトークンベアラ|ログインリクエストのヘッダーにOpenID ConnectのIDトークンがある場合に、認証成功にする認証モジュール。||
 |RADIUS|RADIUS（Remote Authentication Dial In User Service）サーバによるユーザー認証を実行する認証モジュール。||
