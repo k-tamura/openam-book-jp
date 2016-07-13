@@ -10,7 +10,7 @@
  2.1 OpenAMが必要な背景  
  2.2 OpenAMで何ができるか  
  2.3 アーキテクチャ  
- 2.4 関連ソフトウェア  
+ 2.4 [関連ソフトウェア](identity-stack.md)  
  2.4.1 [Policy Agent](policy-agent.md)   
  2.4.2 [OpenIG](openig.md)  
  2.4.3 [OpenDJ](opendj.md)  
