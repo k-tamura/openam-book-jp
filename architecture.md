@@ -8,7 +8,9 @@ OpenAMは、クラウド、エンタープライズ、モバイル、および�
 
 ![OpenAMのアーキテクチャ](images/openam-architecture-dpg.png)
 
-OpenAM features a highly modular and flexible architecture with multiple plugin points to meet any customer deployment. It leverages industry standard protocols, such as HTTP, XML, SOAP, REST, SAML 2.0, OAuth 2.0, OpenID Connect 1.0, and so forth to deliver a high performance, highly scalable, and highly available access management solution over the network. OpenAM services are 100% Java-based, proven across multiple platforms and containers in many production deployments.
+OpenAMは、どのような顧客の配備にも合うように、複数のプラグインポイントで高度にモジュール化された柔軟なアーキテクチャを備えています。
+HTTP、XML、SOAP、REST、SAML2.0、OAuth 2.0、OpenID Connect 1.0のような業界標準のプロトコルを活用し、ネットワークを介して、高いパフォーマンス、スケーラビリティ、可用性のあるをアクセス管理ソリューションを実現します。
+OpenAMのサービスは100％Javaで実装されており、様々なプラットフォームやコンテナを使って構成された多くの本番環境において動作が実証済みです。
 
 OpenAM core server can be deployed and integrated within existing network infrastructures. OpenAM provides the following distribution files:
 Table 1.1. OpenAM Distribution Files
