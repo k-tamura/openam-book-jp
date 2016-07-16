@@ -12,11 +12,11 @@ OpenAMは、どのような顧客の配備にも合うように、複数のプ�
 HTTP、XML、SOAP、REST、SAML 2.0、OAuth 2.0、OpenID Connect 1.0のような業界標準のプロトコルを活用し、ネットワークを介して、高いパフォーマンス、スケーラビリティ、可用性のあるアクセス管理ソリューションを実現します。
 OpenAMのサービスは、100％Javaで実装されており、様々なプラットフォームやコンテナで構成された多くの本番環境において動作が実証済みです。
 
-OpenAM core server can be deployed and integrated within existing network infrastructures. OpenAM provides the following distribution files:
+OpenAMコアサーバーは、既存のネットワークインフラストラクチャ内に配備、統合することができます。 OpenAMは、以下のディストリビューションファイルを提供しています。
 
-表. OpenAM Distribution Files
+表. OpenAMのディストリビューションファイル
 
-|Distribution|Description|Deploy|?|
+|ディストリビューション|説明|配備|?|
 |---|---|---|---|
 |Default|OpenAM's default distribution .war file includes the core server code with an embedded OpenDJ directory server, which stores configuration data and simplifies deployments. The distribution includes an administrative graphical user interface (GUI) Web console. During installation, the .war file accesses a bootstrap file to obtain the fully qualified domain name, port, context path, and the location of the configuration folder.|Y|N|
 |Core Server Only|OpenAM provides a core server-only .war file without the OpenAM Console. This setup is often used in multi-server deployments wherein the deployments is managed using a full server instance using the ssoadm command-line tool. The OpenAM server installs with an embedded OpenDJ directory server.|Y|N|
