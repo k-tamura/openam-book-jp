@@ -1,11 +1,12 @@
 
 ### OpenAMのアーキテクチャ
 
-OpenAM is an open source centralized access management server, securing protected resources across the network and providing authentication, authorization, Web security, and federation services in a single, integrated solution. OpenAM manages access to the protected resources by controlling who has access, when, how long, and under what conditions by centralizing disparate hardware and software services for cloud, enterprise, mobile, and business-to-business (B2B) systems.
+OpenAMは、オープンソースの集中アクセス管理サーバーで、ネットワーク経由で保護されたリソースをセキュアにし、単一で統合されたソリューションで、認証、認可、Webセキュリティ、フェデレーション・サービスを提供しています。
+OpenAMは、クラウド、エンタープライズ、モバイル、および企業間（B2B）システムに対して、異種のハードウェアおよびソフトウェアのサービスを一元化することにより、誰が、どのくらいの期間、どのような条件下でのアクセス権があるかを制御することにより、保護されたリソースへのアクセスを管理します。
 
-図. "OpenAM Architecture" illustrates the OpenAM architecture.
+図. OpenAMのアーキテクチャ
 
-![OpenAM Architecture](images/openam-architecture-dpg.png)
+![OpenAMのアーキテクチャ](images/openam-architecture-dpg.png)
 
 OpenAM features a highly modular and flexible architecture with multiple plugin points to meet any customer deployment. It leverages industry standard protocols, such as HTTP, XML, SOAP, REST, SAML 2.0, OAuth 2.0, OpenID Connect 1.0, and so forth to deliver a high performance, highly scalable, and highly available access management solution over the network. OpenAM services are 100% Java-based, proven across multiple platforms and containers in many production deployments.
 
