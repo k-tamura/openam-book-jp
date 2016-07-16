@@ -8,7 +8,7 @@
  1.5 本書の構成  
 2. 概要  
  2.1 OpenAMが必要な背景  
- 2.2 OpenAMで何ができるか  
+ 2.2 [OpenAMで何ができるか](key-benefits.md)  
  2.3 [アーキテクチャ](architecture.md)  
  2.4 [関連ソフトウェア](identity-stack.md)  
  2.4.1 [Policy Agent](policy-agent.md)   
