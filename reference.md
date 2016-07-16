@@ -42,11 +42,11 @@ https://bugster.forgerock.org/jira/browse/OPENAM
 OpenAMのJIRA(課題管理システム)。バグやエンハンス要望などが載っています。
 
 - ForgeRockのコミュニティサイト  
-https://forgerock.org/
+https://forgerock.org/  
 ForgeRock社の社員の方のブログへのリンクや、OpenAMのダウンロードページ、脆弱性情報のページなどが公開されています。
 
-- ForgeRockコミュニティのメーリングリストのアーカイブ 
-https://lists.forgerock.org
+- ForgeRockコミュニティのMLのアーカイブ  
+https://lists.forgerock.org  
 ForgeRockコミュニティのメーリングリストのアーカイブです。
 
 - OpenAMのソースコード(Bitbucket)  
