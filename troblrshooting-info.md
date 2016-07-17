@@ -1,8 +1,8 @@
 ## トラブルシューティング情報の記録
 
-OpenAM 13.0.0から、トラブルシューティングに必要な情報を記録する機能が追加されました。cURLのようなRESTクライアントかssoadmツールでOpenAMサーバーにリクエストを送信すると、その時点からのOpenAMサーバーの様々な情報を記録して、zipファイルに圧縮して保存します。
+OpenAM 13.0.0から、トラブルシューティングに必要な情報を記録する機能が追加されました。LinuxのcURLコマンドなどでOpenAMのREST APを呼び出すか、ssoadmツールでOpenAMサーバーにリクエストを送信すると、その時点からのOpenAMサーバーの様々な情報を記録して、zipファイルに圧縮して保存します。
 
-この機能では、トラブルシューティングに必要となる以下の情報を記録します:
+この機能では、以下の情報を記録します:
 
 - OpenAMのデバッグログ
 - スレッドダンプ(JStackのスタックトレースに似た出力で、すべてのアクティブなスレッドの状態を表示する)
@@ -22,7 +22,7 @@ $ curl \
 { "tokenId": "AQIC5w...NTcy*", "successUrl": "/openam/console" }
 ```
 
-http://[OpenAMサーバのURL]/json/records?_action=startに、以下のようなJSON形式のデータをPOSTメソッドで送信すると記録を開始します。
+取得したトークンID(tokenId)をリクエストヘッダーの「iPlanetDirectoryPro」に設定して、http://[OpenAMサーバのURL]/json/records?_action=startに、以下のようなJSON形式のデータをPOSTメソッドで送信すると、トラブルシューティング情報の記録を開始します。
 
 ```
 # curl --header "iPlanetDirectoryPro: AQIC5w (略) ..NTcy*"
@@ -209,4 +209,6 @@ at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor$Worker.run(Abst
 }
 ```
 
-この機能に関する詳細は、OpenAM 13.0.0のガイドを参照して下さい。
+本稼働しているOpenAMのシステムで問題が起こった場合は、この機能を運用担当者に実施してもらい、取得した結果を解析することができます。
+
+なお、この機能に関する詳細は、OpenAM 13.0.0のガイドを参照して下さい。
