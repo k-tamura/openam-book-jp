@@ -64,6 +64,7 @@
  14.3 [トラブルシューティング情報の記録](troblrshooting-info.md)  
 15. ソースコードリーディング  
  15.1 パッケージ構成  
+ 15.2 利用しているライブラリ  
 16. ビルド  
  16.1 [OpenAMのビルド](build-openam.md)  
  16.2 Policy Agentのビルド  
