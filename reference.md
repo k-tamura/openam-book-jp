@@ -59,17 +59,67 @@ OpenAMのBitbucketサーバーで管理されているソースコードのGitHu
 
 ### 各種プロトコルの仕様
 
-- OpenID Connect Core 1.0 specification  
-http://openid.net/specs/openid-connect-core-1_0.html
+OpenAMは、次のRFC、インターネットドラフト、標準を実装しています:
 
-- The OAuth 2.0 Authorization Framework specification  
-https://tools.ietf.org/html/rfc6749
+- OAuth 2.0
 
-- User-Managed Access (UMA) Profile of OAuth 2.0  
-https://docs.kantarainitiative.org/uma/draft-uma-core.html
+ - The OAuth 2.0 Authorization Framework, in which OpenAM can play the roles of authorization server and of client.
+ - The OAuth 2.0 Authorization Framework: Bearer Token Usage, in which OpenAM plays the role of authorization server.
+ - JSON Web Signature (JWS)
+ - JSON Web Key (JWK)
+ - JSON Web Algorithms (JWA)
+ - JSON Web Token (JWT)
+ - Security Assertion Markup Language (SAML) 2.0 Profile for OAuth 2.0 Client Authentication and Authorization Grants.
+ - JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants.
 
-- SAML 2.0 Core specification  
-http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf
+- OpenID Connect 1.0
 
-- Remote Authentication Dial In User Service (RADIUS) specification  
-https://tools.ietf.org/html/rfc2865
+    OpenAM can be configured to play the role of OpenID provider. The OpenID Connect specifications depend on OAuth 2.0, JSON Web Token, Simple Web Discovery and related specifications. The following specifications make up OpenID Connect 1.0.
+
+ - OpenID Connect Core 1.0 defines core OpenID Connect 1.0 features.
+ - OpenID Connect Discovery 1.0 defines how clients can dynamically recover information about OpenID providers.
+ - OpenID Connect Dynamic Client Registration 1.0 defines how clients can dynamically register with OpenID providers.
+ - OpenID Connect Session Management 1.0 describes how to manage OpenID Connect sessions, including logout.
+ - OAuth 2.0 Multiple Response Type Encoding Practices defines additional OAuth 2.0 response types used in OpenID Connect.
+ - OAuth 2.0 Form Post Response Mode defines how OpenID providers return OAuth 2.0 Authorization Response parameters in auto-submitting forms.
+
+    OpenID Connect 1.0 also provides implementer's guides for client developers.
+
+ - OpenID Connect Basic Client Implementer's Guide 1.0
+ - OpenID Connect Implicit Client Implementer's Guide 1.0
+
+- User-Managed Access (UMA) 1.0
+
+ - User-Managed Access (UMA) Profile of OAuth 2.0 (Draft), in which OpenAM can play the role of authorization server.
+ - OAuth 2.0 Resource Set Registration, in which OpenAM plays the role of authorization server.
+
+- Representational State Transfer (REST)
+
+    Style of software architecture for web-based, distributed systems.
+
+- Security Assertion Markup Language (SAML)
+
+    Standard, XML-based framework for creating and exchanging security information between online partners. OpenAM supports multiple versions of SAML including 2.0, 1.1, and 1.0.
+
+    Specifications are available from the OASIS standards page.
+
+- Liberty Alliance Project Identity Federation Framework (Liberty ID-FF)
+
+    Federation standard, whose concepts and capabilities contributed to SAML v2.0.
+
+- Simple Object Access Protocol
+
+    Lightweight protocol intended for exchanging structured information in a decentralized, distributed environment.
+
+- Web Services Description Language (WSDL)
+
+    XML format for describing network services as a set of endpoints operating on messages containing either document-oriented or procedure-oriented information.
+
+- Web Services Federation Language (WS-Federation)
+
+    Identity federation standard, part of the Web Services Security framework.
+
+- eXtensible Access Control Markup Language (XACML)
+
+    Declarative access control policy language implemented in XML, and also a processing model, describing how to interpret policies.
+
