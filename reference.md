@@ -61,10 +61,17 @@ OpenAMのBitbucketサーバーで管理されているソースコードのGitHu
 
 OpenAMは、次のRFC、インターネットドラフト、標準を実装しています:
 
-- OAuth 2.0
+- OAuth 2.0  
+  http://oauth.net/2/
 
- - The OAuth 2.0 Authorization Framework, in which OpenAM can play the roles of authorization server and of client.
- - The OAuth 2.0 Authorization Framework: Bearer Token Usage, in which OpenAM plays the role of authorization server.
+ - The OAuth 2.0 Authorization Framework  
+   http://tools.ietf.org/html/rfc6749  
+   この仕様において、OpenAMは認可サーバーとクライアントの役割を担うことができます。
+
+ - The OAuth 2.0 Authorization Framework: Bearer Token Usage  
+   http://tools.ietf.org/html/rfc6750  
+   この仕様において、OpenAMは認可サーバーの役割を担うことができます。
+
  - JSON Web Signature (JWS)
  - JSON Web Key (JWK)
  - JSON Web Algorithms (JWA)
