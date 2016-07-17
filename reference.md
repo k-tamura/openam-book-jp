@@ -43,7 +43,7 @@ OpenAMのJIRA(課題管理システム)。バグやエンハンス要望など�
 
 - ForgeRockのコミュニティサイト  
 https://forgerock.org/  
-ForgeRock社の社員の方のブログへのリンクや、OpenAMのダウンロードページ、脆弱性情報のページなどが公開されています。
+ForgeRockの開発者のブログへのリンクや、OpenAMのダウンロードページ、脆弱性情報、QAなどが公開されています。
 
 - ForgeRockコミュニティのMLのアーカイブ  
 https://lists.forgerock.org  
@@ -72,23 +72,52 @@ OpenAMは、次のRFC、インターネットドラフト、標準を実装し�
    http://tools.ietf.org/html/rfc6750  
    この仕様において、OpenAMは認可サーバーの役割を担うことができます。
 
- - JSON Web Signature (JWS)
- - JSON Web Key (JWK)
- - JSON Web Algorithms (JWA)
- - JSON Web Token (JWT)
- - Security Assertion Markup Language (SAML) 2.0 Profile for OAuth 2.0 Client Authentication and Authorization Grants.
- - JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants.
+ - JSON Web Signature (JWS)  
+   http://tools.ietf.org/html/rfc7515
 
-- OpenID Connect 1.0
+ - JSON Web Key (JWK)  
+   http://tools.ietf.org/html/rfc7517
+
+ - JSON Web Algorithms (JWA)  
+   http://tools.ietf.org/html/rfc7518
+
+ - JSON Web Token (JWT)  
+   http://tools.ietf.org/html/rfc7519
+
+ - Security Assertion Markup Language (SAML) 2.0 Profile for OAuth 2.0 Client Authentication and Authorization Grants.  
+   http://tools.ietf.org/html/rfc7522
+
+ - JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants.  
+   http://tools.ietf.org/html/rfc7523
+
+- OpenID Connect 1.0  
+  http://openid.net/connect/
 
     OpenAM can be configured to play the role of OpenID provider. The OpenID Connect specifications depend on OAuth 2.0, JSON Web Token, Simple Web Discovery and related specifications. The following specifications make up OpenID Connect 1.0.
 
- - OpenID Connect Core 1.0 defines core OpenID Connect 1.0 features.
- - OpenID Connect Discovery 1.0 defines how clients can dynamically recover information about OpenID providers.
- - OpenID Connect Dynamic Client Registration 1.0 defines how clients can dynamically register with OpenID providers.
- - OpenID Connect Session Management 1.0 describes how to manage OpenID Connect sessions, including logout.
- - OAuth 2.0 Multiple Response Type Encoding Practices defines additional OAuth 2.0 response types used in OpenID Connect.
- - OAuth 2.0 Form Post Response Mode defines how OpenID providers return OAuth 2.0 Authorization Response parameters in auto-submitting forms.
+ - OpenID Connect Core 1.0  
+   http://openid.net/specs/openid-connect-core-1_0.html  
+   OpenID Connect 1.0のコアとなる機能を定義しています。
+
+ - OpenID Connect Discovery 1.0  
+   http://openid.net/specs/openid-connect-discovery-1_0.html  
+   クライアントが、動的にOpenIDプロバイダの情報を検索できる方法を定義しています。
+
+ - OpenID Connect Dynamic Client Registration 1.0  
+   http://openid.net/specs/openid-connect-registration-1_0.html 
+   クライアントが動的にはOpenIDプロバイダに登録できる方法を定義しています。
+
+ - OpenID Connect Session Management 1.0  
+   http://openid.net/specs/openid-connect-session-1_0.html 
+   ログアウトを含む、OpenID Connectのセッションを管理する方法について説明しています。
+
+ - OAuth 2.0 Multiple Response Type Encoding Practices  
+   http://openid.net/specs/oauth-v2-multiple-response-types-1_0.html  
+   OpenID Connectで使用される追加のOAuth 2.0の応答タイプを定義しています。
+
+ - OAuth 2.0 Form Post Response Mode  
+   http://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html  
+   自動サブミットするフォームで、OAuth2.0認可応答のパラメータをOpenIDプロバイダが返す方法を定義しています。
 
     OpenID Connect 1.0 also provides implementer's guides for client developers.
 
