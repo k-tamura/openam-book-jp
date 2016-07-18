@@ -7,14 +7,14 @@ OpenAMのインストールは、基本的にTomcatなどのサーブレット�
 OpenAMをインストールする前に、インストールできる環境であるか確認が必要です。OpenAMのリリースノートの「Before You Install OpenAM Software」の章に、OpenAMを稼働する上で必要なOSやサーブレットコンテナについて記載されています。まずはこの条件を確認して下さい。
 
 > **情報**  
-> 前提条件について記載されているのは、インストールガイドではなく、リリースノートです。
-> ForgeRock社で動作確認がされているものが記載されていますが、これ以外の環境でも正常に動作する可能性はあります。
+> 前提条件について記載されているのは、インストールガイドではなくリリースノートです。
+> この中にForgeRock社で動作確認がされているものが記載されていますが、これ以外の環境でも正常に動作する可能性はあります。
 
 ### インストール前の事前設定
 
-・FQDNの準備
+#### FQDNの準備
 
-OpenAMをセットアップする際に、完全修飾ドメイン名（FQDN）を指定する必要があります。セットアップの前に、openam.example.comのようなFQDNでサーバーにアクセスできることを確認して下さい。評価目的でOpenAMを使用する場合は、システムには/etc/hostsファイル(Linux)や%SystemRoot%\system32\drivers\etc\hostsファイル(Windows)に、FQDNが適切に割り当てられていることと、/etc/sysconfig/networkのHOSTNAMEもFQDNになっているを確認して下さい。
+OpenAMをセットアップする際に、完全修飾ドメイン名（FQDN）を指定する必要があります。セットアップの前に、openam.example.comのようなFQDNでサーバーにアクセスできることを確認して下さい。評価目的でOpenAMを使用する場合は、/etc/hostsファイル(Linux)や%SystemRoot%\system32\drivers\etc\hostsファイル(Windows)に、FQDNが適切に割り当てられていることと、/etc/sysconfig/networkのHOSTNAMEもFQDNになっているを確認して下さい。
 
 ```
 $ vi /etc/hosts
@@ -29,7 +29,7 @@ HOSTNAME=openam.example.com
 ```
 
 > **注意**  
-> テスト目的のためであっても、localhostドメインを使用しないで下さい。 OpenAMの動作は、ドメイン名に基づいて返されるブラウザのクッキーに依存しています。基本的には、少なくとも2つの「.」（ドット）を含むドメイン名を使用していることを確認して下さい。※Cookieドメインの仕様に関しては、後述する「インストール時の注意事項」を参照下さい。
+> テスト目的のためであっても、localhostドメインを使用しないで下さい。 OpenAMの動作は、ドメイン名に基づいて返されるブラウザのクッキーに依存しています。基本的には、少なくとも2つの「.」（ドット）を含むドメイン名を使用していることを確認して下さい。
 > 例) openam.example.com
 
 > **情報**  
@@ -39,11 +39,13 @@ HOSTNAME=openam.example.com
 
 Sun / Oracle Javaを使用する場合は、次のオプションの設定が必要です。
 
--server
+- *-server*  
     -client(クライアントVM)ではなく、-server(サーバーVM)を使用してください。通常、サーバーVMはクライアントVMよりも起動が遅いですが、長期的には実行速度を速くします。
--XX:MaxPermSize=256m
+
+- *-XX:MaxPermSize=256m*  
     Permanent 領域の最大値は256 MBに設定します。
--Xmx1024m
+
+- *-Xmx1024m*  
     OpenAMは、少なくとも1 GBのヒープを必要とします。組み込みOpenDJを含める場合は、そのスペースの50％がOpenDJに割り当てられるように、OpenAMには最低2 GBのヒープを設定します。システム構成によってはさらに追加のヒープを必要とします。
 
 #### ファイルディスクリプタの最大値の設定
