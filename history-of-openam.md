@@ -1,4 +1,4 @@
-#### OpenSSOからOpenAMへ
+### OpenSSOからOpenAMへ
 
 2010年2月、OpenSSOのサポート、開発を継続するため、元Sunの従業員の小さなグループによりForgeRock社(以下ForgeRock)が設立されます。
 それと同時に、OpenSSOはOpenAMと改名されました。
