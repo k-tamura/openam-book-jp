@@ -1,3 +1,5 @@
+## OpenIG
+
 ### OpenIGの概要
 
 OpenIGは、ForgeRock社が開発しているOSSで、OpenAMと連携して「代理認証」を実現したり、SAML 2.0やOpenID Connectのフェデレーションゲートウェイとして機能することができます。
