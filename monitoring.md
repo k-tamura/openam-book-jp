@@ -1,12 +1,12 @@
-## Monitoring OpenAM Services
+## OpenAMの監視
 
-This chapter covers how to monitor OpenAM services to ensure appropriate performance and service availability.
+この章では、適切なパフォーマンスとサービスの可用性を確保するために、OpenAのサービスを監視する方法を説明します。
 
-### Monitoring Interfaces
+### 監視インターフェイス
 
-OpenAM lets you monitor OpenAM over protocol through web pages, Java Management Extensions (JMX), or Simple Network Management Protocol (SNMP). The services are based on JMX.
+OpenAMは、Java Management Extensions(JMX)や簡易ネットワーク管理プロトコル(SNMP)で、ウェブページを通してOpenAMを監視することができます。サービスは、JMXに基づいています。
 
-To configure monitoring services, login to OpenAM console as OpenAM administrator, and browse to Configuration > System > Monitoring. Alternatively, you can use the ssoadm set-attr-defs command:
+監視サービスを設定するには、OpenAM管理者としてOpenAMコンソールにログインし、設定 > システム > 監視 を参照します。または、ssoadm set-attr-defsコマンドを使用することができます:
 
 ```
 $ ssoadm \
@@ -18,11 +18,11 @@ $ ssoadm \
  --attributevalues iplanet-am-monitoring-enabled=true
 ```
 
-Restart OpenAM for the changes to take effect. You must also restart OpenAM if you disable monitoring.
+変更を有効(または無効)にするためには、OpenAMを再起動する必要があります。
 
-#### Web-Based Monitoring
+#### Webベースの監視
 
-You can configure OpenAM to allow you to access a web based view of OpenAM MBeans on port 8082 where the core server runs, such as http://openam-ter.example.com:8082/. Either use the console, or use the ssoadm command:
+http://openam-ter.example.com:8082/のような、コアサーバが実行されるポート8082上で、OpenAMのMBeanのウェブベースのビューにアクセスできるようにOpenAMを設定することができます。コンソールを使用するか、ssoadmコマンドを使用します。
 
 ```
 $ ssoadm \
@@ -41,7 +41,7 @@ $ cat openam/openam/openam_mon_auth
 demo AQICMBCKlwx6G3vzK3TYYRbtTpNYAagVIPNP
 ```
 
-Or:
+または:
 
 ```
 $ cat openam/openam/opensso_mon_auth
