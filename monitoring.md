@@ -22,7 +22,7 @@ $ ssoadm \
 
 #### Webベースの監視
 
-http://openam-ter.example.com:8082/のような、コアサーバが実行されるポート8082上で、OpenAMのMBeanのウェブベースのビューにアクセスできるようにOpenAMを設定することができます。コンソールを使用するか、ssoadmコマンドを使用します。
+http://openam-ter.example.com:8082/ のような、コアサーバが実行されるポート8082上で、OpenAMのMBeanのウェブベースのビューにアクセスできるようにOpenAMを設定することができます。コンソールを使用するか、ssoadmコマンドを使用します。
 
 ```
 $ ssoadm \
@@ -34,7 +34,7 @@ $ ssoadm \
  --attributevalues iplanet-am-monitoring-http-enabled=true
 ```
 
-The default authentication file allows you to authenticate over HTTP as user demo, password changeit. The user name and password are kept in the file specified, with the password encrypted:
+デフォルトの認証ファイルにより、HTTPを介してユーザーdemo、パスワードchangeitで認証することができます。ユーザー名とパスワードは指定したファイルに保管されています(パスワードが暗号化されます):
 
 ```
 $ cat openam/openam/openam_mon_auth
@@ -48,13 +48,11 @@ $ cat openam/openam/opensso_mon_auth
 demo AQICvSe+tXEg8TUUT8ekzHb8IRzVSvm1Lc2u
 ```
 
-You can encrypt a new password using the ampassword command. After changing the authentication file, you must restart OpenAM for the changes to take effect.
+ampasswordをコマンドを使用して新しいパスワードを暗号化することができます。認証ファイルを変更したら、変更を有効にするためにOpenAMを再起動する必要があります。
 
-図. OpenAM MBeans in a Browser
+図. ブラウザで参照したOpenAMのMBeans
 
-OpenAM MBeans in a Browser
-
-#### JMX Monitoring
+#### JMX監視
 
 You can configure OpenAM to allow you to listen for Java Management eXtension (JMX) clients, by default on port 9999. Either use the OpenAM console page under Configuration > System > Monitoring and make sure both Monitoring Status and Monitoring RMI interface status are both set to Enabled, or use the ssoadm command:
 
