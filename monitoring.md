@@ -54,7 +54,7 @@ ampasswordをコマンドを使用して新しいパスワードを暗号化す�
 
 #### JMX監視
 
-You can configure OpenAM to allow you to listen for Java Management eXtension (JMX) clients, by default on port 9999. Either use the OpenAM console page under Configuration > System > Monitoring and make sure both Monitoring Status and Monitoring RMI interface status are both set to Enabled, or use the ssoadm command:
+JMXクライアントからの接続要求を受信できるようにOpenAMを設定することができます(デフォルトのポート番号は9999)。OpenAMのコンソールまたはssoadmコマンドのいずれかを使用します。前者の場合、設定 > システム > 監視 と遷移して、「監視システムの状態」と「監視システムの RMI インタフェースの状態」の両方が有効に設定されていることを確認して下さい:
 
 ```
 $ ssoadm \
@@ -67,26 +67,26 @@ $ ssoadm \
   iplanet-am-monitoring-rmi-enabled=true
 ```
 
-A number of tools support JMX, including jvisualvm and jconsole. When you use jconsole to browse OpenAM MBeans for example, the default URL for the OpenAM running on the local system is service:jmx:rmi:///jndi/rmi://localhost:9999/server.
+jvisualvmやjconsoleなどいくつかのツールがJMXをサポートしています。例えば、OpenAMのMBeanを参照するためにjconsoleを使用すると、ローカルシステム上で実行するOpenAMのデフォルトのURLは、service:jmx:rmi:///jndi/rmi://localhost:9999/server のようになります。
 
 ```
 $ jconsole service:jmx:rmi:///jndi/rmi://localhost:9999/server &
 ```
 
-You can also browse the MBeans by connecting to your web application container, and browsing to the OpenAM MBeans. By default, JMX monitoring for your container is likely to be accessible only locally, using the process ID.
+また、Webアプリケーションコンテナに接続することにより、MBeanを参照することができます。デフォルトでは、コンテナへのJMX監視は、プロセスIDを使用して、ローカルでのみアクセス可能である可能性が高いです。
 
-図. JConsole Browsing OpenAM MBeans
+図. OpenAMのMBeanのJConsoleでのブラウジング
 
-JConsole Browsing OpenAM MBeans
+リモートで接続する、SSLを使用するなどの方法については、以下のページを参照して下さい。 
+Monitoring and Management Using JMX
+http://docs.oracle.com/javase/1.5.0/docs/guide/management/agent.html
 
-Also see Monitoring and Management Using JMX for instructions on how to connect remotely, how to use SSL, and so forth.
-Important
+> **重要:**  
+> JMXには、OpenAMからJMXへのいくつかの操作とCTSテーブルが正しくシリアライズされない制限があります。その結果、OpenAMの監視情報の一部のみがJMXを介して利用可能です。SNMPは、JMXよりも望ましいの監視オプションであり、特にCTSに対してシリアライゼーションの制限無しで、すべてのOpenAMのテーブルを公開します。
 
-JMX has a limitation in that some Operations and CTS tables cannot be properly serialized from OpenAM to JMX. As a result, only a portion of OpenAM's monitoring information is available through JMX. SNMP is a preferred monitoring option over JMX and exposes all OpenAM tables, especially for CTS, with no serialization limitations.
+#### SNMP監視
 
-#### SNMP Monitoring
-
-You can configure OpenAM to allow you to listen on port 8085 for SNMP monitoring. Either use the console, or use the ssoadm command:
+SNMP監視用のポート8085をリッスンできるように、OpenAMを設定することができます。コンソールまたはssoadmコマンドを使用します。
 
 ```
 $ ssoadm \
