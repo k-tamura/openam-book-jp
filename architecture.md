@@ -16,9 +16,9 @@ OpenAMコアサーバーは、既存のネットワークインフラストラ�
 
 表. OpenAMのディストリビューションファイル
 
-|ディストリビューション|説明|配備|?|
-|---|---|---|---|
-|デフォルト|OpenAM's default distribution .war file includes the core server code with an embedded OpenDJ directory server, which stores configuration data and simplifies deployments. The distribution includes an administrative graphical user interface (GUI) Web console. During installation, the .war file accesses a bootstrap file to obtain the fully qualified domain name, port, context path, and the location of the configuration folder.|Y|N|
-|コアサーバーのみ|OpenAM provides a core server-only .war file without the OpenAM Console. This setup is often used in multi-server deployments wherein the deployments is managed using a full server instance using the ssoadm command-line tool. The OpenAM server installs with an embedded OpenDJ directory server.|Y|N|
-|アイデンティティプロバイダ(IdP)・ディスカバリーサービス|OpenAM provides an IdP Discovery Profile (SAMLv2 binding profile) for its IdP Discovery service. The profile keeps track of the identity providers for each user.|Y|N|
-|OpenAMクライアントJava SDK|OpenAM provides a smaller subset of the OpenAM SDK, providing client-side API to OpenAM services. The Client SDK allows you to write remote standalone or Web applications to access OpenAM and run its core services.|Y|N|
+|ディストリビューション|説明|
+|---|---|
+|デフォルト|OpenAMのデフォルトディストリビューションの.warファイルには、組み込みのOpenDJとコアサーバーのコードが含まれています。組み込みのOpenDJは設定データを格納し、配備を簡素化します。また、GUIの管理コンソールを含みます。インストール時に、.warファイルは完全修飾ドメイン名、ポート、コンテキストパス、設定フォルダの場所を取得するために、ブートストラップファイルにアクセスします。|
+|コアサーバーのみ|OpenAMは、管理コンソールの無いコアサーバーのみの.warファイルを提供します。この設定は、ssoadmコマンドラインツールと1台の完全なサーバーインスタンスを使用して、配備が管理されるマルチサーバー構成で多用されます。OpenAMサーバーには、組み込みのOpenDJもインストールされます。|
+|アイデンティティプロバイダ(IdP)・ディスカバリーサービス|OpenAMは、IdPのディスカバリサービスのために、IdPのディスカバリープロファイル（SAML2バインディングプロファイル）を提供します。このプロファイルは、ユーザー毎にIdPを追跡します。|
+|OpenAMクライアントJava SDK|OpenAMは、OpenAM SDKの小さなサブセット(OpenAMサービスに対するクライアント側のAPIを提供する)を提供します。クライアントSDKを使用すると、OpenAMにアクセスし、そのコアサービスを実行するための、リモートスタンドアロンアプリケーションまたはWebアプリケーションを作成することができます。|
