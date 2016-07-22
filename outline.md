@@ -70,6 +70,10 @@
  16.2 Policy Agentのビルド  
 17. [チューニング](tuning.md)　 
 18. コミュニティ
-19. [用語集](glossary.md)  
-20. [参考資料](reference.md)  
-21. インデックス
+19. 実践してみよう  
+ 19.1 Step1: Policy Agentでアプリケーションを保護する  
+ 19.2 Step2: 多要素認証で認証を強化する  
+ 19.3 Step3: ポリシーでアクセス制御する  
+20. [用語集](glossary.md)  
+21. [参考資料](reference.md)  
+22. インデックス
