@@ -1,6 +1,8 @@
-## Backing Up and Restoring OpenAM Configurations
+## OpenAMの設定のバックアップとリストア
 
-OpenAM stores configuration data in an LDAP directory server and in files. The directory service replicates configuration data between directory servers, allowing OpenAM to share configuration data across servers in a site. During normal production operations, you rely on directory replication to maintain multiple, current copies of OpenAM service configuration. To recover from the loss of a server or from a serious administrative error, back up directory data and configuration files.
+During normal production operations, you rely on directory replication to maintain multiple, current copies of OpenAM service configuration. To recover from the loss of a server or from a serious administrative error, back up directory data and configuration files.
+
+OpenAMはLDAPディレクトリサーバーとファイルに設定データを保存します。ディレクトリサービスはディレクトリサーバー間で設定データを複製することで、OpenAMがサイト内のサーバー間で設定データを共有することを可能にします。通常の生産作業中に、OpenAMのサービス構成の複数の、現在のコピーを維持するために、ディレクトリ複製に依存しています。 、サーバーの損失から、または重大な行政エラーから回復ディレクトリデータと設定ファイルをバックアップします。
 
 This chapter shows how to backup and restore OpenAM configuration data by backing up and restoring local configuration files and local (embedded) configuration directory server data. If your deployment uses an external configuration directory server, then refer to the documentation for your external directory server or work with your directory server administrator to back up and restore configuration data stored in the external directory service.
 
