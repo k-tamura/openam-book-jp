@@ -39,7 +39,7 @@ OpenDJをディレクトリサーバーとして使用する場合は、OpenDJ�
 
   If your deployment has long-lived sessions and you do not currently use session failover, you can limit the extent of reauthentication by implementing session failover. For details, see Setting Up OpenAM Session Failover.
 
-If your deployment uses an external configuration directory server, then refer to the documentation for your external directory server or work with your directory server administrator to back up and restore configuration data stored in the external directory service. For OpenDJ directory server you can find more information in the chapter on Backing Up and Restoring Data .
+If your deployment uses an external configuration directory server, then refer to the documentation for your external directory server or work with your directory server administrator to back up and restore configuration data stored in the external directory service. For OpenDJ directory server you can find more information in the chapter on Backing Up and Restoring Data.
 
 > **重要**  
 > Understand the explanation in the introductory paragraphs of this chapter before you proceed. Directory backup validity depends on replication purge delay, which by default for OpenDJ directory server is three days.
@@ -76,19 +76,16 @@ This procedure restores all the configuration data for a server, where the confi
 
 Use this procedure when the following statements are true:
 
-    OpenAM stores configuration data in the embedded OpenDJ directory server.
+- OpenAM stores configuration data in the embedded OpenDJ directory server.  
+  The embedded OpenDJ directory server files are co-located with other OpenAM configuration files.
 
-    The embedded OpenDJ directory server files are co-located with other OpenAM configuration files.
+- If OpenAM stores CTS data in the embedded OpenDJ directory server, then the restore operation overwrites current CTS data with older data. After you restore from backup, users authenticate again as necessary.  
+  If your deployment has long-lived sessions and you do not currently use session failover, you can limit the extent of reauthentication by implementing session failover. For details, see Setting Up OpenAM Session Failover.
 
-    If OpenAM stores CTS data in the embedded OpenDJ directory server, then the restore operation overwrites current CTS data with older data. After you restore from backup, users authenticate again as necessary.
+If your deployment uses an external configuration directory server, then refer to the documentation for your external directory server or work with your directory server administrator to back up and restore configuration data stored in the external directory service. For OpenDJ directory server you can find more information in the chapter on Backing Up and Restoring Data.
 
-    If your deployment has long-lived sessions and you do not currently use session failover, you can limit the extent of reauthentication by implementing session failover. For details, see Setting Up OpenAM Session Failover.
-
-If your deployment uses an external configuration directory server, then refer to the documentation for your external directory server or work with your directory server administrator to back up and restore configuration data stored in the external directory service. For OpenDJ directory server you can find more information in the chapter on Backing Up and Restoring Data .
-Important
-
-Understand the explanation in the introductory paragraphs of this chapter before you proceed. Directory backup validity depends on replication purge delay, which by default for OpenDJ directory server is three days.
-
+> **重要**  
+> Understand the explanation in the introductory paragraphs of this chapter before you proceed. Directory backup validity depends on replication purge delay, which by default for OpenDJ directory server is three days.  
 Also do not restore configuration data from a backup of a different release of OpenAM. The structure of configuration data can change from release to release.
 
 Follow these steps for each OpenAM server to restore. If you are restoring OpenAM after a failure, make sure you make a copy of any configuration and log files that you need to investigate the problem before restoring OpenAM from backup:
