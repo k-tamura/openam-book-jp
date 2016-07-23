@@ -1,6 +1,6 @@
 ## OpenAMの設定のバックアップとリストア
 
-OpenAMはLDAPディレクトリサーバーとファイルに設定データを保存します。ディレクトリサービスは、ディレクトリサーバー間で設定データをレプリケーションすることで、OpenAMがサイト内のサーバー間で設定データを共有することを可能にします。通常の本番環境での作業中に、OpenAMのサービス設定の複数の現在のコピーを維持するために、ディレクトリサーバーのレプリケーションを利用します。サーバーの損失から、または重大な管理上のエラーから回復するために、ディレクトリデータと設定ファイルをバックアップします。
+OpenAMは、LDAPディレクトリサーバーとファイルに設定データを保存します。ディレクトリサービスは、ディレクトリサーバー間で設定データをレプリケーションすることで、OpenAMがサイト内のサーバー間で設定データを共有することを可能にします。通常の本番環境での作業中に、OpenAMのサービス設定の複数の現在のコピーを維持するために、ディレクトリサーバーのレプリケーションを利用します。サーバーの損失から、または重大な管理上のエラーから回復するために、ディレクトリデータと設定ファイルをバックアップします。
 
 この章では、ローカルの設定ファイルとローカルの(組み込み)設定ディレクトリサーバーのデータをバックアップとリストアすることによって、OpenAMの設定データをバックアップとリストアする方法を示しています。外部設定ディレクトリサーバーを使用する場合、外部ディレクトリサービスに保存されている設定データをバックアップ、リストアするには、外部ディレクトリサーバーのマニュアルを参照して下さい。
 
@@ -11,9 +11,8 @@ OpenDJをディレクトリサーバーとして使用する場合は、OpenDJ�
 - ディレクトリレプリケーションは、レプリケーションされたデータはどこでも同じであることを保証するために新しい変更を機械的に適用します。古いバックアップデータをリストアすると、ディレクトリレプリケーションは古いデータに新しい変更を適用します。  
 これには、管理者の作業ミスによる新しい変更も含まれています。管理者のエラーからリストアするには、エラーを修理するようにレプリケーションされる変更を行うか、エラーの以前の状態にすべてのレプリカをリストアするかのいずれかにより、この現象を回避しなければならりません。
 
-- When preparing directory server backup and restore operations, also know that data replication purge operations affect the useful lifetime of any data that you back up.  
-Replication relies on historical data to resolve any conflicts that arise. If directory servers did not eventually purge this historical data, the data would continue to grow until it filled all available space. Directory servers therefore purge older historical data. OpenDJ purges historical data older than 3 days by default.  
-When the directory server encounters a gap in historical data it cannot correctly complete replication operations. You must make sure, therefore, that any data you restore from backup is not older than the replication purge delay. Otherwise your restoration operation could break replication with the likely result that you must restore all servers from backup, losing any changes that occurred in the meantime.
+- ディレクトリサーバーのバックアップを準備し、操作をリストアするときは、データレプリケーションのパージ(削除)操作がバックアップするすべてのデータの有効なライフタイムに影響を与えることを認識して下さい。レプリケーションは、発生する競合を解決するために履歴データに基づいています。ディレクトリサーバーが最終的にこの履歴データを削除しなかった場合、すべての利用可能なスペースを埋めまでデータが増大する可能性があります。 ディレクトリサーバーは、したがって、古い履歴データを削除します。 OpenDJは、デフォルトで3日以上経過した履歴データを削除します。  
+ディレクトリサーバーは、履歴データのギャップを検出すると、レプリケーション操作を正常に完了できない可能性があります。したがって、バックアップからリストアした全てのデータがレプリケーションパージ遅延よりも古くないことを確認する必要があります。そうしないと、リストア操作が、その間に発生したすべての変更を失い、バックアップから全てのサーバーをリストアする必要があるような、レプリケーションを停止を招く可能性があります。
 
 This chapter aims to cover the following uses of backup data.
 
