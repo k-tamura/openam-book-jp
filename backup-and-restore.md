@@ -1,24 +1,19 @@
 ## OpenAMの設定のバックアップとリストア
 
-During normal production operations, you rely on directory replication to maintain multiple, current copies of OpenAM service configuration. To recover from the loss of a server or from a serious administrative error, back up directory data and configuration files.
+OpenAMはLDAPディレクトリサーバーとファイルに設定データを保存します。ディレクトリサービスは、ディレクトリサーバー間で設定データをレプリケーションすることで、OpenAMがサイト内のサーバー間で設定データを共有することを可能にします。通常の本番環境での作業中に、OpenAMのサービス設定の複数の現在のコピーを維持するために、ディレクトリサーバーのレプリケーションを利用します。サーバーの損失から、または重大な管理上のエラーから回復するために、ディレクトリデータと設定ファイルをバックアップします。
 
-OpenAMはLDAPディレクトリサーバーとファイルに設定データを保存します。ディレクトリサービスはディレクトリサーバー間で設定データを複製することで、OpenAMがサイト内のサーバー間で設定データを共有することを可能にします。通常の生産作業中に、OpenAMのサービス構成の複数の、現在のコピーを維持するために、ディレクトリ複製に依存しています。 、サーバーの損失から、または重大な行政エラーから回復ディレクトリデータと設定ファイルをバックアップします。
+この章では、ローカルの設定ファイルとローカルの(組み込み)設定ディレクトリサーバーのデータをバックアップとリストアすることによって、OpenAMの設定データをバックアップとリストアする方法を示しています。外部設定ディレクトリサーバーを使用する場合、外部ディレクトリサービスに保存されている設定データをバックアップ、リストアするには、外部ディレクトリサーバーのマニュアルを参照して下さい。
 
-This chapter shows how to backup and restore OpenAM configuration data by backing up and restoring local configuration files and local (embedded) configuration directory server data. If your deployment uses an external configuration directory server, then refer to the documentation for your external directory server or work with your directory server administrator to back up and restore configuration data stored in the external directory service.
+OpenDJをディレクトリサーバーとして使用する場合は、OpenDJの管理ガイドのデータのバックアップとリストアの章でより多くの情報を見つけることができます。
 
-For OpenDJ directory server you can find more information in the chapter on Backing Up and Restoring Data .
+設定ディレクトリデータがレプリケーションされているOpenAMの配備では、以下の点を考慮する必要があります:
 
-In OpenAM deployments where configuration directory data is replicated, you must take the following points into consideration:
+- Directory replication mechanically applies new changes to ensure that replicated data is the same everywhere. When you restore older backup data, directory replication applies newer changes to the older data.  
+This includes new changes that the administrator sees as mistakes. To recover from administrative error, you must work around this behavior either by performing a change to be replicated that repairs the error or by restoring all replicas to a state prior to the error.
 
-    Directory replication mechanically applies new changes to ensure that replicated data is the same everywhere. When you restore older backup data, directory replication applies newer changes to the older data.
-
-    This includes new changes that the administrator sees as mistakes. To recover from administrative error, you must work around this behavior either by performing a change to be replicated that repairs the error or by restoring all replicas to a state prior to the error.
-
-    When preparing directory server backup and restore operations, also know that data replication purge operations affect the useful lifetime of any data that you back up.
-
-    Replication relies on historical data to resolve any conflicts that arise. If directory servers did not eventually purge this historical data, the data would continue to grow until it filled all available space. Directory servers therefore purge older historical data. OpenDJ purges historical data older than 3 days by default.
-
-    When the directory server encounters a gap in historical data it cannot correctly complete replication operations. You must make sure, therefore, that any data you restore from backup is not older than the replication purge delay. Otherwise your restoration operation could break replication with the likely result that you must restore all servers from backup, losing any changes that occurred in the meantime.
+- When preparing directory server backup and restore operations, also know that data replication purge operations affect the useful lifetime of any data that you back up.  
+Replication relies on historical data to resolve any conflicts that arise. If directory servers did not eventually purge this historical data, the data would continue to grow until it filled all available space. Directory servers therefore purge older historical data. OpenDJ purges historical data older than 3 days by default.  
+When the directory server encounters a gap in historical data it cannot correctly complete replication operations. You must make sure, therefore, that any data you restore from backup is not older than the replication purge delay. Otherwise your restoration operation could break replication with the likely result that you must restore all servers from backup, losing any changes that occurred in the meantime.
 
 This chapter aims to cover the following uses of backup data.
 
