@@ -17,19 +17,17 @@ When the directory server encounters a gap in historical data it cannot correctl
 
 This chapter aims to cover the following uses of backup data.
 
-    Recovery from server failure:
+1. Recovery from server failure:
 
-        To Back Up All Server Configuration Data
+    - To Back Up All Server Configuration Data
+    - To Restore All Server Configuration Data
 
-        To Restore All Server Configuration Data
+2. Recovery from serious administrative error:
 
-    Recovery from serious administrative error:
+    - To Export Only Configuration Data
+    - To Restore Configuration Data After Serious Error
 
-        To Export Only Configuration Data
-
-        To Restore Configuration Data After Serious Error
-
-Procedure 21.1. To Back Up All Server Configuration Data
+#### 手順. To Back Up All Server Configuration Data
 
 This procedure backs up all the configuration data stored with the server. This backup is to be restored when rebuilding a failed server.
 
@@ -44,9 +42,9 @@ Use this procedure when the following statements are true:
     If your deployment has long-lived sessions and you do not currently use session failover, you can limit the extent of reauthentication by implementing session failover. For details, see Setting Up OpenAM Session Failover.
 
 If your deployment uses an external configuration directory server, then refer to the documentation for your external directory server or work with your directory server administrator to back up and restore configuration data stored in the external directory service. For OpenDJ directory server you can find more information in the chapter on Backing Up and Restoring Data .
-Important
 
-Understand the explanation in the introductory paragraphs of this chapter before you proceed. Directory backup validity depends on replication purge delay, which by default for OpenDJ directory server is three days.
+> **重要**  
+> Understand the explanation in the introductory paragraphs of this chapter before you proceed. Directory backup validity depends on replication purge delay, which by default for OpenDJ directory server is three days.
 
 Also, do not restore configuration data from a backup of a different release of OpenAM. The structure of configuration data can change from release to release.
 
@@ -76,7 +74,7 @@ Follow these steps for each OpenAM server that you want to back up:
 
     Start OpenAM or the container in which it runs.
 
-Procedure 21.2. To Restore All Server Configuration Data
+#### 手順. To Restore All Server Configuration Data
 
 This procedure restores all the configuration data for a server, where the configuration data has been backed up as described in To Back Up All Server Configuration Data . This procedure applies when rebuilding a failed server.
 
@@ -104,17 +102,17 @@ Follow these steps for each OpenAM server to restore. If you are restoring OpenA
     Restore files in the configuration directory as necessary, making sure that you restore from a valid backup, one that is newer than the replication purge delay:
 
 ```
-    $ cd $HOME
-    $ unzip /path/to/backup-2014-12-01-12-00.zip
-    Archive:  /path/to/backup-2014-12-01-12-00.zip
-    replace openam/.configParam? [y]es, [n]o, [A]ll, [N]one, [r]ename: 
-    A
-    ...
+$ cd $HOME
+$ unzip /path/to/backup-2014-12-01-12-00.zip
+Archive:  /path/to/backup-2014-12-01-12-00.zip
+replace openam/.configParam? [y]es, [n]o, [A]ll, [N]one, [r]ename: 
+A
+...
 ```
 
     Start OpenAM or the container in which it runs.
 
-Procedure 21.3. To Export Only Configuration Data
+#### 手順. To Export Only Configuration Data
 
 LDAP Data Interchange Format (LDIF) is a standard, text-based format for storing LDAP directory data. You can use LDIF excerpts to make changes to directory data.
 
@@ -148,11 +146,11 @@ Export task 20141208113331302 scheduled to start Dec 8, 2014 11:33:31 AM CET
 When the task completes, the LDIF file is at the expected location:
 
 ```
-    $ ls /path/to/*.ldif
-    /path/to/backup-2014-12-08-12-1418034808.ldif
+$ ls /path/to/*.ldif
+/path/to/backup-2014-12-08-12-1418034808.ldif
 ```
 
-Procedure 21.4. To Restore Configuration Data After Serious Error
+#### 手順. To Restore Configuration Data After Serious Error
 
 A serious configuration error is an error that you cannot easily repair by using OpenAM configuration tools, such as OpenAM console or the ssoadm command.
 
