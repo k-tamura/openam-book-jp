@@ -57,7 +57,7 @@
 13. OpenAMの管理  
  13.1 [OpenAMの監視](monitoring.md)  
  13.2 [監査ログ](audit-log.md)  
-14 [バックアップとリストア](backup-and-restore.md)   
+14. [バックアップとリストア](backup-and-restore.md)   
 15. トラブルシューティング  
  15.1 [デバッグログ](debug-log.md)  
  15.2 デバッギング  
