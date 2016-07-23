@@ -6,10 +6,10 @@ OpenAMはLDAPディレクトリサーバーとファイルに設定データを�
 
 OpenDJをディレクトリサーバーとして使用する場合は、OpenDJの管理ガイドのデータのバックアップとリストアの章でより多くの情報を見つけることができます。
 
-設定ディレクトリデータがレプリケーションされているOpenAMの配備では、以下の点を考慮する必要があります:
+設定ディレクトリのデータがレプリケーションされているOpenAMの配備では、以下の点を考慮する必要があります:
 
-- Directory replication mechanically applies new changes to ensure that replicated data is the same everywhere. When you restore older backup data, directory replication applies newer changes to the older data.  
-This includes new changes that the administrator sees as mistakes. To recover from administrative error, you must work around this behavior either by performing a change to be replicated that repairs the error or by restoring all replicas to a state prior to the error.
+- ディレクトリレプリケーションは、レプリケーションされたデータはどこでも同じであることを保証するために新しい変更を機械的に適用します。古いバックアップデータをリストアすると、ディレクトリレプリケーションは古いデータに新しい変更を適用します。  
+これには、管理者の作業ミスによる新しい変更も含まれています。管理者のエラーからリストアするには、エラーを修理するようにレプリケーションされる変更を行うか、エラーの以前の状態にすべてのレプリカをリストアするかのいずれかにより、この現象を回避しなければならりません。
 
 - When preparing directory server backup and restore operations, also know that data replication purge operations affect the useful lifetime of any data that you back up.  
 Replication relies on historical data to resolve any conflicts that arise. If directory servers did not eventually purge this historical data, the data would continue to grow until it filled all available space. Directory servers therefore purge older historical data. OpenDJ purges historical data older than 3 days by default.  
