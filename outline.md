@@ -50,7 +50,6 @@
 11. [アップグレード](upgrade.md)  
  11.1 [OpenAMのアップグレード](upgrade-of-openam.md)   
  11.2 Policy Agentのアップグレード   
- 11.3 [バックアップとリストア](backup-and-restore.md)   
 12. カスタマイズ  
  12.1 ログインページのカスタマイズ   
  12.2 認証モジュールのカスタマイズ  
@@ -58,22 +57,23 @@
 13. OpenAMの管理  
  13.1 [OpenAMの監視](monitoring.md)  
  13.2 [監査ログ](audit-log.md)  
-14. トラブルシューティング  
- 14.1 [デバッグログ](debug-log.md)  
- 14.2 デバッギング  
- 14.3 [トラブルシューティング情報の記録](troubleshooting-info.md)  
-15. ソースコードリーディング  
- 15.1 パッケージ構成  
- 15.2 利用しているライブラリ  
-16. ビルド  
- 16.1 [OpenAMのビルド](build-openam.md)  
- 16.2 Policy Agentのビルド  
-17. [チューニング](tuning.md)　 
-18. コミュニティ
-19. 実践してみよう  
- 19.1 Step1: Policy Agentでアプリケーションを保護する  
- 19.2 Step2: 多要素認証で認証を強化する  
- 19.3 Step3: ポリシーでアクセス制御する  
-20. [用語集](glossary.md)  
-21. [参考資料](reference.md)  
-22. インデックス
+14 [バックアップとリストア](backup-and-restore.md)   
+15. トラブルシューティング  
+ 15.1 [デバッグログ](debug-log.md)  
+ 15.2 デバッギング  
+ 15.3 [トラブルシューティング情報の記録](troubleshooting-info.md)  
+16. ソースコードリーディング  
+ 16.1 パッケージ構成  
+ 16.2 利用しているライブラリ  
+17. ビルド  
+ 17.1 [OpenAMのビルド](build-openam.md)  
+ 17.2 Policy Agentのビルド  
+18. [チューニング](tuning.md)　 
+19. コミュニティ
+20. 実践してみよう  
+ 20.1 Step1: Policy Agentでアプリケーションを保護する  
+ 20.2 Step2: 多要素認証で認証を強化する  
+ 20.3 Step3: ポリシーでアクセス制御する  
+21. [用語集](glossary.md)  
+22. [参考資料](reference.md)  
+23. インデックス
