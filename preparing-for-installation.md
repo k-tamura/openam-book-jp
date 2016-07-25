@@ -24,8 +24,8 @@ $ vi /etc/hosts
 ```
  
 ```
-$ vi /etc/sysconfig/network
-HOSTNAME=openam.example.com
+$ vi /etc/hostname
+openam.example.com
 ```
 
 > **注意**  
