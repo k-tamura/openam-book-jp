@@ -33,16 +33,31 @@ $ yum install tomcat
 $ export JAVA_OPTS="-Xmx1024m -XX:MaxPermSize=256m"
 ```
 
-OpenAMのデプロイとTomcatの起動
-
-　OpenAMはForgeRock社のサイトからをwarファイルをダウンロードできます。ダウンロードしたら、/usr/share/tomcat6/webapps/以下にコピーします。OpenAMのデプロイが完了したら、Tomcatを起動します。
+Tomcatを使用する場合は、server.xmlのConnectorタグにURIEncoding=”UTF-8″を追記しておいた方がいいです。いくつかの画面の文字化けや文字コードに起因する問題を回避できます。
 
 ```
-$ wget http://download.forgerock.org/downloads/openam/openam10/10.0.0/openam_10.0.0.war
-$ mv openam_10.0.0.war /usr/share/tomcat6/webapps/openam.war 
-
-$ service tomcat6 start 
+<Connector port="8080" protocol="HTTP/1.1"
+   connectionTimeout="20000"
+   redirectPort="8443" URIEncoding="UTF-8" />
 ```
+
+#### OpenAMのデプロイとTomcatの起動
+
+OpenAMはForgeRock社のサイトからをOpenAM 13.0.0のwarファイルをダウンロードできます。
+
+https://backstage.forgerock.com/#!/downloads/OpenAM/OpenAM%20Enterprise/13.0.0/OpenAM%2013
+
+> **情報**
+> ダウンロードするにはアカウント登録が必要です。
+
+ダウンロードしたら、/usr/share/tomcat7/webapps/以下にコピーします。OpenAMのデプロイが完了したら、Tomcatを起動します。
+
+```
+$ mv OpenAM-13.0.0.war /usr/share/tomcat7/webapps/openam.war 
+
+$ service tomcat7 start 
+```
+
 ### OpenAMの初期設定
 
 Tomcatの起動が確認できたら、次のURLにアクセスしてください。
