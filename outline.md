@@ -27,7 +27,7 @@
  4.4 フェデレーション方式  
 5. [インストールと初期設定](install-and-setup.md)  
  5.1 [前提事項と事前準備](preparing-for-installation.md)  
- 5.2 1台目のインストール  
+ 5.2 [インストールとセットアップ](setup.md)  
  5.3 冗長化とセッションフェイルオーバー  
  5.4 ステートレスセッション  
 6. [設定](configuration.md)  
