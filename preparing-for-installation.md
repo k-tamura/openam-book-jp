@@ -95,14 +95,3 @@ SELINUX=disabled
 
 > **情報**  
 > OpenAMが使用するポートについては、OpenAMのリファレンス以下に記載されています。
-
-
-#### サーブレットコンテナ(Tomcat)の設定
-
-Tomcatを使用する場合は、server.xmlのConnectorタグにURIEncoding=”UTF-8″を追記しておいた方がいいです。いくつかの画面の文字化けや文字コードに起因する問題を回避できます。
-
-```
-<Connector port="8080" protocol="HTTP/1.1"
-   connectionTimeout="20000"
-   redirectPort="8443" URIEncoding="UTF-8" />
-```
