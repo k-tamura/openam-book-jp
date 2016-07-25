@@ -4,7 +4,7 @@
 
 この章では、OpenAMをインストールと初期設定の方法について解説します。OSは、CentOS 7.0を使用しましたが、Windowsやそれ以外のOSでも基本的な手順は変わりません。
 
-### OpenAMのインストール
+### OpenAMのインストール(デプロイ)
 
 #### JDKのインストール
 
@@ -25,15 +25,33 @@ $ yum install java-1.8.0-openjdk
 
 #### Tomcatのインストールと設定
 
-yumコマンドにより、tomcat7をインストールします。OpenAMの起動には、1GBのJavaヒープと256MBのpermanent領域が必要です。
-　
+yumコマンドにより、tomcat7をインストールします。
+
 ```
 $ yum install tomcat
-
-$ export JAVA_OPTS="-Xmx1024m -XX:MaxPermSize=256m"
 ```
 
-Tomcatを使用する場合は、server.xmlのConnectorタグにURIEncoding=”UTF-8″を追記して下さい。いくつかの画面の文字化けや文字コードに起因する問題を回避できます。
+Tomcat起動時のJVMオプションには、以下を指定して下さい。
+
+- *-server*  
+    -client(クライアントVM)ではなく、-server(サーバーVM)を使用してください。通常、サーバーVMはクライアントVMよりも起動が遅いですが、長期的には実行速度を速くします。
+
+- *-XX:MaxPermSize=256m*  
+    Permanent 領域の最大値は256 MBに設定します。
+
+- *-Xmx1024m*  
+    OpenAMは、少なくとも1 GBのヒープを必要とします。組み込みOpenDJを含める場合は、そのスペースの50％がOpenDJに割り当てられるように、OpenAMには最低2 GBのヒープを設定します。システム構成によってはさらに追加のヒープを必要とします。
+
+```
+$ vi /usr/share/tomcat7/conf/tomcat7.conf
+
+# 以下を追加
+JAVA_OPTS="-server -Xmx1024m -XX:MaxPermSize=256m"
+```
+
+解析のために、その他にもGCやヒープダンプに関するオプションは指定した方がいいです。
+
+server.xmlのConnectorタグにURIEncoding=”UTF-8″を追記して下さい。いくつかの画面の文字化けや文字コードに起因する問題を回避できます。
 
 ```
 <Connector port="8080" protocol="HTTP/1.1"
