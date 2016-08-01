@@ -68,24 +68,25 @@ OpenIDMは、さまざまな環境のシステムに対して、統合的なプ�
 
 - 柔軟なデータモデル
 
- - Select the data model that best fits your deployment: a data full model for faster access or data sparse model for current data
- - An open object-based model that is not hard-coded – provides the flexibility to define different schema, objects, attributes, and relations
+ - 配備にベストフィットするデータモデルを選択できます: 現在のデータに対して、高速なアクセスやデータスパースモデル
+ - ハードコーディングされていないオープンなオブジェクトベースのモデル - 異なるスキーマ、オブジェクト、属性、関係を定義するための柔軟性を提供します。
+
 
 - 組み込みアーキテクチャ
 
- - Encapsulated implementation that used standard REST based interfaces and Java development tools such as Eclipse, NetBeans and Spring for simple, reproducible deployments
+ - 標準的なRESTベースのインターフェイスとJava開発ツール(Eclipse、NetBeans、Springなど)が使用されるカプセル化された実装。
 
 - パスワード管理
 
- - Enables fine control password management to ensure consistency across all applications and data stores, such as Active Directory and HR systems
- - Password policies enforce access rights with rules that can specify strength, aging, reuse, and attribute validation
- - Ability to intercept and synchronize passwords changed natively on OpenDJ and Active Directory over an encrypted channel
+ - すべてのアプリケーションとデータストア(Active Directoryや人事システムなど)間の一貫性を確保するために、細かなパスワード管理の制御を可能にします。
+ - パスワードポリシーは、強度、エイジング、再利用、属性の検証を指定することができるルールでアクセス権を行使します。
+ - 暗号化されたチャネル上でOpenDJとActive Directory上でネイティブに変更されたパスワードをインターセプト、同期する機能。
 
 - クラウドサービス
 
- - Provides simple access to cloud-based systems and resources to provision changes and aggregate data
- - Easy to configure with RESTful APIs alleviating the need for complex, time-consuming customization
- - Supports pre-configured profiles for cloud service providers such as Google Apps and salesforce.com, among others
+ - 変更をプロビジョニングし、データを集計するクラウドベースのシステムやリソースへの簡単なアクセスを提供します。
+ - 複雑で時間のかかるカスタマイズの必要性を軽減する簡易でRESTfulなAPIでの設定。
+ - Google Appsやsalesforce.comのようなクラウドサービスプロバイダ向けの事前設定済みのプロファイルのサポート。
 
 - 同期とリコンシリエーション
 
