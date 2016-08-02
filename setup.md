@@ -17,7 +17,7 @@ OpenJDK Runtime Environment (build 1.8.0_101-b13)
 OpenJDK 64-Bit Server VM (build 25.101-b13, mixed mode)
 ```
 
-Javaがインストールされていないようでしたら、yumコマンドでOpenJDKをインストールします。
+Javaがインストールされていなければ、yumコマンドでOpenJDKをインストールします。
 
 ```
 $ yum install java-1.8.0-openjdk
@@ -49,7 +49,7 @@ $ vi /usr/share/tomcat7/conf/tomcat7.conf
 JAVA_OPTS="-server -Xmx1024m -XX:MaxPermSize=256m"
 ```
 
-解析のために、その他にもGCやヒープダンプに関するオプションは指定した方がいいです。
+その他にも障害発生時の解析などのために、GCやヒープダンプに関するオプションは指定した方がいいです。
 
 server.xmlのConnectorタグにURIEncoding=”UTF-8″を追記して下さい。いくつかの画面の文字化けや文字コードに起因する問題を回避できます。
 
