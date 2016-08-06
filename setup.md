@@ -43,7 +43,7 @@ Tomcat起動時のJVMオプションには、以下を指定して下さい。
     OpenAMは、少なくとも1 GBのヒープを必要とします。組み込みOpenDJを含める場合は、そのスペースの50％がOpenDJに割り当てられるように、OpenAMには最低2 GBのヒープを設定します。システム構成によってはさらに追加のヒープを必要とします。
 
 ```
-$ vi /usr/share/tomcat7/conf/tomcat7.conf
+$ vi /usr/share/tomcat/conf/tomcat.conf
 
 # 以下を追加
 JAVA_OPTS="-server -Xmx1024m -XX:MaxPermSize=256m"
