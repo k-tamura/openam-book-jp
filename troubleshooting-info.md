@@ -209,6 +209,4 @@ at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor$Worker.run(Abst
 }
 ```
 
-本稼働しているOpenAMのシステムで問題が起こった場合は、この機能を運用担当者に実施してもらい、取得した結果を解析することができます。
-
-なお、この機能に関する詳細は、OpenAM 13.0.0のガイドを参照して下さい。
+本稼働しているOpenAMのシステムで問題が起こった場合は、この機能を実施し、取得した結果を解析することができます。
