@@ -1,5 +1,3 @@
-[TODO] 作成中
-
 ## OpenAMのインストールと初期設定
 
 この章では、OpenAMをインストールと初期設定の方法について解説します。OSは、CentOS 7.0を使用しましたが、Windowsやそれ以外のOSでも基本的な手順は変わりません。
@@ -25,7 +23,7 @@ $ yum install java-1.8.0-openjdk
 
 #### Tomcatのインストールと設定
 
-yumコマンドにより、tomcat7をインストールします。
+yumコマンドにより、Tomcat 7.0をインストールします。
 
 ```
 $ yum install tomcat
@@ -78,7 +76,7 @@ $ systemctl start tomcat
 
 ### OpenAMの初期設定
 
-Tomcatの起動が確認できたら、次のURLにアクセスしてください。
+Tomcatの起動が確認できたら、次のURLにアクセスして下さい。
 
 http://openam.example.co.jp:8080/openam
 
@@ -92,13 +90,13 @@ http://openam.example.co.jp:8080/openam
 
 手順1： 一般
 
-デフォルトユーザーのパスワードを入力して、「次へ」ボタンをクリックします。デフォルトユーザーamadminとは、OpenAM管理コンソールでOpenAMの設定をするための管理者アカウントのことです。
+デフォルトユーザーのパスワードを入力して、「次へ」ボタンをクリックします。デフォルトユーザー「amadmin」とは、OpenAM管理コンソールでOpenAMの設定をするための管理者アカウントのことです。
 
 ![図. 手順1： 一般](images/Setup3.png)
 
 手順2： サーバー設定
 
-サーバーURLに「http://openam.example.co.jp:8080 」を、Cookieドメインに「.example.co.jp」を入力して、「次へ」ボタンをクリックします。プラットフォームロケールはen_USのままで構いません。
+サーバーURLに「 http://openam.example.co.jp:8080 」を、Cookieドメインに「.example.co.jp」を入力して、「次へ」ボタンをクリックします。プラットフォームロケールはen_USのままで構いません。
 
 ![図. 手順2： サーバー設定](images/Setup4.png)
 
@@ -122,7 +120,7 @@ http://openam.example.co.jp:8080/openam
 
 手順6： デフォルトのポリシーエージェントユーザー
 
-デフォルトポリシーエージェントユーザーのパスワードを入力して、「次へ」ボタンをクリックします。パスワードは先程入力したamadminのパスワードとは異なるものにしてください。
+デフォルトポリシーエージェントユーザーのパスワードを入力して、「次へ」ボタンをクリックします。パスワードは先程入力したamadminのパスワードとは異なるものにして下さい。
 
 ![図. 手順6： デフォルトのポリシーエージェントユーザー](images/Setup8.png)
 
@@ -141,3 +139,5 @@ http://openam.example.co.jp:8080/openam
 この中にある「ログインに進む」のリンクをクリックすると、OpenAM管理コンソールのログイン画面が表示されます。
 
 ![図. OpenAM管理コンソール](images/Setup12.png)
+
+先ほどパスワードを設定したamadminでログインすることができます。
