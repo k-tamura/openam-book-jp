@@ -17,4 +17,8 @@ ssoadm.jspを有効にするには、OpenAMの管理者(amadmin)で管理コン�
 
     false
 
+![図. 高度設定画面](images/ssoadm-disabled.png)
+
 変更が有効になっていれば、/ssoadm.jsp (例 http://openam.example.com:8080/openam/ssoadm.jsp) にアクセスできます。
+
+![図. ssoadm.jsp](images/ssoadm-jsp.png)
