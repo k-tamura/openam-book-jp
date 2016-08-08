@@ -49,7 +49,7 @@ JAVA_OPTS="-server -Xmx1024m -XX:MaxPermSize=256m"
 
 その他にも障害発生時の解析などのために、GCやヒープダンプに関するオプションは指定した方がいいです。
 
-server.xmlのConnectorタグにURIEncoding=”UTF-8″を追記して下さい。いくつかの画面の文字化けや文字コードに起因する問題を回避できます。
+server.xmlのConnectorタグにURIEncoding="UTF-8"を追記して下さい。いくつかの画面の文字化けや文字コードに起因する問題を回避できます。
 
 ```
 <Connector port="8080" protocol="HTTP/1.1"
@@ -78,7 +78,7 @@ $ systemctl start tomcat
 
 Tomcatの起動が確認できたら、次のURLにアクセスして下さい。
 
-http://openam.example.co.jp:8080/openam
+http://openam01.example.co.jp:8080/openam
 
 デプロイが正常に完了していると、初期設定画面が表示されます。 「カスタム設定」の「新しい設定の作成」のリンクをクリックします。 
 
@@ -96,7 +96,7 @@ http://openam.example.co.jp:8080/openam
 
 手順2： サーバー設定
 
-サーバーURLに「 http://openam.example.co.jp:8080 」を、Cookieドメインに「.example.co.jp」を入力して、「次へ」ボタンをクリックします。プラットフォームロケールはen_USのままで構いません。
+サーバーURLに「 http://openam01.example.co.jp:8080 」を、Cookieドメインに「.example.co.jp」を入力して、「次へ」ボタンをクリックします。プラットフォームロケールはen_USのままで構いません。
 
 ![図. 手順2： サーバー設定](images/Setup4.png)
 
@@ -140,4 +140,4 @@ http://openam.example.co.jp:8080/openam
 
 ![図. OpenAM管理コンソール](images/Setup12.png)
 
-先ほどパスワードを設定したamadminでログインすることができます。
+「amadmin」と手順1で設定したパスワードを入力して、ログインすることができます。
