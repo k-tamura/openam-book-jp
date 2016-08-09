@@ -47,7 +47,7 @@ $ vi /usr/share/tomcat/conf/tomcat.conf
 JAVA_OPTS="-server -Xmx1024m -XX:MaxPermSize=256m"
 ```
 
-その他にも障害発生時の解析などのために、GCやヒープダンプに関するオプションは指定した方がいいです。
+その他にも障害発生時の解析などのために、ガベージコレクションやヒープダンプに関するオプションは指定することをお勧めします。
 
 server.xmlのConnectorタグにURIEncoding="UTF-8"を追記して下さい。いくつかの画面の文字化けや文字コードに起因する問題を回避できます。
 
@@ -59,7 +59,7 @@ server.xmlのConnectorタグにURIEncoding="UTF-8"を追記して下さい。い
 
 #### OpenAMのデプロイとTomcatの起動
 
-OpenAMはForgeRock社のサイトからをOpenAM 13.0.0のwarファイルをダウンロードできます。
+ForgeRock社のサイトから、OpenAM 13.0.0のwarファイルをダウンロードできます。
 
 https://backstage.forgerock.com/#!/downloads/OpenAM/OpenAM%20Enterprise/13.0.0/OpenAM%2013
 
@@ -76,9 +76,11 @@ $ systemctl start tomcat
 
 ### OpenAMの初期設定
 
-Tomcatの起動が確認できたら、次のURLにアクセスして下さい。
+Tomcatの起動が確認できたら、次のURL(※)にアクセスして下さい。
 
 http://openam01.example.co.jp:8080/openam
+
+※この場合、ホスト名はopenam01.example.co.jp:でTomcatのポート番号は8080、コンテキストパスはopenamです。
 
 デプロイが正常に完了していると、初期設定画面が表示されます。 「カスタム設定」の「新しい設定の作成」のリンクをクリックします。 
 
