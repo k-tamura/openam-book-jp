@@ -1,42 +1,47 @@
-OpenAMは、次の2つのセッションをサポートしています。
+## ステートレスセッション
+
+OpenAMは、次の2つのタイプのセッションをサポートしています。
 
 - ステートフルセッション：認証済みのユーザーのセッションが、サーバーのメモリ上に保存される一般的なセッション
 - ステートレスセッション：認証済みのユーザーのセッションが、サーバーのメモリ上に保存されず、クライアント(ブラウザなど)に保存されるセッション
 
-
-
-OpenAM supports two types of sessions: stateful and stateless.
-
 This chapter describes the differences between stateful and stateless sessions, and shows you how to configure OpenAM for either type of session.
-9.1. About OpenAM Sessions
+
+### About OpenAM Sessions
 
 When a user successfully authenticates, OpenAM creates a session to manage the user's access to resources. OpenAM uses information stored in the session to determine if a user's login is still valid, or if a user needs to reauthenticate.
 
 OpenAM sessions are "stateful" or "stateless," and are described in detail in the following sections.
-9.1.1. Stateful Sessions
+
+#### Stateful Sessions
 
 Stateful sessions are sessions that reside in the OpenAM server's memory and, if session failover is enabled, are also persisted in the Core Token Service's token store. OpenAM sends clients a reference to the session in OpenAM memory but it does not contain any of the session state information. The session reference is also known as an SSO token. For browser clients, OpenAM sets a cookie in the browser that contains the session reference. For REST clients, OpenAM returns the session reference in response to calls to the authentication endpoint.
 
 Stateful sessions are malleable. The OpenAM server can modify various aspects of users' sessions during the sessions' lifetime.
-9.1.2. Stateless Sessions
+
+### Stateless Sessions
 
 Stateless sessions are sessions in which state information is encoded in OpenAM and sent to clients, but the information from the sessions is not retained in OpenAM's memory. For browser-based clients, OpenAM sets a cookie in the browser that contains the session state. When the browser transmits the cookie back to OpenAM, OpenAM decodes the session state from the cookie.
 
 Stateless sessions are immutable. This means that when OpenAM sets a cookie for a stateless session in a user's browser, it never updates the cookie until the user has logged out of OpenAM, or until the user's session has expired.
-9.1.3. Configuration By Realm
+
+### Configuration By Realm
 
 Session statefulness and statelessness are configured at the realm level. OpenAM realms use stateful sessions by default. Sessions for all users authenticating to a given realm are either stateful or stateless, depending on the individual realm's configuration. OpenAM can be deployed with some realms using stateless sessions and so forth using stateful sessions.
 
 There is, however, one exception to the per-realm session state configuration. When the top-level administrator (by default, the amadmin user) authenticates to OpenAM, the session is always stateful, even if the Top Level Realm is configured for stateless sessions.
-9.1.4. Session State During OpenAM Authentication
+
+### Session State During OpenAM Authentication
 
 During authentication, OpenAM maintains the authenticating user's session in its memory regardless of whether you have configured the realm to which the user is authenticating for stateful or stateless sessions.
 
 After authentication has completed, OpenAM deletes in-memory sessions for users authenticating to realms configured for stateless sessions. Sessions for users authenticating to realms configured for stateful sessions remain in OpenAM's memory heap.
-9.1.5. Session Customization
+
+### Session Customization
 
 You can store custom information in both stateful and stateless sessions with post authentication plugins. For more information about post authentication plugins, see Section 4.1, "Creating a Post Authentication Plugin" in the OpenAM Developer's Guide.
-9.2. Session Cookies
+
+## Session Cookies
 
 OpenAM writes a cookie in the authenticated user's browser for both stateful and stateless sessions. By default, the cookie's name is iPlanetDirectoryPro. For stateful sessions, the size of this cookie's value is relatively small—approximately 100 bytes—and contains a reference to the stateful session on the OpenAM server and several other pieces of information. For stateless sessions, the iPlanetDirectoryPro cookie is considerably larger—approximately 2000 bytes or more—and contains all the information that would be held in the OpenAM server's memory if the session were stateful.
 
@@ -47,15 +52,18 @@ Stateful and Stateless Session Cookies
 The preceding diagram illustrates the difference between stateful and stateless session cookie values. Note that the diagram is not to scale. The iPlanetDirectoryPro cookie for a stateless session is more than ten times larger than for a stateful session.
 
 The size of the stateless session cookie increases when you customize OpenAM to store additional attributes in users' sessions. You are responsible for ensuring that the size of the cookie does not exceed the maximum cookie size allowed by your end users' browsers.
-9.2.1. Stateless Session Cookie Security
+
+### Stateless Session Cookie Security
 
 When using stateless session cookies, you should configure OpenAM to sign and encrypt the JWT inserted in the iPlanetDirectoryPro cookie.
 
 Configuring stateless session cookies for JWT signing and encryption is discussed in Section 9.8, "Configuring Stateless Session Cookie Security".
-9.2.1.1. JWT Signing
+
+#### JWT Signing
 
 OpenAM sets the iPlanetDirectoryPro cookie in the user's browser as proof of previous authentication whenever single sign-on is desired. OpenAM verifies that the cookie is authentic by validating a signature configured in the Session Service. OpenAM thwarts attackers who might attempt to tamper with the contents of the cookie or its signature, or who might attempt to sign the cookie with an incorrect signature.
-9.2.1.2. JWT Encryption
+
+#### JWT Encryption
 
 Knowledgeable users can easily decode base 64-encoded JWTs. Because an OpenAM session contains information that might be considered sensitive, encrypting the JWT that contains the session protects its contents by ensuring opaqueness.
 
