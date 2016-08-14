@@ -15,9 +15,9 @@ OpenAMのセッションには「ステートレス」または「ステート�
 
 ### ステートフルセッション
 
-Stateful sessions are sessions that reside in the OpenAM server's memory and, if session failover is enabled, are also persisted in the Core Token Service's token store. OpenAM sends clients a reference to the session in OpenAM memory but it does not contain any of the session state information. The session reference is also known as an SSO token. For browser clients, OpenAM sets a cookie in the browser that contains the session reference. For REST clients, OpenAM returns the session reference in response to calls to the authentication endpoint.
+ステートフルセッションは、OpenAMサーバーのメモリに常駐するセッションで、セッションフェイルオーバーが有効になっている場合は、コアトークンサービスのトークンストアにも保持されます。OpenAMは、OpenAMのメモリ内のセッションへの参照をクライアントに送信しますが、それはセッションの状態に関する情報のいずれも含んでいません。セッションへの参照は、SSOトークンとしても知られています。クライアントがブラウザの場合、OpenAMはセッションへの参照が含まれているCookieをブラウザに設定します。RESTクライアントの場合、OpenAMは認証エンドポイントへの呼び出しへのレスポンスとともに、セッションの参照を返します。
 
-Stateful sessions are malleable. The OpenAM server can modify various aspects of users' sessions during the sessions' lifetime.
+ステートフルセッションは可鍛性です。セッションが存続する間、OpenAMサーバーはユーザーのセッションの様々な値を変更することができます。
 
 ### ステートレスセッション
 
