@@ -9,11 +9,11 @@ OpenAMは、次の2つのタイプのセッションをサポートしていま�
 
 ### OpenAMのセッションについて
 
-When a user successfully authenticates, OpenAM creates a session to manage the user's access to resources. OpenAM uses information stored in the session to determine if a user's login is still valid, or if a user needs to reauthenticate.
+ユーザーが正常に認証されると、OpenAMはリソースへのユーザーのアクセスを管理するためのセッションを作成します。 OpenAMは、ユーザーのログインがまだ有効であるか、またユーザーを再認証する必要があるかを判断するために、セッションに格納された情報を使用しています。
 
-OpenAM sessions are "stateful" or "stateless," and are described in detail in the following sections.
+OpenAMのセッションには「ステートレス」または「ステートフル」があり、以下のセクションで詳細に記載されています。
 
-#### ステートフルセッション
+### ステートフルセッション
 
 Stateful sessions are sessions that reside in the OpenAM server's memory and, if session failover is enabled, are also persisted in the Core Token Service's token store. OpenAM sends clients a reference to the session in OpenAM memory but it does not contain any of the session state information. The session reference is also known as an SSO token. For browser clients, OpenAM sets a cookie in the browser that contains the session reference. For REST clients, OpenAM returns the session reference in response to calls to the authentication endpoint.
 
