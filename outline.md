@@ -28,7 +28,7 @@
 5. [インストールと初期設定](install-and-setup.md)  
  5.1 [前提事項と事前準備](preparing-for-installation.md)  
  5.2 [インストールとセットアップ](setup.md)  
- 5.3 冗長化とセッションフェイルオーバー  
+ 5.3 [冗長化とセッションフェイルオーバー](site-and-sfo.md)  
  5.4 ステートレスセッション  
 6. [設定](configuration.md)  
  6.1 [管理コンソール](admin-console.md)   
