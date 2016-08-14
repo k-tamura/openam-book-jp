@@ -5,21 +5,21 @@ OpenAMは、次の2つのタイプのセッションをサポートしていま�
 - ステートフルセッション：認証済みのユーザーのセッションが、サーバーのメモリ上に保存される一般的なセッション
 - ステートレスセッション：認証済みのユーザーのセッションが、サーバーのメモリ上に保存されず、クライアント(ブラウザなど)に保存されるセッション
 
-This chapter describes the differences between stateful and stateless sessions, and shows you how to configure OpenAM for either type of session.
+この章では、ステートフルセッションとステートレスセッションの違いについて説明し、OpenAMでの設定方法を示します。
 
-### About OpenAM Sessions
+### OpenAMのセッションについて
 
 When a user successfully authenticates, OpenAM creates a session to manage the user's access to resources. OpenAM uses information stored in the session to determine if a user's login is still valid, or if a user needs to reauthenticate.
 
 OpenAM sessions are "stateful" or "stateless," and are described in detail in the following sections.
 
-#### Stateful Sessions
+#### ステートフルセッション
 
 Stateful sessions are sessions that reside in the OpenAM server's memory and, if session failover is enabled, are also persisted in the Core Token Service's token store. OpenAM sends clients a reference to the session in OpenAM memory but it does not contain any of the session state information. The session reference is also known as an SSO token. For browser clients, OpenAM sets a cookie in the browser that contains the session reference. For REST clients, OpenAM returns the session reference in response to calls to the authentication endpoint.
 
 Stateful sessions are malleable. The OpenAM server can modify various aspects of users' sessions during the sessions' lifetime.
 
-### Stateless Sessions
+### ステートレスセッション
 
 Stateless sessions are sessions in which state information is encoded in OpenAM and sent to clients, but the information from the sessions is not retained in OpenAM's memory. For browser-based clients, OpenAM sets a cookie in the browser that contains the session state. When the browser transmits the cookie back to OpenAM, OpenAM decodes the session state from the cookie.
 
@@ -53,18 +53,18 @@ The preceding diagram illustrates the difference between stateful and stateless 
 
 The size of the stateless session cookie increases when you customize OpenAM to store additional attributes in users' sessions. You are responsible for ensuring that the size of the cookie does not exceed the maximum cookie size allowed by your end users' browsers.
 
-### Stateless Session Cookie Security
+### ステートレスセッションCookieのセキュリティ
 
 When using stateless session cookies, you should configure OpenAM to sign and encrypt the JWT inserted in the iPlanetDirectoryPro cookie.
 
 Configuring stateless session cookies for JWT signing and encryption is discussed in Section 9.8, "Configuring Stateless Session Cookie Security".
 
-#### JWT Signing
+#### JWT 署名
 
-OpenAM sets the iPlanetDirectoryPro cookie in the user's browser as proof of previous authentication whenever single sign-on is desired. OpenAM verifies that the cookie is authentic by validating a signature configured in the Session Service. OpenAM thwarts attackers who might attempt to tamper with the contents of the cookie or its signature, or who might attempt to sign the cookie with an incorrect signature.
+OpenAMは、シングルサインオンが要求されるたびに以前の認証の証明として、ユーザーのブラウザにiPlanetDirectoryProクッキーを設定します。 OpenAMは、セッションサービスで設定された署名を検証することにより、Cookieが本物であることを検証します。 OpenAMは、Cookieまたはその署名の内容を改ざんしようとする、または不正な署名でCookieに署名しようとする可能性がある攻撃者を阻止します。
 
-#### JWT Encryption
+#### JWT 暗号
 
-Knowledgeable users can easily decode base 64-encoded JWTs. Because an OpenAM session contains information that might be considered sensitive, encrypting the JWT that contains the session protects its contents by ensuring opaqueness.
+知識のあるユーザーは、base64でエンコードされたJWTを簡単にデコードすることができます。 OpenAMのセッションには機密と見なされる可能性のある情報が含まれているため、セッションが含まれているJWTを暗号化することで不透明性を確保することにより、その内容を保護します。
 
-Encrypting the JWT prevents man-in-the-middle attacks that could log the state of every OpenAM session. Encryption also ensures that end users are unable to access the information in their OpenAM session. 
+JWTの暗号化は、全てのOpenAMセッションの状態を記録することが可能なman-in-the-middle攻撃を防ぎます。暗号化は、エンドユーザーが自分のOpenAMセッション内の情報にアクセスすることができないことも保証します。
