@@ -44,9 +44,9 @@ OpenAMは、ステートフルとステートレスの両方のセッション�
 
 ![図. ステートフルセッションクッキーとステートレスセッションクッキー](images/site-and-sfo/iPlanetDirectoryProCookie.png)
 
-The preceding diagram illustrates the difference between stateful and stateless session cookie values. Note that the diagram is not to scale. The iPlanetDirectoryPro cookie for a stateless session is more than ten times larger than for a stateful session.
+上の図は、ステートフルセッションとステートレスセッションのCookie値の差を示しています。図は縮尺通りではないことに注意して下さい。ステートレスセッションの「iPlanetDirectoryPro」Cookieは、ステートフルセッションよりも10倍以上大きいです。
 
-The size of the stateless session cookie increases when you customize OpenAM to store additional attributes in users' sessions. You are responsible for ensuring that the size of the cookie does not exceed the maximum cookie size allowed by your end users' browsers.
+ユーザーのセッションに追加属性を保持するようにOpenAMをカスタマイズする場合、ステートレスセッションのCookieのサイズが大きくなります。Cookieのサイズが、エンドユーザーのブラウザで許可される最大Cookieサイズを超えないことを確認にする必要があります。
 
 ### ステートレスセッションCookieのセキュリティ
 
@@ -74,7 +74,7 @@ With stateless sessions, OpenAM does not store user sessions in the Core Token S
 
 Session blacklisting is an optional feature that maintains a list of logged out stateless sessions in the Core Token Service's token store. The next section describes session logout, including session blacklisting for stateless sessions.
 
-### Session Termination
+### Sessionの終了
 
 OpenAM manages active sessions, allowing single sign-on when authenticated users attempt to access system resources in OpenAM's control.
 
@@ -82,13 +82,10 @@ OpenAM ensures that user sessions are terminated when a configured timeout is re
 
 With stateful sessions, OpenAM terminates sessions in four situations:
 
-When a user explicitly logs out
-
-When an administrator monitoring sessions explicitly terminates a session
-
-When a session exceeds the maximum time-to-live
-
-When a user is idle for longer than the maximum session idle time
+- When a user explicitly logs out
+- When an administrator monitoring sessions explicitly terminates a session
+- When a session exceeds the maximum time-to-live
+- When a user is idle for longer than the maximum session idle time
 
 Under these circumstances, OpenAM responds by removing stateful sessions from the memory heap of the OpenAM server on which the session resides, and from the Core Token Service's token store (if session failover is enabled). With the user's stateful session no longer in memory, OpenAM forces the user to reauthenticate on subsequent attempts to access resources protected by OpenAM.
 
