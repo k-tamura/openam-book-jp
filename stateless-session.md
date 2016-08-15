@@ -41,6 +41,7 @@ OpenAMで認証されている間は、ユーザーが認証しているレル�
 OpenAM writes a cookie in the authenticated user's browser for both stateful and stateless sessions. By default, the cookie's name is iPlanetDirectoryPro. For stateful sessions, the size of this cookie's value is relatively small—approximately 100 bytes—and contains a reference to the stateful session on the OpenAM server and several other pieces of information. For stateless sessions, the iPlanetDirectoryPro cookie is considerably larger—approximately 2000 bytes or more—and contains all the information that would be held in the OpenAM server's memory if the session were stateful.
 
 Stateless session cookies are comprised of two parts. The first part of the cookie is identical to the cookie for stateful sessions, which ensures the compatibility of the cookies regardless of the session type. The second part is a base 64-encoded Java Web Token (JWT), and it contains session information, as illustrated in the figure below.
+
 Figure 9.1. Stateful and Stateless Session Cookies
 Stateful and Stateless Session Cookies
 
@@ -53,6 +54,9 @@ The size of the stateless session cookie increases when you customize OpenAM to 
 When using stateless session cookies, you should configure OpenAM to sign and encrypt the JWT inserted in the iPlanetDirectoryPro cookie.
 
 Configuring stateless session cookies for JWT signing and encryption is discussed in Section 9.8, "Configuring Stateless Session Cookie Security".
+ステートレスセッションCookieを使用する場合は、Cookie「iPlanetDirectoryPro」に挿入されたJWTを署名し、暗号化するようにに、OpenAMを設定する必要があります。
+
+JWTの署名と暗号化のためのステートレスセッションCookieの設定は、「ステートレスセッションCookieセキュリティの設定」、9.8項で説明されています。
 
 #### JWT 署名
 
@@ -63,3 +67,238 @@ OpenAMは、シングルサインオンが要求されるたびに以前の認�
 知識のあるユーザーは、base64でエンコードされたJWTを簡単にデコードすることができます。 OpenAMのセッションには機密と見なされる可能性のある情報が含まれているため、セッションが含まれているJWTを暗号化することで不透明性を確保することにより、その内容を保護します。
 
 JWTの暗号化は、全てのOpenAMセッションの状態を記録することが可能なman-in-the-middle攻撃を防ぎます。暗号化は、エンドユーザーが自分のOpenAMセッション内の情報にアクセスすることができないことも保証します。
+
+### Core Token Service Usage
+
+OpenAM uses the Core Token Service differently for stateful and stateless sessions.
+
+For stateful sessions, OpenAM uses the Core Token Service's token store to save user sessions when session failover is enabled. In the event of the failure of an OpenAM server, one or more backup servers can retrieve the sessions from the Core Token Service's token store to reestablish users login sessions during session failover.
+
+With stateless sessions, OpenAM does not store user sessions in the Core Token Service's token store. Instead, OpenAM stores sessions in the iPlanetDirectoryPro cookie on the user's browser. If an OpenAM server fails, another server handling the user's request simply reads the stateless session from the iPlanetDirectoryPro cookie. Session failover need not be enabled for the other server to be able to read the session.
+
+Session blacklisting is an optional feature that maintains a list of logged out stateless sessions in the Core Token Service's token store. The next section describes session logout, including session blacklisting for stateless sessions.
+
+### Session Termination
+
+OpenAM manages active sessions, allowing single sign-on when authenticated users attempt to access system resources in OpenAM's control.
+
+OpenAM ensures that user sessions are terminated when a configured timeout is reached, or when OpenAM users perform actions that cause session termination. Session termination effectively logs the user out of all systems protected by OpenAM.
+
+With stateful sessions, OpenAM terminates sessions in four situations:
+
+When a user explicitly logs out
+
+When an administrator monitoring sessions explicitly terminates a session
+
+When a session exceeds the maximum time-to-live
+
+When a user is idle for longer than the maximum session idle time
+
+Under these circumstances, OpenAM responds by removing stateful sessions from the memory heap of the OpenAM server on which the session resides, and from the Core Token Service's token store (if session failover is enabled). With the user's stateful session no longer in memory, OpenAM forces the user to reauthenticate on subsequent attempts to access resources protected by OpenAM.
+
+When a user explicitly logs out of OpenAM, OpenAM also attempts to invalidate the iPlanetDirectoryPro cookie in users' browsers by sending a Set-Cookie header with an invalid session ID and a cookie expiration time that is in the past. In the case of administrator session termination and session timeout, OpenAM cannot invalidate the iPlanetDirectoryPro cookie until the next time the user accesses OpenAM.
+
+Session termination differs for stateless sessions. Since stateless sessions are not maintained in OpenAM's memory, administrators cannot monitor or terminate stateless sessions. Because OpenAM does not modify the iPlanetDirectoryPro cookie for stateless sessions after authentication, the session idle time is not maintained in the cookie. Therefore, OpenAM does not automatically terminate stateless sessions that have exceeded the idle timeout.
+
+As with stateful sessions, OpenAM attempts to invalidate the iPlanetDirectoryPro cookie from a user's browser when the user logs out. When the maximum session time is exceeded, OpenAM also attempts to invalidate the iPlanetDirectoryPro cookie in the user's browser the next time the user accesses OpenAM.
+
+It is important to understand that OpenAM cannot guarantee cookie invalidation. For example, the HTTP response containing the Set-Cookie header might be lost. This is not an issue for stateful sessions, because a logged out stateful session no longer exists in OpenAM memory, and a user who attempts to reaccess OpenAM after previously logging out will be forced to reauthenticate.
+
+However, the lack of a guarantee of cookie invalidation is an issue for deployments with stateless sessions. It could be possible for a logged out user to have an iPlanetDirectoryPro cookie. OpenAM could not determine that the user previously logged out. Therefore, OpenAM supports a feature that takes additional action when users log out of stateless sessions. OpenAM can maintain a list of logged out stateless sessions in a session blacklist in the Core Token Service's token store. Whenever users attempt to access OpenAM with stateless sessions, OpenAM checks the session blacklist to validate that the user has not, in fact, logged out.
+
+For more information about session blacklist options, see Configuring Session Blacklisting .
+
+### Choosing Between Stateful and Stateless Sessions
+
+With stateful sessions, OpenAM ties users' sessions to specific servers. Servers can be added to OpenAM sites, but as servers are added, the overall workload balances gradually, assuming a short session lifetime. If an OpenAM server fails, sessions are retrieved from the Core Token Service's token store, and performance can take some time to recover. Crosstalk, an expensive operation, is incurred whenever a user arrives at an OpenAM server that is not the user's home server. Adding servers to OpenAM sites does not improve performance in a horizontally scalable manner; as more servers are added to a site, coordination among the servers becomes more complex.
+
+Stateless sessions provide the following advantages:
+
+Elasticity and horizontal scalability
+With stateless sessions you can add and remove OpenAM servers to a site and the session load should balance horizontally. Elasticity is important for cloud deployments with very large numbers of users when there are significant differences between peak and normal system loads.
+
+Simpler load balancing configuration
+Stateless sessions do not require the use of a load balancer with session stickiness to achieve optimal performance, making deployment of OpenAM on multiple servers simpler.
+
+Stateful sessions provide the following advantages:
+
+Faster performance with equivalent hosts
+Stateless sessions must send a larger cookie to the OpenAM server, and the JWT in the stateless session cookie must be decrypted. The decryption operation can significantly impact OpenAM server performance, reducing the number of session validations per second per host.
+
+Because using stateless sessions provides horizontal scalability, overall performance on hosts using stateless sessions can be easily improved by adding more hosts to the OpenAM deployment.
+
+Full feature support
+Stateful sessions support all OpenAM features. Stateless sessions do not. For information about restrictions on OpenAM usage with stateless sessions, see Limitations When Using Stateless Sessions .
+
+Session information is not resident in browser cookies
+With stateful sessions, all the information about the session resides on the OpenAM server. With stateless sessions, session information is held in browser cookies. This information could be very long-lived.
+
+The following table contrasts the impact of using stateful and stateless sessions in an OpenAM deployment:
+
+Table 9.1. Impact of Deploying OpenAM Using Stateful and Stateless Sessions
+Deployment Area	Stateful Session Deployment	Stateless Session Deployment
+Hardware	Higher RAM consumption	Higher CPU consumption
+Logical Hosts	Smaller number of hosts	Variable or large number of hosts
+Session Monitoring	Available	Not available
+Session Location	In OpenAM server memory heap	In a cookie in the user's browser
+Session Failover	Requires session stickiness to be configured in the load balancer	Does not require session stickiness
+Core Token Service Usage	Supports session failover	Supports session blacklisting for logged out sessions
+Core Token Service Demand	Heavier	Lighter
+Session Security	Sessions are not accessible to users because they reside in memory on the OpenAM server.	Sessions should be signed and encrypted.
+Policy Agents	Sessions cached in the Policy Agent can receive change notification.	Sessions cached in the Policy Agent cannot receive change notification.
+
+### Installation Planning for Stateless Sessions
+
+Session blacklisting uses the Core Token Service's token store during the logout process. For more information about deploying the Core Token Service, see Configuring the Core Token Service.
+
+Also, ensure the trust store used by OpenAM has the necessary certificates installed:
+
+A certificate is required for encrypting JWTs containing stateless sessions.
+
+If you are using RS256 signing, then a certificate is required to sign JWTs. (HMAC signing uses a shared secret.)
+
+The same certificates must be stored on all servers participating in an OpenAM site.
+
+### Configuring OpenAM for Stateless Sessions
+
+To configure stateless sessions for a realm, follow these steps:
+
+Procedure 9.1. Enable Stateless Sessions in a Realm
+Navigate to Realms > Realm Name > Authentication > Settings > General.
+
+Select the "Use Stateless Sessions" check box.
+
+Click Save.
+
+To verify that OpenAM creates a stateless session when non-administrative users authenticate to the realm, follow these steps:
+
+Procedure 9.2. Verify that Stateless Sessions Are Enabled
+Authenticate to the OpenAM console as the top-level administrator (by default, the amadmin user). Note that the amadmin user's session will be stateful, because OpenAM sessions for the top-level administrator are always stateful.
+
+Select the Sessions tab.
+
+Verify that a session is present for the amadmin user.
+
+In your browser, examine the OpenAM cookie, named iPlanetDirectoryPro by default. Copy and paste the cookie's value into a text file and note its size.
+
+Start up a private browser session that will not have access to the iPlanetDirectoryPro cookie for the amadmin user:
+
+On Chrome, open an incognito window.
+
+On Internet Explorer, start InPrivate browsing.
+
+On Firefox, open a new private window.
+
+On Safari, open a new private window.
+
+Authenticate to OpenAM as a non-administrative user in the realm for which you enabled stateless sessions. Be sure not to authenticate as the amadmin user this time.
+
+In your browser, examine the iPlanetDirectoryPro cookie. Copy and paste the cookie's value into a second text file and note its size. The size of the stateless session cookie's value should be considerably larger than the size of the stateful session cookie's value for the amadmin user. If the cookie is not larger, you have not enabled stateless sessions correctly.
+
+Return to the original browser window in which the OpenAM console appears.
+
+Refresh the window containing the Sessions tab.
+
+Verify that a session still appears for the amadmin user, but that no session appears for the non-administrative user in the realm with stateless sessions enabled.
+
+### Configuring Stateless Session Cookie Security
+
+When using stateless sessions, you should sign and encrypt JWTs in the iPlanetDirectoryPro cookie.
+
+Prior to configuring stateless session cookie security, ensure that you have deployed certificates as needed. For more information about managing certificates for OpenAM, see Managing Certificates .
+
+To ensure security of stateless session cookie JWTs, configure a JWT signature and encrypt the entire JWT. The sections that follow provide detailed steps for configuring stateless session cookie security.
+
+For more information about stateless session cookie security, see Stateless Session Cookie Security .
+
+Important
+When deploying multiple OpenAM servers in an OpenAM site, every server must have the same security configuration. Shared secrets and security keys must be identical. If you modify shared secrets or keys, you must make the modifications to all the servers on the site.
+
+#### Configuring the JWT Signature
+
+Configure a JWT signature to prevent malicious tampering of stateless session cookies.
+
+Perform the following steps to configure the JWT signature:
+
+Procedure 9.3. To Configure the JWT Signature
+Navigate to Configuration > Global > Session and then locate the Stateless Sessions section.
+
+Specify the Signing Algorithm Type. The default value is HS256.
+
+If you specified an HMAC signing algorithm, change the value in the Signing HMAC Shared Secret field if you do not want to use the generated default value.
+
+If you specified the RS256 signing algorithm, specify a value in the Signing RSA Certificate Alias field to use for signing the JWT signature.
+
+Click Save.
+
+For detailed information about Session Service configuration attributes, see the entries for Session.
+
+#### Configuring JWT Encryption
+
+Configure JWT encryption to prevent man-in-the-middle attackers from accessing users' session details, and to prevent end users from examining the content in the JWT.
+
+Perform the following steps to encrypt the JWT:
+
+Procedure 9.4. To Configure JWT Encryption
+Navigate to Configuration > Global > Session and then locate the Stateless Sessions section.
+
+Specify the Encryption Algorithm Type as a value other than NONE.
+
+Specify a value in the Encryption RSA Certificate Alias to use for encrypting the JWT signature.
+
+Click Save.
+
+Ensure that the JWT signature configuration is identical on every OpenAM server in your OpenAM site.
+
+For detailed information about Session Service configuration attributes, see the entries for Session.
+
+### Configuring Session Blacklisting
+
+Session blacklisting ensures that users who have logged out of stateless sessions cannot achieve single sign-on without reauthenticating to OpenAM.
+
+Perform the following steps to configure session blacklisting:
+
+Procedure 9.5. To Configure OpenAM for Session Blacklisting
+Make sure that you deployed the Core Token Service during OpenAM installation. The session blacklist is stored in the Core Token Service's token store.
+
+Navigate to Configuration > Global > Session and then locate the Stateless Sessions section.
+
+Select the Enable Session Blacklisting option to enable session blacklisting for stateless sessions. When you configure one or more OpenAM realms for stateless sessions, you should enable session blacklisting in order to track session logouts across multiple OpenAM servers.
+
+Configure the Session Blacklist Cache Size property.
+
+OpenAM maintains a cache of logged out stateless sessions. The cache size should be around the number of logouts expected in the maximum session time. Change the default value of 10,000 when the expected number of logouts during the maximum session time is an order of magnitude greater than 10,000. An underconfigured session blacklist cache causes OpenAM to read blacklist entries from the Core Token Service store instead of obtaining them from cache, which results in a small performance degradation.
+
+Configure the Blacklist Poll Interval property.
+
+OpenAM polls the Core Token Service for changes to logged out sessions if session blacklisting is enabled. By default, the polling interval is 60 seconds. The longer the polling interval, the more time a malicious user has to connect to other OpenAM servers in a cluster and make use of a stolen session cookie. Shortening the polling interval improves the security for logged out sessions, but might incur a minimal decrease in overall OpenAM performance due to increased network activity.
+
+Configure the Blacklist Purge Delay property.
+
+When session blacklisting is enabled, OpenAM tracks each logged out session for the maximum session time plus the blacklist purge delay. For example, if a session has a maximum time of 120 minutes and the blacklist purge delay is one minute, then OpenAM tracks the session for 121 minutes. Increase the blacklist purge delay if you expect system clock skews in a cluster of OpenAM servers to be greater than one minute. There is no need to increase the blacklist purge delay for servers running a clock synchronization protocol, such as Network Time Protocol.
+
+Click Save.
+
+For detailed information about Session Service configuration attributes, see the entries for Session.
+
+### Limitations When Using Stateless Sessions
+
+The following OpenAM features are not supported in realms that use stateless sessions:
+
+Authentication Levels and Session Upgrade Session upgrade
+
+Configuring Session Quotas Session quotas
+
+Configuring Policies Using the OpenAM Console Authorization policies with conditions that reference current session properties
+
+Configuring Cross-Domain Single Sign-On Cross-domain single sign-on
+
+SAML v2.0 and Session State SAML v2.0 single sign-on and single logout
+
+Managing SAML v1.x Single Sign-On SAML 1.x single sign-on
+
+SNMP Monitoring for Sessions SNMP session monitoring
+
+Session Management Session management by using the OpenAM console
+
+Session notification
