@@ -21,25 +21,25 @@ OpenAMのセッションには「ステートレス」または「ステート�
 
 ### ステートレスセッション
 
-Stateless sessions are sessions in which state information is encoded in OpenAM and sent to clients, but the information from the sessions is not retained in OpenAM's memory. For browser-based clients, OpenAM sets a cookie in the browser that contains the session state. When the browser transmits the cookie back to OpenAM, OpenAM decodes the session state from the cookie.
+ステートレスセッションは、状態の情報がOpenAMでエンコードされ、クライアントに送信されるセッションですが、セッション内の情報はOpenAMのメモリに保持されません。ブラウザベースのクライアントの場合、OpenAMはセッションの状態が含まれているCookieをブラウザに設定します。ブラウザがOpenAMにクッキーを送信すると、OpenAMはCookieをもとにセッションの状態をデコードします。
 
-Stateless sessions are immutable. This means that when OpenAM sets a cookie for a stateless session in a user's browser, it never updates the cookie until the user has logged out of OpenAM, or until the user's session has expired.
+ステートレスセッションは不変です。これは、OpenAMがユーザーのブラウザにステートレスセッションのCookieを設定するときに、ユーザーがOpenAMをログアウトするかセッションが期限切れになるまで、クッキーを更新しないことを意味します。
 
-### Configuration By Realm
+### レルムでの設定
 
-Session statefulness and statelessness are configured at the realm level. OpenAM realms use stateful sessions by default. Sessions for all users authenticating to a given realm are either stateful or stateless, depending on the individual realm's configuration. OpenAM can be deployed with some realms using stateless sessions and so forth using stateful sessions.
+ステートフルセッションとステートレスセッションはレルム単位で設定されます。デフォルトでステートフルセッションを使用します。指定されたレルムに認証しているすべてのユーザーのセッションは、個々のレルムの設定に応じて、ステートフルまたはステートレスのいずれかとなります。 OpenAMでは、いくつかのレルムではステートフルセッションを使用し、それ以外ではステートレスセッションを使用するといった配備ができます。
 
-There is, however, one exception to the per-realm session state configuration. When the top-level administrator (by default, the amadmin user) authenticates to OpenAM, the session is always stateful, even if the Top Level Realm is configured for stateless sessions.
+しかし、レルムあたりのセッション状態の設定には1つの例外があります。トップレベルの管理者(デフォルトでは、amadminユーザー)がOpenAMに認証されると、トップレベルのレルムがステートレスセッションで設定されている場合でも、セッションは常にステートフルです。
 
-### Session State During OpenAM Authentication
+### OpenAM認証中のセッションの状態
 
-During authentication, OpenAM maintains the authenticating user's session in its memory regardless of whether you have configured the realm to which the user is authenticating for stateful or stateless sessions.
+OpenAMで認証されている間は、ユーザーが認証しているレルムをステートフルセッションまたはステートレスセッションのどちらに設定したかに関係なく、認証しているユーザーのセッションをメモリ内に保持します。
 
-After authentication has completed, OpenAM deletes in-memory sessions for users authenticating to realms configured for stateless sessions. Sessions for users authenticating to realms configured for stateful sessions remain in OpenAM's memory heap.
+認証が完了した後、OpenAMはステートレスセッションに設定されたレルムで認証しているユーザーのメモリ内のセッションを削除します。ステートフルセッションに設定されたレルムで認証しているユーザーのセッションは、OpenAMのメモリヒープに残ります。
 
-### Session Customization
+### セッションのカスタマイズ
 
-You can store custom information in both stateful and stateless sessions with post authentication plugins. For more information about post authentication plugins, see Section 4.1, "Creating a Post Authentication Plugin" in the OpenAM Developer's Guide.
+ポストの認証プラグインを使用すると、ステートフルセッションとステートレスセッションの両方でカスタム情報を保持することができます。ポスト認証プラグインの詳細については、OpenAM開発者ガイドの「Creating a Post Authentication Plugin」の章を参照してください。
 
 ## Session Cookies
 
