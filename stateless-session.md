@@ -36,15 +36,13 @@ OpenAMで認証されている間は、ユーザーが認証しているレル�
 
 ポストの認証プラグインを使用すると、ステートフルセッションとステートレスセッションの両方でカスタム情報を保持することができます。ポスト認証プラグインの詳細については、OpenAM開発者ガイドの「Creating a Post Authentication Plugin」の章を参照してください。
 
-## Session Cookies
+## セッションCookie
 
-OpenAM writes a cookie in the authenticated user's browser for both stateful and stateless sessions. By default, the cookie's name is iPlanetDirectoryPro. For stateful sessions, the size of this cookie's value is relatively small—approximately 100 bytes—and contains a reference to the stateful session on the OpenAM server and several other pieces of information. For stateless sessions, the iPlanetDirectoryPro cookie is considerably larger—approximately 2000 bytes or more—and contains all the information that would be held in the OpenAM server's memory if the session were stateful.
+OpenAMは、ステートフルとステートレスの両方のセッションのために、認証されたユーザーのブラウザにCookieを書き込みます。デフォルトで、クッキーの名前はiPlanetDirectoryProです。ステートフルセッションの場合、このCookieの値の大きさが比較的小さく(約100バイト)、OpenAMサーバー上のステートフルセッションへの参照とその他いくつかの情報のが含まれています。ステートレスセッションの場合、「iPlanetDirectoryPro」Cookieはかなり大きく(約2000バイト以上)、セッションがステートフルであったとすればOpenAMサーバーのメモリに保持されるすべての情報が含まれています。
 
-Stateless session cookies are comprised of two parts. The first part of the cookie is identical to the cookie for stateful sessions, which ensures the compatibility of the cookies regardless of the session type. The second part is a base 64-encoded Java Web Token (JWT), and it contains session information, as illustrated in the figure below.
+ステートレスセッションCookieは、2つの部分から構成されています。クッキーの最初の部分はステートフルセッションのCookieと同じで、セッションタイプに関係なくクッキーの互換性が保証されます。2番目の部は、ベース64エンコードされたJSON Webトークン（JWT）であり、以下の図に示すように、セッション情報が含まれています。
 
 ![図. ステートフルセッションクッキーとステートレスセッションクッキー](images/site-and-sfo/iPlanetDirectoryProCookie.png)
-
-Stateful and Stateless Session Cookies
 
 The preceding diagram illustrates the difference between stateful and stateless session cookie values. Note that the diagram is not to scale. The iPlanetDirectoryPro cookie for a stateless session is more than ten times larger than for a stateful session.
 
@@ -279,24 +277,16 @@ Click Save.
 
 For detailed information about Session Service configuration attributes, see the entries for Session.
 
-### Limitations When Using Stateless Sessions
+### ステートレスセッションを使用する場合の制限事項
 
-The following OpenAM features are not supported in realms that use stateless sessions:
+次OpenAMの機能は、ステートレスセッションを使用するレルムでサポートされていません。
 
-Authentication Levels and Session Upgrade Session upgrade
-
-Configuring Session Quotas Session quotas
-
-Configuring Policies Using the OpenAM Console Authorization policies with conditions that reference current session properties
-
-Configuring Cross-Domain Single Sign-On Cross-domain single sign-on
-
-SAML v2.0 and Session State SAML v2.0 single sign-on and single logout
-
-Managing SAML v1.x Single Sign-On SAML 1.x single sign-on
-
-SNMP Monitoring for Sessions SNMP session monitoring
-
-Session Management Session management by using the OpenAM console
-
-Session notification
+- 認証レベルとセッションアップグレード
+- セッション割り当ての設定
+- 現在のセッションプロパティを参照する条件を含む認可ポリシー
+- クロスドメインシングルサインオン
+- SAML v2.0シングルサインオンとシングルログアウト
+- SAML v1.xシングルサインオン
+- SNMPセッション監視
+- OpenAMコンソールを使用したセッション管理
+- セッション通知
