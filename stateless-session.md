@@ -42,7 +42,8 @@ OpenAM writes a cookie in the authenticated user's browser for both stateful and
 
 Stateless session cookies are comprised of two parts. The first part of the cookie is identical to the cookie for stateful sessions, which ensures the compatibility of the cookies regardless of the session type. The second part is a base 64-encoded Java Web Token (JWT), and it contains session information, as illustrated in the figure below.
 
-Figure 9.1. Stateful and Stateless Session Cookies
+![図. ステートフルセッションクッキーとステートレスセッションクッキー](images/site-and-sfo/iPlanetDirectoryProCookie.png)
+
 Stateful and Stateless Session Cookies
 
 The preceding diagram illustrates the difference between stateful and stateless session cookie values. Note that the diagram is not to scale. The iPlanetDirectoryPro cookie for a stateless session is more than ten times larger than for a stateful session.
@@ -51,12 +52,9 @@ The size of the stateless session cookie increases when you customize OpenAM to 
 
 ### ステートレスセッションCookieのセキュリティ
 
-When using stateless session cookies, you should configure OpenAM to sign and encrypt the JWT inserted in the iPlanetDirectoryPro cookie.
-
-Configuring stateless session cookies for JWT signing and encryption is discussed in Section 9.8, "Configuring Stateless Session Cookie Security".
 ステートレスセッションCookieを使用する場合は、Cookie「iPlanetDirectoryPro」に挿入されたJWTを署名し、暗号化するようにに、OpenAMを設定する必要があります。
 
-JWTの署名と暗号化のためのステートレスセッションCookieの設定は、「ステートレスセッションCookieセキュリティの設定」、9.8項で説明されています。
+JWTの署名と暗号化のためのステートレスセッションCookieの設定は、「ステートレスセッションCookieセキュリティの設定」の9.8項で説明されています。
 
 #### JWT 署名
 
