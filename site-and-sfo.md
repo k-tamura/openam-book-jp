@@ -76,6 +76,50 @@ OpenAM管理コンソールに、設定を確認します。設定 > サーバ�
 次にロードバランサの設定を行います。
 
 [TODO] 
+ロードバランサー(Apache)
+
+```
+$ vi /etc/httpd/conf/httpd.conf
+
+#LoadModule proxy_module modules/mod_proxy.so
+#LoadModule proxy_balancer_module modules/mod_proxy_balancer.so
+```
+
+の2行をコメント解除。最後に外部設定ファイル(proxy_ajp.conf)の読み込み
+
+```
+Include conf/extra/proxy_ajp.conf
+```
+
+```
+$ vi /etc/httpd/conf/extra/proxy_ajp.conf
+
+ProxyRequests Off
+ProxyPass /openam/ balancer://openam/ stickysession=JSESSIONID
+
+<Proxy balancer://openam>
+  BalancerMember ajp://openam01.example.co.jp:8009/openam route=jvm1 loadfactor=1
+  BalancerMember ajp://openam02.example.co.jp:8009/openam route=jvm2 loadfactor=1
+</Proxy>
+```
+
+
+Tomcat1号機
+
+```
+vi /usr/share/tomcat/conf/server.xml
+<Engine name="Catalina" defaultHost="localhost" jvmRoute="jvm1">
+```
+jvmRoute="jvm1"を追加
+
+Tomcat2号機
+
+```
+vi /usr/share/tomcat/conf/server.xml
+<Engine name="Catalina" defaultHost="localhost" jvmRoute="jvm2">
+```
+
+jvmRoute="jvm2"を追加
 
 ### 動作確認
 
