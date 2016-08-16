@@ -76,16 +76,16 @@ Session blacklisting is an optional feature that maintains a list of logged out 
 
 ### Sessionの終了
 
-OpenAM manages active sessions, allowing single sign-on when authenticated users attempt to access system resources in OpenAM's control.
+OpenAMは、認証されたユーザーがOpenAMの制御下のシステムリソースにアクセスしようとしたときにシングルサインオンを可能にする、アクティブなセッションを管理します。
 
-OpenAM ensures that user sessions are terminated when a configured timeout is reached, or when OpenAM users perform actions that cause session termination. Session termination effectively logs the user out of all systems protected by OpenAM.
+設定されたタイムアウトに到達したとき、またはユーザーがセッション終了の原因となるアクションを実行したときに、ユーザーのセッションが終了されることが保証されます。セッションの終了は、OpenAMによって保護されているすべてのシステムから、効果的にユーザーをログアウトします。
 
-With stateful sessions, OpenAM terminates sessions in four situations:
+ステートフルセッションでは、OpenAMは4つの状況でセッションを終了します。
 
-- When a user explicitly logs out
-- When an administrator monitoring sessions explicitly terminates a session
-- When a session exceeds the maximum time-to-live
-- When a user is idle for longer than the maximum session idle time
+- ユーザーが明示的にログアウトしたとき
+- セッションを監視する管理者が明示的にセッションを終了するとき
+- セッションが最大存続時間を超えたとき
+- ユーザーが最大セッションアイドル時間を超過してアイドル状態であるとき
 
 Under these circumstances, OpenAM responds by removing stateful sessions from the memory heap of the OpenAM server on which the session resides, and from the Core Token Service's token store (if session failover is enabled). With the user's stateful session no longer in memory, OpenAM forces the user to reauthenticate on subsequent attempts to access resources protected by OpenAM.
 
