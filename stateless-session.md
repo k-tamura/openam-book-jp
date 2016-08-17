@@ -152,47 +152,34 @@ If you are using RS256 signing, then a certificate is required to sign JWTs. (HM
 
 The same certificates must be stored on all servers participating in an OpenAM site.
 
-### Configuring OpenAM for Stateless Sessions
+### ステートレスセッションの設定
 
-To configure stateless sessions for a realm, follow these steps:
+レルムにステートレスセッションを設定するには、次の手順を実行します:
 
-Procedure 9.1. Enable Stateless Sessions in a Realm
-Navigate to Realms > Realm Name > Authentication > Settings > General.
+手順. レルム内でステートレスセッションを有効にする
 
-Select the "Use Stateless Sessions" check box.
+1. レルム > レルム名 > 認証 > 設定 > 一般 をクリック。
+2. 「ステートレスセッションを使用する」のチェックボックスをチェックする
+3. 保存ボタンをクリック。
 
-Click Save.
+管理者以外のユーザーがレルムに認証される時にOpenAMがステートレスセッションを作成していることを確認するには、次の手順を実行します:
 
-To verify that OpenAM creates a stateless session when non-administrative users authenticate to the realm, follow these steps:
+手順. ステートレスセッションが有効になっていることを確認する
 
-Procedure 9.2. Verify that Stateless Sessions Are Enabled
-Authenticate to the OpenAM console as the top-level administrator (by default, the amadmin user). Note that the amadmin user's session will be stateful, because OpenAM sessions for the top-level administrator are always stateful.
-
-Select the Sessions tab.
-
-Verify that a session is present for the amadmin user.
-
-In your browser, examine the OpenAM cookie, named iPlanetDirectoryPro by default. Copy and paste the cookie's value into a text file and note its size.
-
-Start up a private browser session that will not have access to the iPlanetDirectoryPro cookie for the amadmin user:
-
-On Chrome, open an incognito window.
-
-On Internet Explorer, start InPrivate browsing.
-
-On Firefox, open a new private window.
-
-On Safari, open a new private window.
-
-Authenticate to OpenAM as a non-administrative user in the realm for which you enabled stateless sessions. Be sure not to authenticate as the amadmin user this time.
-
-In your browser, examine the iPlanetDirectoryPro cookie. Copy and paste the cookie's value into a second text file and note its size. The size of the stateless session cookie's value should be considerably larger than the size of the stateful session cookie's value for the amadmin user. If the cookie is not larger, you have not enabled stateless sessions correctly.
-
-Return to the original browser window in which the OpenAM console appears.
-
-Refresh the window containing the Sessions tab.
-
-Verify that a session still appears for the amadmin user, but that no session appears for the non-administrative user in the realm with stateless sessions enabled.
+1. トップレベルの管理者(デフォルトでは、amadmin)としてOpenAMコンソールにログインします。トップレベルの管理者のOpenAMセッションは常にステートフルであることに注意して下さい。
+2. 「セッション」タブを選択します。
+3. amadminのセッションが存在していることを確認します。
+4. ブラウザ内の、デフォルトではiPlanetDirectoryProで名付けられているOpenAMのCookieを調べます。Cookieの値をテキストファイルにコピーアンドペーストし、そのサイズに注意して下さい。
+5. amadminの「iPlanetDirectoryPro」Cookieにアクセスすることができないプライベートブラウザセッションを起動します:
+ - Chromeでは、シークレットウィンドウを開きます。
+ - Internet Explorerでは、プライベートブラウジングを開始します。
+ - Firefoxでは、新しいプライベートウィンドウを開きます。
+ - Safariでは、新しいプライベートウィンドウを開きます。
+6. ステートレスセッションを有効にしたレルムに対して、管理者以外のユーザーとしてOpenAMにログインします。この時、管理者ユーザーとしてログインしないように注意して下さい。
+7. ブラウザ内の、「iPlanetDirectoryPro」Cookieを調べます。Cookieの値を2番目のテキストファイルにコピーアンドペーストし、そのサイズに注意して下さい。ステートレスセッションCookieの値の大きさは、amadminユーザーのためのステートフルセッションCookieの値のサイズよりもかなり大きくする必要があります。クッキーが大きくない場合は、正しくステートレス・セッションが有効になっていません。
+8. OpenAMコンソールが表示されている元のブラウザウィンドウに戻ります。
+9. 「セッション」画面を表示しているウィンドウをリフレッシュします。
+10. amadminのセッションがまだ表示されていて、ステートレスセッションが有効になっているレルムの管理者以外のユーザーのセッションが表示されないことを確認します。
 
 ### Configuring Stateless Session Cookie Security
 
@@ -213,7 +200,8 @@ Configure a JWT signature to prevent malicious tampering of stateless session co
 
 Perform the following steps to configure the JWT signature:
 
-Procedure 9.3. To Configure the JWT Signature
+手順. To Configure the JWT Signature
+
 Navigate to Configuration > Global > Session and then locate the Stateless Sessions section.
 
 Specify the Signing Algorithm Type. The default value is HS256.
@@ -232,7 +220,8 @@ Configure JWT encryption to prevent man-in-the-middle attackers from accessing u
 
 Perform the following steps to encrypt the JWT:
 
-Procedure 9.4. To Configure JWT Encryption
+手順. To Configure JWT Encryption
+
 Navigate to Configuration > Global > Session and then locate the Stateless Sessions section.
 
 Specify the Encryption Algorithm Type as a value other than NONE.
@@ -251,7 +240,8 @@ Session blacklisting ensures that users who have logged out of stateless session
 
 Perform the following steps to configure session blacklisting:
 
-Procedure 9.5. To Configure OpenAM for Session Blacklisting
+手順. To Configure OpenAM for Session Blacklisting
+
 Make sure that you deployed the Core Token Service during OpenAM installation. The session blacklist is stored in the Core Token Service's token store.
 
 Navigate to Configuration > Global > Session and then locate the Stateless Sessions section.
