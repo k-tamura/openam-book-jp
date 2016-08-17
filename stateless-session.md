@@ -156,7 +156,7 @@ The same certificates must be stored on all servers participating in an OpenAM s
 
 レルムにステートレスセッションを設定するには、次の手順を実行します:
 
-手順. レルム内でステートレスセッションを有効にする
+**手順. レルム内でステートレスセッションを有効にする**
 
 1. レルム > レルム名 > 認証 > 設定 > 一般 をクリック。
 2. 「ステートレスセッションを使用する」のチェックボックスをチェックする
@@ -164,7 +164,7 @@ The same certificates must be stored on all servers participating in an OpenAM s
 
 管理者以外のユーザーがレルムに認証される時にOpenAMがステートレスセッションを作成していることを確認するには、次の手順を実行します:
 
-手順. ステートレスセッションが有効になっていることを確認する
+**手順. ステートレスセッションが有効になっていることを確認する**
 
 1. トップレベルの管理者(デフォルトでは、amadmin)としてOpenAMコンソールにログインします。トップレベルの管理者のOpenAMセッションは常にステートフルであることに注意して下さい。
 2. 「セッション」タブを選択します。
@@ -200,7 +200,7 @@ Configure a JWT signature to prevent malicious tampering of stateless session co
 
 Perform the following steps to configure the JWT signature:
 
-手順. To Configure the JWT Signature
+**手順. To Configure the JWT Signature**
 
 Navigate to Configuration > Global > Session and then locate the Stateless Sessions section.
 
@@ -220,7 +220,7 @@ Configure JWT encryption to prevent man-in-the-middle attackers from accessing u
 
 Perform the following steps to encrypt the JWT:
 
-手順. To Configure JWT Encryption
+**手順. To Configure JWT Encryption**
 
 Navigate to Configuration > Global > Session and then locate the Stateless Sessions section.
 
@@ -240,7 +240,7 @@ Session blacklisting ensures that users who have logged out of stateless session
 
 Perform the following steps to configure session blacklisting:
 
-手順. To Configure OpenAM for Session Blacklisting
+**手順. To Configure OpenAM for Session Blacklisting**
 
 Make sure that you deployed the Core Token Service during OpenAM installation. The session blacklist is stored in the Core Token Service's token store.
 
