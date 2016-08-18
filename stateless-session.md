@@ -128,7 +128,7 @@ With stateful sessions, all the information about the session resides on the Ope
 
 The following table contrasts the impact of using stateful and stateless sessions in an OpenAM deployment:
 
-Table 9.1. Impact of Deploying OpenAM Using Stateful and Stateless Sessions
+表. Impact of Deploying OpenAM Using Stateful and Stateless Sessions
 Deployment Area	Stateful Session Deployment	Stateless Session Deployment
 Hardware	Higher RAM consumption	Higher CPU consumption
 Logical Hosts	Smaller number of hosts	Variable or large number of hosts
@@ -140,17 +140,16 @@ Core Token Service Demand	Heavier	Lighter
 Session Security	Sessions are not accessible to users because they reside in memory on the OpenAM server.	Sessions should be signed and encrypted.
 Policy Agents	Sessions cached in the Policy Agent can receive change notification.	Sessions cached in the Policy Agent cannot receive change notification.
 
-### Installation Planning for Stateless Sessions
+### ステートレスセッションのインストール計画
 
-Session blacklisting uses the Core Token Service's token store during the logout process. For more information about deploying the Core Token Service, see Configuring the Core Token Service.
+セッションブラックリストは、ログアウト処理中にコアトークンサービスのトークンストアを使用します。コアトークンサービスを配備する方法の詳細については、インストールガイドのコアトークンサービスの設定を参照してください。
 
-Also, ensure the trust store used by OpenAM has the necessary certificates installed:
+また、OpenAMが使用するトラストストアに必要な証明書がインストールされていることを確認してください。
 
-A certificate is required for encrypting JWTs containing stateless sessions.
+- 証明書は、ステートレスセッションを含むJWTを暗号化するために必要とされます。
+- RS256の署名を使用している場合、証明書はJWTに署名するために必要です(HMAC署名は共有シークレットを使用します)。
 
-If you are using RS256 signing, then a certificate is required to sign JWTs. (HMAC signing uses a shared secret.)
-
-The same certificates must be stored on all servers participating in an OpenAM site.
+同証明書は、OpenAMサイトに参加している全てのサーバーに格納される必要があります。
 
 ### ステートレスセッションの設定
 
