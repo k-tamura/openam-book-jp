@@ -101,30 +101,30 @@ However, the lack of a guarantee of cookie invalidation is an issue for deployme
 
 For more information about session blacklist options, see Configuring Session Blacklisting .
 
-### Choosing Between Stateful and Stateless Sessions
+### ステートフルおよびステートレスセッションののどちらを選択するか
 
 With stateful sessions, OpenAM ties users' sessions to specific servers. Servers can be added to OpenAM sites, but as servers are added, the overall workload balances gradually, assuming a short session lifetime. If an OpenAM server fails, sessions are retrieved from the Core Token Service's token store, and performance can take some time to recover. Crosstalk, an expensive operation, is incurred whenever a user arrives at an OpenAM server that is not the user's home server. Adding servers to OpenAM sites does not improve performance in a horizontally scalable manner; as more servers are added to a site, coordination among the servers becomes more complex.
 
 Stateless sessions provide the following advantages:
 
-Elasticity and horizontal scalability
-With stateless sessions you can add and remove OpenAM servers to a site and the session load should balance horizontally. Elasticity is important for cloud deployments with very large numbers of users when there are significant differences between peak and normal system loads.
+- Elasticity and horizontal scalability  
+ With stateless sessions you can add and remove OpenAM servers to a site and the session load should balance horizontally. Elasticity is important for cloud deployments with very large numbers of users when there are significant differences between peak and normal system loads.
 
-Simpler load balancing configuration
-Stateless sessions do not require the use of a load balancer with session stickiness to achieve optimal performance, making deployment of OpenAM on multiple servers simpler.
+- Simpler load balancing configuration  
+ Stateless sessions do not require the use of a load balancer with session stickiness to achieve optimal performance, making deployment of OpenAM on multiple servers simpler.
 
 Stateful sessions provide the following advantages:
 
-Faster performance with equivalent hosts
-Stateless sessions must send a larger cookie to the OpenAM server, and the JWT in the stateless session cookie must be decrypted. The decryption operation can significantly impact OpenAM server performance, reducing the number of session validations per second per host.
+- Faster performance with equivalent hosts  
+ Stateless sessions must send a larger cookie to the OpenAM server, and the JWT in the stateless session cookie must be decrypted. The decryption operation can significantly impact OpenAM server performance, reducing the number of session validations per second per host.
 
-Because using stateless sessions provides horizontal scalability, overall performance on hosts using stateless sessions can be easily improved by adding more hosts to the OpenAM deployment.
+ Because using stateless sessions provides horizontal scalability, overall performance on hosts using stateless sessions can be easily improved by adding more hosts to the OpenAM deployment.
 
-Full feature support
+- Full feature support  
 Stateful sessions support all OpenAM features. Stateless sessions do not. For information about restrictions on OpenAM usage with stateless sessions, see Limitations When Using Stateless Sessions .
 
-Session information is not resident in browser cookies
-With stateful sessions, all the information about the session resides on the OpenAM server. With stateless sessions, session information is held in browser cookies. This information could be very long-lived.
+- Session information is not resident in browser cookies  
+ With stateful sessions, all the information about the session resides on the OpenAM server. With stateless sessions, session information is held in browser cookies. This information could be very long-lived.
 
 The following table contrasts the impact of using stateful and stateless sessions in an OpenAM deployment:
 
@@ -265,7 +265,7 @@ For detailed information about Session Service configuration attributes, see the
 
 ### ステートレスセッションを使用する場合の制限事項
 
-次OpenAMの機能は、ステートレスセッションを使用するレルムでサポートされていません。
+次のOpenAMの機能は、ステートレスセッションを使用するレルムでサポートされていません。
 
 - 認証レベルとセッションアップグレード
 - セッション割り当ての設定
