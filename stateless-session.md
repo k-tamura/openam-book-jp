@@ -64,15 +64,15 @@ OpenAMは、シングルサインオンが要求されるたびに以前の認�
 
 JWTの暗号化は、全てのOpenAMセッションの状態を記録することが可能なman-in-the-middle攻撃を防ぎます。暗号化は、エンドユーザーが自分のOpenAMセッション内の情報にアクセスすることができないことも保証します。
 
-### Core Token Service Usage
+### コアトークンサービスの使用方法
 
-OpenAM uses the Core Token Service differently for stateful and stateless sessions.
+OpenAMは、ステートフルセッションとステートレスセッションで異なるコアトークンサービスを使用します。
 
-For stateful sessions, OpenAM uses the Core Token Service's token store to save user sessions when session failover is enabled. In the event of the failure of an OpenAM server, one or more backup servers can retrieve the sessions from the Core Token Service's token store to reestablish users login sessions during session failover.
+ステートフルセッションでは、セッションフェイルオーバーが有効になっている場合、OpenAMはユーザーセッションを保存するために、コアトークンサービスのトークンストアを使用します。OpenAMサーバーで障害が発生した場合は、1つ以上のバックアップサーバーは、セッションのフェイルオーバー中にユーザーのログインセッションを再確立するために、コアトークンサービスのトークンストアからのセッションを取得することができます。
 
-With stateless sessions, OpenAM does not store user sessions in the Core Token Service's token store. Instead, OpenAM stores sessions in the iPlanetDirectoryPro cookie on the user's browser. If an OpenAM server fails, another server handling the user's request simply reads the stateless session from the iPlanetDirectoryPro cookie. Session failover need not be enabled for the other server to be able to read the session.
+ステートレスセッションでは、OpenAMはCoreトークンサービスのトークンストア内のユーザーセッションを保存しません。その代わりに、OpenAMは、ユーザーのブラウザ上の「iPlanetDirectoryPro」Cookieのセッションを保存します。OpenAMサーバーに障害が発生した場合、ユーザーのリクエストを処理する別のサーバーは、単に「iPlanetDirectoryPro」Cookieからステートレスセッションを読み込みます。他のサーバーに対してセッションを読むことができるように、セッションフェイルオーバーを有効にする必要はありません。
 
-Session blacklisting is an optional feature that maintains a list of logged out stateless sessions in the Core Token Service's token store. The next section describes session logout, including session blacklisting for stateless sessions.
+セッションブラックリストは、コアトークンサービスのトークンストアにログアウトしたステートレスセッションのリストを維持するオプション機能です。次のセクションでは、ステートレスセッションのセッションブラックリストを含むセッションログアウトについて説明します。
 
 ### Sessionの終了
 
