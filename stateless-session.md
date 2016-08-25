@@ -103,17 +103,17 @@ OpenAMがCookieの無効化を保証することはできないことを理解�
 
 ### ステートフルおよびステートレスセッションののどちらを選択するか
 
-With stateful sessions, OpenAM ties users' sessions to specific servers. Servers can be added to OpenAM sites, but as servers are added, the overall workload balances gradually, assuming a short session lifetime. If an OpenAM server fails, sessions are retrieved from the Core Token Service's token store, and performance can take some time to recover. Crosstalk, an expensive operation, is incurred whenever a user arrives at an OpenAM server that is not the user's home server. Adding servers to OpenAM sites does not improve performance in a horizontally scalable manner; as more servers are added to a site, coordination among the servers becomes more complex.
+ステートフルセッションを使用すると、OpenAMは特定のサーバーへユーザーのセッションを結び付けます。サーバーはOpenAMのサイトに追加することができますが、サーバーが追加されるにつれて、短いセッションの生存期間を想定し、全体的なワークロードは徐々にバランスを取ります。 OpenAMサーバーに障害が発生した場合、セッションはコアトークンサービスのトークンストアから取得されます。したがって、パフォーマンスが回復するまでに時間がかかることがあります。ユーザーがユーザーのホームサーバーではないOpenAMサーバに到着するたびに、クロストーク(高価な操作)が発生します。より多くのサーバーがサイトに追加されるとサーバー間の調整はより複雑になるので、OpenAMのサイトへのサーバーの追加は、水平方向にスケーラブルな方法でパフォーマンスを向上しません。
 
-Stateless sessions provide the following advantages:
+ステートレスセッションは、次のような利点を提供します:
 
-- Elasticity and horizontal scalability  
- With stateless sessions you can add and remove OpenAM servers to a site and the session load should balance horizontally. Elasticity is important for cloud deployments with very large numbers of users when there are significant differences between peak and normal system loads.
+- イラスティシー(Elasticity)と水平方向のスケーラビリティー
+ ステートレスセッションを使用すると、OpenAMサーバーをサイトに追加および削除でき、セッションの負荷は水平にバランスをとることができます。ピーク時と通常時のシステム負荷の間に有意な差があるとき、非常に大きなユーザー数を持つクラウドの配備のためにイラスティシーが重要です。
 
-- Simpler load balancing configuration  
- Stateless sessions do not require the use of a load balancer with session stickiness to achieve optimal performance, making deployment of OpenAM on multiple servers simpler.
+- よりシンプルなロードバランシングの設定
+ ステートレスセッションは、最適なパフォーマンスを実現するために、スティッキーセションが有効なロードバランサーを使用する必要がありません(より簡単に複数のサーバー上にOpenAMの配備を行うことができます)。
 
-Stateful sessions provide the following advantages:
+ステートフルセッションは、次のような利点を提供します:
 
 - Faster performance with equivalent hosts  
  Stateless sessions must send a larger cookie to the OpenAM server, and the JWT in the stateless session cookie must be decrypted. The decryption operation can significantly impact OpenAM server performance, reducing the number of session validations per second per host.
