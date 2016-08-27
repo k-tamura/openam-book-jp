@@ -233,14 +233,14 @@ JWTを暗号化するには、次の手順を実行します:
 
 **手順. セッションブラックリストを設定する**
 
-1. Make sure that you deployed the Core Token Service during OpenAM installation. The session blacklist is stored in the Core Token Service's token store.
-2. Navigate to Configuration > Global > Session and then locate the Stateless Sessions section.
-3. Select the Enable Session Blacklisting option to enable session blacklisting for stateless sessions. When you configure one or more OpenAM realms for stateless sessions, you should enable session blacklisting in order to track session logouts across multiple OpenAM servers.
-4. Configure the Session Blacklist Cache Size property.
-  OpenAM maintains a cache of logged out stateless sessions. The cache size should be around the number of logouts expected in the maximum session time. Change the default value of 10,000 when the expected number of logouts during the maximum session time is an order of magnitude greater than 10,000. An underconfigured session blacklist cache causes OpenAM to read blacklist entries from the Core Token Service store instead of obtaining them from cache, which results in a small performance degradation.
-5 Configure the Blacklist Poll Interval property.
+1. OpenAMインストール時にコアトークンサービスを配備していることを確認してください。セッションブラックリストは、コアトークンサービストークンストアに保存されます。
+2. 設定 > グローバル > セッション に移動し、ステートレスセッションのセクションを見つけます。
+3. ステートレスセッションのセッションブラックリストを有効にするには、セッションブラックリストオプションを有効にするを選択します。1つまたは複数のOpenAMレルムにステートレスセッションを設定する場合、複数のOpenAMサーバー間のセッションログアウトを追跡するために、セッションブラックリストを有効にする必要があります。
+4. セッションブラックリストキャッシュサイズプロパティを設定します。
+  OpenAMはログアウトしたステートレスセッションのキャッシュを保持します。キャッシュサイズは、最大セッション時間に予想されるログアウト数程度でなければなりません。最大セッション時間中にログアウトの予想数が10,000よりも大きいオーダーがある場合、10,000のデフォルト値を変更します。低く設定されたセッションのブラックリスト・キャッシュは、キャッシュからブラックリストのエントリを得るのではなく、コアトークンサービスストアからそれらを読み込むため、小さなパフォーマンスの低下を引き起こします。
+5 ブラックリストのポーリング間隔プロパティを設定します。
   OpenAM polls the Core Token Service for changes to logged out sessions if session blacklisting is enabled. By default, the polling interval is 60 seconds. The longer the polling interval, the more time a malicious user has to connect to other OpenAM servers in a cluster and make use of a stolen session cookie. Shortening the polling interval improves the security for logged out sessions, but might incur a minimal decrease in overall OpenAM performance due to increased network activity.
-6. Configure the Blacklist Purge Delay property.
+6. ブラックリストパージ遅延プロパティを設定します。
   When session blacklisting is enabled, OpenAM tracks each logged out session for the maximum session time plus the blacklist purge delay. For example, if a session has a maximum time of 120 minutes and the blacklist purge delay is one minute, then OpenAM tracks the session for 121 minutes. Increase the blacklist purge delay if you expect system clock skews in a cluster of OpenAM servers to be greater than one minute. There is no need to increase the blacklist purge delay for servers running a clock synchronization protocol, such as Network Time Protocol.
 7. 保存ボタンをクリックします。
 
