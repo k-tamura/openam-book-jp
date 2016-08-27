@@ -128,17 +128,17 @@ OpenAMがCookieの無効化を保証することはできないことを理解�
 
 表. ステートフルおよびステートレスセッションを使用したOpenAMの配備での影響
 
-|Deployment Area|Stateful Session Deployment|Stateless Session Deployment|
+|配備方法|ステートフルセッション|ステートレスセッション|
 |---|---|---|
-|Hardware|Higher RAM consumption|Higher CPU consumption|
-|Logical Hosts|Smaller number of hosts|Variable or large number of hosts|
-|Session Monitoring|Available|Not available|
-|Session Location|In OpenAM server memory heap|In a cookie in the user's browser|
-|Session Failover|Requires session stickiness to be configured in the load balancer|Does not require session stickiness|
-|Core Token Service Usage|Supports session failover|Supports session blacklisting for logged out sessions|
-|Core Token Service Demand|Heavier|Lighter|
-|Session Security|Sessions are not accessible to users because they reside in memory on the OpenAM server.|Sessions should be signed and encrypted.|
-|Policy Agents|Sessions cached in the Policy Agent can receive change notification.|Sessions cached in the Policy Agent cannot receive change notification.|
+|ハードウェア|高いRAM消費量|高いCPU消費量|
+|論理ホスト|ホストの数が少ない|ホストの数が多いまたは可変|
+|セッション監視|利用可能|利用できない|
+|セッションの保存先|OpenAMサーバのメモリヒープ内|ユーザーのブラウザのクッキー内|
+|セッションフェイルオーバー|ロードバランサのスティッキーセッション設定が必要|スティッキーセッション設定は不要|
+|コアトークンサービスの使用|セッションフェイルオーバーをサポート|ログアウトしたセッションのためにセッションブラックリストをサポート|
+|コアトークンサービスの需要|重い|軽い|
+|セッションのセキュリティ|OpenAMサーバー上のメモリ内に存在するため、セッションはユーザーにはアクセスできません|セッションは、署名および暗号化する必要がある|
+|ポリシーエージェント|ポリシーエージェントにキャッシュされたセッションは、変更通知を受け取ることができる|ポリシーエージェントにキャッシュされたセッションは、変更通知を受信できない|
 
 ### ステートレスセッションのインストール計画
 
@@ -180,46 +180,42 @@ OpenAMがCookieの無効化を保証することはできないことを理解�
 9. 「セッション」画面を表示しているウィンドウをリフレッシュします。
 10. amadminのセッションがまだ表示されていて、ステートレスセッションが有効になっているレルムの管理者以外のユーザーのセッションが表示されないことを確認します。
 
-### Configuring Stateless Session Cookie Security
+### ステートレスセッションCookieのセキュリティの設定
 
-When using stateless sessions, you should sign and encrypt JWTs in the iPlanetDirectoryPro cookie.
+ステートレスセッションを使用するときは、「iPlanetDirectoryPro」CookieにJWTを署名し、暗号化する必要があります。
 
-Prior to configuring stateless session cookie security, ensure that you have deployed certificates as needed. For more information about managing certificates for OpenAM, see Managing Certificates .
+ステートレスセッションCookieのセキュリティを設定する前に、必要に応じて証明書を配備していることを確認してください。OpenAMの証明書の管理の詳細については、証明書の管理を参照してください。
 
-To ensure security of stateless session cookie JWTs, configure a JWT signature and encrypt the entire JWT. The sections that follow provide detailed steps for configuring stateless session cookie security.
+ステートレスセッションCookieのJWTのセキュリティを確保するには、JWTに署名を設定し、JWT全体を暗号化します。次のセクションでは、ステートレスセッションCookieのセキュリティを設定するための詳細な手順を提供します。
 
-For more information about stateless session cookie security, see Stateless Session Cookie Security .
+ステートレスセッションCookieのセキュリティの詳細については、ステートレスセッションCookieのセキュリティを参照してください
 
-Important
-When deploying multiple OpenAM servers in an OpenAM site, every server must have the same security configuration. Shared secrets and security keys must be identical. If you modify shared secrets or keys, you must make the modifications to all the servers on the site.
+> **重要**  
+> OpenAMサイト内に複数のOpenAMサーバーを配備する場合、すべてのサーバーが同じセキュリティ設定になっている必要があります。共有シークレットとセキュリティキーは同一でなければなりません。共有シークレットまたはキーを変更する場合は、サイト上のすべてのサーバーに変更を加える必要があります。
 
-#### Configuring the JWT Signature
+#### JWTの署名の設定
 
-Configure a JWT signature to prevent malicious tampering of stateless session cookies.
+ステートレスセッションCookieの悪質な改ざんを防止するためには、JWTの署名の設定が必要です。
 
-Perform the following steps to configure the JWT signature:
+JWTの署名を設定するには、次の手順を実行します:
 
-**手順. To Configure the JWT Signature**
+**手順. JWTの署名の設定する**
 
-Navigate to Configuration > Global > Session and then locate the Stateless Sessions section.
+1. 設定 > グローバル > セッション に移動し、ステートレスセッションのセクションを見つけます。
+2. 署名アルゴリズムのタイプを指定します。デフォルト値はHS256です。
+3. HMAC署名アルゴリズムを指定した場合は、署名HMAC共有秘密のフィールドの値を変更します(生成されたデフォルト値を使用したくない場合)。
+4. RS256の署名アルゴリズムを指定した場合は、JWTの署名の署名に使用する署名RSA証明書エイリアスのフィールドに値を指定します。
+5. 保存ボタンをクリックします。
 
-Specify the Signing Algorithm Type. The default value is HS256.
+セッションサービスの設定属性の詳細については、OpenAM Referenceの「セッション」のエントリを参照してください。
 
-If you specified an HMAC signing algorithm, change the value in the Signing HMAC Shared Secret field if you do not want to use the generated default value.
+#### JWTの暗号化の設定
 
-If you specified the RS256 signing algorithm, specify a value in the Signing RSA Certificate Alias field to use for signing the JWT signature.
+man-in-the-middleの攻撃者がユーザーのセッションの詳細へのアクセスすことや、エンドユーザーがJWTのコンテンツを調べることを防止するに、JWTの暗号化を設定します。
 
-Click Save.
+JWTを暗号化するには、次の手順を実行します:
 
-For detailed information about Session Service configuration attributes, see the entries for Session.
-
-#### Configuring JWT Encryption
-
-Configure JWT encryption to prevent man-in-the-middle attackers from accessing users' session details, and to prevent end users from examining the content in the JWT.
-
-Perform the following steps to encrypt the JWT:
-
-**手順. To Configure JWT Encryption**
+**手順. JWTの暗号化を設定する**
 
 Navigate to Configuration > Global > Session and then locate the Stateless Sessions section.
 
