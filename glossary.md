@@ -69,6 +69,9 @@ OpenAMの設定データを保持するLDAPディレクトリサービス。
 * クロスドメインシングルサインオン (Cross-domain single sign-on: CDSSO)  
 異なるDNSドメインをまたがるシングルサインオンを可能にするOpenAMの機能。
 
+* クロストーク (Cross talk)  
+サイト構成のOpenAMサーバー間での不要な通信。
+
 * 委任 (Delegation)  
 OpenAMでユーザーに管理者権限を付与すること。
 
