@@ -115,30 +115,30 @@ OpenAMがCookieの無効化を保証することはできないことを理解�
 
 ステートフルセッションは、次のような利点を提供します:
 
-- Faster performance with equivalent hosts  
- Stateless sessions must send a larger cookie to the OpenAM server, and the JWT in the stateless session cookie must be decrypted. The decryption operation can significantly impact OpenAM server performance, reducing the number of session validations per second per host.
+- 同等のホストとより高速なパフォーマンス  
+ ステートレスセッションの場合、OpenAMサーバーにより大きなサイズのCookieを送信して、Cookie内のJWTを復号化する必要があります。復号化操作はホスト毎の秒間のセッションの検証数を削減し、OpenAMサーバーのパフォーマンスに大幅に影響に改善できます。
 
- Because using stateless sessions provides horizontal scalability, overall performance on hosts using stateless sessions can be easily improved by adding more hosts to the OpenAM deployment.
+ ステートレスセッションを使用すると水平方向のスケーラビリティが向上するので、OpenAMの配備に複数のホストを追加することによって、ホスト上の全体的なパフォーマンスを簡単に改善できます。
 
-- Full feature support  
-Stateful sessions support all OpenAM features. Stateless sessions do not. For information about restrictions on OpenAM usage with stateless sessions, see Limitations When Using Stateless Sessions .
+- 機能のフルサポート  
+ステートフルセッションは、すべてOpenAMの機能をサポートしていますが、ステートレスセッションはそうではありません。ステートレスセッションとOpenAMの使用の制限については、「ステートレスセッションを使用する場合の制限事項」を参照して下さい。
 
-- Session information is not resident in browser cookies  
- With stateful sessions, all the information about the session resides on the OpenAM server. With stateless sessions, session information is held in browser cookies. This information could be very long-lived.
+- セッション情報がブラウザのクッキーに存在しない  
+ ステートフルセッションでは、セッションに関するすべての情報はOpenAMサーバー上に存在します。ステートレスセッションでは、セッション情報はブラウザのクッキー内に保持されています。この情報は非常に長い有効期間にできます。
 
-The following table contrasts the impact of using stateful and stateless sessions in an OpenAM deployment:
+表. ステートフルおよびステートレスセッションを使用したOpenAMの配備での影響
 
-表. Impact of Deploying OpenAM Using Stateful and Stateless Sessions
-Deployment Area	Stateful Session Deployment	Stateless Session Deployment
-Hardware	Higher RAM consumption	Higher CPU consumption
-Logical Hosts	Smaller number of hosts	Variable or large number of hosts
-Session Monitoring	Available	Not available
-Session Location	In OpenAM server memory heap	In a cookie in the user's browser
-Session Failover	Requires session stickiness to be configured in the load balancer	Does not require session stickiness
-Core Token Service Usage	Supports session failover	Supports session blacklisting for logged out sessions
-Core Token Service Demand	Heavier	Lighter
-Session Security	Sessions are not accessible to users because they reside in memory on the OpenAM server.	Sessions should be signed and encrypted.
-Policy Agents	Sessions cached in the Policy Agent can receive change notification.	Sessions cached in the Policy Agent cannot receive change notification.
+|Deployment Area|Stateful Session Deployment|Stateless Session Deployment|
+|---|---|---|
+|Hardware|Higher RAM consumption|Higher CPU consumption|
+|Logical Hosts|Smaller number of hosts|Variable or large number of hosts|
+|Session Monitoring|Available|Not available|
+|Session Location|In OpenAM server memory heap|In a cookie in the user's browser|
+|Session Failover|Requires session stickiness to be configured in the load balancer|Does not require session stickiness|
+|Core Token Service Usage|Supports session failover|Supports session blacklisting for logged out sessions|
+|Core Token Service Demand|Heavier|Lighter|
+|Session Security|Sessions are not accessible to users because they reside in memory on the OpenAM server.|Sessions should be signed and encrypted.|
+|Policy Agents|Sessions cached in the Policy Agent can receive change notification.|Sessions cached in the Policy Agent cannot receive change notification.|
 
 ### ステートレスセッションのインストール計画
 
