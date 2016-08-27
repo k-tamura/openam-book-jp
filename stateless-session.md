@@ -239,9 +239,9 @@ JWTを暗号化するには、次の手順を実行します:
 4. セッションブラックリストキャッシュサイズプロパティを設定します。
   OpenAMはログアウトしたステートレスセッションのキャッシュを保持します。キャッシュサイズは、最大セッション時間に予想されるログアウト数程度でなければなりません。最大セッション時間中にログアウトの予想数が10,000よりも大きいオーダーがある場合、10,000のデフォルト値を変更します。低く設定されたセッションのブラックリスト・キャッシュは、キャッシュからブラックリストのエントリを得るのではなく、コアトークンサービスストアからそれらを読み込むため、小さなパフォーマンスの低下を引き起こします。
 5 ブラックリストのポーリング間隔プロパティを設定します。
-  OpenAM polls the Core Token Service for changes to logged out sessions if session blacklisting is enabled. By default, the polling interval is 60 seconds. The longer the polling interval, the more time a malicious user has to connect to other OpenAM servers in a cluster and make use of a stolen session cookie. Shortening the polling interval improves the security for logged out sessions, but might incur a minimal decrease in overall OpenAM performance due to increased network activity.
+  セッションブラックリストが有効な場合、OpenAMは、ログアウトしたセッションへの変更に対してコアトークンサービスをポーリングします。デフォルトで、ポーリング間隔は60秒です。ポーリング間隔が長いほど、悪意のあるユーザーがクラスタ内の他のOpenAMサーバーに接続し、盗んだセッションクッキーを利用する必要がある時間も長くなります。ポーリング間隔を短くすると、ログアウトしたセッションのセキュリティを改善しますが、ネットワーク活動の増加により、全体的なOpenAM性能の最小限の低下を招く可能性があります。
 6. ブラックリストパージ遅延プロパティを設定します。
-  When session blacklisting is enabled, OpenAM tracks each logged out session for the maximum session time plus the blacklist purge delay. For example, if a session has a maximum time of 120 minutes and the blacklist purge delay is one minute, then OpenAM tracks the session for 121 minutes. Increase the blacklist purge delay if you expect system clock skews in a cluster of OpenAM servers to be greater than one minute. There is no need to increase the blacklist purge delay for servers running a clock synchronization protocol, such as Network Time Protocol.
+  セッションのブラックリストが有効な場合、OpenAMはブラックリストパージ遅延に最大セッション時間を加えた時間で、ログアウトしたそれぞれのセッションを追跡します。たとえば、セッションの有効期限が120分でブラックリストパージ遅延が1分の場合、OpenAMは121分間セッションを追跡します。OpenAMサーバーのクラスタのシステムクロックスキューが1分よりも大きくなることが予想される場合、ブラックリストパージ遅延を増加します。ネットワークタイムプロトコルのようなクロック同期プロトコルを実行しているサーバーに対して、ブラックリストパージ遅延を増加させる必要はありません。
 7. 保存ボタンをクリックします。
 
 セッションサービスの設定属性の詳細については、OpenAM Referenceの「セッション」のエントリを参照してください。
