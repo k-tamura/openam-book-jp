@@ -30,6 +30,7 @@
  5.2 [インストールとセットアップ](setup.md)  
  5.3 [冗長化とセッションフェイルオーバー](site-and-sfo.md)  
  5.4 [ステートレスセッション](stateless-session.md)  
+ 5.5 [アンインストール](uninstall.md)  
 6. [設定](configuration.md)  
  6.1 [管理コンソール](admin-console.md)   
  6.2 [コマンドラインツール](command-line-tools.md)   
