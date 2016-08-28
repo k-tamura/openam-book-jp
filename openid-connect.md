@@ -53,7 +53,7 @@ OpenAMにおける、OpenID ConnectおよびそのベースとなっているOAu
 |---|---|---|---|
 |OAuth 2.0|クライアント|OAuth 2.0クライアント認証モジュールを設定することで、OpenAMがOAuth 2.0のクライアントとなり、FacebookやWindows Liveなどにログインを委譲できるようになる。|10.0.0|
 ||認可サーバー|OpenAMがOAuth 2.0の認可サーバーとなり、OAuth 2.0のクライアントであるWebアプリケーションなどに、ユーザー情報へのアクセス権限を付与できるようになる。|10.1.0|
-|OpenID Connect 1.0|RP（Relying Party）|OpenID Connect IDトークン認証モジュールを設定すると、OpenAMに対するログインリクエストのヘッダーに、OPから取得したIDトークンが含まれているかをチェックするようになる。IDトークンが含まれていると、その値を検証し、妥当と判断した場合はエンドユーザーをOpenAMにログイン済みの状態にする。|12.0.0（予定）|
+|OpenID Connect 1.0|RP（Relying Party）|OpenID Connect IDトークン認証モジュールを設定すると、OpenAMに対するログインリクエストのヘッダーに、OPから取得したIDトークンが含まれているかをチェックするようになる。IDトークンが含まれていると、その値を検証し、妥当と判断した場合はエンドユーザーをOpenAMにログイン済みの状態にする。|12.0.0|
 ||OP（OpenID Provider）|OpenAM 11.0.0からは、OpenAMにOAuth 2.0認可サーバーの設定を行うことで、OpenID Connect 1.0のOPとしても機能するようになる。これにより、RPの認証をOpenAMに委譲することが可能。|11.0.0|
 
 表. OpenAMのOAuth 2.0 / OpenID Connect対応状況
