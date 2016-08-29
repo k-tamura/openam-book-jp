@@ -1,8 +1,10 @@
 ### OpenAMのアンインストール
 
-This chapter shows you how to uninstall OpenAM core software. See the OpenAM Web Policy Agent User's Guide, or the OpenAM Java EE Policy Agent User's Guide for instructions on removing OpenAM agents.
+この章では、OpenAMのコアソフトウェアとポリシーエージェントをアンインストールする方法を示します。
 
-手順. OpenAMのアンインストールする
+#### OpenAMのアンインストール
+
+手順. OpenAMをアンインストールする
 
 After you have deployed and configured OpenAM core services, you may have as many as four locations where OpenAM files are stored on your system.
 
@@ -48,3 +50,6 @@ Following the steps below removes the OpenAM software and the internal configura
     $ cd /path/to/tomcat/webapps/
     $ rm -rf openam.war openam/
     ```
+
+#### ポリシーエージェントのアンインストール
+
