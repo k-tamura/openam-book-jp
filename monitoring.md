@@ -50,7 +50,7 @@ demo AQICvSe+tXEg8TUUT8ekzHb8IRzVSvm1Lc2u
 
 ampasswordをコマンドを使用して新しいパスワードを暗号化することができます。認証ファイルを変更したら、変更を有効にするためにOpenAMを再起動する必要があります。
 
-図. ブラウザで参照したOpenAMのMBeans
+![図. ブラウザで参照したOpenAMのMBeans](images/monitoring/MBeanView.png)
 
 #### JMX監視
 
@@ -75,7 +75,7 @@ $ jconsole service:jmx:rmi:///jndi/rmi://localhost:9999/server &
 
 また、Webアプリケーションコンテナに接続することにより、MBeanを参照することができます。デフォルトでは、コンテナへのJMX監視は、プロセスIDを使用して、ローカルでのみアクセス可能である可能性が高いです。
 
-図. OpenAMのMBeanのJConsoleでのブラウジング
+![図. OpenAMのMBeanのJConsoleでのブラウジング](images/monitoring/JConsole.png)
 
 リモートで接続する、SSLを使用するなどの方法については、以下のページを参照して下さい。 
 Monitoring and Management Using JMX
