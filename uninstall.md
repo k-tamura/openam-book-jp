@@ -60,64 +60,62 @@ OpenAMのコアサーバーをデプロイして設定が完了していると�
 
 **手順. Apache HTTPサーバーからWebポリシーエージェントをアンインストールする**
 
-Shut down the Apache server where the agent is installed.
-
-Run agentadmin --l to output a list of the installed web policy agent configuration instances.
-
-Make a note of the ID value of the configuration instance you want to remove.
-
-Run agentadmin --r, and specify the ID of the web policy agent configuration instance to remove. A warning is displayed. Type yes to proceed with removing the configuration instance.
-
-COPY TO CLIPBOARD$ ./agentadmin --r agent_3
-
-Warning! This procedure will remove all OpenAM Web Agent references from
-a Web server configuration. In case you are running OpenAM Web Agent in a
-multi-virtualhost mode, an uninstallation must be carried out manually.
-
-Continue (yes/no): [no]: yes
-
-Removing agent_3 configuration...
-Removing agent_3 configuration... Done.
-Restart the Apache HTTP Server.
+1. Shut down the Apache server where the agent is installed.
+2. Run agentadmin --l to output a list of the installed web policy agent configuration instances.
+   Make a note of the ID value of the configuration instance you want to remove.
+3. Run agentadmin --r, and specify the ID of the web policy agent configuration instance to remove. A warning is displayed.    Type yes to proceed with removing the configuration instance.
+   ```bash
+    ./agentadmin --r agent_3
+    
+    Warning! This procedure will remove all OpenAM Web Agent references from
+    a Web server configuration. In case you are running OpenAM Web Agent in a
+    multi-virtualhost mode, an uninstallation must be carried out manually.
+    
+    Continue (yes/no): [no]: yes
+    
+    Removing agent_3 configuration...
+    Removing agent_3 configuration... Done.
+   ```
+4. Restart the Apache HTTP Server.
 
 #### IISエージェントのアンインストール
 
 **手順. IISのサイトからWebポリシーエージェントをアンインストールする**
 
-Log on to Windows as a user with administrator privileges.
-
-Run agentadmin.exe --l to output a list of the installed web policy agent configuration instances.
-
-COPY TO CLIPBOARDc:\web_agents\iis_agent\bin> agentadmin.exe --l
-OpenAM Web Agent configuration instances:
-
-   id:            agent_1
-   configuration: c:\web_agents\iis_agent\bin\..\instances\agent_1
-   server/site:   2
-Make a note of the ID value of the configuration instance you want to remove.
-
-Run agentadmin.exe --r, and specify the ID of the web policy agent configuration instance to remove.
-
-COPY TO CLIPBOARDc:\web_agents\iis_agent\bin> agentadmin.exe --r agent_1
-
-Removing agent_1 configuration...
-Removing agent_1 configuration... Done.
+1. Log on to Windows as a user with administrator privileges.
+2. Run agentadmin.exe --l to output a list of the installed web policy agent configuration instances.
+   ```cmd
+    c:\web_agents\iis_agent\bin> agentadmin.exe --l
+    OpenAM Web Agent configuration instances:
+    
+       id:            agent_1
+       configuration: c:\web_agents\iis_agent\bin\..\instances\agent_1
+       server/site:   2
+   ```
+   Make a note of the ID value of the configuration instance you want to remove.
+3. Run agentadmin.exe --r, and specify the ID of the web policy agent configuration instance to remove.
+   ```cmd
+    c:\web_agents\iis_agent\bin> agentadmin.exe --r agent_1
+    
+    Removing agent_1 configuration...
+    Removing agent_1 configuration... Done.
+   ```
 
 **手順. IISからWebポリシーエージェントをアンインストールする**
 
-Log on to Windows as a user with administrator privileges.
-
-Run agentadmin --g. A warning is displayed. Type yes to proceed with removing the configuration instance.
-
-COPY TO CLIPBOARDc:\web_agents\iis_agent\bin> agentadmin.exe --g
-
-Warning! This procedure will remove all OpenAM Web Agent references from
-IIS Server configuration.
-
-Continue (yes/no): [no]: yes
-
-Removing agent module from IIS Server configuration...
-Removing agent module from IIS Server configuration... Done.
+1. Log on to Windows as a user with administrator privileges.
+2. Run agentadmin --g. A warning is displayed. Type yes to proceed with removing the configuration instance.
+   ```cmd
+    c:\web_agents\iis_agent\bin> agentadmin.exe --g
+    
+    Warning! This procedure will remove all OpenAM Web Agent references from
+    IIS Server configuration.
+    
+    Continue (yes/no): [no]: yes
+    
+    Removing agent module from IIS Server configuration...
+    Removing agent module from IIS Server configuration... Done.
+   ```
 
 #### Tomcatエージェントのアンインストール
 
@@ -125,7 +123,7 @@ Removing agent module from IIS Server configuration... Done.
 
 Shut down the Tomcat server before you uninstall the policy agent:
 
-COPY TO CLIPBOARD$ /path/to/tomcat/bin/shutdown.sh
+$ /path/to/tomcat/bin/shutdown.sh
 To remove the Java EE policy agent, use agentadmin --uninstall. You must provide the Tomcat server configuration directory location.
 
 Uninstall does not remove the agent instance directory, but you can do so manually after removing the agent configuration from Tomcat.
