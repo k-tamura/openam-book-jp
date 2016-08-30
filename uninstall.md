@@ -60,10 +60,11 @@ OpenAMのコアサーバーをデプロイして設定が完了していると�
 
 **手順. Apache HTTPサーバーからWebポリシーエージェントをアンインストールする**
 
-1. Shut down the Apache server where the agent is installed.
-2. Run agentadmin --l to output a list of the installed web policy agent configuration instances.
-   Make a note of the ID value of the configuration instance you want to remove.
-3. Run agentadmin --r, and specify the ID of the web policy agent configuration instance to remove. A warning is displayed.    Type yes to proceed with removing the configuration instance.
+1. エージェントがインストールされているApacheサーバーをシャットダウンします。
+2. インストールされているWebポリシーエージェントの設定インスタンスのリストを出力するため、agentadmin --lを実行します。
+   削除する設定インスタンスのID値をメモします。
+3. agentadmin --rを実行し、削除するWebポリシーエージェント構成インスタンスのIDを指定します。警告が表示されます。
+   構成インスタンスの削除を続行するには、yesと入力します。
    ```bash
     ./agentadmin --r agent_3
     
@@ -76,7 +77,7 @@ OpenAMのコアサーバーをデプロイして設定が完了していると�
     Removing agent_3 configuration...
     Removing agent_3 configuration... Done.
    ```
-4. Restart the Apache HTTP Server.
+4. Apache HTTPサーバーを再起動します。
 
 #### IISエージェントのアンインストール
 
