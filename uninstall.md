@@ -1,10 +1,10 @@
-### OpenAMのアンインストール
+## OpenAMのアンインストール
 
 この章では、OpenAMとポリシーエージェントをアンインストールする方法を示します。
 
-#### OpenAMのコアサーバーのアンインストール
+### OpenAMのコアサーバーのアンインストール
 
-手順. OpenAMのコアサーバーをアンインストールする
+**手順. OpenAMのコアサーバーをアンインストールする**
 
 OpenAMのコアサーバーをデプロイして設定が完了していると、OpenAMのファイルはシステムシステム上に4か所に保持されている可能性があります。
 
@@ -52,14 +52,14 @@ OpenAMのコアサーバーをデプロイして設定が完了していると�
     $ rm -rf openam.war openam/
     ```
 
-#### ポリシーエージェントのアンインストール
+### ポリシーエージェントのアンインストール
 
 ポリシーエージェントのアンインストールは、エージェントのタイプによって若干異なるので、詳細は書くエージェントのインストールガイドを参照して下さい。ここでは、Apacheエージェント、IISエージェント、Tomcatエージェントについて説明します。
 
-##### Apacheエージェントのアンインストール
+#### Apacheエージェントのアンインストール
 
-Removing Apache Web Policy Agents
-Procedure 4.8. To remove Web Policy Agents from Apache HTTP Server
+**手順. Apache HTTPサーバーからWebポリシーエージェントをアンインストールする**
+
 Shut down the Apache server where the agent is installed.
 
 Run agentadmin --l to output a list of the installed web policy agent configuration instances.
@@ -80,9 +80,10 @@ Removing agent_3 configuration...
 Removing agent_3 configuration... Done.
 Restart the Apache HTTP Server.
 
-##### IISエージェントのアンインストール
+#### IISエージェントのアンインストール
 
-Procedure 5.5. To remove a web policy agent from an IIS site
+**手順. IISのサイトからWebポリシーエージェントをアンインストールする**
+
 Log on to Windows as a user with administrator privileges.
 
 Run agentadmin.exe --l to output a list of the installed web policy agent configuration instances.
@@ -101,7 +102,9 @@ COPY TO CLIPBOARDc:\web_agents\iis_agent\bin> agentadmin.exe --r agent_1
 
 Removing agent_1 configuration...
 Removing agent_1 configuration... Done.
-Procedure 5.6. To remove web policy agents from IIS
+
+**手順. IISからWebポリシーエージェントをアンインストールする**
+
 Log on to Windows as a user with administrator privileges.
 
 Run agentadmin --g. A warning is displayed. Type yes to proceed with removing the configuration instance.
@@ -116,9 +119,10 @@ Continue (yes/no): [no]: yes
 Removing agent module from IIS Server configuration...
 Removing agent module from IIS Server configuration... Done.
 
-##### Tomcatエージェントのアンインストール
+#### Tomcatエージェントのアンインストール
 
-Remove Tomcat Policy Agent Software
+**手順. TomcatサーバーからTomcatポリシーエージェントをアンインストールする**
+
 Shut down the Tomcat server before you uninstall the policy agent:
 
 COPY TO CLIPBOARD$ /path/to/tomcat/bin/shutdown.sh
