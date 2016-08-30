@@ -26,8 +26,8 @@ OpenAMのコアサービスをデプロイし、設定した後、OpenAMのフ�
 2. Webアプリケーションコンテナを実行しているユーザーの$HOMEディレクトリにある設定ファイルを削除することで、OpenAMの設定を解除します。
 
     OpenAMのコアサービスと設定ファイルの完全なアンインストールは、以下のディレクトリを削除で成り立っています:
-    - The configuration directory, by default $HOME/openam. If you did not use the default configuration location, check the value of the Base installation directory property under Deployment > Servers > Server Name > General > System.
-    - The hidden directory that holds a file pointing to the configuration directory. For example, if you are using Apache Tomcat as the web container, this file could be $HOME/.openamcfg/AMConfig_path_to_tomcat_webapps_openam_ OR $HOME/.openssocfg/AMConfig_path_to_tomcat_webapps_openam_. 
+    - 設定ディレクトリ(デフォルトでは$HOME/openam)。デフォルト設定の場所を使用しなかった場合は、Deployment > Servers > Server Name > General > System 以下のベースインストールディレクトリの値をチェックします。
+    - 設定ディレクトリを指すファイルを保持している隠しディレクトリ。WebコンテナとしてApache Tomcatを使用している場合、このファイルは例えば、$HOME/.openamcfg/AMConfig_path_to_tomcat_webapps_openam_や$HOME/.openssocfg/AMConfig_path_to_tomcat_webapps_openam_である可能性があります。
 
     ```bash
     $ rm -rf $HOME/openam $HOME/.openamcfg
@@ -39,12 +39,12 @@ OpenAMのコアサービスをデプロイし、設定した後、OpenAMのフ�
     $ rm -rf $HOME/openam $HOME/.openssocfg
     ```
     
-    If you used an external configuration store, you must remove the configuration manually from your external directory server. The default base DN for the OpenAM configuration is dc=openam,dc=forgerock,dc=org.
-    > **Note**  
-    > At this point, you can restart the web container and configure OpenAM anew if you only want to start over with a clean configuration rather than removing OpenAM completely.
+    外部設定ストアを使用した場合は、外部ディレクトリサーバーから手動で設定を削除する必要があります。 OpenAMの設定のベースDNは、デフォルトでdc=openam,dc=forgerock,dc=orgです。
+    > **注意**  
+    > OpenAMを完全に削除するのではなく、クリーンな設定で最初からやり直したい場合は、この時点でWebコンテナを再起動して、新たにOpenAMを設定することができます。
 
-3. Undeploy the OpenAM web application.  
-    For example, if you are using Apache Tomcat as the web container, remove the .war file and expanded web application from the container.
+3. OpenAM Webアプリケーションをアンデプロイします。
+    WebコンテナとしてApache Tomcatを使用している場合、コンテナから.warファイルと展開したWebアプリケーションを削除します。
 
     ```bash
     $ cd /path/to/tomcat/webapps/
