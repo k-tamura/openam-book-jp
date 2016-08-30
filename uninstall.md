@@ -6,11 +6,11 @@
 
 手順. OpenAMをアンインストールする
 
-After you have deployed and configured OpenAM core services, you may have as many as four locations where OpenAM files are stored on your system.
+OpenAMのコアサービスをデプロイし、設定した後、OpenAMのファイルがシステム上に4か所に保持されていているかもしれません。
 
-Following the steps below removes the OpenAM software and the internal configuration store. If you used an external configuration store, you can remove OpenAM configuration data after removing all the software.
+以下の手順で、OpenAMおよび内部設定ストアを削除します。外部の設定ストアを使用した場合は、すべてのソフトウェアを削除した後でOpenAM設定データを削除することができます。
 
-1. Shut down the web application container in which you deployed OpenAM.
+1. OpenAMをデプロイしているWebアプリケーションコンテナをシャットダウンします。
 
     ```bash
     $ /etc/init.d/tomcat stop
@@ -23,9 +23,9 @@ Following the steps below removes the OpenAM software and the internal configura
      /path/to/tomcat/bin/tomcat-juli.jar
     ```
     
-2. Unconfigure OpenAM by removing the configuration files found in the $HOME directory of the user running the web application container.
+2. Webアプリケーションコンテナを実行しているユーザーの$HOMEディレクトリにある設定ファイルを削除することで、OpenAMの設定を解除します。
 
-    A full uninstall of OpenAM core services and configuration files consists of removing the following directories:
+    OpenAMのコアサービスと設定ファイルの完全なアンインストールは、以下のディレクトリを削除で成り立っています:
     - The configuration directory, by default $HOME/openam. If you did not use the default configuration location, check the value of the Base installation directory property under Deployment > Servers > Server Name > General > System.
     - The hidden directory that holds a file pointing to the configuration directory. For example, if you are using Apache Tomcat as the web container, this file could be $HOME/.openamcfg/AMConfig_path_to_tomcat_webapps_openam_ OR $HOME/.openssocfg/AMConfig_path_to_tomcat_webapps_openam_. 
 
@@ -33,7 +33,7 @@ Following the steps below removes the OpenAM software and the internal configura
     $ rm -rf $HOME/openam $HOME/.openamcfg
     ```
     
-    Or:
+    または:
 
     ```bash
     $ rm -rf $HOME/openam $HOME/.openssocfg
