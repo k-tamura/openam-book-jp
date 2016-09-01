@@ -83,8 +83,8 @@ OpenAMのコアサーバーをデプロイして設定が完了していると�
 
 **手順. IISのサイトからWebポリシーエージェントをアンインストールする**
 
-1. Log on to Windows as a user with administrator privileges.
-2. Run agentadmin.exe --l to output a list of the installed web policy agent configuration instances.
+1. 管理者権限を持つユーザーでWindowsにログオンします。
+2. インストールされたWebポリシーエージェントの設定インスタンスのリストを出力するために agentadmin.exe --l を実行します。
    ```cmd
     c:\web_agents\iis_agent\bin> agentadmin.exe --l
     OpenAM Web Agent configuration instances:
@@ -93,8 +93,8 @@ OpenAMのコアサーバーをデプロイして設定が完了していると�
        configuration: c:\web_agents\iis_agent\bin\..\instances\agent_1
        server/site:   2
    ```
-   Make a note of the ID value of the configuration instance you want to remove.
-3. Run agentadmin.exe --r, and specify the ID of the web policy agent configuration instance to remove.
+   削除する設定インスタンスのID値をメモします。
+3. agentadmin.exe --r を実行し、削除するWebポリシーエージェントの構成インスタンスのIDを指定します。
    ```cmd
     c:\web_agents\iis_agent\bin> agentadmin.exe --r agent_1
     
@@ -104,8 +104,8 @@ OpenAMのコアサーバーをデプロイして設定が完了していると�
 
 **手順. IISからWebポリシーエージェントをアンインストールする**
 
-1. Log on to Windows as a user with administrator privileges.
-2. Run agentadmin --g. A warning is displayed. Type yes to proceed with removing the configuration instance.
+1. 管理者権限を持つユーザーでWindowsにログオンします。
+2. agentadmin --g を実行。警告が表示されます。コンフィギュレーションインスタンスの削除を続行するには、yesと入力します。
    ```cmd
     c:\web_agents\iis_agent\bin> agentadmin.exe --g
     
@@ -122,9 +122,9 @@ OpenAMのコアサーバーをデプロイして設定が完了していると�
 
 **手順. TomcatサーバーからTomcatポリシーエージェントをアンインストールする**
 
-Shut down the Tomcat server before you uninstall the policy agent:
+ポリシーエージェントをアンインストールする前に、Tomcatサーバーをシャットダウンします:
 
 $ /path/to/tomcat/bin/shutdown.sh
-To remove the Java EE policy agent, use agentadmin --uninstall. You must provide the Tomcat server configuration directory location.
+Java EEポリシーエージェントを削除するには、 agentadmin --uninstall を使用します。Tomcatサーバー設定ディレクトリの場所を指定する必要があります。
 
-Uninstall does not remove the agent instance directory, but you can do so manually after removing the agent configuration from Tomcat.
+アンインストールはエージェントインスタンスのディレクトリを削除しませんが、Tomcatからエージェントの設定を削除した後で手動で削除することができます。
