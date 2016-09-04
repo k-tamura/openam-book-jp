@@ -21,3 +21,4 @@
   例えば、/usr/share/tomcat7/openam/ などです。
 - */path/to/.openamcfg/* はOpenAMの設定ディレクトリへのパスが記載されたファイルを含むディレクトリへのパスを表します。  
   例えば、/usr/share/tomcat7/.openamcfg/ などです。
+
