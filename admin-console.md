@@ -3,7 +3,7 @@
 OpenAMをインストールした後、インストール時に設定したパスワードを使用して、OpenAM管理者(amadmin)としてWebベースのコンソールにログインします。http://openam.example.com:8080/openam のようなURLにアクセスします。
 この場合、HTTPプロトコルを介して、FQDN(openam.example.com)上の、Java EE標準のWebコンテナのポート番号(8080)に、指定したデプロイメントURI(/openam)に、通信が行われます。
 
-図. OpenAM管理コンソール
+![図. OpenAM管理コンソール](images/realms.png)
 
 OpenAM管理者(amadmin)としてログインすると、OpenAMコンソールへの完全なアクセス権があります。
 また、OpenAMは、セッションが期限切れになるか、ログアウトするか、ブラウザを閉じるまで、持続するようにブラウザにクッキーを設定します。

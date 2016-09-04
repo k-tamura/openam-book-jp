@@ -1,7 +1,7 @@
 ## 目次
 
 1. [はじめに](introduction.md)  
- 1.1 [本書の目的](purpose_of_this_book.md)  
+ 1.1 [本書の目的](purpose-of-this-book.md)  
  1.2 [対象読者](target-reader.md)   
  1.3 [本書では扱わないテーマ](untouched-theme.md)  
  1.4 [表記方法](conventions.md)  
@@ -19,7 +19,8 @@
  3.1 [OpenSSO以前](history-of-opensso.md)  
  3.2 [OpenSSOからOpenAMへ](history-of-openam.md)  
  3.3 [OpenAM 13.0.0新機能](openam13-new-feature.md)  
- 3.4 [今後のロードマップ](roadmap.md)  
+ 3.3 [OpenAM 13.5.0新機能](openam1350-new-feature.md)  
+ 3.5 [今後のロードマップ](roadmap.md)  
 4. SSOの方式  
  4.1 エージェント方式  
  4.2 リバースプロキシー方式  
@@ -28,8 +29,9 @@
 5. [インストールと初期設定](install-and-setup.md)  
  5.1 [前提事項と事前準備](preparing-for-installation.md)  
  5.2 [インストールとセットアップ](setup.md)  
- 5.3 冗長化とセッションフェイルオーバー  
- 5.4 ステートレスセッション  
+ 5.3 [冗長化とセッションフェイルオーバー](site-and-sfo.md)  
+ 5.4 [ステートレスセッション](stateless-session.md)  
+ 5.5 [アンインストール](uninstall.md)  
 6. [設定](configuration.md)  
  6.1 [管理コンソール](admin-console.md)   
  6.2 [コマンドラインツール](command-line-tools.md)   
