@@ -30,13 +30,19 @@ OpenAMにおけるKBAとは、いわゆる秘密の質問と回答のことで�
 
 図. Google reCAPTCHAのサイト
 
+![図. Google reCAPTCHAのサイト](images/user-self-service/reCAPTCHAindex.png)
+
 2. 適当なラベル名とOpenAMサーバーのドメインを入力します。私の環境では、OpenAMサーバーのホスト名(FQDN)がopenam09.example.co.jpなので、Domainsには「example.co.jp」と入力します。入力したら「Register」ボタンをクリックします。
 
 図. サイトの登録
 
+![図. サイトの登録](images/user-self-service/AddReCAPTCHToSite.png)
+
 完了すると、「Site key」と「Secret key」が発行されます。これらの値は、後でOpenAMの設定で使用するので、このページはこのまま開いておいて下さい。
 
 図. キーの発行
+
+![図. キーの発行](images/user-self-service/AddSiteToReCAPTCH.png)
 
 次に、OpenAMの設定を行います。管理コンソールにamadminでログインして、設定 > グローバル > User Self Service をクリックします。
 
