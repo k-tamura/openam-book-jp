@@ -61,21 +61,21 @@ The minimum number of connections is 6.
 
 When the directory service backing the CTS is external (differs from the directory service backing the OpenAM configuration) then the connection pool used to access the directory service for the CTS is separate from the pool used to access the directory service for the OpenAM configuration. One connection is reserved for cleanup of expired CTS tokens. Remaining connections are allocated for CTS operations such that the number of connections allocated is equal to a power of two. In this case, set the maximum number of connections to 2^n+1, as in 9, 17, 33, 65, and so forth.
 
-If the same directory service backs both the CTS and also OpenAM configuration, then set pool sizes under Configuration > Servers and Sites > Server Name > Directory Configuration.
+同じディレクトリサービスがCTSとOpenAMの設定の両方をバックアップする場合、 設定 > サーバーおよびサイト > サーバー名 > ディレクトリ設定 のプールサイズを設定します。
 
-If the directory service backing the CTS is external (differs from the directory service backing the OpenAM configuration), then set the maximum connection pool size under Configuration > Servers and Sites > Server Name > CTS > External Store Configuration.
+CTSをバックアップしているディレクトリサービスが外部にある(OpenAMの設定をバックアップしているディレクトリサービスとは異なる)場合は、設定 > サーバーおよびサイト > サーバー名 > CTS > 外部ストア設定 の最大接続プールサイズを設定します。
 
-In both cases, if you must change the default connection timeouts, set the advanced properties described below under Configuration > Servers and Sites > Server Name > Advanced:
+In both cases, if you must change the default connection timeouts, set the advanced properties described below under 設定 > サーバーおよびサイト > サーバー名 > Advanced:
 
 表. CTSストアLDAP接続プールの設定
 
 |プロパティ|デフォルト値|提案|
 |---|---|---|
 |最大接続プール|10|管理コンソールで 設定 > サーバーおよびサイト > サーバー名 > ディレクトリの設定 をクリックします。  When the same directory service backs both the CTS and also OpenAM configuration, consider increasing this to at least 19 to allow 9 connections for the CTS, and 10 connections for access to the OpenAM configuration (including for example looking up policies).|
-|Max Connections|10|Find this setting in OpenAM console under Configuration > Servers and Sites > Server Name > CTS > External Store Configuration.  When the directory service backing the CTS is external and the load on the CTS is high, consider setting this to 2^n+1, where n = 4, 5, 6, and so on. In other words, try setting this to 17, 33, 65, and so on when testing performance under load.  (org-forgerock-services-cts-store-max-connections)|
-|CTS connection timeout (advanced property)|10 (seconds)|Most CTS requests to the directory server are handled quickly, so the default timeout is fine for most cases.  If you choose to vary this setting for performance testing, set the advanced property org.forgerock.services.datalayer.connection.timeout.cts.async, under Configuration > Servers and Sites > Server Name > Advanced.  You must restart OpenAM or the container in which it runs for changes to take effect.|
-|CTS reaper timeout (advanced property)|None|The CTS token cleanup connection generally should not time out as it is used to request long-running queries that can return many results.  If you choose to vary this setting for performance testing, set the advanced property, org.forgerock.services.datalayer.connection.timeout.cts.reaper, to the number of seconds desired under Configuration > Servers and Sites > Server Name > Advanced.  You must restart OpenAM or the container in which it runs for changes to take effect.|
-|Configuration management connection timeout (advanced property)|10 (seconds)|Most configuration management requests to the directory server are handled quickly, so the default timeout is fine for most cases.  If you choose to vary this setting for performance testing, set the advanced property, org.forgerock.services.datalayer.connection.timeout, under Configuration > Servers and Sites > Server Name > Advanced.|
+|Max Connections|10|Find this setting in OpenAM console under 設定 > サーバーおよびサイト > サーバー名 > CTS > External Store Configuration.  When the directory service backing the CTS is external and the load on the CTS is high, consider setting this to 2^n+1, where n = 4, 5, 6, and so on. In other words, try setting this to 17, 33, 65, and so on when testing performance under load.  (org-forgerock-services-cts-store-max-connections)|
+|CTS connection timeout (advanced property)|10 (seconds)|Most CTS requests to the directory server are handled quickly, so the default timeout is fine for most cases.  If you choose to vary this setting for performance testing, set the advanced property org.forgerock.services.datalayer.connection.timeout.cts.async, under 設定 > サーバーおよびサイト > サーバー名 > Advanced.  You must restart OpenAM or the container in which it runs for changes to take effect.|
+|CTS reaper timeout (advanced property)|None|The CTS token cleanup connection generally should not time out as it is used to request long-running queries that can return many results.  If you choose to vary this setting for performance testing, set the advanced property, org.forgerock.services.datalayer.connection.timeout.cts.reaper, to the number of seconds desired under 設定 > サーバーおよびサイト > サーバー名 > Advanced.  You must restart OpenAM or the container in which it runs for changes to take effect.|
+|Configuration management connection timeout (advanced property)|10 (seconds)|Most configuration management requests to the directory server are handled quickly, so the default timeout is fine for most cases.  If you choose to vary this setting for performance testing, set the advanced property, org.forgerock.services.datalayer.connection.timeout, under 設定 > サーバーおよびサイト > サーバー名 > Advanced.|
 
 You must restart OpenAM or the container in which it runs for changes to take effect.
 
@@ -174,7 +174,7 @@ Disabling caching can have a severe negative impact on performance. This is beca
 
 If, however, you have at least one user data store that does not support LDAP persistent search, such as a relational database or an LDAP directory server that does not support persistent search, then you must disable the global cache for user data. Otherwise user data caches cannot stay in sync with changes to user data entries:
 
-1. In the OpenAM console, browse to Configuration > Servers and Sites > Server Name > Advanced.
+1. 管理コンソールで、設定 > サーバーおよびサイト > サーバー名 > 高度 をクリックします。
 2. Set com.iplanet.am.sdk.caching.enabled to false to disable caching overall.
 3. Set com.sun.identity.sm.cache.enabled to true to enable configuration data caching.  
     All supported configuration data stores support LDAP persistent search, so it is safe to enable configuration data caching.  
@@ -187,7 +187,7 @@ If, however, you have at least one user data store that does not support LDAP pe
 
 With a large user data store and active user base, the number of user entries in cache can grow large:
 
-1. In the OpenAM console, browse to Configuration > Servers and Sites > Default Server Settings > SDK.
+1. 管理コンソールで、設定 > サーバーおよびサイト > デフォルトサーバー設定 > SDK をクリックします。
 2. Change the value of SDK Caching Maximum Size, and then click Save.  
     There is no corresponding setting for configuration data, as the number of configuration entries in a large deployment is not likely to grow nearly as large as the number of user entries.
 
