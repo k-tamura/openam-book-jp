@@ -3,7 +3,9 @@
 OpenAMの初期設定が完了すると、初期設定時に設定したパスワードを使用して、OpenAMの管理者(amadmin)でWebベースの管理コンソールにログインできます。http://openam.example.com:8080/openam のようなURLにアクセスします。
 この場合、HTTPプロトコルを介して、FQDN(openam.example.com)上の、Java EE標準のWebコンテナのポート番号(8080)に、指定したデプロイメントURI(/openam)に、通信が行われます。
 
-![図. OpenAM管理コンソール](images/realms.png)
+図. OpenAM管理コンソール
+
+![図. OpenAM管理コンソール](images/admin-console/AdminConsole.png)
 
 OpenAMの管理者でログインすると、管理コンソールへの完全なアクセス権があります。OpenAMは、セッションが期限切れになるか、ログアウトするか、ブラウザを閉じるまで、セッションを持続するようにブラウザにクッキーを設定します。
 
@@ -11,9 +13,13 @@ OpenAMの管理者でログインすると、管理コンソールへの完全�
 
 図. 管理者以外のユーザーのOpenAMコンソール
 
+![図. 管理者以外のユーザーのOpenAMコンソール](images/admin-console/UserProfilePage.png)
+
 別のユーザーに管理機能を付与するようにOpenAMを設定した場合、そのユーザーは管理可能なレルム内の管理コンソール、およびセルフサービスプロファイルページの両方にアクセスすることができます。
 
 図. 委任された管理者のOpenAM管理コンソール
+
+![図. 委任された管理者のOpenAM管理コンソール](images/admin-console/Console4DelegatedAdmin.png)
 
 委任管理の詳細については、管理者ガイドの「Delegating Realm Administration Privileges」を参照してください。
 
