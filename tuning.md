@@ -65,31 +65,31 @@ When the directory service backing the CTS is external (differs from the directo
 
 CTSをバックアップしているディレクトリサービスが外部にある(OpenAMの設定をバックアップしているディレクトリサービスとは異なる)場合は、設定 > サーバーおよびサイト > サーバー名 > CTS > 外部ストア設定 の最大接続プールサイズを設定します。
 
-In both cases, if you must change the default connection timeouts, set the advanced properties described below under 設定 > サーバーおよびサイト > サーバー名 > Advanced:
+両方のケースで、デフォルトの接続タイムアウトを変更する必要がある場合、設定 > サーバーおよびサイト > サーバー名 > 高度 の以下の、次に説明する詳細なプロパティを設定します:
 
 表. CTSストアLDAP接続プールの設定
 
 |プロパティ|デフォルト値|提案|
 |---|---|---|
 |最大接続プール|10|管理コンソールで 設定 > サーバーおよびサイト > サーバー名 > ディレクトリの設定 をクリックします。  When the same directory service backs both the CTS and also OpenAM configuration, consider increasing this to at least 19 to allow 9 connections for the CTS, and 10 connections for access to the OpenAM configuration (including for example looking up policies).|
-|Max Connections|10|Find this setting in OpenAM console under 設定 > サーバーおよびサイト > サーバー名 > CTS > External Store Configuration.  When the directory service backing the CTS is external and the load on the CTS is high, consider setting this to 2^n+1, where n = 4, 5, 6, and so on. In other words, try setting this to 17, 33, 65, and so on when testing performance under load.  (org-forgerock-services-cts-store-max-connections)|
-|CTS connection timeout (advanced property)|10 (seconds)|Most CTS requests to the directory server are handled quickly, so the default timeout is fine for most cases.  If you choose to vary this setting for performance testing, set the advanced property org.forgerock.services.datalayer.connection.timeout.cts.async, under 設定 > サーバーおよびサイト > サーバー名 > Advanced.  You must restart OpenAM or the container in which it runs for changes to take effect.|
-|CTS reaper timeout (advanced property)|None|The CTS token cleanup connection generally should not time out as it is used to request long-running queries that can return many results.  If you choose to vary this setting for performance testing, set the advanced property, org.forgerock.services.datalayer.connection.timeout.cts.reaper, to the number of seconds desired under 設定 > サーバーおよびサイト > サーバー名 > Advanced.  You must restart OpenAM or the container in which it runs for changes to take effect.|
-|Configuration management connection timeout (advanced property)|10 (seconds)|Most configuration management requests to the directory server are handled quickly, so the default timeout is fine for most cases.  If you choose to vary this setting for performance testing, set the advanced property, org.forgerock.services.datalayer.connection.timeout, under 設定 > サーバーおよびサイト > サーバー名 > Advanced.|
+|最大接続数|10|Find this setting in OpenAM console under 設定 > サーバーおよびサイト > サーバー名 > CTS > External Store Configuration.  When the directory service backing the CTS is external and the load on the CTS is high, consider setting this to 2^n+1, where n = 4, 5, 6, and so on. In other words, try setting this to 17, 33, 65, and so on when testing performance under load.  (org-forgerock-services-cts-store-max-connections)|
+|CTS connection timeout (advanced property)|10 (seconds)|Most CTS requests to the directory server are handled quickly, so the default timeout is fine for most cases.  If you choose to vary this setting for performance testing, set the advanced property org.forgerock.services.datalayer.connection.timeout.cts.async, under 設定 > サーバーおよびサイト > サーバー名 > 高度.  You must restart OpenAM or the container in which it runs for changes to take effect.|
+|CTS reaper timeout (advanced property)|None|The CTS token cleanup connection generally should not time out as it is used to request long-running queries that can return many results.  If you choose to vary this setting for performance testing, set the advanced property, org.forgerock.services.datalayer.connection.timeout.cts.reaper, to the number of seconds desired under 設定 > サーバーおよびサイト > サーバー名 > 高度.  You must restart OpenAM or the container in which it runs for changes to take effect.|
+|Configuration management connection timeout (advanced property)|10 (seconds)|Most configuration management requests to the directory server are handled quickly, so the default timeout is fine for most cases.  If you choose to vary this setting for performance testing, set the advanced property, org.forgerock.services.datalayer.connection.timeout, under 設定 > サーバーおよびサイト > サーバー名 > 高度.|
 
 You must restart OpenAM or the container in which it runs for changes to take effect.
 
 #### 通知設定
 
-OpenAM has two thread pools used to send notifications to clients. The Service Management Service (SMS) thread pool can be tuned in OpenAM console under Configuration > Servers and Sites > Default Server Settings > SDK:
+OpenAMは、クライアントに通知を送信するために使用される2つのスレッドプールを持っています。サービス管理サービス（SMS）スレッドプールは、OpenAMコンソールの 設定 > サーバーおよびサイト > デフォルトサーバー設定 > SDK 以下で調整することができま:
 
 表. SMS通知設定
 
 |プロパティ|デフォルト値|提案|
 |---|---|---|
-|Notification Pool Size|10|This is the size of the thread pool used to send notifications. In production this value should be fine unless lots of clients are registering for SMS notifications.  (com.sun.identity.sm.notification.threadpool.size)|
+|通知プールサイズ|10|通知を送信するために使用されるスレッドプールのサイズです。本番環境では、SMS通知のために多数のクライアントが登録されていない限り、デフォルト値のままで問題ないはずです。  (com.sun.identity.sm.notification.threadpool.size)|
 
-The session service has its own thread pool to send notifications to listeners about changes to stateful sessions. This is configured under Configuration > Servers and Sites > Default Server Settings > Session:
+セッションサービスは、ステートフルセッションへの変更についてリスナーに通知を送信するための独自のスレッドプールも持っています。これについては、設定 > サーバーおよびサイト > デフォルトサーバー設定 > セッション 以下に設定されています:
 
 表. セッションサービスの通知設定
 
