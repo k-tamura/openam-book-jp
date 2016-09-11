@@ -95,19 +95,19 @@ OpenAMは、クライアントに通知を送信するために使用される2�
 
 |プロパティ|デフォルト値|提案|
 |---|---|---|
-|Notification Pool Size|10|This is the size of the thread pool used to send notifications. In production this should be around 25-30.  (com.iplanet.am.notification.threadpool.size)|
-|Notification Thread Pool Threshold|5000|This is the maximum number of notifications in the queue waiting to be sent. The default value should be fine in the majority of installations.  (com.iplanet.am.notification.threadpool.threshold)|
+|通知プールサイズ|10|通知を送信するために使用されるスレッドプールのサイズです。本番環境では、25〜30程度にする必要があります。 (com.iplanet.am.notification.threadpool.size)|
+|通知スレッドプールのしきい値|5000|送信されるのを待っているキュー内の通知の最大数です。一般的な構成においては、デフォルト値で問題ないはずです。 (com.iplanet.am.notification.threadpool.threshold)|
 
 ####  セッション設定
 
-The session service has additional properties to tune, which are configured under Configuration > Servers and Sites > Default Server Settings > Session. The following suggestions apply to deployments using stateful sessions:
+セッションサービスには、チューニングのための追加のプロパティがあります(設定 > サーバーおよびサイト > デフォルトサーバー設定 > セッション 以下に設定されています)。次の提案は、ステートフルセッションを使用した配備に適用されます:
 
 表. スコープ設定
 
 |プロパティ|デフォルト値|提案|
 |---|---|---|
-|Maximum Sessions|5000|In production, this value can safely be set into the 100,000s. The maximum session limit is really controlled by the maximum size of the JVM heap which must be tuned appropriately to match the expected number of concurrent sessions.  (com.iplanet.am.session.maxSessions)|
-|Sessions Purge Delay|0|This should be zero to ensure sessions are purged immediately.  (com.iplanet.am.session.purgedelay)|
+|最大セッション数|5000|In production, this value can safely be set into the 100,000s. The maximum session limit is really controlled by the maximum size of the JVM heap which must be tuned appropriately to match the expected number of concurrent sessions. 本番環境では、この値を100,000に設定することができます。最大セッションの制限は、JVMのヒープの最大サイズによって制御されます(実際には同時セッション数の期待値と一致するように適切に調整されなければなりません)。 (com.iplanet.am.session.maxSessions)|
+|セッションのパージ遅延|0|セッションがすぐにパージされることを保証するためにはゼロにする必要があります。 (com.iplanet.am.session.purgedelay)|
 
 ###  Java仮想マシン設定
 
