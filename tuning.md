@@ -216,8 +216,8 @@ Notice that many properties for configuration data cache have sm (for Service Ma
 
 |プロパティ|説明|デフォルト|適用対象|
 |---|---|---|---|
-|com.iplanet.am.sdk.cache.maxSize|Maximum number of user entries cached.|10000|Server and SDK|
-|com.iplanet.am.sdk.caching.enabled|Whether to enable caching for both configuration data and also for user data. If true, this setting overrides com.sun.identity.idm.cache.enabled and com.sun.identity.sm.cache.enabled. If false, you can enable caching independently for configuration data and for user data using the aforementioned properties.|true|Server & SDK|
+|com.iplanet.am.sdk.cache.maxSize|キャッシュされるユーザーエントリの最大数。|10000|Server and SDK|
+|com.iplanet.am.sdk.caching.enabled|設定データとユーザーデータの両方のキャッシュを有効にするかどうか。 trueの場合、この設定はcom.sun.identity.idm.cache.enabledとcom.sun.identity.sm.cache.enabledを上書きます。 falseの場合、前述のプロパティを使用して、設定データ用とユーザーデータ用に独立してキャッシュを有効にすることができます。|true|Server & SDK|
 |com.iplanet.am.sdk.remote.pollingTime|How often in minutes the SDK client, such as a policy agent should poll OpenAM for modified user data entries.The SDK also uses this value to determine the age of the oldest changes requested. The oldest changes requested are 2 minutes older than this setting. In other words, by default the SDK polls for entries changed in the last 3 minutes. Set this to 0 or a negative integer to disable polling.|1 (minute)|SDK|
 |com.sun.am.event.notification.expire.time|How long OpenAM stores a given change to a cached entry, so that clients polling for changes do not miss the change.|30 (minutes)|Server only|
 |com.sun.identity.idm.cache.enabled|If com.iplanet.am.sdk.caching.enabled is true, this property is ignored. Otherwise, set this to true to enable caching of user data.|false|Server & SDK|
