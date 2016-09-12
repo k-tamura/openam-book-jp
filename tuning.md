@@ -208,9 +208,9 @@ This procedure describes how to enable change notification and polling for polic
 
 #### キャッシュ設定
 
-The table below provides a quick reference, primarily for user data cache settings.
+以下の表は、主にユーザーデータキャッシュの設定についてのクイックリファレンスを提供します。
 
-Notice that many properties for configuration data cache have sm (for Service Management) in their names, whereas those for user data have idm (for Identity Management) in their names:
+設定データキャッシュ用の多くのプロパティは名前にsm（サービス管理用）があり、ユーザデータ用の多くのプロパティは名前にidm（アイデンティティ管理用の）があるることに注意してください:
 
 表. OpenAMキャッシュプロパティ
 
