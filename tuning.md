@@ -218,15 +218,15 @@ This procedure describes how to enable change notification and polling for polic
 |---|---|---|---|
 |com.iplanet.am.sdk.cache.maxSize|キャッシュされるユーザーエントリの最大数。|10000|Server and SDK|
 |com.iplanet.am.sdk.caching.enabled|設定データとユーザーデータの両方のキャッシュを有効にするかどうか。 trueの場合、この設定はcom.sun.identity.idm.cache.enabledとcom.sun.identity.sm.cache.enabledを上書きます。 falseの場合、前述のプロパティを使用して、設定データ用とユーザーデータ用に独立してキャッシュを有効にすることができます。|true|Server & SDK|
-|com.iplanet.am.sdk.remote.pollingTime|How often in minutes the SDK client, such as a policy agent should poll OpenAM for modified user data entries.The SDK also uses this value to determine the age of the oldest changes requested. The oldest changes requested are 2 minutes older than this setting. In other words, by default the SDK polls for entries changed in the last 3 minutes. Set this to 0 or a negative integer to disable polling.|1 (minute)|SDK|
-|com.sun.am.event.notification.expire.time|How long OpenAM stores a given change to a cached entry, so that clients polling for changes do not miss the change.|30 (minutes)|Server only|
+|com.iplanet.am.sdk.remote.pollingTime|How often in minutes the SDK client, such as a policy agent should poll OpenAM for modified user data entries.The SDK also uses this value to determine the age of the oldest changes requested. The oldest changes requested are 2 minutes older than this setting. In other words, by default the SDK polls for entries changed in the last 3 minutes. Set this to 0 or a negative integer to disable polling.|1 (分)|SDK|
+|com.sun.am.event.notification.expire.time|How long OpenAM stores a given change to a cached entry, so that clients polling for changes do not miss the change.|30 (分)|Server only|
 |com.sun.identity.idm.cache.enabled|If com.iplanet.am.sdk.caching.enabled is true, this property is ignored. Otherwise, set this to true to enable caching of user data.|false|Server & SDK|
-|com.sun.identity.idm.cache.entry.default.expire.time|How many minutes to store a user data entry in the global user data cache.|30 (minutes)|Server & SDK|
-|com.sun.identity.idm.cache.entry.expire.enabled|Whether user data entries in the global user data cache should expire over time.|false|Server & SDK|
+|com.sun.identity.idm.cache.entry.default.expire.time|グローバルユーザデータ・キャッシュ内のユーザデータエントリを保存する分数。|30 (分)|Server & SDK|
+|com.sun.identity.idm.cache.entry.expire.enabled|グローバルユーザーデータ・キャッシュ内のユーザーデータエントリが有効期限切れになるかどうか。|false|Server & SDK|
 |com.sun.identity.idm.remote.notification.enabled|Whether the SDK client, such as a policy agent should register a notification listener for user data changes with the OpenAM server. The SDK client uses the URL specified by com.sun.identity.client.notification.url to register the listener so that OpenAM knows where to send notifications. If notifications cannot be enabled for some reason, then the SDK client falls back to polling for changes.|true|SDK|
-|com.sun.identity.sm.cache.enabled|If com.iplanet.am.sdk.caching.enabled is true, this property is ignored. Otherwise, set this to true to enable caching of configuration data. It is recommended that you always set this to true.|false|Server & SDK|
-|sun-idrepo-ldapv3-dncache-enabled|Set this to true to enable DN caching of user data.|false|Server & SDK|
-|sun-idrepo-ldapv3-dncache-size|Sets the cache size.|1500|Server & SDK|
+|com.sun.identity.sm.cache.enabled|com.iplanet.am.sdk.caching.enabledがtrueの場合、このプロパティは無視されます。それ以外の場合、設定データキャッシュを有効にするには、これをtrueに設定してください。常にtrueに設定することをお勧めします。|false|Server & SDK|
+|sun-idrepo-ldapv3-dncache-enabled|ユーザデータのDNキャッシュを有効にするには、これをtrueに設定します。|false|Server & SDK|
+|sun-idrepo-ldapv3-dncache-size|キャッシュサイズを設定します。|1500|Server & SDK|
 
 
 [9] To be precise, the number of connections allocated for CTS operations is equal to the power of two that is nearest to half the maximum number of connections in the pool.
