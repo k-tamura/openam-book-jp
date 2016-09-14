@@ -197,7 +197,7 @@ Policy agents and other OpenAM SDK clients can also cache user data, using most 
 
 手順. クライアントキャッシュアップデートの通知とポーリングを有効にする
 
-This procedure describes how to enable change notification and polling for policy agent user data cache updates. When configuring a custom OpenAM SDK client using a .properties file, use the same properties as for the policy agent configuration:
+この手順では、ポリシーエージェントのユーザーデータキャッシュの更新のための変更通知とポーリングを有効にする方法について説明します。 .propertiesファイルを使用してカスタムOpenAM SDKクライアントを設定する場合は、ポリシーエージェントの設定と同じプロパティを使用します:
 
 1. In OpenAM console, browse to Realms > Realm Name > Agents > Agent Type > Agent Name to view and edit the policy agent profile.
 2. On the Global tab page, check that the Agent Notification URL is set.  
@@ -220,7 +220,7 @@ This procedure describes how to enable change notification and polling for polic
 |com.iplanet.am.sdk.caching.enabled|設定データとユーザーデータの両方のキャッシュを有効にするかどうか。 trueの場合、この設定はcom.sun.identity.idm.cache.enabledとcom.sun.identity.sm.cache.enabledを上書きます。 falseの場合、前述のプロパティを使用して、設定データ用とユーザーデータ用に独立してキャッシュを有効にすることができます。|true|Server & SDK|
 |com.iplanet.am.sdk.remote.pollingTime|ポリシーエージェントのようなSDKクライアントが、変更されたユーザーデータエントリに対してどのくらいの頻度(分単位)でOpenAMにポーリングすべきか。SDKは、要求された最も古い変更の世代を決定するためにも、この値を使用しています。要求された最も古い変更は、この設定よりも2分経過しています。言い換えると、デフォルトでSDKは最後の3分で変更したエントリに対してポーリングします。これを0または負の整数に設定すると、ポーリングを無効になります。|1 (分)|SDK|
 |com.sun.am.event.notification.expire.time|変更に対するのクライアントのポーリングが変化を見逃さないように、キャッシュされたエントリに与えられた変更をどの程度の期間、OpenAMが保存するか。|30 (分)|Server only|
-|com.sun.identity.idm.cache.enabled|If com.iplanet.am.sdk.caching.enabled is true, this property is ignored. Otherwise, set this to true to enable caching of user data.|false|Server & SDK|
+|com.sun.identity.idm.cache.enabled|com.iplanet.am.sdk.caching.enabledがtrueの場合、このプロパティは無視されます。それ以外の場合、ユーザーデータキャッシュを有効にするには、これをtrueに設定してください。|false|Server & SDK|
 |com.sun.identity.idm.cache.entry.default.expire.time|グローバルユーザデータ・キャッシュ内のユーザデータエントリを保存する分数。|30 (分)|Server & SDK|
 |com.sun.identity.idm.cache.entry.expire.enabled|グローバルユーザーデータ・キャッシュ内のユーザーデータエントリが有効期限切れになるかどうか。|false|Server & SDK|
 |com.sun.identity.idm.remote.notification.enabled|ポリシーエージェントのようなSDKクライアントが、OpenAMサーバーにユーザーデータに対する変更の通知リスナーを登録する必要があるかどうか。OpenAMがどこに通知を送信すべきか知っているようにリスナーを登録するため、SDKクライアントはcom.sun.identity.client.notification.urlで指定されたURLを使用します。何らかの理由で通知を有効にできない場合は、SDKクライアントは、変更に対してポーリングすることをフェイルバックします。|true|SDK|
