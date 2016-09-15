@@ -11,20 +11,20 @@
 
 - OpenAMサーバーを実行しているホストは、大量のメモリを持っている。
 - 配備がコアトークンサービスのための専用OpenDJディレクトリサーバーを持っている。このディレクトリサーバーを実行しているホストは、大容量のメモリと、複数のCPUを搭載するハイエンドサーバーである。
-- OpenAMサーバーはステートフルなセッションを使用するように設定されています。
+- OpenAMサーバーはステートフルセッションを使用するように設定されています。
 
-これまでの経験則から、本番環境においてステートフルセッションを使用するように構成された3GBのヒープのOpenAMサーバーは、10万セッションを処理することができます。64ビットJVMで大規模なヒープを使用した方がいいと考えるかもしれませんが、小さいヒープの方が管理が容易です。このように、同時セッションの合計数を増やすためには、単一のサーバーをスケールアップするよりも、むしろ、代わりにより多くのサーバーを追加することにより、スケールアウトすることを検討して下さい。
+これまでの経験則から、本番環境においてステートフルセッションを使用するように構成された3GBのヒープのOpenAMサーバーであれば、10万セッションを処理することができます。64ビットJVMで大規模なヒープを使用した方がいいと考えるかもしれませんが、小さいヒープの方が管理が容易です。このように、同時セッション数の合計を増やすためには、単一のサーバーをスケールアップするよりも、むしろ、代わりにより多くのサーバーを追加することにより、スケールアウトすることを検討して下さい。
 
 ### OpenAMサーバー設定
 
-OpenAMには、パフォーマンスを向上させるために調整することができるいくつかの設定があります。
+OpenAMには、パフォーマンスを向上させるために調整できるいくつかの設定があります。
 
 #### 一般設定
 
 一般的なポイントが以下があげられます。
 
-- デバッグレベルをエラーに設定する。
-- コンテナレベルのロギングを、エラーや重大などの低いレベルに設定する。
+- デバッグレベルをエラーに設定します。
+- コンテナレベルのロギングを、エラーや重大などの低いレベルに設定します。
 
 #### LDAP 設定
 
@@ -38,8 +38,8 @@ LDAPデータストアの設定を変更するには、OpenAMの管理コンソ�
 
 |プロパティ|デフォルト値|提案|
 |---|---|---|
-|LDAP接続プール最小サイズ|1|LDAP接続プールの最小サイズ。推奨値は、10です。  (sun-idrepo-ldapv3-config-connection_pool_min_size)|
-|LDAP接続プール最大サイズ|10|LDAP接続プールの最大サイズ。推奨値は、65です。  LDAPサーバーがクライアントの最大数に対応できることを確認してください。  (sun-idrepo-ldapv3-config-connection_pool_max_size)|
+|LDAP接続プール最小サイズ|1|LDAP接続プールの最小サイズ。推奨値は10です。  (sun-idrepo-ldapv3-config-connection_pool_min_size)|
+|LDAP接続プール最大サイズ|10|LDAP接続プールの最大サイズ。推奨値は65です。  LDAPサーバーがクライアントの最大数に対応できることを確認してください。  (sun-idrepo-ldapv3-config-connection_pool_max_size)|
 
 ##### LDAP認証モジュール設定のチューニング
 
@@ -49,13 +49,13 @@ LDAP認証モジュールの接続プールの設定を変更するには、Open
 
 |プロパティ|デフォルト値|提案|
 |---|---|---|
-|デフォルトLDAP接続プールサイズ|LDAP認証モジュールで使用されるLDAP接続プールの最小数と最大数。本番環境での推奨値は、10:65です。  (iplanet-am-auth-ldap-connection-pool-default-size)|
+|デフォルトLDAP接続プールサイズ|LDAP認証モジュールで使用されるLDAP接続プールの最小数と最大数。本番環境での推奨値は10:65です。  (iplanet-am-auth-ldap-connection-pool-default-size)|
 
 ##### LDAP CTSおよび設定ストアの設定のチューニング
 
 When tuning LDAP connection pool settings for the Core Token Service (CTS), what you change depends on whether the directory service backing the CTS is the same directory service backing OpenAM configuration.
 
-When the same directory service backs both the CTS and also OpenAM configuration (the default), then the same connection pool is shared for any LDAP operations requested by the CTS or by a service accessing the OpenAM configuration. In this case, one connection is reserved for cleanup of expired CTS tokens. Roughly half of the connections are allocated for CTS operations, to the nearest power of two.[9] The remaining connections are allocated to services accessing the OpenAM configuration. For a default configuration, where the maximum number of connections in the pool is ten, one connection is allocated for cleanup of expired CTS tokens, four connections are allocated for other CTS operations, and five connections are allocated for services accessing the configuration. If the Maximum Connection Pool size is 20, one connection is allocated for cleanup of expired CTS tokens, eight connections are allocated for other CTS operations, and 11 connections are allocated for services accessing the configuration. If the pool size is 65, then the numbers are 1, 32, and 32, and so on.
+When the same directory service backs both the CTS and also OpenAM configuration (the default), then the same connection pool is shared for any LDAP operations requested by the CTS or by a service accessing the OpenAM configuration. In this case, one connection is reserved for cleanup of expired CTS tokens. Roughly half of the connections are allocated for CTS operations, to the nearest power of two.(※1 ) The remaining connections are allocated to services accessing the OpenAM configuration. For a default configuration, where the maximum number of connections in the pool is ten, one connection is allocated for cleanup of expired CTS tokens, four connections are allocated for other CTS operations, and five connections are allocated for services accessing the configuration. If the Maximum Connection Pool size is 20, one connection is allocated for cleanup of expired CTS tokens, eight connections are allocated for other CTS operations, and 11 connections are allocated for services accessing the configuration. If the pool size is 65, then the numbers are 1, 32, and 32, and so on.
 
 The minimum number of connections is 6.
 
@@ -106,7 +106,7 @@ OpenAMは、クライアントに通知を送信するために使用される2�
 
 |プロパティ|デフォルト値|提案|
 |---|---|---|
-|最大セッション数|5000|In production, this value can safely be set into the 100,000s. The maximum session limit is really controlled by the maximum size of the JVM heap which must be tuned appropriately to match the expected number of concurrent sessions. 本番環境では、この値を100,000に設定することができます。最大セッションの制限は、JVMのヒープの最大サイズによって制御されます(実際には同時セッション数の期待値と一致するように適切に調整されなければなりません)。 (com.iplanet.am.session.maxSessions)|
+|最大セッション数|5000|本番環境では、この値を100,000に設定することができます。最大セッションの制限は、JVMのヒープの最大サイズによって制御されます(実際には同時セッション数の期待値と一致するように適切に調整されなければなりません)。 (com.iplanet.am.session.maxSessions)|
 |セッションのパージ遅延|0|セッションがすぐにパージされることを保証するためにはゼロにする必要があります。 (com.iplanet.am.session.purgedelay)|
 
 ###  Java仮想マシン設定
@@ -122,7 +122,7 @@ OpenAMは、クライアントに通知を送信するために使用される2�
 |-server|-|サーバーモードのJVMが使用されることを保証する。|
 |-XX:PermSize & -XX:MaxPermSize|両方とも256MBに設定。|JVM内のパーマネント領域のサイズを制御する。|
 |-Dsun.net.client.defaultReadTimeout|60000|JavaのHTTPクライアントの実装におけるリードタイムアウトを制御します。  この設定は、Sun/ OracleのHotSpotのJVMに適用されます。|
-|-Dsun.net.client.defaultConnectTimeout|高い値: 30000 (30秒)|JavaのHTTPクライアントの実装におけるリードタイムアウトを制御します。   秒間数百のリクエストを受信する場合は、巨大なコネクションキューを避けるために、この値を減らします。  この設定は、Sun/ OracleのHotSpotのJVMに適用されます。|
+|-Dsun.net.client.defaultConnectTimeout|高い値: 30000 (30秒)|JavaのHTTPクライアントの実装におけるリードタイムアウトを制御します。   秒間数百のリクエストを受信する場合は、巨大なコネクションキューを避けるために、この値を減らします。  この設定は、Sun/OracleのHotSpotのJVMに適用されます。|
 
 表. セキュリティ設定
 
@@ -130,7 +130,7 @@ OpenAMは、クライアントに通知を送信するために使用される2�
 |---|---|---|
 |-Dhttps.protocols|TLSv1,TLSv1.1,TLSv1.2 (JDK 7、JDK 8向け)  TLSv1 (JDK 6向け)|OpenAMからのアウトバウンドHTTPS接続に使用されるプロトコルを制御する。|
 
-この設定は、Sun/ OracleのHotSpotのJVMに適用されます。
+この設定は、Sun/OracleのHotSpotのJVMに適用されます。
 
 ガベージコレクション設定
 
@@ -175,12 +175,12 @@ Disabling caching can have a severe negative impact on performance. This is beca
 If, however, you have at least one user data store that does not support LDAP persistent search, such as a relational database or an LDAP directory server that does not support persistent search, then you must disable the global cache for user data. Otherwise user data caches cannot stay in sync with changes to user data entries:
 
 1. 管理コンソールで、設定 > サーバーおよびサイト > サーバー名 > 高度 をクリックします。
-2. Set com.iplanet.am.sdk.caching.enabled to false to disable caching overall.
-3. Set com.sun.identity.sm.cache.enabled to true to enable configuration data caching.  
-    All supported configuration data stores support LDAP persistent search, so it is safe to enable configuration data caching.  
-    You must explicitly set this property to true, because setting com.iplanet.am.sdk.caching.enabled to false in the previous step disables both user and configuration data caching.
-4. Save your work.
-5. OpenAM starts persistent searches on user data stores when possible [10] in order to monitor changes. With user data store caching disabled, OpenAM still starts the persistent searches, even though it no longer uses the results.  
+2. 全体のキャッシュが無効になるように、com.iplanet.am.sdk.caching.enabledをfalseに設定します。
+3. 設定データキャッシュを有効になるように、com.sun.identity.sm.cache.enabledをtrueに設定します。  
+    設定データキャッシュを有効にしても安全であるように、サポートされているすべての設定データストアはLDAP持続検索をサポートしています。  
+    前のステップでcom.iplanet.am.sdk.caching.enabledをfalseに設定することにより、ユーザーおよび設定データのキャッシングの両方を無効にしたため、明示的にこのプロパティをtrueに設定する必要があります。
+4. 変更を保存します。
+5. OpenAM starts persistent searches on user data stores when possible (※2) in order to monitor changes. With user data store caching disabled, OpenAM still starts the persistent searches, even though it no longer uses the results.  
     Therefore, if you disable user data store caching, you should also disable persistent searches on user data stores in your deployment to improve performance. To disable persistent search on a user data store, remove the value of the Persistent Search Base DN configuration property and leave it blank. Locate this property under Realms > Realm Name > Data Stores > Data Store Name > Persistent Search Controls. 
 
 手順. グローバルユーザーデータ・キャッシングの最大サイズを変更する
@@ -188,16 +188,16 @@ If, however, you have at least one user data store that does not support LDAP pe
 大規模なユーザーデータストアでアクティブユーザー数が多い場合、キャッシュ内のユーザーエントリの数が大きくなる可能性があります:
 
 1. 管理コンソールで、設定 > サーバーおよびサイト > デフォルトサーバー設定 > SDK をクリックします。
-2. Change the value of SDK Caching Maximum Size, and then click Save.  
-    There is no corresponding setting for configuration data, as the number of configuration entries in a large deployment is not likely to grow nearly as large as the number of user entries.
+2. SDKキャッシュの最大サイズの値を変更し、保存をクリックします。  
+    大規模な配備では、設定エントリの数がユーザーエントリの数とほぼ同じ大きさに成長する可能性がないので、設定データには対応する設定が存在しません。
 
 #### Java EEのポリシーエージェントおよびSDKクライアントのキャッシュプロパティ
 
-Policy agents and other OpenAM SDK clients can also cache user data, using most of the same properties as OpenAM server as described in Table 25.10, "OpenAM Cache Properties" . Clients, however, can receive updates by notification from OpenAM or, if notification fails, by polling OpenAM for changes.
+OpenAMサーバとして表「OpenAMのキャッシュプロパティ」に記載されているものとほぼ同じプロパティを使用して、ポリシーエージェントや他のOpenAMのSDKクライアントもユーザーデータをキャッシュできます。しかし、OpenAMからの通知により、または変更に対してOpenAMにポーリングすることにより(通知が失敗した場合)、クライアントは更新を受け取ることができます。
 
 手順. クライアントキャッシュアップデートの通知とポーリングを有効にする
 
-この手順では、ポリシーエージェントのユーザーデータキャッシュの更新のための変更通知とポーリングを有効にする方法について説明します。 .propertiesファイルを使用してカスタムOpenAM SDKクライアントを設定する場合は、ポリシーエージェントの設定と同じプロパティを使用します:
+この手順では、ポリシーエージェントのユーザーデータキャッシュの更新のための変更通知とポーリングを有効にする方法について説明します。 .propertiesファイルを使用してカスタムnのOpenAMのSDKクライアントを設定する場合は、ポリシーエージェントの設定と同じプロパティを使用します:
 
 1. 管理コンソールで、レルム > レルム名 > エージェント > エージェントタイプ > エージェント名 をクリックし、ポリシーエージェントのプロファイルを表示し、編集します。
 2. グローバルタブページで、エージェント通知URLが設定されていることを確認してください。  
@@ -229,6 +229,6 @@ Policy agents and other OpenAM SDK clients can also cache user data, using most 
 |sun-idrepo-ldapv3-dncache-size|キャッシュサイズを設定します。|1500|Server & SDK|
 
 
-[9] To be precise, the number of connections allocated for CTS operations is equal to the power of two that is nearest to half the maximum number of connections in the pool.
+※1 To be precise, the number of connections allocated for CTS operations is equal to the power of two that is nearest to half the maximum number of connections in the pool.
 
-[10] OpenAM starts persistent searches on user data stores on directory servers that support the psearch control. 
+※2 OpenAM starts persistent searches on user data stores on directory servers that support the psearch control. 
