@@ -2,7 +2,7 @@
 
 ### OpenAMサーバーのデバッグログ
 
-OpenAMサーバーのデバッグログの出力先は、デフォルトで[OpenAMの設定ディレクトリ]/[コンテキスト名]/debug (例えば、/usr/share/tomcat7/openam/openam/debug) になります。この中に以下のようなカテゴリー単位のログが出力されます。
+OpenAMサーバーのデバッグログの出力先は、デフォルトで*/path/to/openam/debug/* (例えば、/usr/share/tomcat7/openam/openam/debug) になります。この中に以下のようなカテゴリー単位のログが出力されます。
 
 表. デバッグログのファイル名と内容
 
@@ -40,7 +40,7 @@ OpenAMは、システム全体のログレベルだけでなく、カテゴリ�
 
 ### デバッグログのローテーション
 
-デフォルトでは、OpenAMはデバッグログをローテーションしません。デバッグログをローテーションさせるには、OpenAMがデプロイされているディレクトリのWEB-INF/classes/debugconfig.propertiesを編集します。
+デフォルトでは、OpenAMはデバッグログをローテーションしません。デバッグログをローテーションさせるには、*/path/to/container/webapps/openam/WEB-INF/classes/debugconfig.properties*を編集します。
 
 表. デバッグログのローテーション設定
 
@@ -58,8 +58,8 @@ debugconfig.propertiesへの変更は、OpenAMを再起動後に反映されま�
 
 #### Webエージェントのデバッグログ
 
-Webエージェントのデバッグログの出力先はデフォルトで、[Webエージェントのインストールディレクトリ]/agent_[N]/logs/debug/amAgent になります。
-出力先を含むデバッグログの設定は、[Webエージェントのインストールディレクトリ]/agent_[N]/config/OpenSSOAgentBootstrap.properties に以下のように定義されています。
+Webエージェントのデバッグログの出力先はデフォルトで、*/path/to/j2eeagent/logs/debug/amAgent*になります。
+出力先を含むデバッグログの設定は、*/path/to/j2eeagent/config/OpenSSOAgentBootstrap.properties*に以下のように定義されています。
 
 ```
 #
@@ -123,12 +123,12 @@ Webエージェントの場合は、 レルム > (レルム名) > エージェ�
 |エージェントのデバッグファイルサイズ|10000000|エージェントのデバッグファイルサイズ (バイト単位)。  (プロパティー名: com.sun.identity.agents.config.debug.file.size) |
 
 ただし、「エージェント設定リポジトリの場所」が「集中化」に選択されている場合に限ります。
-「ローカル」に設定されている場合は、ポリシーエージェントのインストールディレクトリ配下にある [Webエージェントのインストールディレクトリ]/agent_[N]/config/OpenSSOAgentConfiguration.properties というファイルでこれらの設定を変更可能です。
+「ローカル」に設定されている場合は、ポリシーエージェントのインストールディレクトリ配下にある */path/to/j2eeagent/config/OpenSSOAgentConfiguration.properties*というファイルでこれらの設定を変更可能です。
 
 #### J2EEエージェントのデバッグログ
 
-J2EEエージェントのデバッグログの出力先はデフォルトで、[J2EEエージェントのインストールディレクトリ]/agent_[N]/logs/debug/debug.out になります。
-出力先を含むデバッグログの設定は、[J2EEエージェントのインストールディレクトリ]/agent_[N]/config/OpenSSOAgentBootstrap.properties に以下のように定義されています。
+J2EEエージェントのデバッグログの出力先はデフォルトで、*/path/to/j2eeagent/logs/debug/debug.out*になります。
+出力先を含むデバッグログの設定は、*/path/to/j2eeagent/config/OpenSSOAgentBootstrap.properties*に以下のように定義されています。
 
 ```
 #
@@ -154,4 +154,4 @@ com.sun.services.debug.mergeall=on
 |エージェントデバッグレベル|エラー|ポリシーエージェントのデバッグレベル。  (プロパティー名: com.iplanet.services.debug.level)|
 
 ただし、こちらも「エージェント設定リポジトリの場所」が「集中化」に選択されている場合に限ります。
-「ローカル」に設定されている場合は、ポリシーエージェントのインストールディレクトリ配下にある[J2EEエージェントのインストールディレクトリ]/agent_[N]/config/OpenSSOAgentConfiguration.properties というファイルでこれらの設定を変更可能です。
+「ローカル」に設定されている場合は、ポリシーエージェントのインストールディレクトリ配下にある*/path/to/j2eeagent/config/OpenSSOAgentConfiguration.properties* というファイルでこれらの設定を変更可能です。
