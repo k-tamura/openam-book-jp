@@ -6,7 +6,6 @@ OpenAMのビルドはとても簡単です。
 
 - OpenAMと、Java、Maven、Gitのバージョンを確認すること
 - Windows上でのビルドは失敗する可能性があるので、LinuxかMac上で実施すること
-- ビルドするだけであれば、-DskipTests=trueオプションを付けること(テストはスキップする)
 
 ### ビルド環境の整備
 
@@ -49,8 +48,11 @@ $ cd openam-13.0.0
 
 ```
 $ export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
-$ mvn -DskipTests=true clean install
+$ mvn rue clean install
 ```
 
-マシンの性能によりますが、数十分程度の時間がはかかります。
-完了すると、openam-server/target/にOpenAM-13.0.0.warが作成されます。
+マシンの性能によりますが、数十分程度の時間がはかかります。完了すると、openam-server/target/にOpenAM-13.0.0.warが作成されます。 ビルドするだけであれば、-DskipTests=trueオプションを付けることにより、テストをスキップして短時間で完了させることもできます。
+
+```
+$ mvn -DskipTests=true clean install
+```
