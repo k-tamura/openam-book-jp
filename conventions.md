@@ -21,4 +21,7 @@
   例えば、/usr/share/tomcat7/openam/ などです。
 - */path/to/.openamcfg/* はOpenAMの設定ディレクトリへのパスが記載されたファイルを含むディレクトリへのパスを表します。  
   例えば、/usr/share/tomcat7/.openamcfg/ などです。
-
+- */path/to/webagent/* はWebエージェントのインストールディレクトリへのパスを表します。  
+  例えば、/opt/web_agents/apache22_agent/Agent_001/ などです。
+- */path/to/j2eeagent/* はWebエージェントのインストールディレクトリへのパスを表します。  
+  例えば、/opt/j2ee_agents/tomcat6_agent/Agent_001/ などです。
