@@ -199,12 +199,12 @@ Policy agents and other OpenAM SDK clients can also cache user data, using most 
 
 この手順では、ポリシーエージェントのユーザーデータキャッシュの更新のための変更通知とポーリングを有効にする方法について説明します。 .propertiesファイルを使用してカスタムOpenAM SDKクライアントを設定する場合は、ポリシーエージェントの設定と同じプロパティを使用します:
 
-1. In OpenAM console, browse to Realms > Realm Name > Agents > Agent Type > Agent Name to view and edit the policy agent profile.
-2. On the Global tab page, check that the Agent Notification URL is set.  
-    When notification is enabled, the agent registers a notification listener with OpenAM for this URL.  
-    The corresponding property is com.sun.identity.client.notification.url.
-3. For any changes you make, Save your work.  
-    You must restart the policy agent for the changes to take effect.
+1. 管理コンソールで、レルム > レルム名 > エージェント > エージェントタイプ > エージェント名 をクリックし、ポリシーエージェントのプロファイルを表示し、編集します。
+2. グローバルタブページで、エージェント通知URLが設定されていることを確認してください。  
+    通知が有効になっている場合、エージェントはこのURLで通知リスナーをOpenAMに登録します。  
+    対応するプロパティはcom.sun.identity.client.notification.urlです。
+3. 変更を保存します。  
+    変更を有効にするには、ポリシーエージェントを再起動する必要があります。
 
 #### キャッシュ設定
 
