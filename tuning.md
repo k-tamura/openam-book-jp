@@ -185,7 +185,7 @@ If, however, you have at least one user data store that does not support LDAP pe
 
 手順. グローバルユーザーデータ・キャッシングの最大サイズを変更する
 
-With a large user data store and active user base, the number of user entries in cache can grow large:
+大規模なユーザーデータストアでアクティブユーザー数が多い場合、キャッシュ内のユーザーエントリの数が大きくなる可能性があります:
 
 1. 管理コンソールで、設定 > サーバーおよびサイト > デフォルトサーバー設定 > SDK をクリックします。
 2. Change the value of SDK Caching Maximum Size, and then click Save.  
