@@ -149,7 +149,7 @@ OpenAMは、クライアントに通知を送信するために使用される2�
 
 ### OpenAMでのキャッシング
 
-OpenAM caches data to avoid having to query user and configuration data stores each time it needs the information. By default, OpenAM makes use of LDAP persistent search to receive notification of changes to cached data. For this reason, caching works best when data are stored in a directory server that supports LDAP persistent search.
+情報を必要とするたびに、ユーザーおよび設定データストアを照会する必要がなくなるように、OpenAMはデータをキャッシュします。デフォルトでOpenAMは、キャッシュされたデータへの変更の通知を受信するために、LDAP持続検索を使用します。このような理由から、LDAP持続検索をサポートするディレクトリサーバーにデータが保存されるときにキャッシングが最適です。
 
 OpenAM has two kinds of cache on the server side that you can configure, one for configuration data and the other for user data. Generally use the default settings for configuration data cache. This section mainly covers the configuration choices you have for caching user data.
 
@@ -166,13 +166,13 @@ The rest of this section concerns mainly settings for global user data cache and
 
 #### 全体的なサーバーのキャッシュ設定
 
-By default OpenAM has caching enabled both for configuration data and also for user data. This setting is governed by the server property com.iplanet.am.sdk.caching.enabled, which by default is true. When you set this advanced property to false, then you can enable caching independently for configuration data and for user data.
+デフォルトでOpenAMは、設定データとユーザーデータの両方キャッシュを有効にしています。サーバープロパティcom.iplanet.am.sdk.caching.enabledによって制御されており、デフォルトでtrueです。このプロパティをfalseに設定すると、設定データとユーザーデータのキャッシュを個々に有効できます。
 
 手順. グローバルユーザーデータ・キャッシングをオフにする
 
-Disabling caching can have a severe negative impact on performance. This is because when caching is disabled, OpenAM must query a data store each time it needs data.
+キャッシュを無効にすると、性能に深刻な悪影響を与える可能性があります。キャッシュが無効な場合、OpenAMは必要とするたびにデータストアにデータを照会しなければならないためです。
 
-If, however, you have at least one user data store that does not support LDAP persistent search, such as a relational database or an LDAP directory server that does not support persistent search, then you must disable the global cache for user data. Otherwise user data caches cannot stay in sync with changes to user data entries:
+ただし、LDAP持続検索をサポートしていないユーザーデータストアを少なくとも1つ使用している場合は、ユーザーデータのグローバルキャッシュを無効にする必要があります。それ以外の場合は、ユーザーデータキャッシュは、ユーザーデータエントリへの変更と同期し続けることはできません:
 
 1. 管理コンソールで、設定 > サーバーおよびサイト > サーバー名 > 高度 をクリックします。
 2. 全体のキャッシュが無効になるように、com.iplanet.am.sdk.caching.enabledをfalseに設定します。
@@ -180,8 +180,8 @@ If, however, you have at least one user data store that does not support LDAP pe
     設定データキャッシュを有効にしても安全であるように、サポートされているすべての設定データストアはLDAP持続検索をサポートしています。  
     前のステップでcom.iplanet.am.sdk.caching.enabledをfalseに設定することにより、ユーザーおよび設定データのキャッシングの両方を無効にしたため、明示的にこのプロパティをtrueに設定する必要があります。
 4. 変更を保存します。
-5. OpenAM starts persistent searches on user data stores when possible (※2) in order to monitor changes. With user data store caching disabled, OpenAM still starts the persistent searches, even though it no longer uses the results.  
-    Therefore, if you disable user data store caching, you should also disable persistent searches on user data stores in your deployment to improve performance. To disable persistent search on a user data store, remove the value of the Persistent Search Base DN configuration property and leave it blank. Locate this property under Realms > Realm Name > Data Stores > Data Store Name > Persistent Search Controls. 
+5. OpenAMは、変更を監視するために可能な場合は(※2)、ユーザーデータストアの持続検索を開始します。ユーザーデータストアのキャッシュを無効にすると、OpenAMは結果を使用しないにもかかわらず、持続検索を開始します。  
+    そのため、パフォーマンスが向上するためにユーザデータストアのキャッシュを無効にする場合、ユーザーデータストアでの持続検索も無効にする必要があります。ユーザーデータストアの持続検索を無効にするには、持続検索ベースDNの設定プロパティ値を削除し、空白のままにします。 レルム > レルム名 > データストア > データストア名 > 持続検索制御 の下に、このプロパティがあります。
 
 手順. グローバルユーザーデータ・キャッシングの最大サイズを変更する
 
