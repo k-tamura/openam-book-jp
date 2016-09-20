@@ -53,13 +53,13 @@ LDAP認証モジュールの接続プールの設定を変更するには、Open
 
 ##### LDAP CTSおよび設定ストアの設定のチューニング
 
-When tuning LDAP connection pool settings for the Core Token Service (CTS), what you change depends on whether the directory service backing the CTS is the same directory service backing OpenAM configuration.
+コアトークンサービス(CTS)のLDAP接続プールの設定をチューニングする場合、CTSをバックアップしているディレクトリサービスと、OpenAMの設定をバックアップしているディレクトリサービスが同じであるかどうかによって、変更する内容が異なります。
 
-When the same directory service backs both the CTS and also OpenAM configuration (the default), then the same connection pool is shared for any LDAP operations requested by the CTS or by a service accessing the OpenAM configuration. In this case, one connection is reserved for cleanup of expired CTS tokens. Roughly half of the connections are allocated for CTS operations, to the nearest power of two.(※1 ) The remaining connections are allocated to services accessing the OpenAM configuration. For a default configuration, where the maximum number of connections in the pool is ten, one connection is allocated for cleanup of expired CTS tokens, four connections are allocated for other CTS operations, and five connections are allocated for services accessing the configuration. If the Maximum Connection Pool size is 20, one connection is allocated for cleanup of expired CTS tokens, eight connections are allocated for other CTS operations, and 11 connections are allocated for services accessing the configuration. If the pool size is 65, then the numbers are 1, 32, and 32, and so on.
+両者が同じである場合(デフォルトの場合)、要求された任意のLDAP操作に対して、OpenAMの設定にアクセスするサービスとCTSは、同じ接続プールを共有します。この場合、有効期限が切れたCTSトークンのクリーンアップのために、コネクションが一つ予約されます。２の累乗に最も近い約半分のコネクションが、CTSの操作のために割り当てられます(※1 )。残りのコネクションは、OpenAMの設定にアクセスするサービスに割り当てられます。デフォルトの設定では、プール内のコネクションの最大数は10で、1つのコネクションが期限が切れたCTSトークンのクリーンアップに、4つのコネクションが他のCTSの操作に、5つのコネクションが設定にアクセスするサービスに割り当てられます。プール内のコネクションの最大数が20の場合、1つのコネクションが期限が切れたCTSトークンのクリーンアップに、8つのコネクションが他のCTSの操作に、11つのコネクションが設定にアクセスするサービスに割り当てられます。65の場合は、それぞれ1、32、32となります。
 
-The minimum number of connections is 6.
+最小コネクション数は6です。
 
-When the directory service backing the CTS is external (differs from the directory service backing the OpenAM configuration) then the connection pool used to access the directory service for the CTS is separate from the pool used to access the directory service for the OpenAM configuration. One connection is reserved for cleanup of expired CTS tokens. Remaining connections are allocated for CTS operations such that the number of connections allocated is equal to a power of two. In this case, set the maximum number of connections to 2^n+1, as in 9, 17, 33, 65, and so forth.
+CTSをバックアップするディレクトリサービスがの外部にある場合(OpenAMの設定をバックアップするディレクトリサービスとは異なる場合)、CTS用のディレクトリサービスにアクセスするために使用される接続プールは、OpenAMの設定データ用のディレクトリサービスにアクセスするために使用されるプールとは、異なります。一つのコネクションが有効期限が切れたCTSトークンのクリーンアップのために予約されています。残りのコネクションは、割り当てられたコネクションの数が2の累乗に等しくなるように、CTS操作に割り当てられます。この場合、9、17、33、65、のように2^n+1の最大コネクション数を設定します。
 
 同じディレクトリサービスがCTSとOpenAMの設定の両方をバックアップする場合、 設定 > サーバーおよびサイト > サーバー名 > ディレクトリ設定 のプールサイズを設定します。
 
@@ -229,6 +229,6 @@ OpenAMサーバとして表「OpenAMのキャッシュプロパティ」に記�
 |sun-idrepo-ldapv3-dncache-size|キャッシュサイズを設定します。|1500|Server & SDK|
 
 
-※1 To be precise, the number of connections allocated for CTS operations is equal to the power of two that is nearest to half the maximum number of connections in the pool.
+※1 正確には、CTSの操作のために割り当てられたコネクションの数は、プール内のコネクションの半分の最大数に最も近い2の累乗に等しいです。
 
 ※2 OpenAM starts persistent searches on user data stores on directory servers that support the psearch control. 
