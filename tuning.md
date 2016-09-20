@@ -59,7 +59,7 @@ LDAP認証モジュールの接続プールの設定を変更するには、Open
 
 最小コネクション数は6です。
 
-CTSをバックアップするディレクトリサービスがの外部にある場合(OpenAMの設定をバックアップするディレクトリサービスとは異なる場合)、CTS用のディレクトリサービスにアクセスするために使用される接続プールは、OpenAMの設定データ用のディレクトリサービスにアクセスするために使用されるプールとは、異なります。一つのコネクションが有効期限が切れたCTSトークンのクリーンアップのために予約されています。残りのコネクションは、割り当てられたコネクションの数が2の累乗に等しくなるように、CTS操作に割り当てられます。この場合、9、17、33、65、のように2^n+1の最大コネクション数を設定します。
+CTSをバックアップするディレクトリサービスが外部にある場合(OpenAMの設定をバックアップするディレクトリサービスとは異なる場合)、CTS用のディレクトリサービスにアクセスするために使用される接続プールは、OpenAMの設定データ用のディレクトリサービスにアクセスするために使用されるプールとは、異なります。一つのコネクションが有効期限が切れたCTSトークンのクリーンアップのために予約されています。残りのコネクションは、割り当てられたコネクションの数が2の累乗に等しくなるように、CTS操作に割り当てられます。この場合、9、17、33、65、のように2^n+1の最大コネクション数を設定します。
 
 同じディレクトリサービスがCTSとOpenAMの設定の両方をバックアップする場合、 設定 > サーバーおよびサイト > サーバー名 > ディレクトリ設定 のプールサイズを設定します。
 
@@ -73,15 +73,15 @@ CTSをバックアップしているディレクトリサービスが外部に�
 |---|---|---|
 |最大接続プール|10|管理コンソールで 設定 > サーバーおよびサイト > サーバー名 > ディレクトリの設定 をクリックします。  When the same directory service backs both the CTS and also OpenAM configuration, consider increasing this to at least 19 to allow 9 connections for the CTS, and 10 connections for access to the OpenAM configuration (including for example looking up policies).|
 |最大接続数|10|管理コンソールの 設定 > サーバーおよびサイト > サーバー名 > CTS > 外部ストア設定 で、この設定を検索します.  When the directory service backing the CTS is external and the load on the CTS is high, consider setting this to 2^n+1, where n = 4, 5, 6, and so on. In other words, try setting this to 17, 33, 65, and so on when testing performance under load.  (org-forgerock-services-cts-store-max-connections)|
-|CTS 接続タイムアウト (高度なプロパティ)|10 (秒)|Most CTS requests to the directory server are handled quickly, so the default timeout is fine for most cases.  If you choose to vary this setting for performance testing, set the advanced property org.forgerock.services.datalayer.connection.timeout.cts.async, under 設定 > サーバーおよびサイト > サーバー名 > 高度.  You must restart OpenAM or the container in which it runs for changes to take effect.|
-|CTS リーパータイムアウト (高度なプロパティ)|無し|The CTS token cleanup connection generally should not time out as it is used to request long-running queries that can return many results.  If you choose to vary this setting for performance testing, set the advanced property, org.forgerock.services.datalayer.connection.timeout.cts.reaper, to the number of seconds desired under 設定 > サーバーおよびサイト > サーバー名 > 高度.  You must restart OpenAM or the container in which it runs for changes to take effect.|
+|CTS 接続タイムアウト (高度なプロパティ)|10 (秒)|Most CTS requests to the directory server are handled quickly, so the default timeout is fine for most cases.  If you choose to vary this setting for performance testing, set the advanced property org.forgerock.services.datalayer.connection.timeout.cts.async, under 設定 > サーバーおよびサイト > サーバー名 > 高度. 変更を有効にするには、OpenAMが実行されるコンテナを再起動する必要があります。|
+|CTS リーパータイムアウト (高度なプロパティ)|無し|The CTS token cleanup connection generally should not time out as it is used to request long-running queries that can return many results.  If you choose to vary this setting for performance testing, set the advanced property, org.forgerock.services.datalayer.connection.timeout.cts.reaper, to the number of seconds desired under 設定 > サーバーおよびサイト > サーバー名 > 高度. 変更を有効にするには、OpenAMが実行されるコンテナを再起動する必要があります。|
 |設定管理接続タイムアウト (高度なプロパティ)|10 (秒)|Most configuration management requests to the directory server are handled quickly, so the default timeout is fine for most cases.  If you choose to vary this setting for performance testing, set the advanced property, org.forgerock.services.datalayer.connection.timeout, under 設定 > サーバーおよびサイト > サーバー名 > 高度.|
 
 変更を有効にするには、OpenAMを再起動する必要があります。
 
 #### 通知設定
 
-OpenAMは、クライアントに通知を送信するために使用される2つのスレッドプールを持っています。サービス管理サービス（SMS）スレッドプールは、OpenAMコンソールの 設定 > サーバーおよびサイト > デフォルトサーバー設定 > SDK 以下で調整することができま:
+OpenAMは、クライアントに通知を送信するために使用される2つのスレッドプールを持っています。サービス管理サービス（SMS）スレッドプールは、OpenAMコンソールの 設定 > サーバーおよびサイト > デフォルトサーバー設定 > SDK 以下で調整することができます:
 
 表. SMS通知設定
 
@@ -118,11 +118,11 @@ OpenAMは、クライアントに通知を送信するために使用される2�
 
 |JVMパラメータ|推奨値|説明|
 |---|---|---|
-|-Xms & -Xmx|少なくとも1024MB(組み込みOpenDJと2048MB)、本番環境では少なくとも2048MB～3072MB。  この設定は、使用可能な物理メモリや、32ビットまたは64ビットのJVMが使用されているかどうかに依存する。|-|
+|-Xmsと-Xmx|少なくとも1024MB(組み込みOpenDJを使用する場合は2048MB)、本番環境では少なくとも2048MB～3072MB。  この設定は、使用可能な物理メモリや、32ビットまたは64ビットのJVMが使用されているかどうかに依存する。|-|
 |-server|-|サーバーモードのJVMが使用されることを保証する。|
-|-XX:PermSize & -XX:MaxPermSize|両方とも256MBに設定。|JVM内のパーマネント領域のサイズを制御する。|
-|-Dsun.net.client.defaultReadTimeout|60000|JavaのHTTPクライアントの実装におけるリードタイムアウトを制御します。  この設定は、Sun/ OracleのHotSpotのJVMに適用されます。|
-|-Dsun.net.client.defaultConnectTimeout|高い値: 30000 (30秒)|JavaのHTTPクライアントの実装におけるリードタイムアウトを制御します。   秒間数百のリクエストを受信する場合は、巨大なコネクションキューを避けるために、この値を減らします。  この設定は、Sun/OracleのHotSpotのJVMに適用されます。|
+|-XX:PermSizeと-XX:MaxPermSize|両方とも256MBに設定。|JVM内のパーマネント領域のサイズを制御する。|
+|-Dsun.net.client.defaultReadTimeout|60000|JavaのHTTPクライアントの実装における読み取りタイムアウトを制御します。  この設定は、Sun/Oracle HotSpot JVMに適用されます。|
+|-Dsun.net.client.defaultConnectTimeout|高い値: 30000 (30秒)|JavaのHTTPクライアントの実装における読み取りタイムアウトを制御します。   秒間数百のリクエストを受信する場合は、巨大なコネクションキューを避けるために、この値を減らします。  この設定は、Sun/Oracle HotSpot JVMに適用されます。|
 
 表. セキュリティ設定
 
@@ -130,7 +130,7 @@ OpenAMは、クライアントに通知を送信するために使用される2�
 |---|---|---|
 |-Dhttps.protocols|TLSv1,TLSv1.1,TLSv1.2 (JDK 7、JDK 8向け)  TLSv1 (JDK 6向け)|OpenAMからのアウトバウンドHTTPS接続に使用されるプロトコルを制御する。|
 
-この設定は、Sun/OracleのHotSpotのJVMに適用されます。
+この設定は、Sun/Oracle HotSpot JVMに適用されます。
 
 ガベージコレクション設定
 
@@ -145,11 +145,11 @@ OpenAMは、クライアントに通知を送信するために使用される2�
 |-XX:HeapDumpPath|$CATALINA_HOME/logs/heapdump.hprof|ヒープダンプのパス。|
 |-XX:+UseConcMarkSweepGC|-|CMS(コンカレントマークスイープ)ガベージコレクタを使用する。|
 |-XX:+UseCMSCompactAtFullCollection|-|フルガベージコレクションでの積極的なコンパクションを行う。|
-|-XX:+CMSClassUnloadingEnabled|-|CMSのスイープ時のクラスのアンロードを許可する。|
+|-XX:+CMSClassUnloadingEnabled|-|CMSスイープ時のクラスのアンロードを許可する。|
 
 ### OpenAMでのキャッシング
 
-情報を必要とするたびに、ユーザーおよび設定データストアを照会する必要がなくなるように、OpenAMはデータをキャッシュします。デフォルトでOpenAMは、キャッシュされたデータへの変更の通知を受信するために、LDAP持続検索を使用します。このような理由から、LDAP持続検索をサポートするディレクトリサーバーにデータが保存されるときにキャッシングが最適です。
+ユーザー情報や設定情報を必要とするたびに、ユーザーデータストアや設定データストアを照会する必要がなくなるように、OpenAMはデータをキャッシュします。デフォルトでOpenAMは、キャッシュされたデータへの変更の通知を受信するために、LDAP持続検索を使用します。このような理由から、LDAP持続検索をサポートするディレクトリサーバーにデータが保存されるときにキャッシングすることが最適です。
 
 OpenAM has two kinds of cache on the server side that you can configure, one for configuration data and the other for user data. Generally use the default settings for configuration data cache. This section mainly covers the configuration choices you have for caching user data.
 
@@ -166,24 +166,23 @@ The rest of this section concerns mainly settings for global user data cache and
 
 #### 全体的なサーバーのキャッシュ設定
 
-デフォルトでOpenAMは、設定データとユーザーデータの両方キャッシュを有効にしています。サーバープロパティcom.iplanet.am.sdk.caching.enabledによって制御されており、デフォルトでtrueです。このプロパティをfalseに設定すると、設定データとユーザーデータのキャッシュを個々に有効できます。
+デフォルトでOpenAMは、設定データとユーザーデータの両方キャッシュを有効にしています。これは、サーバープロパティcom.iplanet.am.sdk.caching.enabledによって制御されており、デフォルトでtrueです。このプロパティをfalseに設定すると、設定データとユーザーデータのキャッシュを個々に有効にできます。
 
-手順. グローバルユーザーデータ・キャッシングをオフにする
+**手順. グローバルユーザーデータ・キャッシングをオフにする**
 
 キャッシュを無効にすると、性能に深刻な悪影響を与える可能性があります。キャッシュが無効な場合、OpenAMは必要とするたびにデータストアにデータを照会しなければならないためです。
 
-ただし、LDAP持続検索をサポートしていないユーザーデータストアを少なくとも1つ使用している場合は、ユーザーデータのグローバルキャッシュを無効にする必要があります。それ以外の場合は、ユーザーデータキャッシュは、ユーザーデータエントリへの変更と同期し続けることはできません:
+ただし、LDAP持続検索をサポートしていないユーザーデータストアを少なくとも1つ使用している場合は、ユーザーデータのグローバルキャッシュを無効にする必要があります。それ以外の場合、ユーザーデータキャッシュは、ユーザーデータエントリへの変更と同期し続けることができません:
 
 1. 管理コンソールで、設定 > サーバーおよびサイト > サーバー名 > 高度 をクリックします。
 2. 全体のキャッシュが無効になるように、com.iplanet.am.sdk.caching.enabledをfalseに設定します。
 3. 設定データキャッシュを有効になるように、com.sun.identity.sm.cache.enabledをtrueに設定します。  
-    設定データキャッシュを有効にしても安全であるように、サポートされているすべての設定データストアはLDAP持続検索をサポートしています。  
-    前のステップでcom.iplanet.am.sdk.caching.enabledをfalseに設定することにより、ユーザーおよび設定データのキャッシングの両方を無効にしたため、明示的にこのプロパティをtrueに設定する必要があります。
+    前のステップでcom.iplanet.am.sdk.caching.enabledをfalseに設定することにより、ユーザーデータおよび設定データのキャッシングの両方を無効にしたため、明示的にこのプロパティをtrueに設定する必要があります。
 4. 変更を保存します。
-5. OpenAMは、変更を監視するために可能な場合は(※2)、ユーザーデータストアの持続検索を開始します。ユーザーデータストアのキャッシュを無効にすると、OpenAMは結果を使用しないにもかかわらず、持続検索を開始します。  
-    そのため、パフォーマンスが向上するためにユーザデータストアのキャッシュを無効にする場合、ユーザーデータストアでの持続検索も無効にする必要があります。ユーザーデータストアの持続検索を無効にするには、持続検索ベースDNの設定プロパティ値を削除し、空白のままにします。 レルム > レルム名 > データストア > データストア名 > 持続検索制御 の下に、このプロパティがあります。
+5. OpenAMは、変更を監視するために、可能な場合は(※2)ユーザーデータストアの持続検索を開始します。ユーザーデータストアのキャッシュを無効にすると、OpenAMは結果を使用しない場合でも、持続検索を開始します。  
+    そのため、パフォーマンスの向上のためにユーザーデータストアのキャッシュを無効にする場合、ユーザーデータストアの持続検索も無効にする必要があります。ユーザーデータストアの持続検索を無効にするには、持続検索ベースDNの設定プロパティ値を削除し、空白のままにします。 レルム > レルム名 > データストア > データストア名 > 持続検索制御 の下に、このプロパティがあります。
 
-手順. グローバルユーザーデータ・キャッシングの最大サイズを変更する
+**手順. グローバルユーザーデータ・キャッシングの最大サイズを変更する**
 
 大規模なユーザーデータストアでアクティブユーザー数が多い場合、キャッシュ内のユーザーエントリの数が大きくなる可能性があります:
 
@@ -195,7 +194,7 @@ The rest of this section concerns mainly settings for global user data cache and
 
 OpenAMサーバとして表「OpenAMのキャッシュプロパティ」に記載されているものとほぼ同じプロパティを使用して、ポリシーエージェントや他のOpenAMのSDKクライアントもユーザーデータをキャッシュできます。しかし、OpenAMからの通知により、または変更に対してOpenAMにポーリングすることにより(通知が失敗した場合)、クライアントは更新を受け取ることができます。
 
-手順. クライアントキャッシュアップデートの通知とポーリングを有効にする
+**手順. クライアントキャッシュアップデートの通知とポーリングを有効にする**
 
 この手順では、ポリシーエージェントのユーザーデータキャッシュの更新のための変更通知とポーリングを有効にする方法について説明します。 .propertiesファイルを使用してカスタムnのOpenAMのSDKクライアントを設定する場合は、ポリシーエージェントの設定と同じプロパティを使用します:
 
