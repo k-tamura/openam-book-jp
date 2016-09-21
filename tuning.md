@@ -71,11 +71,11 @@ CTSをバックアップしているディレクトリサービスが外部に�
 
 |プロパティ|デフォルト値|提案|
 |---|---|---|
-|最大接続プール|10|管理コンソールで 設定 > サーバーおよびサイト > サーバー名 > ディレクトリの設定 をクリックします。  When the same directory service backs both the CTS and also OpenAM configuration, consider increasing this to at least 19 to allow 9 connections for the CTS, and 10 connections for access to the OpenAM configuration (including for example looking up policies).|
-|最大接続数|10|管理コンソールの 設定 > サーバーおよびサイト > サーバー名 > CTS > 外部ストア設定 で、この設定を検索します.  When the directory service backing the CTS is external and the load on the CTS is high, consider setting this to 2^n+1, where n = 4, 5, 6, and so on. In other words, try setting this to 17, 33, 65, and so on when testing performance under load.  (org-forgerock-services-cts-store-max-connections)|
-|CTS 接続タイムアウト (高度なプロパティ)|10 (秒)|Most CTS requests to the directory server are handled quickly, so the default timeout is fine for most cases.  If you choose to vary this setting for performance testing, set the advanced property org.forgerock.services.datalayer.connection.timeout.cts.async, under 設定 > サーバーおよびサイト > サーバー名 > 高度. 変更を有効にするには、OpenAMが実行されるコンテナを再起動する必要があります。|
-|CTS リーパータイムアウト (高度なプロパティ)|無し|The CTS token cleanup connection generally should not time out as it is used to request long-running queries that can return many results.  If you choose to vary this setting for performance testing, set the advanced property, org.forgerock.services.datalayer.connection.timeout.cts.reaper, to the number of seconds desired under 設定 > サーバーおよびサイト > サーバー名 > 高度. 変更を有効にするには、OpenAMが実行されるコンテナを再起動する必要があります。|
-|設定管理接続タイムアウト (高度なプロパティ)|10 (秒)|Most configuration management requests to the directory server are handled quickly, so the default timeout is fine for most cases.  If you choose to vary this setting for performance testing, set the advanced property, org.forgerock.services.datalayer.connection.timeout, under 設定 > サーバーおよびサイト > サーバー名 > 高度.|
+|最大接続プール|10|管理コンソールで 設定 > サーバーおよびサイト > サーバー名 > ディレクトリの設定 をクリックします。同じディレクトリサービスがOpenAMの設定とCTSの両方をバックアップする場合は、CTSのための9個のコネクションと、OpenAMの設定にアクセスするための10個のコネクション(例えば、ポリシーの検索などを含む)を可能にするために、少なくともこれを19に増やすことを検討してください。|
+|最大接続数|10|管理コンソールの 設定 > サーバーおよびサイト > サーバー名 > CTS > 外部ストア設定 で、この設定を検索します.  CTSのバックアップディレクトリサービスが外部にあり、CTSの負荷が高い場合、この設定を2^n+1にすることを検討してください((n = 4, 5, 6, など)。つまり、高負荷の下でパフォーマンスをテストする際に、17、33、65のような値にこれを設定してみてください。 (org-forgerock-services-cts-store-max-connections)|
+|CTS 接続タイムアウト (高度なプロパティ)|10 (秒)|ディレクトリサーバへのほとんどのCTSリクエストは速やかに処理されるので、ほとんどの場合、デフォルトのタイムアウトで問題ありません。性能テストのために、この設定を変更することを選択した場合、設定 > サーバーおよびサイト > サーバー名 > 高度 で、高度なプロパティorg.forgerock.services.datalayer.connection.timeout.cts.asyncを設定します。 変更を有効にするには、OpenAMが実行されるコンテナを再起動する必要があります。|
+|CTS リーパータイムアウト (高度なプロパティ)|無し|CTSトークンのクリーンアップコネクションは、多くの結果を返す可能性がある時間のかかるクエリを要求するために使用されるので、一般的にタイムアウトしないようにしてください。パフォーマンステストのために、この設定を変更する場合、設定 > サーバーおよびサイト > サーバー名 > 高度 で、高度なプロパティorg.forgerock.services.datalayer.connection.timeout.cts.reaperに希望の秒数を設定します。 変更を有効にするには、OpenAMが実行されるコンテナを再起動する必要があります。|
+|設定管理接続タイムアウト (高度なプロパティ)|10 (秒)|ディレクトリサーバーへのほとんどの設定管理要求は速やかに処理されるので、ほとんどの場合、デフォルトのタイムアウトで問題ありません。パフォーマンステストのために、この設定を変更する場合、設定 > サーバーおよびサイト > サーバー名 > 高度 で、高度なプロパティorg.forgerock.services.datalayer.connection.timeoutを設定します。|
 
 変更を有効にするには、OpenAMを再起動する必要があります。
 
