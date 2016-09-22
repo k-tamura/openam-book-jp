@@ -128,7 +128,7 @@ OpenAMは、クライアントに通知を送信するために使用される2�
 
 |JVMパラメータ|推奨値|説明|
 |---|---|---|
-|-Dhttps.protocols|TLSv1,TLSv1.1,TLSv1.2 (JDK 7、JDK 8向け)  TLSv1 (JDK 6向け)|OpenAMからのアウトバウンドHTTPS接続に使用されるプロトコルを制御する。|
+|-Dhttps.protocols|TLSv1,TLSv1.1,TLSv1.2 (JDK 7、JDK 8向け)  TLSv1 (JDK 6向け)|OpenAMからのHTTPS接続に使用されるプロトコルを制御する。|
 
 この設定は、Sun/Oracle HotSpot JVMに適用されます。
 
@@ -153,16 +153,18 @@ OpenAMは、クライアントに通知を送信するために使用される2�
 
 OpenAMには、サーバー側で設定することができる2種類(設定データ用とユーザーデータ用)のキャッシュがあります。一般的に、設定データキャッシュに対してはデフォルト設定を使用します。このセクションでは、主にユーザーデータのキャッシュの設定について解説します。
 
-OpenAM implements the global user data cache for its user data stores. Prior to OpenAM 11.0, OpenAM supported a secondary Time-to-Live (TTL) data store caching layer, which has since been removed in OpenAM 11.0 and later versions.
+OpenAMは、ユーザーデータストアに対してグローバルユーザーデータキャッシュを実装しています。 OpenAM  11.0以前では、二次生存時間(TTL)のデータストアのキャッシュ層をサポートしていましたが、OpenAM 11.0以降のバージョンで削除されました。
 
-The user data store also supports a DN Cache, used to cache DN lookups that tend to occur in bursts during authentication. The DN Cache can become out of date when a user is moved or renamed in the underlying LDAP store, events that are not always reflected in a persistent search result. You can enable the DN cache when the underlying LDAP store supports persistent search and mod DN operations (that is, move or rename DN).
+ユーザーデータストアは、認証時に爆発的に発生する傾向があるDNルックアップをキャッシュするために使用される、DNキャッシュをサポートしています。ベースとなるLDAPストアのユーザーが移動したり、名前が変更されるときに、DNキャッシュが古くなる可能性があります(常に持続検索の結果に反映されないイベント)。ベースとなるLDAPストアは、持続的な検索やDN更新操作をサポートしている場合（つまり、DNの移動または名前を変更することができる場合）、DNキャッシュを有効にすることができます。
 
-The following diagram depicts the two kinds of cache, and also the two types of caching available for user data:
+次の図は、2種類のキャッシュと、ユーザデータのために利用可能なキャッシュの2つのタイプを示しています。
 
-Figure 25.1. OpenAM Caches
-Caches in OpenAM server
+図. OpenAMのキャッシュ
 
-The rest of this section concerns mainly settings for global user data cache and for SDK clients. For a look at data store cache settings, see Table 25.1, "LDAP Data Store Settings".
+![図. OpenAMのキャッシュ](images/openam-caches.png)
+
+このセクションの残りの部分では、グローバルユーザーデータキャッシュとSDKクライアントのための主な設定を解説します。
+データストアのキャッシュ設定については、"表. LDAPデータストアの設定"を参照してください。
 
 #### 全体的なサーバーのキャッシュ設定
 
