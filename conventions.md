@@ -25,3 +25,5 @@
   例えば、/opt/web_agents/apache22_agent/Agent_001/ などです。
 - */path/to/j2eeagent/* はWebエージェントのインストールディレクトリへのパスを表します。  
   例えば、/opt/j2ee_agents/tomcat6_agent/Agent_001/ などです。
+
+- _設定 > サーバーおよびサイト > デフォルトサーバー設定 > SDK_ のような「 > 」で連結された表記は、OpenAMの管理コンソールでのタブやリンクなどをクリックする順序を表します。
