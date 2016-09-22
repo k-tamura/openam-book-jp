@@ -71,6 +71,9 @@
  17.1 [OpenAMのビルド](build-openam.md)  
  17.2 Policy Agentのビルド  
 18. [チューニング](tuning.md)　 
+ 18.1 [OpenAMサーバーの設定](server-tuning.md)  
+ 18.2 [Java仮想マシンの設定](jvm-tuning.md)  
+ 18.3 [OpenAMでのキャッシング](caching.md) 
 19. コミュニティ
 20. 実践してみよう  
  20.1 Step1: Policy Agentでアプリケーションを保護する  
