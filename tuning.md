@@ -211,23 +211,23 @@ OpenAMサーバーとして表「OpenAMのキャッシュプロパティ」に�
 
 以下の表は、主にユーザーデータキャッシュの設定についてのクイックリファレンスを提供します。
 
-設定データキャッシュ用の多くのプロパティは名前にsm（サービス管理用）があり、ユーザデータ用の多くのプロパティは名前にidm（アイデンティティ管理用の）があるることに注意してください:
+設定データキャッシュ用の多くのプロパティは名前にsm（サービス管理用）があり、ユーザデータ用の多くのプロパティは名前にidm（アイデンティティ管理用の）があることに注意してください:
 
 表. OpenAMキャッシュプロパティ
 
 |プロパティ|説明|デフォルト|適用対象|
 |---|---|---|---|
-|com.iplanet.am.sdk.cache.maxSize|キャッシュされるユーザーエントリの最大数。|10000|Server and SDK|
-|com.iplanet.am.sdk.caching.enabled|設定データとユーザーデータの両方のキャッシュを有効にするかどうか。 trueの場合、この設定はcom.sun.identity.idm.cache.enabledとcom.sun.identity.sm.cache.enabledを上書きます。 falseの場合、前述のプロパティを使用して、設定データ用とユーザーデータ用に独立してキャッシュを有効にすることができます。|true|Server & SDK|
-|com.iplanet.am.sdk.remote.pollingTime|ポリシーエージェントのようなSDKクライアントが、変更されたユーザーデータエントリに対してどのくらいの頻度(分単位)でOpenAMにポーリングすべきか。SDKは、要求された最も古い変更の世代を決定するためにも、この値を使用しています。要求された最も古い変更は、この設定よりも2分経過しています。言い換えると、デフォルトでSDKは最後の3分で変更したエントリに対してポーリングします。これを0または負の整数に設定すると、ポーリングを無効になります。|1 (分)|SDK|
-|com.sun.am.event.notification.expire.time|変更に対するのクライアントのポーリングが変化を見逃さないように、キャッシュされたエントリに与えられた変更をどの程度の期間、OpenAMが保存するか。|30 (分)|Server only|
-|com.sun.identity.idm.cache.enabled|com.iplanet.am.sdk.caching.enabledがtrueの場合、このプロパティは無視されます。それ以外の場合、ユーザーデータキャッシュを有効にするには、これをtrueに設定してください。|false|Server & SDK|
-|com.sun.identity.idm.cache.entry.default.expire.time|グローバルユーザデータ・キャッシュ内のユーザデータエントリを保存する分数。|30 (分)|Server & SDK|
-|com.sun.identity.idm.cache.entry.expire.enabled|グローバルユーザーデータ・キャッシュ内のユーザーデータエントリが有効期限切れになるかどうか。|false|Server & SDK|
+|com.iplanet.am.sdk.cache.maxSize|キャッシュされるユーザーエントリの最大数。|10000|サーバーとSDK|
+|com.iplanet.am.sdk.caching.enabled|設定データとユーザーデータの両方のキャッシュを有効にするかどうか。 trueの場合、この設定はcom.sun.identity.idm.cache.enabledとcom.sun.identity.sm.cache.enabledを上書きます。 falseの場合、前述のプロパティを使用して、設定データ用とユーザーデータ用に独立してキャッシュを有効にすることができます。|true|サーバーとSDK|
+|com.iplanet.am.sdk.remote.pollingTime|ポリシーエージェントのようなSDKクライアントが、変更されたユーザーデータエントリに対してどのくらいの頻度(分単位)でOpenAMにポーリングするか。SDKは、要求された最も古い変更の世代を決定するためにも、この値を使用しています。要求された最も古い変更は、この設定よりも2分経過しています。言い換えると、デフォルトでSDKは直近の3分以内で変更したエントリに対してポーリングします。これを0または負の整数に設定すると、ポーリングは無効になります。|1 (分)|SDK|
+|com.sun.am.event.notification.expire.time|変更に対するクライアントのポーリングが変化を見逃さないように、キャッシュされたエントリに与えられた変更をどの程度の期間、OpenAMが保存するか。|30 (分)|サーバーのみ|
+|com.sun.identity.idm.cache.enabled|com.iplanet.am.sdk.caching.enabledがtrueの場合、このプロパティは無視されます。それ以外の場合、ユーザーデータキャッシュを有効にするには、これをtrueに設定してください。|false|サーバーとSDK|
+|com.sun.identity.idm.cache.entry.default.expire.time|グローバルユーザーデータ・キャッシュ内のユーザーデータエントリを保存する分数。|30 (分)|サーバーとSDK|
+|com.sun.identity.idm.cache.entry.expire.enabled|グローバルユーザーデータ・キャッシュ内のユーザーデータエントリが有効期限切れになるかどうか。|false|サーバーとSDK|
 |com.sun.identity.idm.remote.notification.enabled|ポリシーエージェントのようなSDKクライアントが、OpenAMサーバーにユーザーデータに対する変更の通知リスナーを登録する必要があるかどうか。OpenAMがどこに通知を送信すべきか知っているようにリスナーを登録するため、SDKクライアントはcom.sun.identity.client.notification.urlで指定されたURLを使用します。何らかの理由で通知を有効にできない場合は、SDKクライアントは、変更に対してポーリングすることをフェイルバックします。|true|SDK|
-|com.sun.identity.sm.cache.enabled|com.iplanet.am.sdk.caching.enabledがtrueの場合、このプロパティは無視されます。それ以外の場合、設定データキャッシュを有効にするには、これをtrueに設定してください。常にtrueに設定することをお勧めします。|false|Server & SDK|
-|sun-idrepo-ldapv3-dncache-enabled|ユーザデータのDNキャッシュを有効にするには、これをtrueに設定します。|false|Server & SDK|
-|sun-idrepo-ldapv3-dncache-size|キャッシュサイズを設定します。|1500|Server & SDK|
+|com.sun.identity.sm.cache.enabled|com.iplanet.am.sdk.caching.enabledがtrueの場合、このプロパティは無視されます。それ以外の場合、設定データキャッシュを有効にするには、これをtrueに設定してください。常にtrueに設定することをお勧めします。|false|SサーバーとSDK|
+|sun-idrepo-ldapv3-dncache-enabled|ユーザデータのDNキャッシュを有効にするには、これをtrueに設定します。|false|サーバーとSDK|
+|sun-idrepo-ldapv3-dncache-size|キャッシュサイズを設定します。|1500|サーバーとSDK|
 
 
 ※1 正確には、CTSの操作のために割り当てられたコネクションの数は、プール内のコネクションの半分の最大数に最も近い2の累乗に等しいです。
