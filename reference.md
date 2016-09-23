@@ -93,7 +93,7 @@ OpenAMは、次のRFC、インターネットドラフト、標準を実装し�
 - OpenID Connect 1.0  
   http://openid.net/connect/
 
-    OpenAM can be configured to play the role of OpenID provider. The OpenID Connect specifications depend on OAuth 2.0, JSON Web Token, Simple Web Discovery and related specifications. The following specifications make up OpenID Connect 1.0.
+    OpenAMは、OpenID Connect 1.0のOpenIDプロバイダの役割を果たすように設定することができます。OpenID Connectの仕様は、OAuth 2.0、JWT(JSON Webトークン)、Simple Web Discoveryおよびそれらに関連する仕様に依存しています。以下の仕様はOpenID Connect 1.0を構成しています。
 
  - OpenID Connect Core 1.0  
    http://openid.net/specs/openid-connect-core-1_0.html  
@@ -119,7 +119,7 @@ OpenAMは、次のRFC、インターネットドラフト、標準を実装し�
    http://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html  
    自動サブミットするフォームで、OAuth2.0認可応答のパラメータをOpenIDプロバイダが返す方法を定義しています。
 
-    OpenID Connect 1.0 also provides implementer's guides for client developers.
+    OpenID Connect 1.0は、クライアント開発者のための実装者のガイドも提供しています。
 
  - OpenID Connect Basic Client Implementer's Guide 1.0
  - OpenID Connect Implicit Client Implementer's Guide 1.0
@@ -131,7 +131,7 @@ OpenAMは、次のRFC、インターネットドラフト、標準を実装し�
 
 - Representational State Transfer (REST)
 
-    Style of software architecture for web-based, distributed systems.
+    Webベースで、分散システムのためのソフトウェアアーキテクチャのスタイル。
 
 - Security Assertion Markup Language (SAML)
 
