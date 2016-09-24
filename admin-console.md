@@ -1,6 +1,6 @@
 ## OpenAMの管理コンソール
 
-OpenAMの初期設定が完了すると、初期設定時に設定したパスワードを使用して、OpenAMの管理者(amadmin)でWebベースの管理コンソールにログインできます。http://openam.example.com:8080/openam のようなURLにアクセスします。の場合、HTTPプロトコルを介して、FQDN(openam.example.com)上の、Java EE標準のWebコンテナのポート番号(8080)に、指定したデプロイメントURI(/openam)に、通信が行われます。
+OpenAMの初期設定が完了すると、初期設定時に設定したパスワードを使用して、OpenAMの管理者(amadmin)でWebベースの管理コンソールにログインできます。http://openam.example.com:8080/openam のようなURLにアクセスします。この場合、HTTPプロトコルを介して、FQDN(openam.example.com)上の、Java EE標準のWebコンテナのポート番号(8080)に、指定したデプロイメントURI(/openam)に、通信が行われます。
 
 図. OpenAMの管理コンソール
 
@@ -32,7 +32,7 @@ OpenAMの管理者でログインすると、管理コンソールへの完全�
 
 ### OpenAM管理コンソールの構成
 
-OpenAM管理コンソールで設定可能な項目は多数有りますが、入力欄の右側にある「i」(information)ボタンをくりっくすることで、それぞれがどのような変更をOpenAMに与えるのか確認することができます。
+OpenAM管理コンソールで設定可能な項目は多数有りますが、各項目の入力欄の右側にある「i」(information)ボタンをクリックすることで、それぞれがどのような項目でどういった値を設定すべきか確認することができます。
 
 図. OpenAM管理コンソールの各項目のヘルプテキスト
 
