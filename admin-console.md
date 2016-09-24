@@ -1,11 +1,11 @@
-### OpenAM管理コンソール
+## OpenAMの管理コンソール
 
 OpenAMの初期設定が完了すると、初期設定時に設定したパスワードを使用して、OpenAMの管理者(amadmin)でWebベースの管理コンソールにログインできます。http://openam.example.com:8080/openam のようなURLにアクセスします。
 この場合、HTTPプロトコルを介して、FQDN(openam.example.com)上の、Java EE標準のWebコンテナのポート番号(8080)に、指定したデプロイメントURI(/openam)に、通信が行われます。
 
-図. OpenAM管理コンソール
+図. OpenAMの管理コンソール
 
-![図. OpenAM管理コンソール](images/admin-console/AdminConsole.png)
+![図. OpenAMの管理コンソール](images/admin-console/AdminConsole.png)
 
 OpenAMの管理者でログインすると、管理コンソールへの完全なアクセス権があります。OpenAMは、セッションが期限切れになるか、ログアウトするか、ブラウザを閉じるまで、セッションを持続するようにブラウザにクッキーを設定します。
 
@@ -23,9 +23,15 @@ OpenAMの管理者でログインすると、管理コンソールへの完全�
 
 委任管理の詳細については、管理者ガイドの「Delegating Realm Administration Privileges」を参照してください。
 
-#### OpenAM管理コンソールの構成
+### OpenAM管理コンソールの構成
 
-OpenAM管理コンソールで設定可能な項目は多数有りますが、設定がどの範囲で適用できるかで設定個所が変わってきます。この範囲には以下があります。
+OpenAM管理コンソールで設定可能な項目は多数有りますが、入力欄の右側にある「i」(information)ボタンをくりっくすることで、それぞれがどのような変更をOpenAMに与えるのか確認することができます。
+
+図. OpenAM管理コンソールの各項目のヘルプテキスト
+
+![図. OpenAM管理コンソールの各項目のヘルプテキスト](images/admin-console/help-text.png)
+
+また、各項目の設定がどの範囲に適用できるかで設定個所が変わってきます。この範囲には以下があります。
 
 - グローバル
 - レルム
