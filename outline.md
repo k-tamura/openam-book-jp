@@ -29,6 +29,7 @@
   - 4.4.1 [SAML](saml.md)  
   - 4.4.2 [OpenID Connect](openid-connect.md)  
   - 4.4.3 [その他のプロトコル](other-protocol.md)  
+ 4.5 どの方式を選択すべきか  
 5. [インストールと初期設定](install-and-setup.md)  
  5.1 [前提事項と事前準備](preparing-for-installation.md)  
  5.2 [インストールとセットアップ](setup.md)  
