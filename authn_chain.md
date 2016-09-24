@@ -10,7 +10,7 @@ OpenAMは複数の認証モジュールを組み合わせることで、より�
 
 図. 認証連鎖のサンプル
 
-![認証連鎖のサンプル](images/authnChain/authn-chain.png)
+![認証連鎖のサンプル](images/authentication/authn-chain.png)
 
 この図で示した認証連鎖を設定した場合、各認証の成否と全体の結果は以下のようになります。
 
