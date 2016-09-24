@@ -11,10 +11,10 @@
  2.2 [OpenAMで何ができるか](key-benefits.md)  
  2.3 [OpenAMのアーキテクチャ](architecture.md)  
  2.4 [関連ソフトウェア](identity-stack.md)  
- 2.4.1 [Policy Agent](policy-agent.md)   
- 2.4.2 [OpenIG](openig.md)  
- 2.4.3 [OpenDJ](opendj.md)  
- 2.4.4 [OpenIDM](openidm.md)  
+  - 2.4.1 [Policy Agent](policy-agent.md)   
+  - 2.4.2 [OpenIG](openig.md)  
+  - 2.4.3 [OpenDJ](opendj.md)  
+  - 2.4.4 [OpenIDM](openidm.md)  
 3. [OpenAMの歴史とロードマップ](history-and-roadmap.md)  
  3.1 [OpenSSO以前](history-of-opensso.md)  
  3.2 [OpenSSOからOpenAMへ](history-of-openam.md)  
@@ -26,6 +26,9 @@
  4.2 リバースプロキシー方式  
  4.3 代理認証方式  
  4.4 フェデレーション方式  
+  - 4.4.1 [SAML](saml.md)  
+  - 4.4.2 [OpenID Connect](openid-connect.md)  
+  - 4.4.3 その他のプロトコル  
 5. [インストールと初期設定](install-and-setup.md)  
  5.1 [前提事項と事前準備](preparing-for-installation.md)  
  5.2 [インストールとセットアップ](setup.md)  
@@ -40,9 +43,6 @@
 7. [認証](authn.md)  
  7.1 [認証モジュールと認証レベル](authn-modules.md)   
  7.2 [認証連鎖](authn-chain.md)     
- 7.3 [SAML](saml.md)  
- 7.4 [OpenID Connect](openid-connect.md)  
- 7.5 その他のプロトコル  
 8. 認可  
  8.1 ポリシー   
  8.2 XACML   
