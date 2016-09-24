@@ -12,7 +12,7 @@ OpenAMは、ユーザーデータストアに対するグローバルユーザ�
 
 図. OpenAMのキャッシュ
 
-![図. OpenAMのキャッシュ](images/openam-caches.png)
+![図. OpenAMのキャッシュ](images/tuning/openam-caches.png)
 
 このセクションの残りの部分では、グローバルユーザーデータキャッシュとSDKクライアントのための主な設定を解説します。
 データストアのキャッシュ設定については、"表. LDAPデータストアの設定"を参照してください。

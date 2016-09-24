@@ -38,8 +38,8 @@
  6.3 [ssoadm.jsp](ssoadm-jsp.md)   
  6.4 REST SMS  
 7. [認証](authn.md)  
- 7.1 [認証モジュール](authn_modules.md)   
- 7.2 [認証連鎖と認証レベル](authn_chain.md)     
+ 7.1 [認証モジュール](authn-modules.md)   
+ 7.2 [認証連鎖と認証レベル](authn-chain.md)     
  7.3 [SAML](saml.md)  
  7.4 [OpenID Connect](openid-connect.md)  
  7.5 その他のプロトコル  
