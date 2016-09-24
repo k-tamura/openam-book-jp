@@ -14,6 +14,8 @@ OpenAMでは、このような冗長構成を「サイト構成」と呼びま�
 
 図. 構築する環境
 
+![図. 構築する環境](images/site-and-sfo/SFO1.png)
+
 ### 2台のOpenAMの初期設定
 
 1台目のOpenAMサーバーと同様に、http://openam02.example.co.jp:8080/openam でアクセスできるようにFQDNなどの設定し、TomcatにOpenAMのwarファイルをデプロイします。
@@ -24,6 +26,7 @@ http://openam02.example.co.jp:8080/openam
 
 
 デプロイが正常に完了していると、初期設定画面が表示されます。 「カスタム設定」の「新しい設定の作成」のリンクをクリックします。 
+図. 初期設定画面
 
 ![図. 初期設定画面](images/site-and-sfo/SFO-Step1.png)
 
