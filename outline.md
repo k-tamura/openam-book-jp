@@ -25,7 +25,7 @@
  4.1 エージェント方式  
  4.2 リバースプロキシー方式  
  4.3 代理認証方式  
- 4.4 フェデレーション方式  
+ 4.4 [フェデレーション方式](federation.md)  
  &nbsp; 4.4.1 [SAML](saml.md)  
  &nbsp; 4.4.2 [OpenID Connect](openid-connect.md)  
  &nbsp; 4.4.3 [その他のプロトコル](other-protocol.md)  
