@@ -1,3 +1,7 @@
+## 「認証」とは
+
+認証とは、何かによって対象の正当性を確認する行為を指します。最も一般的な認証として思いつくのは、IDとパスワードによってユーザーの正当性を確認することです。対象は人以外であっても構いませんし、正当性の確認はユーザーの入力などが無くても構いません。例えば、OpenAMでは、ネットワーク上のサーバーコンピュータの認証を行うRADIUSサーバー機能や、ログインしようとするユーザーの普段使用するデバイスと大きく異なるデバイスでのログインを
+
 ### OpenAMにおける「認証」について
 
 Access management is about controlling access to resources. OpenAM plays a role similar to border control at an international airport. Instead of having each and every airline company deal with access to each destination, all airlines redirects passengers to border control. Border control then determines who each passenger is according to passport credentials. Border control also checks whether the identified passenger is authorized to fly to the destination corresponding to the ticket, perhaps based on visa credentials. Then, at the departure gate, an agent enforces the authorization from border control, allowing the passenger to board the plane as long as the passenger has not gotten lost, or tried to board the wrong plane, or swapped tickets with someone else. Thus, border control handles access management at the airport.
