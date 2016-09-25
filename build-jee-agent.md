@@ -1,17 +1,27 @@
-[TODO 作成中]
-
-### Java EEエージェントのビルド
+## Java EEエージェントのビルド
 
 Java EEエージェントのビルドもOpenAMサーバー同様にmvnコマンドを実行するだけで完了します。
 
+### ビルド環境の整備
+
+ビルドに必要なソフトウェアは、JDK、Mavenです。前提ソフトウェアのバージョンについては命じされていませんが、OpenAMのビルドができるバージョンを使えば問題はないはずです。
+
+|Java JDK|Maven|
+|---|---|
+|1.7 以上|3.1.0 以上|
+
 IBM WebSphere Application ServerとOracle WebLogic Server用のモジュールは、サーバベンダーが提供する非公開のライブラリを必要とすることに注意してください。これらの依存関係を解決するには、これらのサーバーソフトウェアに含まれるライブラリを取得し、mvnコマンド実行時に参照できるようにしておく必要があります。詳細に関しては、Java EEエージェントのソースコードに添付されているreadme.mdファイルを参照してください。
+
+**手順. Java EEエージェントのビルド**
+
+まずは、ビルド用のディレクトリを作成し、そこに移動します。
 
 ```bash
 $ mkdir jeeagent_build
 $ cd jeeagent_build/
 ```
 
-ソースコードはBitbucket上で公開されています。ソースコードを圧縮したファイルをダウンロードしてください。
+ソースコードはForgeRock社のBitbucketサーバー上で公開されています。ここでは、バージョン3.5.0のソースコードを圧縮したファイルをダウンロードします。
 
 https://stash.forgerock.org/projects/OPENAM/repos/jee-agents/browse?at=refs%2Ftags%2F3.5.0
 
@@ -111,4 +121,3 @@ drwxr-xr-x 2 root root     4096  9月 25 09:41 2016 archive-tmp
 -rw-r--r-- 1 root root       27  9月 25 09:41 2016 build_date.js
 -rw-r--r-- 1 root root 34692736  9月 25 09:41 2016 tomcat_v6_agent_4.0.0-SNAPSHOT.zip
 ```
-
