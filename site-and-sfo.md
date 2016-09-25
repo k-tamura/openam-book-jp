@@ -13,7 +13,7 @@
 
 ![図. 構築する環境](images/site-and-sfo/SFO1.png)
 
-### 2台のOpenAMの初期設定
+### 2台目のOpenAMの初期設定
 
 1台目のOpenAMサーバーと同様に、http://openam02.example.co.jp:8080/openam でアクセスできるようにFQDNなどの設定し、TomcatにOpenAMのwarファイルをデプロイします。
 
