@@ -11,10 +11,11 @@ $ mkdir jeeagent_build
 $ cd jeeagent_build/
 ```
 
-Stashにログインして、ダウンロード
-https://stash.forgerock.org/projects/OPENAM/repos/jee-agents/browse
+ソースコードはBitbucket上で公開されています。ソースコードを圧縮したファイルをダウンロードしてください。
 
-解凍
+https://stash.forgerock.org/projects/OPENAM/repos/jee-agents/browse?at=refs%2Ftags%2F3.5.0
+
+ダウンロードが完了したら、圧縮ファイルを解凍してください。
 
 ```bash
 $ unzip jee-agents-master\@36016b991ff.zip 
@@ -30,7 +31,14 @@ Archive:  jee-agents-master@36016b991ff.zip
   inflating: readme.md               
 ```
 
-以下のようなディレクトリ構成
+解凍したら圧縮ファイルは削除します。
+
+```bash
+$ rm jee-agents-master\@36016b991ff.zip 
+rm: remove 通常ファイル `jee-agents-master@36016b991ff.zip'? yes
+```
+
+ディレクトリ構成は、以下のようになっています。各サーバー毎のエージェントモジュールやサンプルアプリケーション(sampleapp)用のモジュールが、ディレクトリ毎に分かれて配置されています。
 
 ```bash
 $ ll
@@ -42,7 +50,6 @@ drwxr-xr-x  5 root root    4096  9月 16 23:26 2016 jee-agents-jboss
 drwxr-xr-x  4 root root    4096  9月 16 23:26 2016 jee-agents-jetty
 drwxr-xr-x  3 root root    4096  9月 16 23:26 2016 jee-agents-jsr196
 drwxr-xr-x  3 root root    4096  9月 16 23:26 2016 jee-agents-library
--rw-r--r--  1 root root 1775710  9月 25 07:39 2016 jee-agents-master@36016b991ff.zip
 drwxr-xr-x 15 root root    4096  9月 16 23:26 2016 jee-agents-sampleapp
 drwxr-xr-x  3 root root    4096  9月 16 23:26 2016 jee-agents-sdk
 drwxr-xr-x  3 root root    4096  9月 16 23:26 2016 jee-agents-tomcat
@@ -54,14 +61,7 @@ drwxr-xr-x  2 root root    4096  9月 16 23:26 2016 legal
 $ 
 ```
 
-圧縮ファイルは削除
-
-```bash
-$ rm jee-agents-master\@36016b991ff.zip 
-rm: remove 通常ファイル `jee-agents-master@36016b991ff.zip'? yes
-```
-
-とりあえずTomcatエージェントのみビルド
+全体のpom.xmlがあるので、ここでmvnコマンドを実行すれば、ビルドが開始されますが、前述した商用のサーバーのライブラリが存在しないので、ビルドエラーとなってしまいます。Tomcatエージェントだけをビルドしたいということでれば、以下のようにTomcat以外のサーバー用のmoduleタグをコメントアウトする必要があります。
 
 ```bash
 $ vi pom.xml
@@ -70,21 +70,24 @@ $ vi pom.xml
         <module>jee-agents-library</module>
         <module>jee-agents-agentapp</module>
         <module>jee-agents-tomcat</module>
-<!-- コメントアウト
+<!-- ここから
         <module>jee-agents-jboss</module>
         <module>jee-agents-jetty</module>
         <module>jee-agents-appserver</module>
         <module>jee-agents-weblogic</module>
         <module>jee-agents-websphere</module>
         <module>jee-agents-jsr196</module>
--->
+ここまでコメントアウト -->
         <module>jee-agents-sampleapp</module>
         <module>jee-agents-distribution</module>
     </modules>
 ```
 
+`mvn clean install`コマンドでビルドを実行します。テストを省略する場合は、`-DskipTests=true`を付加してください。
+
 ```bash
-$ /root/apache-maven-3.1.0/bin/mvn -DskipTests=true clean install[INFO] Scanning for projects...
+$ mvn -DskipTests=true clean install
+[INFO] Scanning for projects...
 [WARNING] 
 [WARNING] Some problems were encountered while building the effective model for org.forgerock.openam.agents:jee-agents-tomcat-v6:jar:4.0.0-SNAPSHOT
 
@@ -98,6 +101,8 @@ $ /root/apache-maven-3.1.0/bin/mvn -DskipTests=true clean install[INFO] Scanning
 [INFO] Final Memory: 64M/349M
 [INFO] ------------------------------------------------------------------------
 ```
+
+数分で、ビルドは完了します。jee-agents-distribution/jee-agents-distribution-tomcat-v6/target/以下に、Tomcatエージェントの圧縮ファイル(tomcat_v6_agent_4.0.0-SNAPSHOT.zip)が作成されているはずです。
 
 ```bash
 $ ll jee-agents-distribution/jee-agents-distribution-tomcat-v6/target/
