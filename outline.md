@@ -53,6 +53,8 @@
 11. [アップグレード](upgrade.md)  
  11.1 [OpenAMのアップグレード](upgrade-of-openam.md)   
  11.2 Policy Agentのアップグレード   
+ &nbsp; 11.2.1 Java EE Agentのアップグレード  
+ &nbsp; 11.2.2 Web Agentのアップグレード  
 12. カスタマイズ  
  12.1 ログインページのカスタマイズ   
  12.2 認証モジュールのカスタマイズ  
