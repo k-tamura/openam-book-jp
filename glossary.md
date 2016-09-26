@@ -68,14 +68,14 @@ OAuth 2.0において、認可を受けてリソースオーナーの代わり�
 * 設定データストア (Configuration datastore)  
 OpenAMの設定データを保持するLDAPディレクトリサービス。
 
-* 設定データストア (Core token service)  
-[TODO]。
+* コアトークンサービス (Core token service: CTS)  
+OpenID Connect 1.0やSAML 2.0のトークンをデータストアであるOpenDJに保存し、冗長構成となっているOpenDJ間でレプリケーションするサービスのこと。これにより、一方のサーバーがダウンしても、SAML 2.0やOAuth 2.0の認証処理が継続できるようになっています。
 
 * クロスドメインシングルサインオン (Cross-domain single sign-on: CDSSO)  
 異なるDNSドメインをまたがるシングルサインオンを可能にするOpenAMの機能。
 
 * クロストーク (Cross talk)  
-[TODO]サイト構成のOpenAMサーバー間での不要な通信。
+サイト構成をの一部として正常に動作する他のOpenAMサーバーからセッションを取得すること。OpenAMサーバーとネットワークの両方に生じる追加のオーバーヘッドが全体的なパフォーマンスを悪化させるため、ロードバランサを適切に設定することで回避した方がいいです。
 
 * 委任 (Delegation)  
 OpenAMでユーザーに管理者権限を付与すること。
