@@ -137,31 +137,31 @@ OpenAMは、次のRFC、インターネットドラフト、標準を実装し�
    https://docs.kantarainitiative.org/uma/draft-oauth-resource-reg-v1_0_1.html  
    この中でOpenAMは、認可サーバーの役割を果たすことができます。
 
-- Representational State Transfer (REST)
-  http://en.wikipedia.org/wiki/Representational_state_transfer
+- Representational State Transfer (REST)  
+  http://en.wikipedia.org/wiki/Representational_state_transfer  
   Webベースで、分散システムのためのソフトウェアアーキテクチャのスタイル。
 
-- Security Assertion Markup Language (SAML)
-  オンラインパートナー間でセキュリティ情報の作成や交換をするためのXMLベースのフレームワーク標準規格。OpenAMは、2.0、1.1、および1.0を含むSAMLの複数のバージョンをサポートしています。
-  仕様は、OASIS標準のページから入手できます。
+- Security Assertion Markup Language (SAML)  
+  オンラインパートナー間でセキュリティ情報の作成や交換をするためのXMLベースのフレームワーク標準規格。OpenAMは、2.0、1.1、および1.0を含むSAMLの複数のバージョンをサポートしています。  
+  仕様は、OASIS標準のページから入手できます。  
   https://www.oasis-open.org/standards
 
-- Liberty Alliance Project Identity Federation Framework (Liberty ID-FF)
-  http://projectliberty.org/resource_center/specifications/liberty_alliance_id_ff_1_2_specifications/?f=resource_center/specifications/liberty_alliance_id_ff_1_2_specifications
+- Liberty Alliance Project Identity Federation Framework (Liberty ID-FF)  
+  http://projectliberty.org/resource_center/specifications/liberty_alliance_id_ff_1_2_specifications/?f=resource_center/specifications/liberty_alliance_id_ff_1_2_specifications  
   フェデレーション標準規格の一つで、その概念と機能はSAML v2.0へと寄与された。
 
-- Simple Object Access Protocol (SOAP)
-  https://www.w3.org/TR/soap/
+- Simple Object Access Protocol (SOAP)  
+  https://www.w3.org/TR/soap/  
   分散環境で構造化情報を交換するための軽量なプロトコル。
 
-- Web Services Description Language (WSDL)
-  http://www.w3.org/TR/wsdl
+- Web Services Description Language (WSDL)  
+  http://www.w3.org/TR/wsdl  
   ドキュメント指向または手続き指向の情報を含むメッセージで動作する、一連のエンドポイントなどのネットワークサービスを記述するためのXMLフォーマット。
 
-- Web Services Federation Language (WS-Federation)
-  https://en.wikipedia.org/wiki/WS-Federation
+- Web Services Federation Language (WS-Federation)  
+  https://en.wikipedia.org/wiki/WS-Federation  
   アイデンティティフェデレーション標準(Webサービスセキュリティフレームワークの一部)。
 
-- eXtensible Access Control Markup Language (XACML)
-  https://wiki.oasis-open.org/xacml/
+- eXtensible Access Control Markup Language (XACML)  
+  https://wiki.oasis-open.org/xacml/  
   XMLで実装された宣言型のアクセス制御ポリシー言語であり、ポリシーを解釈する方法を説明する処理モデル。
