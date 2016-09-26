@@ -119,43 +119,49 @@ OpenAMは、次のRFC、インターネットドラフト、標準を実装し�
    http://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html  
    自動サブミットするフォームで、OAuth2.0認可応答のパラメータをOpenIDプロバイダが返す方法を定義しています。
 
-    OpenID Connect 1.0は、クライアント開発者のための実装者のガイドも提供しています。
+   OpenID Connect 1.0は、クライアント開発者のための実装者のガイドも提供しています。
 
- - OpenID Connect Basic Client Implementer's Guide 1.0
- - OpenID Connect Implicit Client Implementer's Guide 1.0
+ - OpenID Connect Basic Client Implementer's Guide 1.0  
+   http://openid.net/specs/openid-connect-basic-1_0.html
+   
+ - OpenID Connect Implicit Client Implementer's Guide 1.0  
+   http://openid.net/specs/openid-connect-implicit-1_0.html
 
 - User-Managed Access (UMA) 1.0
 
- - User-Managed Access (UMA) Profile of OAuth 2.0 (Draft), in which OpenAM can play the role of authorization server.
- - OAuth 2.0 Resource Set Registration, in which OpenAM plays the role of authorization server.
+ - User-Managed Access (UMA) Profile of OAuth 2.0 (Draft)  
+   https://tools.ietf.org/html/draft-hardjono-oauth-umacore-13  
+   この中でOpenAMは、認可サーバーの役割を果たすことができます。
+   
+ - OAuth 2.0 Resource Set Registration  
+   https://docs.kantarainitiative.org/uma/draft-oauth-resource-reg-v1_0_1.html  
+   この中でOpenAMは、認可サーバーの役割を果たすことができます。
 
 - Representational State Transfer (REST)
-
-    Webベースで、分散システムのためのソフトウェアアーキテクチャのスタイル。
+  http://en.wikipedia.org/wiki/Representational_state_transfer
+  Webベースで、分散システムのためのソフトウェアアーキテクチャのスタイル。
 
 - Security Assertion Markup Language (SAML)
-
-    Standard, XML-based framework for creating and exchanging security information between online partners. OpenAM supports multiple versions of SAML including 2.0, 1.1, and 1.0.
-
-    Specifications are available from the OASIS standards page.
+  オンラインパートナー間でセキュリティ情報の作成や交換をするためのXMLベースのフレームワーク標準規格。OpenAMは、2.0、1.1、および1.0を含むSAMLの複数のバージョンをサポートしています。
+  仕様は、OASIS標準のページから入手できます。
+  https://www.oasis-open.org/standards
 
 - Liberty Alliance Project Identity Federation Framework (Liberty ID-FF)
+  http://projectliberty.org/resource_center/specifications/liberty_alliance_id_ff_1_2_specifications/?f=resource_center/specifications/liberty_alliance_id_ff_1_2_specifications
+  フェデレーション標準規格の一つで、その概念と機能はSAML v2.0へと寄与された。
 
-    Federation standard, whose concepts and capabilities contributed to SAML v2.0.
-
-- Simple Object Access Protocol
-
-    Lightweight protocol intended for exchanging structured information in a decentralized, distributed environment.
+- Simple Object Access Protocol (SOAP)
+  https://www.w3.org/TR/soap/
+  分散環境で構造化情報を交換するための軽量なプロトコル。
 
 - Web Services Description Language (WSDL)
-
-    XML format for describing network services as a set of endpoints operating on messages containing either document-oriented or procedure-oriented information.
+  http://www.w3.org/TR/wsdl
+  ドキュメント指向または手続き指向の情報を含むメッセージで動作する、一連のエンドポイントなどのネットワークサービスを記述するためのXMLフォーマット。
 
 - Web Services Federation Language (WS-Federation)
-
-    Identity federation standard, part of the Web Services Security framework.
+  https://en.wikipedia.org/wiki/WS-Federation
+  アイデンティティフェデレーション標準(Webサービスセキュリティフレームワークの一部)。
 
 - eXtensible Access Control Markup Language (XACML)
-
-    Declarative access control policy language implemented in XML, and also a processing model, describing how to interpret policies.
-
+  https://wiki.oasis-open.org/xacml/
+  XMLで実装された宣言型のアクセス制御ポリシー言語であり、ポリシーを解釈する方法を説明する処理モデル。
