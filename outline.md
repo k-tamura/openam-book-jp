@@ -43,7 +43,8 @@
  6.4 REST SMS  
 7. [認証](authn.md)  
  7.1 [認証モジュール](authn-modules.md)   
- 7.2 [認証連鎖](authn-chain.md)     
+ 7.2 [認証連鎖](authn-chain.md)  
+ 7.2 [認証レベルとセッションアップグレード](authn-level-and-session-upgrade.md)  
 8. 認可  
  8.1 ポリシー   
  8.2 XACML   
