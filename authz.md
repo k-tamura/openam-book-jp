@@ -37,8 +37,9 @@ The response attributes define information that OpenAM attaches to a response fo
 
 When queried about whether to let a user through to a protected resource, OpenAM decides whether to authorize access or not based on applicable policies as described below in OpenAM Policy Decisions . OpenAM communicates its decision to the application that is using OpenAM for access management. In the common case, this is a policy agent installed on the server where the application runs. The agent then enforces the authorization decision from OpenAM.
 
-Figure 3.1. Relationship between Realms, Policies, and Policy Sets
-Relationship between Realms, Policies, and Policy Sets
+図. レルム、ポリシー、およびポリシーセットの関係
+
+![レルム、ポリシー、ポリシーセットの関係](images/realm-app-policy-overview.png)
 
 To help with the creation of policies, OpenAM uses resource types and policy sets.
 
