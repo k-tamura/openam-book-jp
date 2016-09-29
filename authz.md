@@ -48,34 +48,23 @@ Resource types define a template for the resources that policies apply to, and t
 
 For example, the URL resource type that is included by default in OpenAM acts as a template for protecting web pages or applications. It contains resource patterns, such as *://*:*/*?*, which can be made more specific when used in the policy. The actions that the resource supports are also defined, as follows:
 
-GET
-POST
-
-PUT
-
-HEAD
-
-PATCH
-
-DELETE
-
-OPTIONS
+- GET
+- POST
+- PUT
+- HEAD
+- PATCH
+- DELETE
+- OPTIONS
 
 OpenAM also includes a resource type to protect REST endpoints, with patterns including https://*:*/*?* and the CRUDPAQ actions:
 
-CREATE
-
-READ
-
-UPDATE
-
-DELETE
-
-PATCH
-
-ACTION
-
-QUERY
+- CREATE
+- READ
+- UPDATE
+- DELETE
+- PATCH
+- ACTION
+- QUERY
 
 Policy Sets
 Policy Sets are associated with a set of resource types, and contain one or more policies based upon the template it provides.
