@@ -14,36 +14,36 @@
 
 To return to the international airport example from the discussion on authentication the policy might be that passengers with valid passports and visas presenting valid plane tickets are allowed through to the gate where the plane is waiting to take off, but only under the condition that the plane is going to leave soon. (You cannot expect to get to the gate today with a scheduled departure for three months from now.)
 
-#### OpenAM Resource Types, Policy Sets, and Policies
+#### OpenAMのリソースタイプ、ポリシーセット、ポリシー
 
-Define authorization policies to allow OpenAM to determine whether to grant a subject access to a resource.
+OpenAMでは、リソースへの対象のアクセスを許可するかどうかを決定できるように認可ポリシーを定義します。
 
-A policy defines the following:
+ポリシーは、次のように定義しています:
 
-resources
-The resource definitions constrain which resources, such as web pages or access to the boarding area, the policy applies to.
+**リソース (resources)**  
+リソースには、Webページや搭乗エリアへのアクセスのような、どのリソースにポリシーが適用されるかを示す制約を定義します。
 
-actions
+**アクション (actions)**  
 The actions are verbs that describe what the policy allows users to do to the resources, such as read a web page, submit a web form, or access the boarding area.
 
-subject conditions
+**対象条件 (subject conditions)**  
 The subject conditions constrain who the policy applies to, such as all authenticated users, only administrators, or only passengers with valid tickets for planes leaving soon.
 
-environment conditions
+**環境条件 (environment conditions)**  
 The environment conditions set the circumstances under which the policy applies, such as only during work hours, only when accessing from a specific IP address, or only when the flight is scheduled to leave within the next four hours.
 
-response attributes
+**応答属性 (response attributes)**  
 The response attributes define information that OpenAM attaches to a response following a policy decision, such as a name, email address, or frequent flyer status.
 
 When queried about whether to let a user through to a protected resource, OpenAM decides whether to authorize access or not based on applicable policies as described below in OpenAM Policy Decisions . OpenAM communicates its decision to the application that is using OpenAM for access management. In the common case, this is a policy agent installed on the server where the application runs. The agent then enforces the authorization decision from OpenAM.
 
-図. レルム、ポリシー、およびポリシーセットの関係
+図. レルム、ポリシー、ポリシーセットの関係
 
 ![レルム、ポリシー、ポリシーセットの関係](images/realm-app-policy-overview.png)
 
 To help with the creation of policies, OpenAM uses resource types and policy sets.
 
-Resource types
+**リソースタイプ (Resource types)**  
 Resource types define a template for the resources that policies apply to, and the actions that could be performed on those resources.
 
 For example, the URL resource type that is included by default in OpenAM acts as a template for protecting web pages or applications. It contains resource patterns, such as *://*:*/*?*, which can be made more specific when used in the policy. The actions that the resource supports are also defined, as follows:
@@ -66,7 +66,7 @@ OpenAM also includes a resource type to protect REST endpoints, with patterns in
 - ACTION
 - QUERY
 
-Policy Sets
+**ポリシーセット (Policy Sets)**  
 Policy Sets are associated with a set of resource types, and contain one or more policies based upon the template it provides.
 
 For example, an application for Example.com's HR service might contain resource types that constrain all policies to apply to URL resource types under http*://example.com/hr* and http*://example.com/hr*?*, and only the HTTP GET and POST actions.
@@ -79,6 +79,7 @@ Policy Sets in the OpenAM Console
 For more information on viewing, creating, and editing policies and resource types, see Configuring Resource Types, Policy Sets, and Policies .
 
 #### OpenAM Policy Decisions
+
 OpenAM relies on policies to reach authorization decisions, such as whether to grant or to deny access to a resource. OpenAM acts as the policy decision point (PDP), whereas OpenAM policy agents act as policy enforcement points (PEP). In other words, a policy agent or other PEP takes responsibility only for enforcing a policy decision rendered by OpenAM. When you configured applications and their policies in OpenAM, you used OpenAM as a policy administration point (PAP).
 
 Concretely speaking, when a PEP requests a policy decision from OpenAM it specifies the target resource(s), the policy set (default: iPlanetAMWebAgentService), and information about the subject and the environment. OpenAM as the PDP retrieves policies within the specified policy set that apply to the target resource(s). OpenAM then evaluates those policies to make a decision based on the conditions matching those of the subject and environment. When multiple policies apply for a particular resource, the default logic for combining decisions is that the first evaluation resulting in a decision to deny access takes precedence over all other evaluations. OpenAM only allows access if all applicable policies evaluate to a decision to allow access.
