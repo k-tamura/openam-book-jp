@@ -7,10 +7,10 @@
 認証(誰がリソースにアクセスしようとしているかを決定すること)と認可(アクセスを許可または拒否するかどうかを決定すること)に分解されるアクセス管理に対して、アプリケーションはOpenAMに依存しています。
 一般的にアクセスが許可されたかどうかは、次の条件に依存しているからです。
 
-・アクセスについてのポリシーがどのようなものであるか
-・誰がアクセス権を取得しようとしているか
-・アクセス自体は安全なチャネルを介している必要があるかどうか
-・アクセスがいつであるか　など
+- アクセスについてのポリシーがどのようなものであるか
+- 誰がアクセス権を取得しようとしているか
+- アクセス自体は安全なチャネルを介している必要があるかどうか
+- アクセスがいつであるか　など
 
 To return to the international airport example from the discussion on authentication the policy might be that passengers with valid passports and visas presenting valid plane tickets are allowed through to the gate where the plane is waiting to take off, but only under the condition that the plane is going to leave soon. (You cannot expect to get to the gate today with a scheduled departure for three months from now.)
 
