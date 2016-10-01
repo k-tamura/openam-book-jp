@@ -4,7 +4,7 @@
 
 認証モジュールの設定が示すように、認証モジュールには認証レベルが設定されています。この設定では、モジュールに関連付けられているセキュリティレベルを設定します(より強固な認証形態にはより高い認証レベルが割り当てられています)。（または配備が低い認証レベルで強力な認証を定義する場合は、より低い認証レベル。）認証に成功すると、ユーザーのセッションには実現した認証レベルに関する情報が含まれます。
 
-Authorization policies can require a particular authentication level for access to sensitive resources (or at most or at least a specified authentication level). When a user who is already authenticated in the realm tries to access a sensitive resource with a valid session that does not have the requisite authentication level, OpenAM denies access to the resource. However, OpenAM also returns advices with the authorization decision. The advices indicate the need for the required authentication level. The policy agent or policy enforcement point can then send the user back to OpenAM for session upgrade.
+認可ポリシーは、機密リソースへのアクセスのために特定の認証レベルを要求することができます（指定された認証レベル以上または以下）。すでにレルムで認証されたユーザーが、必要な認証レベルを持っていない有効なセッションで、センシティブなリソースにアクセスしようとすると、OpenAMはリソースへのアクセスを拒否します。しかし、OpenAMは、認可決定とともにアドバイスも返します。アドバイスは、必要な認証レベルの必要性を示します。ポリシーエージェントまたはポリシー実施ポイントは、セッションアップグレードのためにOpenAMにユーザーを送信することができます。
 
 During session upgrade the user authenticates with a stronger authentication module. The stronger module is typically part of the same authentication chain that handled the original authentication, though not required for access to less sensitive resources. Upon successful stronger authentication, the user session is upgraded to the new authentication level and modified to include any settings related to the stronger authentication.
 
