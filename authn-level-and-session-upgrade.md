@@ -2,7 +2,7 @@
 
 ## 認証レベルとセッションアップグレード
 
-As shown in Configuring Authentication Modules , authentication modules are configured with an authentication level. This configuration sets the level of security associated with the module, Stronger forms of authentication are assigned higher authentication levels. (Or lower authentication level numbers if the deployment defines stronger authentication with lower authentication level numbers.) Upon successful authentication, a user's session includes information about the authentication level achieved.
+認証モジュールの設定が示すように、認証モジュールには認証レベルが設定されています。この設定では、モジュールに関連付けられているセキュリティレベルを設定します(より強固な認証形態にはより高い認証レベルが割り当てられています)。（または配備が低い認証レベルで強力な認証を定義する場合は、より低い認証レベル。）認証に成功すると、ユーザーのセッションには実現した認証レベルに関する情報が含まれます。
 
 Authorization policies can require a particular authentication level for access to sensitive resources (or at most or at least a specified authentication level). When a user who is already authenticated in the realm tries to access a sensitive resource with a valid session that does not have the requisite authentication level, OpenAM denies access to the resource. However, OpenAM also returns advices with the authorization decision. The advices indicate the need for the required authentication level. The policy agent or policy enforcement point can then send the user back to OpenAM for session upgrade.
 
