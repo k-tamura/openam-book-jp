@@ -8,11 +8,11 @@
 - 通過した認証モジュールの中で最も高い認証レベル
 - 実行されされなかった「必須」または「必要」の認証モジュールの最も高い認証レベル
 
-You can modify OpenAM's default behavior, so that a session's authentication level is always the highest authentication level of any authentication module that passed, even if there are requisite or required modules in the authentication chain that were not executed.
+実行されなかった認証連鎖に「必須」または「必要」の認証モジュールが存在する場合であっても、セッションの認証レベルが常に通過した任意の認証モジュールの最も高い認証レベルになるように、OpenAMのデフォルトの動作を変更することができます。
 
-To modify the default behavior, set the org.forgerock.openam.authLevel.excludeRequiredOrRequisite property to true under Deployment > Servers > Server Name > Advanced and restart the OpenAM server.
+デフォルトの動作を変更するには、配備 > サーバー > サーバー名 > 高度 でorg.forgerock.openam.authLevel.excludeRequiredOrRequisiteプロパティをtrueに設定してOpenAMを再起動して下さい。
 
-In some deployments, you need to limit how many active sessions a user can have at a given time. For example, you might want to prevent a user from using more than two devices at once. See Configuring Session Quotas for instructions.
+いくつかの配備では、1ユーザーに対するアクティブなセッション数を制限する必要があります。例えば、一度に2個以上のデバイスを使用するユーザーからのログインを防ぐ必要がある場合があります。手順については、設定セッションの割り当て制限を参照してください。
 
 ### 認証レベルとセッションアップグレード
 
