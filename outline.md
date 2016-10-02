@@ -45,7 +45,7 @@
  7.1 [認証モジュール](authn-modules.md)   
  7.2 [認証連鎖](authn-chain.md)  
  7.3 [認証レベルとセッションアップグレード](authn-level-and-session-upgrade.md)  
-8. 認可  
+8. [認可](authz.md)  
  8.1 ポリシー   
  8.2 XACML   
  8.3 OAuth/UMA   
