@@ -2,9 +2,11 @@
 
 ## 認証レベルについて
 
-When a user successfully authenticates, OpenAM creates a session, which allows OpenAM to manage the user's access to resources. The session is assigned an authentication level, which is calculated to be the highest authentication level of any authentication module that passed. If the user's session does not have the appropriate authentication level, then the user may need to re-authenticate again at a higher authentication level to access the requested resource.
+ユーザーが正常に認証すると、OpenAMはセッションを作成し、それによりOpenAMはリソースへのユーザーのアクセスを管理することができます。セッションには認証レベルが割り当てられており、認証が成功した認証モジュールの最も高い認証レベルであると計算されます。ユーザーのセッションが適切な認証レベルを持っていない場合は、ユーザーが要求されたリソースにアクセスするために、より高い認証レベルで再度認証を要求される場合があります。
 
-If an authentication chain contains requisite or required modules that were not executed due to the presence of a passing sufficient module in front of them, the session's authentication level is calculated to be whichever is greater: the highest authentication level of any authentication module that passed, or the highest authentication level of requisite or required modules that were not executed.
+認証連鎖に、「必須」または「必要」の認証モジュールが含まれており、それらの前に「十分」の認証モジュールが存在するため実行されなかった場合、セッションの認証レベルは、次のどちらか大きい方で計算されます。
+- 通過した認証モジュールの中で最も高い認証レベル
+- 実行されされなかった「必須」または「必要」の認証モジュールの最も高い認証レベル
 
 You can modify OpenAM's default behavior, so that a session's authentication level is always the highest authentication level of any authentication module that passed, even if there are requisite or required modules in the authentication chain that were not executed.
 
@@ -14,7 +16,7 @@ In some deployments, you need to limit how many active sessions a user can have 
 
 ### 認証レベルとセッションアップグレード
 
-管理コンソールで認証モジュールの設定画面を見ると、認証モジュールには認証レベルが設定されていることが分かります。
+管理コンソールで認証モジュールの設定画面を見ると、全ての認証モジュールには認証レベルが設定されていることが分かります。
 
 図. 認証レベルの設定
 
