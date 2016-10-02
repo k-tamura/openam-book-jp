@@ -26,7 +26,7 @@ OpenAMでは、リソースへの対象のアクセスを許可するかどう�
 リソースには、Webページや搭乗エリアへのアクセスのような、どのリソースにポリシーが適用されるかを示す制約を定義します。
 
 **アクション (actions)**  
-The actions are verbs that describe what the policy allows users to do to the resources, such as read a web page, submit a web form, or access the boarding area.
+アクションは、Webページを読み込む、Webフォームをサブミットする、搭乗エリアにアクセスするといった、ポリシーによりユーザーがリソースに行うことができることを説明する動詞です。
 
 **対象条件 (subject conditions)**  
 The subject conditions constrain who the policy applies to, such as all authenticated users, only administrators, or only passengers with valid tickets for planes leaving soon.
