@@ -29,13 +29,13 @@ OpenAMでは、リソースへの対象のアクセスを許可するかどう�
 アクションは、Webページを読み込む、Webフォームをサブミットする、搭乗エリアにアクセスするといった、ポリシーによりユーザーがリソースに行うことができることを説明する動詞です。
 
 **対象条件 (subject conditions)**  
-The subject conditions constrain who the policy applies to, such as all authenticated users, only administrators, or only passengers with valid tickets for planes leaving soon.
+対象条件は、ポリシーが適用される人(すべての認証済みユーザー、管理者のみ、すぐに出る飛行機の有効なチケットを持つ乗客のみというような)を制約します。
 
 **環境条件 (environment conditions)**  
-The environment conditions set the circumstances under which the policy applies, such as only during work hours, only when accessing from a specific IP address, or only when the flight is scheduled to leave within the next four hours.
+環境条件は、ポリシーが適用される状況下(勤務時間中のみ、特定のIPアドレスからのアクセスのみ、4時間以内に出発するフライトが予定されている場合のみというような)を設定します。
 
 **応答属性 (response attributes)**  
-The response attributes define information that OpenAM attaches to a response following a policy decision, such as a name, email address, or frequent flyer status.
+OpenAMがポリシー決定に従い応答に付加する属性情報(名前、メールアドレス、マイレージプログラムのステータスなど)を定義します。
 
 When queried about whether to let a user through to a protected resource, OpenAM decides whether to authorize access or not based on applicable policies as described below in OpenAM Policy Decisions . OpenAM communicates its decision to the application that is using OpenAM for access management. In the common case, this is a policy agent installed on the server where the application runs. The agent then enforces the authorization decision from OpenAM.
 
