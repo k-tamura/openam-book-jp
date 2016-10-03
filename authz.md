@@ -43,12 +43,12 @@ OpenAMがポリシー決定に従い応答に付加する属性情報(名前、�
 
 ![レルム、ポリシー、ポリシーセットの関係](images/realm-app-policy-overview.png)
 
-To help with the creation of policies, OpenAM uses resource types and policy sets.
+ポリシーの作成を支援するために、OpenAMは、リソースタイプとポリシーセットを使用します。
 
 **リソースタイプ (Resource types)**  
-Resource types define a template for the resources that policies apply to, and the actions that could be performed on those resources.
+リソースタイプは、ポリシーを適用するリソースとそれらのリソース上で実行することができるアクションについてのテンプレートを定義します。
 
-For example, the URL resource type that is included by default in OpenAM acts as a template for protecting web pages or applications. It contains resource patterns, such as *://*:*/*?*, which can be made more specific when used in the policy. The actions that the resource supports are also defined, as follows:
+例えば、OpenAMにデフォルトで含まれているURLリソースタイプは、Webページやアプリケーションを保護するためのテンプレートとして機能します。 リソースパターン(*://*:*/*?*のような)が含まれ、ポリシーで使用されるときには、より具体的にすることができます。リソースがサポートするアクションは、次のようにも定義されます:
 
 - GET
 - POST
