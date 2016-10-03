@@ -37,7 +37,7 @@ OpenAMでは、リソースへの対象のアクセスを許可するかどう�
 **応答属性 (response attributes)**  
 OpenAMがポリシー決定に従い応答に付加する属性情報(名前、メールアドレス、マイレージプログラムのステータスなど)を定義します。
 
-When queried about whether to let a user through to a protected resource, OpenAM decides whether to authorize access or not based on applicable policies as described below in OpenAM Policy Decisions . OpenAM communicates its decision to the application that is using OpenAM for access management. In the common case, this is a policy agent installed on the server where the application runs. The agent then enforces the authorization decision from OpenAM.
+保護されたリソースにユーザーをアクセスできるようにするかどうかについて照会すると、OpenAMは、ポリシーの決定において、以下に説明するように適用可能なポリシーに基づいてアクセスを認可するかどうかを決定します。OpenAMは、アクセス管理のためにOpenAMを使用しているアプリケーションにその決定を伝えます。一般的なケースでは、これは、アプリケーションが実行されるサーバーにインストールされたポリシーエージェントです。エージェントは、OpenAMからの認可決定を実施します。
 
 図. レルム、ポリシー、ポリシーセットの関係
 
