@@ -87,9 +87,9 @@ OpenAMは、リソースへのアクセスを許可するか、拒否するか�
 
 具体的には、PEPがOpenAMからポリシー決定を要求するとき、対象リソース（ポリシーセット（デフォルト：iPlanetAMWebAgentService））と、対象と環境に関する情報を指定します。ターゲットリソースに適用する指定されたポリシーセット内のPDPとしてのOpenAMはポリシーを取得します。OpenAMは、対象と環境に関する情報と一致する条件に基づいて決定を行うために、これらのポリシーを評価します。複数のポリシーを特定のリソースに適用するとき、組み合わせている決定のためのデフォルトのロジックは、アクセスを拒否することの決定となる最初の評価は他のすべての評価よりも優先されることです。該当するすべてのポリシーがアクセスを許可する決定に評価された場合、OpenAMはアクセスのみを許可します。
 
-OpenAM communicates the policy decision to the PEP. The concrete decision, applying policy for a subject under the specified conditions, is called an entitlement.
+OpenAMは、PEPにポリシー決定の通信をします。具体的な決定(指定された条件の下で対象のポリシーを適用する)は、エンタイトルメントと呼ばれています。
 
-The entitlement indicates the resource(s) it applies to, the actions permitted and denied for each resource, and optionally response attributes and advice.
+エンタイトルメントは、適用するリソースを示します(各リソースを許可および拒否されるアクションや、必要に応じて応答属性とアドバイス)。
 
 When OpenAM denies a request due to a failed condition, OpenAM can send advice to the PEP, and the PEP can then take remedial action. For instance, suppose a user comes to a web site having authenticated with an email address and password, which is configured as authentication level 0. Had the user authenticated using a one-time password, the user would have had authentication level 1 in their session. Yet, because they have authentication level 0, they currently cannot access the desired page, as the policy governing access requires authentication level 1. OpenAM sends advice, prompting the PEP to have the user re-authenticate using a one-time password module, gaining authentication level 1, and thus having OpenAM grant access to the protected page.
 
