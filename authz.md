@@ -58,7 +58,7 @@ OpenAMがポリシー決定に従い応答に付加する属性情報(名前、�
 - DELETE
 - OPTIONS
 
-OpenAM also includes a resource type to protect REST endpoints, with patterns including https://*:*/*?* and the CRUDPAQ actions:
+OpenAMには、 https://*:*/*?* とCRUDPAQアクションを含むパターンで、RESTエンドポイントを保護するためのリソースタイプも含まれています:
 
 - CREATE
 - READ
@@ -69,18 +69,19 @@ OpenAM also includes a resource type to protect REST endpoints, with patterns in
 - QUERY
 
 **ポリシーセット (Policy Sets)**  
-Policy Sets are associated with a set of resource types, and contain one or more policies based upon the template it provides.
+ポリシーセットは、リソースタイプのセットに関連付けられ、それが提供するテンプレートに基づいて1つ以上のポリシーを含んでいます。
 
-For example, an application for Example.com's HR service might contain resource types that constrain all policies to apply to URL resource types under http*://example.com/hr* and http*://example.com/hr*?*, and only the HTTP GET and POST actions.
+例えば、Example.comの人事サービスのためのアプリケーションは、HTTP GETとPOSTアクションのみhttp*://example.com/hr* と http*://example.com/hr*?* の下にURLリソースタイプを適用するすべてのポリシーを制約する、リソースタイプが含まれている場合があります。
 
-Configure policy sets, policies, and resource types in the OpenAM console under Realms > Realm Name > Authorization.
+管理コンソールの レルム > レルム名 > 認可 でポリシーセット、ポリシー、リソースタイプを設定します。
 
-図. Policy Sets in the OpenAM Console
-Policy Sets in the OpenAM Console
+図. 管理コンソールのポリシーセット
 
-For more information on viewing, creating, and editing policies and resource types, see Configuring Resource Types, Policy Sets, and Policies .
+![管理コンソールのポリシーセット](images/authorization/policy-set.png)
 
-#### OpenAM Policy Decisions
+ポリシーおよびリソースタイプの閲覧、作成、編集の詳細については、リソースタイプ、ポリシーセット、ポリシーの設定を参照してください。
+
+#### OpenAMのポリシー決定
 
 OpenAM relies on policies to reach authorization decisions, such as whether to grant or to deny access to a resource. OpenAM acts as the policy decision point (PDP), whereas OpenAM policy agents act as policy enforcement points (PEP). In other words, a policy agent or other PEP takes responsibility only for enforcing a policy decision rendered by OpenAM. When you configured applications and their policies in OpenAM, you used OpenAM as a policy administration point (PAP).
 
