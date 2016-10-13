@@ -102,10 +102,11 @@ OpenAMは、リダイレクトされたユーザーに対して、ログイン�
 
 ユーザーは、OpenAMとの有効なセッションを持っていれば、再び自分のメールアドレスとパスワードを入力しなくても、ブラウザ内の別のページに遷移したり、プロファイルページへ戻ることができます。
 
-Notice how OpenAM and the policy agent handle the access in the example. The web site developer can offer a profile page, but the web site developer never has to manage login, or handle who can access a page. As OpenAM administrator, you can change authentication and authorization independently of updates to the web site. You might need to agree with web site developers on how OpenAM identifies users so web developers can identify users by their own names when they log in. By using OpenAM and policy agents for authentication and authorization, your organization no longer needs to update web applications when you want to add external access to your Intranet for roaming users, open some of your sites to partners, only let managers access certain pages of your HR web site, or allow users already logged in to their desktops to visit protected sites without having to type their credentials again.
+この例の中で、OpenAMとポリシーエージェントがアクセスを処理する方法に注目してください。Webサイトの開発者は、プロフィールページを提供することができますが、ログインを管理することや、誰がページにアクセスできるかを扱うことは決してできません。OpenAM管理者であれば、Webサイトへの更新とは無関係に、認証と認可を変更することができます。ログインする際にどのようにユーザーを識別するかは、Webサイトの開発者に確認する必要があります。認証と認可のためにOpenAMとポリシーエージェントを使用することにより、ユーザーをローミングするためにイントラネットへの外部からのアクセスを追加したい時、サイトのいくつかをパートナーに公開したい時、人事ウェブサイトの特定のページに管理者だけをアクセスできるようにしたい時、デスクトップPCにログオンしたユーザーに再認証を要求したくない時でも、Webアプリケーションを更新する必要がなくなります。
 
-### How OpenAM Reaches Policy Decisions
 
-OpenAM has to match policies to resources to take policy decisions. For a policy to match, the resource has to match one of the resource patterns defined in the policy. The user making the request has to match a subject. Furthermore, at least one condition for each condition type has to be satisfied.
+### OpenAMがどのようにポリシー決定に到るか
 
-If more than one policy matches, OpenAM has to reconcile differences. When multiple policies match, the order in which OpenAM uses them to make a policy decision is not deterministic. However, a deny decision overrides an allow decision, and so by default once OpenAM reaches a deny decision it stops checking further policies. If you want OpenAM to continue checking despite the deny, navigate to Configure > Global Services, click Policy Configuration, and then enable Continue Evaluation on Deny Decision.
+OpenAMは、ポリシー決定を行うリソースへのポリシーに合致する必要があります。ポリシーが合致するには、リソースはポリシーで定義されたリソースのパターンのいずれかに合致する必要があります。要求を行ったユーザーは、主体と合致する必要があります。また、各条件タイプの少なくとも1つの条件を満たさなければなりません。
+
+複数のポリシーが一致した場合、OpenAMは差異を調整する必要があります。ポリシー決定を行うためにそれらを使用する順序は、確定的ではありません。しかしながら、拒否(deny)の決定は許可(allow)の決定を上書きされ、デフォルトではOpenAMが拒否の決定に到ると、それ以降のポリシーをチェックを停止します。拒否にもかかわらず、OpenAMにチェックを続けさせたい場合は、設定 > グローバルサービス に移動し、ポリシー設定をクリックします。そして、「拒否の決定後に評価を継続する」を可能にします。
