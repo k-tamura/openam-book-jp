@@ -1,6 +1,6 @@
 [TODO 作成中]
 
-## 認可ポリシーの定義
+## 認可
 
 アクセス管理は主に認証と認可に分解されます。前の章では、認証(誰がリソースにアクセスしようとしているかを判定すること)について説明しましたが、この章では、認可(アクセスを許可または拒否するか決定すること)について解説します。認可は、リソースへのユーザーアクセスを許可したり、拒否する決定をすることです。ポリシーは、それについて判断する方法の定義のことを指します。ここでは、OpenAMで認可のためのポリシーを設定する方法について説明します。
 
@@ -12,8 +12,6 @@
 - 誰がアクセス権を取得しようとしているか
 - アクセス自体は安全なチャネルを介している必要があるかどうか
 - アクセスがいつであるか　など
-
-To return to the international airport example from the discussion on authentication the policy might be that passengers with valid passports and visas presenting valid plane tickets are allowed through to the gate where the plane is waiting to take off, but only under the condition that the plane is going to leave soon. (You cannot expect to get to the gate today with a scheduled departure for three months from now.)
 
 #### OpenAMにおけるリソースタイプ、ポリシーセット、ポリシー
 
