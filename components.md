@@ -1,8 +1,9 @@
 [TODO 作成中]
 
+OpenAMは、もともとantでビルドされていましたが、バージョン11.0.0からMavenに移行しています。これにより、マルチプロジェクト構成のMavenプロジェクトとなり、「OpenAM Project」というトッププロジェクトの配下に以下のようなサブプロジェクトを持っています。
+
 |ファイル名|プロジェクト名|説明|
 |---|---|---|
-||OpenAM Project|OpenAM|
 |openam-annotations|OpenAM Annotations|OpenAM Annotations|
 |openam-audit|OpenAM Audit|OpenAM Audit Modules|
 |openam-audit\openam-audit-configuration|OpenAM Audit Configuration||
