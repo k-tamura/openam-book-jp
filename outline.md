@@ -30,12 +30,18 @@
  &nbsp; 4.4.2 [OpenID Connect](openid-connect.md)  
  &nbsp; 4.4.3 [その他のプロトコル](other-protocol.md)  
  4.5 どの方式を選択すべきか  
-5. [インストールと初期設定](install-and-setup.md)  
+5. [インストールとセットアップ](install-and-setup.md)  
  5.1 [前提事項と事前準備](preparing-for-installation.md)  
- 5.2 [インストールとセットアップ](setup.md)  
+ 5.2 [OpenAMのインストールとセットアップ](setup.md)  
  5.3 [冗長化とセッションフェイルオーバー](site-and-sfo.md)  
  5.4 [ステートレスセッション](stateless-session.md)  
- 5.5 [アンインストール](uninstall.md)  
+ 5.5 Policy Agentのインストールとセットアップ  
+ &nbsp; 5.5.1 Java EE Agentのインストールとセットアップ  
+ &nbsp; 5.5.2 Web Agentのインストールとセットアップ  
+ 5.6 [アンインストール](uninstall.md)  
+ &nbsp; 5.6.1 OpenAMのアンインストール  
+ &nbsp; 5.6.2 Java EE Agentのアンインストール  
+ &nbsp; 5.6.3 Web Agentのアンインストール  
 6. [設定](configuration.md)  
  6.1 [管理コンソール](admin-console.md)   
  6.2 [コマンドラインツール](command-line-tools.md)   
