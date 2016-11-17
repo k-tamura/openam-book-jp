@@ -1,6 +1,6 @@
 [TODO 作成中]
 
-OpenAMは、もともとantでビルドされていましたが、バージョン11.0.0からMavenでビルドされるようになってています。これにより、OpenAMはマルチプロジェクト構成のMavenプロジェクトとなり、「OpenAM Project」というトッププロジェクトの配下に以下のようなサブプロジェクトを持つ構成になっています(バージョン13.5.0での構成)。
+OpenAMは、もともとantでビルドされていましたが、バージョン11.0.0からMavenでビルドできるようになっています。「OpenAM Project」というトッププロジェクトの配下に以下のようなサブプロジェクトを持つマルチプロジェクト構成になっています(バージョン13.5.0での構成)。
 
 表. OpenAM 13.5.0でのMavenプロジェクトの構成
 
@@ -8,10 +8,10 @@ OpenAMは、もともとantでビルドされていましたが、バージョ�
 |---|---|---|
 |openam-annotations|OpenAM Annotations|OpenAMアノテーション|
 |openam-audit|OpenAM Audit|OpenAM監査モジュール|
-|openam-audit<br>\openam-audit-configuration|OpenAM Audit Configuration||
-|openam-audit<br>\openam-audit-context|OpenAM Audit Context||
-|openam-audit<br>\openam-audit-core|OpenAM Audit Core||
-|openam-audit<br>\openam-audit-rest|OpenAM Audit REST||
+|openam-audit<br>\openam-audit-configuration|OpenAM Audit Configuration|OpenAM監査設定|
+|openam-audit<br>\openam-audit-context|OpenAM Audit Context|OpenAM監査コンテキスト|
+|openam-audit<br>\openam-audit-core|OpenAM Audit Core|OpenAM監査コア|
+|openam-audit<br>\openam-audit-rest|OpenAM Audit REST|OpenAM監査RESTサービス|
 |openam-authentication|OpenAM Authentication|OpenAMの全認証モジュール|
 |openam-authentication<br>\deviceprint|OpenAM Auth Device Print|デバイスプリント認証モジュール|
 |openam-authentication<br>\deviceprint<br>\module|OpenAM Auth Device Print Module|デバイスプリント認証モジュール(モジュール)|
@@ -58,8 +58,8 @@ OpenAMは、もともとantでビルドされていましたが、バージョ�
 |openam-distribution<br>\openam-distribution-kit|OpenAM Distribution Kit|OpenAM配布キット|
 |openam-distribution<br>\openam-distribution-ssoadmintools|OpenAM Distribution ssoAdminTools|SSO管理ツールキット|
 |openam-distribution<br>\openam-distribution-ssoconfiguratortools|OpenAM Distribution ssoConfiguratorTools|SSO設定ツールキット|
-|openam-documentation|OpenAM Documentation||
-|openam-documentation<br>\openam-doc-log-message-ref|OpenAM Log Message Reference||
+|openam-documentation|OpenAM Documentation|OpenAMのドキュメント|
+|openam-documentation<br>\openam-doc-log-message-ref|OpenAM Log Message Reference|ログメッセージリファレンス|
 |openam-documentation<br>\openam-doc-ssoadm-ref|OpenAM ssoadm Reference|コアドキュメントを作成/生成するためのツール|
 |openam-entitlements|OpenAM Entitlements|OpenAMエンタイトルメント|
 |openam-examples|OpenAM Example Projects|OpenAMサンプルプロジェクト|
@@ -78,8 +78,8 @@ OpenAMは、もともとantでビルドされていましたが、バージョ�
 |openam-oauth2-common|OpenAM OAuth2 Common|OAuth 2.0共通ライブラリ|
 |openam-oauth2-common<br>\oauth2-core|OAuth2 Core|OAuth 2.0コアライブラリ|
 |openam-oauth2-common<br>\oauth2-restlet|OAuth2 Restlet Integration|HTTPの統合を提供するためのOAuth2のRestletライブラリ|
-|openam-oauth2-common<br>\openid-connect-core|OpenID Connect Core||
-|openam-oauth2-common<br>\openid-connect-restlet|OpenId Connect Restlet Integration||
+|openam-oauth2-common<br>\openid-connect-core|OpenID Connect Core|OpenID Connectコア|
+|openam-oauth2-common<br>\openid-connect-restlet|OpenId Connect Restlet Integration|OpenID ConnectのRestlet統合|
 |openam-oauth2-saml2|OpenAM OAuth2 SAML2 Grant Flow|OAuth2.0のSAML2.0グラントフローを実現するモジュール|
 |openam-plugins|OpenAM Plugins|OpenAMのプラグイン|
 |openam-plugins<br>\openam-auth-postauthentication|OpenAM PostAuthN plugins|OpenAMポスト認証プロセスプラグイン|
@@ -104,8 +104,8 @@ OpenAMは、もともとantでビルドされていましたが、バージョ�
 |openam-server-auth-ui|OpenAM Server Auth UI|OpenAMサーバー認証UI|
 |openam-server-only|OpenAM Server Only|OpenAMサーバーコンポーネントのみ|
 |openam-shared|OpenAM Shared|OpenAM共有コンポーネントとモジュール|
-|openam-slf4j|OpenAM slf4j binding||
-|openam-sts|OpenAM STS||
+|openam-slf4j|OpenAM slf4j binding|SLF4Jバインディング|
+|openam-sts|OpenAM STS|STS(セキュリティトークンサービス)|
 |openam-sts<br>\openam-client-sts|OpenAM STS Client Classes|REST-STSインスタンスを公開し、それらを消費するために必要なクラス|
 |openam-sts<br>\openam-common-sts|OpenAM STS Common|REST/SOAP STSに共通のクラス|
 |openam-sts<br>\openam-publish-sts|OpenAM STS Publish Service|REST/SOAP STSインスタンスを公開するサービス|
@@ -129,8 +129,8 @@ OpenAMは、もともとantでビルドされていましたが、バージョ�
 |openam-tools<br>\openam-license-manager-cli|OpenAM CLI License Manager|OpenAMコマンドラインインターフェイスのライセンスマネージャ|
 |openam-tools<br>\openam-license-servlet|OpenAM ServletContext License Locator|OpenAMのServletContextのライセンスロケータ|
 |openam-tools<br>\openam-upgrade-tool|OpenAM Upgrade Tool|OpenAMのアップグレードツール|
-|openam-ui|OpenAM UI Parent||
-|openam-ui<br>\openam-ui-ria|OpenAM RIA Web UI||
+|openam-ui|OpenAM UI Parent|ユーザーインターフェイス全般|
+|openam-ui<br>\openam-ui-ria|OpenAM RIA Web UI|RIA Webユーザーインターフェイス|
 |openam-uma|OpenAM UMA|OpenAMユーザー管理アクセス|
 |openam-upgrade|OpenAM Upgrade|OpenAMのアップグレードサポート|
 
