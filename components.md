@@ -1,5 +1,3 @@
-[TODO 作成中]
-
 OpenAMは、もともとantでビルドされていましたが、バージョン11.0.0からMavenでビルドできるようになっています。「OpenAM Project」というトッププロジェクトの配下に以下のようなサブプロジェクトを持つマルチプロジェクト構成になっています(バージョン13.5.0での構成)。
 
 表. OpenAM 13.5.0でのMavenプロジェクトの構成
@@ -84,7 +82,7 @@ OpenAMは、もともとantでビルドされていましたが、バージョ�
 |openam-plugins|OpenAM Plugins|OpenAMのプラグイン|
 |openam-plugins<br>\openam-auth-postauthentication|OpenAM PostAuthN plugins|OpenAMポスト認証プロセスプラグイン|
 |openam-radius|OpenAM RADIUS|RADIUSサーバーと共通RADIUSライブラリ|
-|openam-radius<br>\openam-radius-common|OpenAM RADIUS common library.|RADIUS共通ライブラリ|
+|openam-radius<br>\openam-radius-common|OpenAM RADIUS common library|RADIUS共通ライブラリ|
 |openam-radius<br>\openam-radius-server|OpenAM RADIUS Server|RADIUSサーバー|
 |openam-rest|OpenAM Rest|RESTサービス|
 |openam-restlet|OpenAM Restlet|Restletのカスタマイズ|
@@ -116,7 +114,7 @@ OpenAMは、もともとantでビルドされていましたが、バージョ�
 |openam-sts<br>\openam-token-service-sts|OpenAM STS Token Service|STSによって消費されるトークンの生成と検証サービス|
 |openam-test|OpenAM Common Test Suite|OpenAM共通テストスイート|
 |openam-tools|OpenAM Tools|OpenAM全ツール|
-|openam-tools<br>\build-helper-plugin|OpenAM Build Helper Maven Plugin||
+|openam-tools<br>\build-helper-plugin|OpenAM Build Helper Maven Plugin|OpenAMビルドプロセスのMavenゴールを提供するプラグイン|
 |openam-tools<br>\openam-build-tools|OpenAM Build Tools|OpenAMのビルドツール|
 |openam-tools<br>\openam-configurator-tool|OpenAM Configurator Tool|OpenAMの設定ツール|
 |openam-tools<br>\openam-diagnostics|OpenAM Diagnostics|OpenAMの診断コンポーネント|
@@ -133,4 +131,3 @@ OpenAMは、もともとantでビルドされていましたが、バージョ�
 |openam-ui<br>\openam-ui-ria|OpenAM RIA Web UI|RIA Webユーザーインターフェイス|
 |openam-uma|OpenAM UMA|OpenAMユーザー管理アクセス|
 |openam-upgrade|OpenAM Upgrade|OpenAMのアップグレードサポート|
-
