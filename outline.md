@@ -39,9 +39,9 @@
  &nbsp; 5.5.1 Java EE Agentのインストールとセットアップ  
  &nbsp; 5.5.2 Web Agentのインストールとセットアップ  
  5.6 [アンインストール](uninstall.md)  
- &nbsp; 5.6.1 OpenAMのアンインストール  
- &nbsp; 5.6.2 Java EE Agentのアンインストール  
- &nbsp; 5.6.3 Web Agentのアンインストール  
+ &nbsp; 5.6.1 [OpenAMのアンインストール](uninstall.md#OpenAMのアンインストール)  
+ &nbsp; 5.6.2 [Java EE Agentのアンインストール](uninstall.md#java-eeエージェントのアンインストール)  
+ &nbsp; 5.6.3 [Web Agentのアンインストール](uninstall.md#webエージェントのアンインストール)  
 6. [設定](configuration.md)  
  6.1 [管理コンソール](admin-console.md)   
  6.2 [コマンドラインツール](command-line-tools.md)   
