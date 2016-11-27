@@ -35,9 +35,9 @@
  5.2 [OpenAMのインストールとセットアップ](setup.md)  
  5.3 [冗長化とセッションフェイルオーバー](site-and-sfo.md)  
  5.4 [ステートレスセッション](stateless-session.md)  
- 5.5 Policy Agentのインストールとセットアップ  
- &nbsp; 5.5.1 Java EE Agentのインストールとセットアップ  
- &nbsp; 5.5.2 Web Agentのインストールとセットアップ  
+ 5.5 [Policy Agentのインストールとセットアップ](install-and-setup-agents.md)  
+ &nbsp; 5.5.1 [Java EE Agentのインストールとセットアップ](install-and-setup-agents.md#java-eeエージェントのインストールとセットアップ)  
+ &nbsp; 5.5.2 [Web Agentのインストールとセットアップ](install-and-setup-agents.md#webエージェントのインストールとセットアップ)  
  5.6 [アンインストール](uninstall.md)  
  &nbsp; 5.6.1 [OpenAMのアンインストール](uninstall.md#OpenAMのアンインストール)  
  &nbsp; 5.6.2 [Java EE Agentのアンインストール](uninstall.md#java-eeエージェントのアンインストール)  
