@@ -1,6 +1,6 @@
 ## Policy Agentのインストールとセットアップ
 
-Policy Agentを保護対象のアプリケーションのあるサーバーにインストールして、OpenAMと連携できるようにするには、以下の作業が必要です。
+保護対象のアプリケーションが稼働するサーバーにPolicy Agentをインストールして、OpenAMと連携できるようにするには、以下の作業が必要です。
 
 1. インストール要件の確認など
 2. 事前準備
@@ -10,17 +10,25 @@ Policy Agentを保護対象のアプリケーションのあるサーバーに�
 
 まずは、Policy Agentがインストール可能なサーバーであるかを確認します(1)。Policy Agentがインストール可能なサーバーはApache HTTP Server、IIS、Tomcat、JBossなどで、バージョンもインストール要件を満たしている必要があります。インストール要件を満たしていることを確認したら、サーバーの設定等を必要に応じて変更します(2)。次に、OpenAMの管理コンソールでPolicy Agentのプロファイルを作成します(3)。プロファイルは、OpenAMと連携するためには必要なPolicy Agentの情報です。プロファイルを作成したら、エージェントをインストールします(4)。最後に、保護するアプリケーションへのアクセスを部分的に許可、拒否するための認可ポリシーを作成します(5)。
 
-###  Java EE Agentのインストールとセットアップ
+###  Java EEエージェントのインストールとセットアップ
+
+Java EEエージェントには、Tomcatエージェント、JBossエージェント、WebSphereエージェントなどがありますが、インストールとセットアップの基本的な作業はほぼ同じです。
 
 **手順. TomcatサーバーにTomcatエージェントをインストールする**
 
 #### 1. 事前準備(インストール要件の確認など)
 
-まずはインストールが可能な環境であるかを確認する必要があります。
+まずは、保護対象のアプリケーションが稼働するサーバーに、Tomcatエージェントがインストールが可能な環境であるかを確認する必要があります。「OpenAM Java EE Policy Agent Release Notes」の「Before You Install」のセクションを確認します。
+
+https://backstage.forgerock.com/docs/openam-jee-policy-agents/3.5/jee-release-notes/chap-before-you-install
+
+次に、「OpenAM Java EE Policy Agent User's Guide」の「Installing Java EE Agents in Apache Tomcat」の「Before You Install」のセクションを確認します。
+
+https://backstage.forgerock.com/docs/openam-jee-policy-agents/3.5/jee-users-guide/chap-apache-tomcat
 
 #### 2. エージェントプロファイルの作成
 
-To create a new Java EE policy agent profile, you need to create a name and password for the agent. You also need the URLs to OpenAM and the application to protect:
+新しいJava EEエージェントのプロファイルを作成するには、エージェントの名前とパスワードを作成する必要があります。また、OpenAMと保護するアプリケーションへのURLが必要です:
 
 1. Login to OpenAM Console as an administrative user.
 2. On the Realms menu of the OpenAM console, select the realm in which the agent profile is to be managed.
@@ -38,19 +46,17 @@ To create a new Java EE policy agent profile, you need to create a name and pass
 #### 4. 認可ポリシーの作成など
 
 
-###  Web Agentのインストールとセットアップ
+###  Webエージェントのインストールとセットアップ
 
 **手順. Apache HTTPサーバーにApacheエージェントをインストールする**
 
 #### 1. 事前準備(インストール要件の確認など)
 
-まずはインストールが可能な環境であるかを確認する必要があります。「OpenAM Web Policy Agent Release Notes
-Search」
-の「Before You Install」のセクションを確認します。
+まずはインストールが可能な環境であるかを確認する必要があります。「OpenAM Web Policy Agent Release Notes Search」の「Before You Install」のセクションを確認します。
 
 #### 2. エージェントプロファイルの作成
 
-To create a new Web or Java EE policy agent profile, you need to create a name and password for the agent. You also need the URLs to OpenAM and the application to protect:
+新しいWebエージェントのプロファイルを作成するには、エージェントの名前とパスワードを作成する必要があります。また、OpenAMと保護するアプリケーションへのURLが必要です:
 
 1. Login to OpenAM Console as an administrative user.
 2. On the Realms menu of the OpenAM console, select the realm in which the agent profile is to be managed.
