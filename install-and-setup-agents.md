@@ -30,15 +30,15 @@ https://backstage.forgerock.com/docs/openam-jee-policy-agents/3.5/jee-users-guid
 
 新しいJava EEエージェントのプロファイルを作成するには、エージェントの名前とパスワードを作成する必要があります。また、OpenAMと保護するアプリケーションへのURLが必要です:
 
-1. Login to OpenAM Console as an administrative user.
-2. On the Realms menu of the OpenAM console, select the realm in which the agent profile is to be managed.
-3. Click the Agents link, click the tab page for the kind of agent profile you want to create, and then click the New button in the Agent table.
-4. In the Name field, enter a name for the agent profile.
-5. In the Password and Re-Enter Password fields, enter a password for the new agent profile.
-6. Click Local or Centralized (Default) to determine where the agent properties are stored. If you select Local, the properties are stored on the server on which the agent is running. If you select Centralized, the properties are stored on the OpenAM server.
-7. In the Server URL field, enter the URL to OpenAM. For example, http://openam.example.com:8080/openam.
-8. In the Agent URL field, enter the primary URL of the web or application server protected by the policy agent. For Java EE policy agents, an example URL must include the agentapp context: http://shop.example.com:28080/agentapp.
-9. Click Create. After creating the agent profile, you can click the link to the new profile to adjust and export the configuration.
+1. 管理者としてOpenAMコンソールにログインします。
+2. OpenAMコンソールの「レルム」メニューで、エージェントプロファイルを管理するレルムを選択します。
+3. 「エージェント」のリンクをクリックし、作成するエージェントプロファイルの種類のタブページをクリックし、「エージェント」テーブルの「新規作成」ボタンをクリックします。
+4. 「名前」フィールドに、エージェントプロファイルの名前を入力します。
+5. 「パスワード」フィールドと「パスワードの再入力」フィールドに、新しいエージェントプロファイルのパスワードを入力します。
+6. ローカルまたは集中（デフォルト）をクリックして、どこにエージェントのプロパティを保存するかを決定します。「ローカル」を選択すると、エージェントが実行されているサーバーにプロパティが保存されます。集中管理を選択すると、プロパティはOpenAMサーバーに保存されます。
+7. 「Server URL」フィールドに、OpenAMのURLを入力します。たとえば、http://openam.example.com:8080/openam
+8. 「エージェントURL」フィールドに、ポリシーエージェントによって保護されているアプリケーションサーバーのプライマリURLを入力します。Java EEポリシーエージェントの場合、URLには、agentappコンテキストが含まれている必要があります。たとえば、http://shop.example.com:28080/agentapp
+9. 「作成」をクリックします。エージェントプロファイルを作成したら、新しいプロファイルへのリンクをクリックして設定を調整したり、エクスポートすることができます。
 
 #### 3. エージェントのインストール
 
@@ -58,15 +58,17 @@ https://backstage.forgerock.com/docs/openam-jee-policy-agents/3.5/jee-users-guid
 
 新しいWebエージェントのプロファイルを作成するには、エージェントの名前とパスワードを作成する必要があります。また、OpenAMと保護するアプリケーションへのURLが必要です:
 
-1. Login to OpenAM Console as an administrative user.
-2. On the Realms menu of the OpenAM console, select the realm in which the agent profile is to be managed.
-3. Click the Agents link, click the tab page for the kind of agent profile you want to create, and then click the New button in the Agent table.
-4. In the Name field, enter a name for the agent profile.
-5. In the Password and Re-Enter Password fields, enter a password for the new agent profile.
-6. Click Local or Centralized (Default) to determine where the agent properties are stored. If you select Local, the properties are stored on the server on which the agent is running. If you select Centralized, the properties are stored on the OpenAM server.
-7. In the Server URL field, enter the URL to OpenAM. For example, http://openam.example.com:8080/openam.
 8. In the Agent URL field, enter the primary URL of the web or application server protected by the policy agent. Note for web agents, an example URL would look like: http://www.example.com:80. For Java EE policy agents, an example URL must include the agentapp context: http://www.example.com:8080/agentapp.
-9. Click Create. After creating the agent profile, you can click the link to the new profile to adjust and export the configuration.
+
+1. 管理者としてOpenAMコンソールにログインします。
+2. OpenAMコンソールの「レルム」メニューで、エージェントプロファイルを管理するレルムを選択します。
+3. 「エージェント」のリンクをクリックし、作成するエージェントプロファイルの種類のタブページをクリックし、「エージェント」テーブルの「新規作成」ボタンをクリックします。
+4. 「名前」フィールドに、エージェントプロファイルの名前を入力します。
+5. 「パスワード」フィールドと「パスワードの再入力」フィールドに、新しいエージェントプロファイルのパスワードを入力します。
+6. ローカルまたは集中（デフォルト）をクリックして、どこにエージェントのプロパティを保存するかを決定します。「ローカル」を選択すると、エージェントが実行されているサーバーにプロパティが保存されます。集中管理を選択すると、プロパティはOpenAMサーバーに保存されます。
+7. 「Server URL」フィールドに、OpenAMのURLを入力します。たとえば、http://openam.example.com:8080/openam
+8. 「エージェントURL」フィールドに、ポリシーエージェントによって保護されているWebサーバーサーバーのプライマリURLを入力します。
+9. 「作成」をクリックします。エージェントプロファイルを作成したら、新しいプロファイルへのリンクをクリックして設定を調整したり、エクスポートすることができます。
 
 #### 3. エージェントのインストール
 
