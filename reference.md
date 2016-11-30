@@ -51,11 +51,11 @@ ForgeRockコミュニティのメーリングリストのアーカイブです�
 
 - OpenAMのソースコード(Bitbucket)  
 https://stash.forgerock.org/projects/OPENAM/repos/openam/browse/  
-OpenAMのBitbucketサーバーで管理されているソースコードを確認できます。
+Bitbucketサーバーで管理されているOpenAMのソースコードを確認できます。
 
 - OpenAMのソースコード(GitHub)  
 https://github.com/ForgeRock/openam  
-OpenAMのBitbucketサーバーで管理されているソースコードのGitHubでのミラーです。
+Bitbucketサーバーで管理されているOpenAMのソースコードのGitHubでのミラーです。
 
 ### 各種プロトコルの仕様
 
