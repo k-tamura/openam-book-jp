@@ -93,4 +93,6 @@
  20.3 Step3: ポリシーでアクセス制御する  
 21. [用語集](glossary.md)  
 22. [参考資料](reference.md)  
+ 22.1. [OpenAM関連のドキュメント](reference.md#openam関連のドキュメント)  
+ 22.2. [各種プロトコルの仕様](reference.md#各種プロトコルの仕様)  
 23. インデックス
