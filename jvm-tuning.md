@@ -26,11 +26,11 @@
 |---|---|---|
 |-verbose:gc|-|一般的なガベージコレクションの情報を出力する。|
 |-Xloggc:|$CATALINA_HOME/logs/gc.log|ガーベッジコレクションのログファイルのパス。|
-|-XX:+PrintClassHistogram|-|SIGTERMシグナルをJVMが受信した際に、ヒープのヒストグラムを出力する。|
+|-XX:+PrintClassHistogram|-|SIGTERMシグナルをJVMが受信した際に、ヒープヒストグラムを出力する。|
 |-XX:+PrintGCDetails|-|ガベージコレクションの詳細情報を出力する。|
 |-XX:+PrintGCTimeStamps|-|ガベージコレクションの詳述なタイムスタンプを出力する。|
 |-XX:+HeapDumpOnOutOfMemoryError|-|OutofMemoryErrorが発生したときに、自動的にヒープダンプを生成する。|
 |-XX:HeapDumpPath|$CATALINA_HOME/logs/heapdump.hprof|ヒープダンプのパス。|
 |-XX:+UseConcMarkSweepGC|-|CMS(コンカレントマークスイープ)ガベージコレクタを使用する。|
-|-XX:+UseCMSCompactAtFullCollection|-|フルガベージコレクションでの積極的なコンパクションを行う。|
+|-XX:+UseCMSCompactAtFullCollection|-|フルガベージコレクションでの積極的な圧縮を行う。|
 |-XX:+CMSClassUnloadingEnabled|-|CMSスイープ時のクラスのアンロードを許可する。|
