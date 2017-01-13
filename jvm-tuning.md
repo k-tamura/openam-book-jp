@@ -16,7 +16,7 @@
 
 |JVMパラメータ|推奨値|説明|
 |---|---|---|
-|-Dhttps.protocols|TLSv1、TLSv1.1、TLSv1.2 (JDK 7、JDK 8向け)  TLSv1 (JDK 6向け)|OpenAMからのHTTPS接続に使用されるプロトコルを制御する。|
+|-Dhttps.protocols|TLSv1,TLSv1.1,TLSv1.2 (JDK 7、JDK 8向け)、TLSv1 (JDK 6向け)|OpenAMからのHTTPS接続に使用されるプロトコルを制御する。|
 
 この設定は、Sun/Oracle HotSpot JVMに適用されます。
 
